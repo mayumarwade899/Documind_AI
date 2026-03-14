@@ -1,0 +1,6 @@
+New-Item -ItemType File -Path "data\documents\.gitkeep" -Force
+New-Item -ItemType File -Path "data\chroma_db\.gitkeep" -Force
+New-Item -ItemType File -Path "data\bm25_index\.gitkeep" -Force
+New-Item -ItemType File -Path "data\metrics\.gitkeep" -Force
+New-Item -ItemType File -Path "data\feedback\.gitkeep" -Force
+New-Item -ItemType File -Path "data\logs\.gitkeep" -Force
