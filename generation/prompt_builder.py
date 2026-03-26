@@ -7,7 +7,7 @@ from config.logging_config import get_logger
 logger = get_logger(__name__)
 
 @dataclass
-class BuildPrompt:
+class BuiltPrompt:
     """
     The complete prompt package sent to Gemini.
     Carries both the prompt text and metadata about
@@ -160,7 +160,7 @@ class PromptBuilder:
         self,
         query: str,
         chunks: List[RetrievedChunk]
-    ) -> BuildPrompt:
+    ) -> BuiltPrompt:
         
         """
         Build the main RAG prompt for answer generation.
@@ -175,7 +175,7 @@ class PromptBuilder:
             )
 
             prompt = NO_CONTEXT_PROMPT.format(query = query)
-            return BuildPrompt(
+            return BuiltPrompt(
                 prompt=prompt,
                 query=query,
                 chunks_used=[],
@@ -196,7 +196,7 @@ class PromptBuilder:
         total_tokens = _estimate_tokens(full_prompt)
         unique_sources = len({c.source_file for c in selected_chunks})
 
-        built = BuildPrompt(
+        built = BuiltPrompt(
             prompt=full_prompt,
             query=query,
             chunks_used=selected_chunks,

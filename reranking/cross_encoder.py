@@ -9,7 +9,7 @@ from config.logging_config import get_logger
 logger = get_logger(__name__)
 settings = get_settings()
 
-_cross_encoder_model = Optional[CrossEncoder] = None
+_cross_encoder_model: Optional[CrossEncoder] = None
 
 def _get_model(model_name: str) -> CrossEncoder:
     """
