@@ -60,7 +60,7 @@ class VectorStore:
             existing_chunks = self.collection.count()
         )
 
-    def __add_chunks(self, chunks: List[EmbeddedChunk]) -> int:
+    def _add_chunks(self, chunks: List[EmbeddedChunk]) -> int:
         """
         Store a list of EmbeddedChunks in ChromaDB.
         """
@@ -188,10 +188,10 @@ class VectorStore:
         try:
             existing = self.collection.get(
                 where = {"document_id": {"$eq": document_id}},
-                include = {"metadatas"}
+                include = ["metadatas"]
             )
 
-            chunk_counts = len(existing["ids"])
+            chunk_count = len(existing["ids"])
 
             if chunk_count == 0:
                 logger.info(
@@ -228,7 +228,7 @@ class VectorStore:
         try:
             results = self.collection.get(
                 where = {"document_id": {"$eq": document_id}},
-                include = {"metadatas"},
+                include = ["metadatas"],
                 limit = 1
             )
             exists = len(results["ids"]) > 0

@@ -31,7 +31,7 @@ class RAGResponse:
     total_latency_ms: float
     retrieval_latency_ms: float
     reranking_latency_ms: float
-    generation_latemcy_ms: float
+    generation_latency_ms: float
 
     input_tokens: int
     output_tokens: int
@@ -53,7 +53,7 @@ class AnswerGenerator:
     Composes all retrieval and generation modules into
     one clean generate() call.
     """
-    def __int__(
+    def __init__(
         self,
         hybrid_retriever: Optional[HybridRetriever] = None,
         query_rewriter: Optional[QueryRewriter] = None,
@@ -89,15 +89,14 @@ class AnswerGenerator:
                 error = str(e)
             )
 
-            from retrieval.query_rewriter import RewrittenQuery
             return RewrittenQuery(
-                original_query=query,
-                rewritten_query=query,
-                variants=[],
-                all_queries=[query]
+                original_query = query,
+                rewritten_query = query,
+                variants = [],
+                all_queries = [query]
             )
     
-    def _setp_retrieve(
+    def _step_retrieve(
         self,
         rewritten: RewrittenQuery
     ) -> List[RetrievedChunk]:
@@ -106,7 +105,7 @@ class AnswerGenerator:
         Run hybrid retrieval across all query variants.
         Uses multi-query retrieval if variants exist.
         """
-        if len(rewritten.all_queris) > 1:
+        if len(rewritten.all_queries) > 1:
             return self.retriever.retrieve_multi_query(
                 queries = rewritten.all_queries,
                 top_k = settings.retrieval.vector_search_top_k
@@ -179,7 +178,6 @@ class AnswerGenerator:
         if use_query_rewriting:
             rewritten = self._step_rewrite_query(query)
         else:
-            from retrieval.query_rewriter import RewrittenQuery
             rewritten = RewrittenQuery(
                 original_query = query,
                 rewritten_query = query,
@@ -292,7 +290,7 @@ class AnswerGenerator:
             c.retrieval_method for c in reranked_chunks
         })
 
-        sources = self.prompt_builder.format_chunks_as_sources(
+        sources = self.prompt_builder.format_chunk_as_sources(
             reranked_chunks
         )
 

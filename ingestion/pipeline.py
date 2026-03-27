@@ -50,7 +50,7 @@ class IngestionPipeline:
     """
     End-to-end document ingestion pipeline.
     """
-    def __int__(
+    def __init__(
         self,
         loader: Optional[DocumentLoader] = None,
         chunker: Optional[DocumentChunker] = None,
@@ -164,7 +164,7 @@ class IngestionPipeline:
                     error = "Embedding generation failed for all chunks"
                 )
             
-            stored_count = self.vector_store.add_chunks(embedded_chunks)
+            stored_count = self.vector_store._add_chunks(embedded_chunks)
 
             logger.info(
                 "chunks_stored_in_chromadb",

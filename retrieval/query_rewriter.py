@@ -25,7 +25,7 @@ class RewrittenQuery:
     original_query : str
     rewritten_query : str
     variants : List[str]
-    all_queris = List[str]
+    all_queries: List[str]
 
 REWRITE_PROMPT = """
     You are an expert at reformulating questions to improve document retrieval.
@@ -219,7 +219,7 @@ class QueryRewriter:
 
         logger.info(
             "full_query_rewrite_started",
-            query=query[:100]
+            query = query[:100]
         )
 
         rewritten = self.rewrite(query)
@@ -235,18 +235,18 @@ class QueryRewriter:
                 all_queries.append(v)
 
         result = RewrittenQuery(
-            original_query=query,
-            rewritten_query=rewritten,
-            variants=variants,
-            all_queries=all_queries
+            original_query = query,
+            rewritten_query = rewritten,
+            variants = variants,
+            all_queries = all_queries
         )
 
         logger.info(
             "full_query_rewrite_complete",
-            original=query[:80],
-            rewritten=rewritten[:80],
-            num_variants=len(variants),
-            total_queries=len(all_queries)
+            original = query[:80],
+            rewritten = rewritten[:80],
+            num_variants = len(variants),
+            total_queries = len(all_queries)
         )
 
         return result

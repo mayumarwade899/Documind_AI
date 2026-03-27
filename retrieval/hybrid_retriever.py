@@ -212,7 +212,7 @@ class HybridRetriever:
             num_queries = len(queries)
         )
 
-        all_results = Dict[str, RetrievedChunk] = {}
+        all_results: Dict[str, RetrievedChunk] = {}
 
         for i, query in enumerate(queries):
             try:

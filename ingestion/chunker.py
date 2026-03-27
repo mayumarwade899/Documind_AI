@@ -18,7 +18,7 @@ class DocumentChunk:
     chunk_id: str
     content: str
     document_id: str
-    scource_file: str
+    source_file: str
     page_number: int
     chunk_index: int
     total_chunks: int
@@ -140,14 +140,14 @@ class DocumentChunker:
         for idx, chunk_text in enumerate(raw_chunks):
             chunk = DocumentChunk(
                 # Unique ID: document_id + page + chunk index
-                chunk_id=f"{page.document_id}_p{page.page_number}_c{idx}",
-                content=chunk_text,
-                document_id=page.document_id,
-                source_file=page.source_file,
-                page_number=page.page_number,
-                chunk_index=idx,
-                total_chunks=0,          # Updated after all pages processed
-                token_count=_estimate_tokens(chunk_text),
+                chunk_id = f"{page.document_id}_p{page.page_number}_c{idx}",
+                content = chunk_text,
+                document_id = page.document_id,
+                source_file = page.source_file,
+                page_number = page.page_number,
+                chunk_index = idx,
+                total_chunks = 0,          # Updated after all pages processed
+                token_count = _estimate_tokens(chunk_text),
                 metadata={
                     **page.metadata,
                     "file_type": page.file_type,

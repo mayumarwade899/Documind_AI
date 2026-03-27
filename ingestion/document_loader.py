@@ -73,7 +73,7 @@ def _clean_text(text: str) -> str:
             cleaned.append(stripped)
             prev_blank = False
 
-    return "\n".joined(cleaned).strip()
+    return "\n".join(cleaned).strip()
 
 def _load_pdf(file_path: str, document_id: str) -> List[DocumentPage]:
     """
