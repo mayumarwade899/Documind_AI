@@ -15,10 +15,6 @@ settings = get_settings()
 def run_ci_gate(
     max_questions: Optional[int] = None
 ) -> bool:
-    """
-    Run the RAGAS evaluation CI gate.
-    Returns True if all metrics pass, False if any fail.
-    """
     print("\n" + "="*55)
     print("RAG SYSTEM — CI QUALITY GATE")
     print("="*55)

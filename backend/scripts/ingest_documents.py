@@ -11,9 +11,6 @@ setup_logging(log_level="INFO")
 logger = get_logger(__name__)
 
 def print_result(result) -> None:
-    """
-    Print ingestion result in a clean readable format.
-    """
     print("\n" + "="*55)
     print("INGESTION COMPLETE")
     print("="*55)

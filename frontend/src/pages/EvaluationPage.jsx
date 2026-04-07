@@ -20,7 +20,7 @@ const THRESHOLDS = {
   answer_correctness: 0.6,
 }
 
-// ─── Score gauge (circular progress) ─────────────────────────────────────────
+// ─── ScoreGauge ───
 function ScoreGauge({ score, threshold, label }) {
   const passed = (score ?? 0) >= threshold
   const pct    = Math.round((score ?? 0) * 100)
@@ -72,7 +72,7 @@ function ScoreGauge({ score, threshold, label }) {
   )
 }
 
-// ─── Golden pair row ──────────────────────────────────────────────────────────
+// ─── GoldenPairRow ───
 function GoldenPairRow({ pair, index }) {
   const [expanded, setExpanded] = useState(false)
 
@@ -166,7 +166,7 @@ function GoldenPairRow({ pair, index }) {
   )
 }
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
+// ─── EvaluationPage ───
 export default function EvaluationPage() {
   const [tab, setTab] = useState('dataset')
   const [isRunning, setIsRunning] = useState(false)
@@ -278,7 +278,7 @@ export default function EvaluationPage() {
           ))}
         </div>
 
-        {/* ── RAGAS Results tab ──────────────────────────────────────────── */}
+        {/* RAGAS Results tab */}
         {tab === 'results' && (
           <div className="space-y-5">
             {/* No-run banner */}
@@ -368,7 +368,7 @@ export default function EvaluationPage() {
           </div>
         )}
 
-        {/* ── Dataset tab ────────────────────────────────────────────────── */}
+        {/* Dataset tab */}
         {tab === 'dataset' && (
           <div className="space-y-4">
             {/* Header row */}

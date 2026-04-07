@@ -12,9 +12,6 @@ settings = get_settings()
 _cross_encoder_model: Optional[CrossEncoder] = None
 
 def _get_model(model_name: str) -> CrossEncoder:
-    """
-    Load the Cross Encoder model once and cache it in memory.
-    """
     global _cross_encoder_model
 
     if _cross_encoder_model is None:
@@ -39,9 +36,6 @@ def _get_model(model_name: str) -> CrossEncoder:
     return _cross_encoder_model
 
 def _normalize_scores(scores: List[float]) -> List[float]:
-    """
-    Normalize raw Cross Encoder scores to [0, 1] range.
-    """
     if not scores:
         return []
     
@@ -58,14 +52,7 @@ def _normalize_scores(scores: List[float]) -> List[float]:
     ]
 
 class CrossEncoderReranker:
-    """
-    Reranks retrieved chunks using a Cross Encoder model.
-    """
     def __init__(self, model_name: str = None):
-        """
-        Initialize and load the Cross Encoder model.
-        Model is loaded once here and reused for all requests.
-        """
         self.model_name = (
             model_name or settings.reranker.reranker_model
         )
@@ -83,9 +70,6 @@ class CrossEncoderReranker:
         top_k: int = None
     ) -> List[RetrievedChunk]:
         
-        """
-        Rerank chunks by relevance to the query.
-        """
         if not chunks:
             logger.warning("rerank_called_with_empty_chunks")
             return []
@@ -179,9 +163,6 @@ class CrossEncoderReranker:
         min_score: float = 0.1
     ) -> List[RetrievedChunk]:
         
-        """
-        Rerank and filter out chunks below a minimum score.
-        """
         reranked = self.rerank(query, chunks, top_k)
 
         filtered = [c for c in reranked if c.score >= min_score]

@@ -11,9 +11,6 @@ logger = get_logger(__name__)
 settings = get_settings()
 
 class RequestLogger:
-    """
-    Logs full request/response pairs to a JSONL audit log.
-    """
 
     def __init__(self, log_dir: str = "data/logs"):
         self.log_dir = Path(log_dir)
@@ -34,9 +31,6 @@ class RequestLogger:
         verification_result = None,
         session_id: Optional[str] = None
     ) -> str:
-        """
-        Log a complete RAG request/response pair.
-        """
         request_id = str(uuid.uuid4())
         now = datetime.utcnow()
 

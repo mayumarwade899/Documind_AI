@@ -4,43 +4,28 @@ from retrieval.bm25_retriever import BM25Retriever
 from retrieval.hybrid_retriever import HybridRetriever, _reciprocal_rank_fusion
 
 def test_vector_store_stats():
-    """
-    Test vector store returns valid stats.
-    """
     store = VectorStore()
     stats = store.get_collection_stats()
     assert "total_chunks" in stats
     assert isinstance(stats["total_chunks"], int)
 
 def test_bm25_stats():
-    """
-    Test BM25 returns valid stats.
-    """
     bm25  = BM25Retriever()
     stats = bm25.get_stats()
     assert "total_chunks" in stats
     assert "index_built" in stats
 
 def test_bm25_search_empty_query():
-    """
-    BM25 search with empty query returns empty list.
-    """
     bm25 = BM25Retriever()
     results = bm25.search("")
     assert results == []
 
 def test_vector_store_search_requires_vector():
-    """
-    Vector search raises on empty vector.
-    """
     store = VectorStore()
     with pytest.raises((ValueError, Exception)):
         store.search(query_vector=[])
 
 def test_rrf_merging():
-    """
-    Test RRF correctly boosts chunks appearing in both lists.
-    """
     def make_chunk(chunk_id, score, method):
         return RetrievedChunk(
             chunk_id = chunk_id,
@@ -71,9 +56,6 @@ def test_rrf_merging():
     assert "C" in top_ids or "A" in top_ids
 
 def test_bm25_search_with_index():
-    """
-    If BM25 has an index, search returns results.
-    """
     bm25 = BM25Retriever()
     if not bm25.bm25:
         pytest.skip("BM25 index not built yet, run ingestion first")

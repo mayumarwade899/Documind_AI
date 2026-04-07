@@ -16,11 +16,6 @@ settings = get_settings()
 
 @dataclass
 class RAGResponse:
-    """
-    The complete response returned to the user and API layer.
-    Contains the answer, all source citations, and full
-    pipeline metrics for observability and evaluation.
-    """
     answer: str
     query: str
     rewritten_query: str
@@ -48,11 +43,6 @@ class RAGResponse:
     metadata: dict = field(default_factory = dict)
 
 class AnswerGenerator:
-    """
-    Full RAG pipeline orchestrator.
-    Composes all retrieval and generation modules into
-    one clean generate() call.
-    """
     def __init__(
         self,
         hybrid_retriever: Optional[HybridRetriever] = None,
@@ -61,10 +51,7 @@ class AnswerGenerator:
         prompt_builder: Optional[PromptBuilder] = None,
         llm_client: Optional[GeminiClient] = None,
     ):
-        """
-        Initialize with all pipeline components.
-        Creates defaults if not injected.
-        """
+
         self.retriever = hybrid_retriever or HybridRetriever()
         self.query_rewriter = query_rewriter or QueryRewriter()
         self.reranker  = reranker or CrossEncoderReranker()
@@ -76,11 +63,7 @@ class AnswerGenerator:
     def _step_rewrite_query(
         self, query: str
     ) -> RewrittenQuery:
-        
-        """
-        Rewrite query and generate variants.
-        Falls back to original query on failure.
-        """
+
         try:
             return self.query_rewriter.rewrite_with_variants(query)
         except Exception as e:
@@ -101,12 +84,7 @@ class AnswerGenerator:
         rewritten: RewrittenQuery,
         filter_document_id: Optional[str] = None
     ) -> List[RetrievedChunk]:
-        
-        """
-        Run hybrid retrieval across all query variants.
-        Uses multi-query retrieval if variants exist.
-        Optionally scoped to a specific document.
-        """
+
         if len(rewritten.all_queries) > 1:
             return self.retriever.retrieve_multi_query(
                 queries = rewritten.all_queries,
@@ -125,11 +103,7 @@ class AnswerGenerator:
         query: str,
         chunks: List[RetrievedChunk]
     ) -> List[RetrievedChunk]:
-        
-        """
-        Rerank retrieved chunks using Cross Encoder.
-        Falls back to original order on failure.
-        """
+
         try:
             return self.reranker.rerank(
                 query = query,
@@ -147,9 +121,7 @@ class AnswerGenerator:
         self,
         built_prompt: BuiltPrompt
     ) -> LLMResponse:
-        """
-        Call Gemini to generate the answer.
-        """
+
         return self.llm_client.generate(
             prompt = built_prompt.prompt,
             metadata = {
@@ -165,10 +137,7 @@ class AnswerGenerator:
         use_multi_query: bool = True,
         filter_document_id: Optional[str] = None,
     ) -> RAGResponse:
-        """
-        Run the full RAG pipeline for a user question.
-        Optionally scoped to a specific document.
-        """
+
         if not query.strip():
             raise ValueError("Query cannot be empty")
         
@@ -346,10 +315,7 @@ class AnswerGenerator:
         error: str,
         pipeline_start: float
     ) -> RAGResponse:
-        """
-        Build a clean error response when pipeline fails.
-        Always returns a valid RAGResponse
-        """
+
         total_latency = round(
             (time.time() - pipeline_start) * 1000, 2
         )

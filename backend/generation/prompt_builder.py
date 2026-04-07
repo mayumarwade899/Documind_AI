@@ -8,12 +8,6 @@ logger = get_logger(__name__)
 
 @dataclass
 class BuiltPrompt:
-    """
-    The complete prompt package sent to Gemini.
-    Carries both the prompt text and metadata about
-    what was included and used later for citation mapping
-    and observability.
-    """
     prompt: str
     query: str
     chunks_used: List[RetrievedChunk]
@@ -77,11 +71,6 @@ VERIFICATION_PROMPT = """
 """
 
 def _build_context_block(chunks: List[RetrievedChunk]) -> str:
-    """
-    Format retrieved chunks into a numbered context block.
-    Each chunk gets a clear header with source and page number
-    so the LLM knows exactly where to pull citations from.
-    """
     if not chunks:
         return "No context available"
     
@@ -99,18 +88,10 @@ def _build_context_block(chunks: List[RetrievedChunk]) -> str:
     return "\n".join(block_parts)
 
 def _estimate_tokens(text: str) -> int:
-    """Quick token estimate"""
     return len(text)
 
 class PromptBuilder:
-    """
-    Builds structured prompts from query + retrieved chunks.
-    """
-
     def __init__(self, max_context_tokens: int = 6000):
-        """
-        Max tokens to use for context.
-        """
         self.max_context_tokens = max_context_tokens
 
         logger.info(
@@ -122,10 +103,6 @@ class PromptBuilder:
         self,
         chunks: List[RetrievedChunk]
     ) -> List[RetrievedChunk]:
-        
-        """
-        Trim chunk list so context fits within token limit.
-        """
         selected = []
         total_tokens = 0
 
@@ -161,10 +138,6 @@ class PromptBuilder:
         query: str,
         chunks: List[RetrievedChunk]
     ) -> BuiltPrompt:
-        
-        """
-        Build the main RAG prompt for answer generation.
-        """
         if not query.strip():
             raise ValueError("Query cannot be empty")
         
@@ -219,12 +192,6 @@ class PromptBuilder:
         answer: str,
         chunks: List[RetrievedChunk]
     ) -> str:
-        
-        """
-        Build a prompt for the answer verification module.
-        Asks Gemini to check if every claim in the answer
-        is supported by the retrieved chunks.
-        """
         if not answer.strip():
             raise ValueError("Answer cannot be empty for verification")
         
@@ -247,12 +214,6 @@ class PromptBuilder:
         self,
         chunks: List[RetrievedChunk]
     ) -> List[dict]:
-        
-        """
-        Format chunks into a clean sources list for the API response.
-        This is what gets returned to the user alongside the answer
-        so they can verify claims against original documents.
-        """
         sources = []
         seen = set()
 

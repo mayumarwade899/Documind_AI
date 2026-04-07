@@ -14,10 +14,6 @@ logger = get_logger(__name__)
 
 @dataclass
 class DocumentPage:
-    """
-    Represents a single page extracted from a document.
-    Core unit passed through the entire ingestion pipeline.
-    """
 
     content: str
     page_number: int
@@ -29,10 +25,6 @@ class DocumentPage:
 
 @dataclass
 class LoadedDocument:
-    """
-    Represents a fully loaded documents with all its pages.
-    Returned by document loader to the ingestion pipeline.
-    """
     document_id: str
     filename: str
     file_type: str
@@ -43,10 +35,6 @@ class LoadedDocument:
     file_size_bytes: int
 
 def _generate_document_id(file_path: str) -> str:
-    """
-    Same file always get same ID, prevents duplicate ingestion.
-    Reads in 64KB chunks to avoid loading entire large files into memory.
-    """
     h = hashlib.md5()
     with open(file_path, "rb") as f:
         while True:
@@ -57,10 +45,6 @@ def _generate_document_id(file_path: str) -> str:
     return h.hexdigest()
 
 def _clean_text(text: str) -> str:
-    """
-    Remove null bytes and collapse excessive blank lines
-    that PDF parser commonly produce.
-    """
     if not text:
         return ""
 
@@ -83,10 +67,6 @@ def _clean_text(text: str) -> str:
     return "\n".join(cleaned).strip()
 
 def _load_pdf(file_path: str, document_id: str) -> List[DocumentPage]:
-    """
-    Extract text from PDF using pdfplumber.
-    Falls back to pypdf if pdfplumber returns empty text on a page.
-    """
     filename = Path(file_path).name
     pages = []
 
@@ -171,9 +151,6 @@ def _load_pdf(file_path: str, document_id: str) -> List[DocumentPage]:
     return pages
 
 def _load_txt(file_path: str, document_id: str) -> List[DocumentPage]:
-    """
-        Load a plan text file as single-page document.
-    """
     filename = Path(file_path).name
 
     try:
@@ -203,10 +180,6 @@ def _load_txt(file_path: str, document_id: str) -> List[DocumentPage]:
         raise
 
 def _load_docx(file_path: str, document_id: str) -> List[DocumentPage]:
-    """
-    Extract text from a Docx file.
-    Groups every 50 paragraphs into one virtual page.
-    """
     filename = Path(file_path).name
 
     try:
@@ -251,9 +224,6 @@ def _load_docx(file_path: str, document_id: str) -> List[DocumentPage]:
         raise
 
 class DocumentLoader:
-    """
-    Main document loader class.
-    """
     SUPPORTED_EXTENSIONS = {
         ".pdf": _load_pdf,
         ".txt": _load_txt,
@@ -261,9 +231,6 @@ class DocumentLoader:
     }
 
     def load(self, file_path: str) -> LoadedDocument:
-        """
-        Load a Single document from disk.
-        """
         path = Path(file_path)
 
         if not path.exists():
@@ -304,10 +271,6 @@ class DocumentLoader:
         return doc
     
     def load_directory(self, dir_path: str) -> List[LoadedDocument]:
-        """
-        Load all supported files from the directory.
-        Skips failed files and continued loading the rest.
-        """
         directory = Path(dir_path)
 
         if not directory.exists():

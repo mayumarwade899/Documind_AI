@@ -18,10 +18,6 @@ settings = get_settings()
 
 @dataclass
 class RewrittenQuery:
-    """
-    Contains the original query, the rewritten version,
-    and multiple variants for multi-query retrieval.
-    """
     original_query : str
     rewritten_query : str
     variants : List[str]
@@ -70,10 +66,6 @@ MULTI_QUERY_PROMPT = """
     reraise = True
 )
 def _call_gemini(prompt: str, model_name: str) ->  str:
-    """
-    Make a single Gemini API call and return the text response.
-    Retries up to 3 times on failure with exponential backoff.
-    """
     model = genai.GenerativeModel(
         model_name = model_name,
         generation_config = genai.GenerationConfig(
@@ -85,9 +77,6 @@ def _call_gemini(prompt: str, model_name: str) ->  str:
     return response.text.strip()
 
 def _parsed_numbered_list(text: str) -> List[str]:
-    """
-    Parse numbered LLM output into a list of questions.
-    """
     lines = text.strip().splitlines()
     parsed = []
 
@@ -104,9 +93,6 @@ def _parsed_numbered_list(text: str) -> List[str]:
     return parsed
 
 class QueryRewriter:
-    """
-    Rewrites user queries for better retrieval using Gemini.
-    """
 
     def __init__(self):
         genai.configure(api_key = settings.gemini.gemini_api_key)
@@ -118,11 +104,6 @@ class QueryRewriter:
         )
 
     def rewrite(self, query: str) -> str:
-        """
-        Rewrite a single query for better retrieval.
-        Falls back to original query if LLM call fails,
-        retrieval can still proceed with the original.
-        """
         if not query.strip():
             return query
         
@@ -161,9 +142,6 @@ class QueryRewriter:
             query: str,
             num_variants: int = None
     ) -> List[str]:
-        """
-        Generate multiple query variants for multi-query retrieval.
-        """
         if not query.strip():
             return []
         
@@ -211,9 +189,6 @@ class QueryRewriter:
             query: str,
             num_variants: int = None
     ) -> RewrittenQuery:
-        """
-        Main method, rewrites query AND generates variants.
-        """
         if not query.strip():
             raise ValueError("Query cannot be empty")
 

@@ -4,9 +4,6 @@ from pathlib import Path
 from evaluation.golden_dataset import GoldenDataset, GoldenQAPair
 
 def test_golden_dataset_load_empty(tmp_path):
-    """
-    Loading non-existent dataset returns empty list.
-    """
     dataset = GoldenDataset(
         dataset_path = str(tmp_path / "golden_qa.json")
     )
@@ -14,9 +11,6 @@ def test_golden_dataset_load_empty(tmp_path):
     assert pairs == []
 
 def test_golden_dataset_save_and_load(tmp_path):
-    """
-    Saved pairs can be loaded back correctly.
-    """
     dataset = GoldenDataset(
         dataset_path = str(tmp_path / "golden_qa.json")
     )
@@ -36,9 +30,6 @@ def test_golden_dataset_save_and_load(tmp_path):
     assert loaded[0].ground_truth == "RAG is Retrieval Augmented Generation."
 
 def test_golden_dataset_add_pairs(tmp_path):
-    """
-    Adding pairs increases dataset size.
-    """
     dataset = GoldenDataset(
         dataset_path = str(tmp_path / "golden_qa.json")
     )
@@ -57,9 +48,6 @@ def test_golden_dataset_add_pairs(tmp_path):
     assert len(loaded) == 1
 
 def test_golden_dataset_deduplication(tmp_path):
-    """
-    Duplicate questions are not added twice.
-    """
     dataset = GoldenDataset(
         dataset_path = str(tmp_path / "golden_qa.json")
     )
@@ -76,9 +64,6 @@ def test_golden_dataset_deduplication(tmp_path):
     assert len(loaded) == 1
 
 def test_golden_dataset_stats(tmp_path):
-    """
-    Stats returns correct counts.
-    """
     dataset = GoldenDataset(
         dataset_path = str(tmp_path / "golden_qa.json")
     )

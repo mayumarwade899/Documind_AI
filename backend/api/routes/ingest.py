@@ -39,9 +39,6 @@ async def ingest_file(
     force_reingest: bool = False,
     pipeline: IngestionPipeline = Depends(get_ingestion_pipeline)
 ):
-    """
-    Upload and ingest a single document file.
-    """
     allowed = {".pdf", ".txt", ".docx"}
     suffix  = Path(file.filename).suffix.lower()
 
@@ -96,9 +93,6 @@ async def ingest_directory(
     request:  DirectoryIngestRequest,
     pipeline: IngestionPipeline = Depends(get_ingestion_pipeline)
 ):
-    """
-    Ingest all supported documents from a server-side directory.
-    """
     try:
         result = pipeline.ingest_directory(
             request.dir_path,
@@ -126,9 +120,6 @@ async def ingest_directory(
 async def ingest_status(
     pipeline: IngestionPipeline = Depends(get_ingestion_pipeline)
 ):
-    """
-    Get stats about what is currently stored.
-    """
     stats = pipeline.vector_store.get_collection_stats()
     bm25  = pipeline.bm25.get_stats()
     return {
@@ -140,10 +131,6 @@ async def ingest_status(
 async def get_ingested_documents(
     pipeline: IngestionPipeline = Depends(get_ingestion_pipeline)
 ):
-    """
-    Return a list of all ingested documents with their IDs.
-    Used by the frontend to populate the document selector.
-    """
     try:
         documents = pipeline.vector_store.list_documents()
         return {"documents": documents}

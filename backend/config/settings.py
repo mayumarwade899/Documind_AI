@@ -6,9 +6,6 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).parent.parent
 
 class GeminiSettings(BaseSettings):
-    """
-    Gemini LLM and embedding model configuration
-    """
     gemini_api_key: str = Field(..., env = "GEMINI_API_KEY")
     gemini_model: str = Field(default = "gemini-1.5-flash", env = "GEMINI_MODEL")
     gemini_embedding_model: str = Field(
@@ -23,9 +20,6 @@ class GeminiSettings(BaseSettings):
         extra = "ignore"
 
 class ChromaSettings(BaseSettings):
-    """
-    ChromaDB vector DB configuration
-    """
     chroma_persist_directory: str = Field(
         default = "data/chroma_db", 
         env = "CHROMA_PERSIST_DIR"
@@ -41,9 +35,6 @@ class ChromaSettings(BaseSettings):
         extra = "ignore"
 
 class BM25Settings(BaseSettings):
-    """
-    BM25 keyword search index configuration
-    """
     bm25_index_dir: str = Field(
         default = "data/bm25_index", 
         env = "BM25_INDEX_DIR"
@@ -54,10 +45,6 @@ class BM25Settings(BaseSettings):
         extra = "ignore"
 
 class ChunkingSettings(BaseSettings):
-    """
-    Document chunking configuration.
-    Controls how large documents are split into smaller pieces.
-    """
     chunk_size: int = Field(default = 800, env = "CHUNK_SIZE")
     chunk_overlap: int = Field(default = 150, env = "CHUNK_OVERLAP")
 
@@ -66,10 +53,6 @@ class ChunkingSettings(BaseSettings):
         extra = "ignore"
 
 class RetrievalSettings(BaseSettings):
-    """"
-    Retrieval pipeline configuration.
-    Controls how many chunks are fetched and reranked.
-    """
 
     vector_search_top_k: int = Field(default = 10, env = "VECTOR_SEARCH_TOP_K")
     bm25_search_top_k: int = Field(default = 10, env = "BM25_SEARCH_TOP_K")
@@ -81,9 +64,6 @@ class RetrievalSettings(BaseSettings):
         extra = "ignore"
 
 class RerankerSettings(BaseSettings):
-    """"
-    Cross encoder reranker configuration.
-    """
     reranker_model: str = Field(
         default="cross-encoder/ms-marco-MiniLM-L-6-v2",
         env = "RERANKER_MODEL"
@@ -94,10 +74,6 @@ class RerankerSettings(BaseSettings):
         extra = "ignore"
 
 class EvaluationSettings(BaseSettings):
-    """
-    RAGAS evaluation pipeline configuration.
-    Defines quality threshold for the CI gate.
-    """
     golden_dataset_path: str = Field(
         default = "data/golden_dataset/golden_qa.json", 
         env = "GOLDEN_DATASET_PATH"
@@ -123,9 +99,6 @@ class EvaluationSettings(BaseSettings):
         extra = "ignore"
 
 class MonitoringSettings(BaseSettings):
-    """
-    Observability and feedback configuration.
-    """
     metrics_log_dir: str = Field(
         default = "data/metrics", 
         env = "METRICS_LOG_DIR"
@@ -141,9 +114,6 @@ class MonitoringSettings(BaseSettings):
         extra = "ignore" 
 
 class APISettings(BaseSettings):
-    """
-    FastAPI server configuration.
-    """
     api_host: str = Field(default = "0.0.0.0", env = "API_HOST")
     api_port: int = Field(default = 8000, env = "API_PORT")
     api_reload: bool = Field(default = True, env = "API_RELOAD")
@@ -154,11 +124,6 @@ class APISettings(BaseSettings):
         extra = "ignore" 
 
 class Settings(BaseSettings):
-    """
-    Master settings class.
-    Composes all sub_settings into one object.
-    Import and use this throughout the entire project.
-    """
 
     gemini: GeminiSettings = Field(default_factory = GeminiSettings)
     chroma: ChromaSettings = Field(default_factory = ChromaSettings)
@@ -196,9 +161,4 @@ class Settings(BaseSettings):
 
 @lru_cache(maxsize =1 )
 def get_settings() -> Settings:
-    """
-    Returns a cached singleton instance of Settings.
-    The @lru_cache ensures .env is only read once —
-    not on every function call.
-     """
     return Settings()

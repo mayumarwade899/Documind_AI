@@ -16,9 +16,6 @@ settings = get_settings()
 
 @dataclass
 class IngestionResult:
-    """
-    Result of a single document or directory ingestion.
-    """
     total_files: int
     successful_files: int
     failed_files: int
@@ -34,9 +31,6 @@ class IngestionResult:
 
 @dataclass
 class FileIngestionResult:
-    """
-    Result for single file Ingestion
-    """
     filename: str
     document_id: str
     success: bool
@@ -47,9 +41,6 @@ class FileIngestionResult:
     error: Optional[str] = None
 
 class IngestionPipeline:
-    """
-    End-to-end document ingestion pipeline.
-    """
     def __init__(
         self,
         loader: Optional[DocumentLoader] = None,
@@ -58,10 +49,6 @@ class IngestionPipeline:
         vector_store: Optional[VectorStore] = None,
         bm25: Optional[BM25Retriever] = None,
     ):
-        """
-        All dependencies are injectable for testing.
-        Creates defaults from settings if not provided.
-        """
         self.loader = loader or DocumentLoader()
         self.chunker = chunker or DocumentChunker()
         self.embedder = embedder or GeminiEmbedder()
@@ -75,9 +62,6 @@ class IngestionPipeline:
         file_path: str,
         force_reingest: bool = False
     ) -> FileIngestionResult:
-        """
-        Ingest one file through the full pipeline.
-        """
         start_time = time.time()
         filename = Path(file_path).name
 
@@ -224,9 +208,6 @@ class IngestionPipeline:
         file_path: str,
         force_reingest: bool = False
     ) -> IngestionResult:
-        """
-        Ingest a single document file.
-        """
         start_time = time.time()
 
         result = self._ingest_single_file(file_path, force_reingest)
@@ -260,11 +241,6 @@ class IngestionPipeline:
         dir_path: str,
         force_reingest: bool = False
     ) -> IngestionResult:
-        """
-        Ingest all supported documents from a directory.
-        Processes files one by one. A failure on one file
-        does NOT stop processing of remaining files.
-        """
         start_time = time.time()
         directory = Path(dir_path)
 

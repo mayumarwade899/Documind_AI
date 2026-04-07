@@ -12,9 +12,6 @@ def setup_logging(
     log_to_file: bool = True,
     logs_dir: str = "data/logs"
 ) -> None:
-    """
-    Initialize structured logging for the entire application.
-    """
 
     if log_to_file:
         Path(logs_dir).mkdir(parents=True, exist_ok=True)
@@ -71,7 +68,4 @@ def setup_logging(
     )
 
 def get_logger(name: str) -> structlog.stdlib.BoundLogger:
-    """
-    Get a named logger instance
-    """
     return structlog.get_logger(name)

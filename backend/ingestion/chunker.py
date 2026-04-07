@@ -11,10 +11,6 @@ settings = get_settings()
 
 @dataclass
 class DocumentChunk:
-    """
-    A single searchable chunk of text.
-    Every retrieval result is Document chunk.
-    """
     chunk_id: str
     content: str
     document_id: str
@@ -26,9 +22,6 @@ class DocumentChunk:
     metadata: dict = field(default_factory=dict)
 
 def _estimate_tokens(text: str) -> int:
-    """
-    Estimate token count without loading a full tokenizer.
-    """
     return len(text) // 4
 
 def _split_into_chunks(
@@ -36,9 +29,6 @@ def _split_into_chunks(
         chunk_size: int,
         chunk_overlap: int
 ) -> List[str]:
-    """
-    Split text into overlapping chunks by token estimate.
-    """
     if not text.strip():
         return []
     
@@ -108,9 +98,6 @@ def _split_into_chunks(
     return chunks
 
 class DocumentChunker:
-    """
-    Splits DocumentPage objects into overlapping DocumentChunks.
-    """
 
     def __init__(
         self,
@@ -127,9 +114,6 @@ class DocumentChunker:
         )
     
     def chunk_page(self, page) -> List[DocumentChunk]:
-        """
-        Chunk a single DocumentPage into DocumentChunks.
-        """
         raw_chunks = _split_into_chunks(
             text = page.content,
             chunk_size = self.chunk_size,
@@ -158,9 +142,6 @@ class DocumentChunker:
         return chunks
     
     def chunk_document(self, pages: List) -> List[DocumentChunk]:
-        """
-        Chunk all pages of a document.
-        """
         if not pages:
             logger.warning("chunk_document_called_with_empty_pages")
             return []
@@ -194,9 +175,6 @@ class DocumentChunker:
         return all_chunks
     
     def chunk_documents(self, documents: List) -> List[DocumentChunk]:
-        """
-        Chunk multiple loaded documents at once.
-        """
         all_chunks = []
 
         for doc in documents:

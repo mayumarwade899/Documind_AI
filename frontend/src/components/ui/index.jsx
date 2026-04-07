@@ -2,16 +2,16 @@ import { cn } from '../../utils/cn.js'
 import { X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 
-/* ─── Button ─────────────────────────────────────────────── */
+/* ─── Button ─── */
 export function Button({ variant = 'primary', size = 'md', className, children, ...props }) {
   const base = 'inline-flex items-center gap-2 font-medium rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed select-none'
 
   const variants = {
-    primary:   'bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white shadow-sm',
+    primary: 'bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white shadow-sm',
     secondary: 'bg-surface-100 hover:bg-surface-200 dark:bg-surface-800 dark:hover:bg-surface-700 text-surface-700 dark:text-surface-200 border border-surface-200 dark:border-surface-700',
-    ghost:     'hover:bg-surface-100 dark:hover:bg-surface-800 text-surface-600 dark:text-surface-400',
-    danger:    'bg-red-600 hover:bg-red-700 text-white',
-    outline:   'border border-brand-600 text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950',
+    ghost: 'hover:bg-surface-100 dark:hover:bg-surface-800 text-surface-600 dark:text-surface-400',
+    danger: 'bg-red-600 hover:bg-red-700 text-white',
+    outline: 'border border-brand-600 text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950',
   }
 
   const sizes = {
@@ -28,16 +28,16 @@ export function Button({ variant = 'primary', size = 'md', className, children, 
   )
 }
 
-/* ─── Badge ──────────────────────────────────────────────── */
+/* ─── Badge ─── */
 export function Badge({ variant = 'default', size = 'sm', className, children }) {
   const variants = {
-    default:  'bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400',
-    brand:    'bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300',
-    success:  'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400',
-    warning:  'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400',
-    danger:   'bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-400',
-    info:     'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-400',
-    outline:  'border border-surface-300 dark:border-surface-600 text-surface-600 dark:text-surface-400',
+    default: 'bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400',
+    brand: 'bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300',
+    success: 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400',
+    warning: 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400',
+    danger: 'bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-400',
+    info: 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-400',
+    outline: 'border border-surface-300 dark:border-surface-600 text-surface-600 dark:text-surface-400',
   }
   const sizes = {
     xs: 'px-1.5 py-0.5 text-[10px]',
@@ -51,7 +51,7 @@ export function Badge({ variant = 'default', size = 'sm', className, children })
   )
 }
 
-/* ─── Spinner ────────────────────────────────────────────── */
+/* ─── Spinner ─── */
 export function Spinner({ size = 'md', className }) {
   const sizes = { xs: 'w-3 h-3', sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-7 h-7' }
   return (
@@ -59,7 +59,7 @@ export function Spinner({ size = 'md', className }) {
   )
 }
 
-/* ─── Card ───────────────────────────────────────────────── */
+/* ─── Card ─── */
 export function Card({ className, children, hover = false, ...props }) {
   return (
     <div
@@ -75,14 +75,14 @@ export function Card({ className, children, hover = false, ...props }) {
   )
 }
 
-/* ─── Progress ───────────────────────────────────────────── */
+/* ─── Progress ─── */
 export function Progress({ value = 0, max = 100, variant = 'brand', className, showLabel = false }) {
   const pct = Math.min(100, Math.max(0, (value / max) * 100))
   const colors = {
-    brand:   'bg-brand-500',
+    brand: 'bg-brand-500',
     success: 'bg-emerald-500',
     warning: 'bg-amber-500',
-    danger:  'bg-red-500',
+    danger: 'bg-red-500',
   }
   return (
     <div className={cn('space-y-1', className)}>
@@ -101,7 +101,7 @@ export function Progress({ value = 0, max = 100, variant = 'brand', className, s
   )
 }
 
-/* ─── Tabs ───────────────────────────────────────────────── */
+/* ─── Tabs ─── */
 export function Tabs({ tabs, active, onChange, className }) {
   return (
     <div className={cn('flex gap-1 p-1 bg-surface-100 dark:bg-surface-800 rounded-lg', className)}>
@@ -132,7 +132,7 @@ export function Tabs({ tabs, active, onChange, className }) {
   )
 }
 
-/* ─── Modal ──────────────────────────────────────────────── */
+/* ─── Modal ─── */
 export function Modal({ open, onClose, title, children, size = 'md', className }) {
   const overlayRef = useRef(null)
 
@@ -175,17 +175,17 @@ export function Modal({ open, onClose, title, children, size = 'md', className }
   )
 }
 
-/* ─── Tooltip ────────────────────────────────────────────── */
+/* ─── Tooltip ─── */
 export function Tooltip({ content, children, side = 'top' }) {
   return (
     <div className="relative group">
       {children}
       <div className={cn(
         'pointer-events-none absolute z-50 px-2 py-1 text-xs font-medium text-white bg-surface-800 dark:bg-surface-700 rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150',
-        side === 'top'    && 'bottom-full left-1/2 -translate-x-1/2 mb-1.5',
+        side === 'top' && 'bottom-full left-1/2 -translate-x-1/2 mb-1.5',
         side === 'bottom' && 'top-full left-1/2 -translate-x-1/2 mt-1.5',
-        side === 'left'   && 'right-full top-1/2 -translate-y-1/2 mr-1.5',
-        side === 'right'  && 'left-full top-1/2 -translate-y-1/2 ml-1.5',
+        side === 'left' && 'right-full top-1/2 -translate-y-1/2 mr-1.5',
+        side === 'right' && 'left-full top-1/2 -translate-y-1/2 ml-1.5',
       )}>
         {content}
       </div>
@@ -193,7 +193,7 @@ export function Tooltip({ content, children, side = 'top' }) {
   )
 }
 
-/* ─── EmptyState ─────────────────────────────────────────── */
+/* ─── EmptyState ─── */
 export function EmptyState({ icon, title, description, action }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 px-8 text-center">
@@ -205,7 +205,7 @@ export function EmptyState({ icon, title, description, action }) {
   )
 }
 
-/* ─── Skeleton ───────────────────────────────────────────── */
+/* ─── Skeleton ─── */
 export function Skeleton({ className }) {
   return <div className={cn('skeleton rounded-lg', className)} />
 }

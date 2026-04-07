@@ -67,9 +67,6 @@ async def query(
     verifier: AnswerVerifier = Depends(get_answer_verifier),
     tracker: MetricsTracker = Depends(get_metrics_tracker)
 ):
-    """
-    Run the full RAG pipeline for a user question.
-    """
     logger.info(
         "query_request_received",
         query_preview = request.query[:80]

@@ -13,10 +13,6 @@ setup_logging(log_level="INFO")
 logger = get_logger(__name__)
 
 def add_feedback_to_golden(days: int = 30) -> None:
-    """
-    Export positive feedback as golden QA pairs.
-    Run this before evaluation to grow the dataset.
-    """
     print(f"\n📥 Exporting positive feedback (last {days} days)...")
 
     store = FeedbackStore()
@@ -36,9 +32,6 @@ def add_feedback_to_golden(days: int = 30) -> None:
     print(f"Total pairs now: {stats['total_pairs']}")
 
 def print_report(report) -> None:
-    """
-    Print evaluation report in readable format.
-    """
     print("\n" + "="*55)
     print("RAGAS EVALUATION REPORT")
     print("="*55)

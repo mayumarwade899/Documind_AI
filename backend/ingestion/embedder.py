@@ -19,10 +19,6 @@ settings = get_settings()
 
 @dataclass
 class EmbeddedChunk:
-    """
-    A DocumentChunk enhanced with its vector embedding.
-    This is the final chunks stored in ChromaDB.
-    """
     chunk_id: str
     content: str
     document_id: str
@@ -50,9 +46,6 @@ def _embed_text(
     task_type: str,
     model_name: str
 ) -> List[float]:
-    """
-    Call Gemini embedding API for a single text string.
-    """
     result = genai.embed_content(
         model = model_name,
         content = text,
@@ -72,10 +65,6 @@ def _embed_batch(
     task_type: str,
     model_name: str
 ) -> List[List[float]]:
-    """
-    Call Gemini embedding API for a batch of texts in a single request.
-    This is significantly faster than embedding one at a time.
-    """
     result = genai.embed_content(
         model = model_name,
         content = texts,
@@ -85,14 +74,6 @@ def _embed_batch(
 
 
 class GeminiEmbedder:
-    """
-    Generates vector embeddings for document chunks using Gemini.
-
-    Performance optimizations:
-    - Batch embedding: sends multiple texts per API call (up to BATCH_SIZE)
-    - Parallel batches: processes multiple batches concurrently with thread pool
-    - Reduced inter-batch delay for rate-limit safety
-    """
     BATCH_SIZE = 100
     MAX_WORKERS = 4
     BATCH_DELAY_SEC = 0.1
@@ -107,9 +88,6 @@ class GeminiEmbedder:
         )
     
     def embed_query(self, query: str) -> List[float]:
-        """
-        Embed a single search query.
-        """
         if not query.strip():
             raise ValueError("Query text cannot be empty.")
         
@@ -132,9 +110,6 @@ class GeminiEmbedder:
             raise
 
     def embed_chunk(self, chunk: DocumentChunk) -> EmbeddedChunk:
-        """
-        Embed a single Document Chunk.
-        """
         try:
             vector = _embed_text(
                 text=chunk.content,
@@ -170,10 +145,6 @@ class GeminiEmbedder:
         batch_num: int,
         total_batches: int,
     ) -> List[EmbeddedChunk]:
-        """
-        Embed a batch of chunks in a single API call.
-        Returns list of EmbeddedChunk objects.
-        """
         texts = [chunk.content for chunk in chunks]
 
         try:
@@ -230,10 +201,6 @@ class GeminiEmbedder:
         chunks: List[DocumentChunk],
         show_progress: bool = True
     ) -> List[EmbeddedChunk]:
-        """
-        Embed a list of DocumentChunks using batch API calls
-        with parallel execution for maximum throughput.
-        """
         if not chunks:
             logger.warning("embed_chunks_called_with_empty_list")
             return []

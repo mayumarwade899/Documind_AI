@@ -16,9 +16,6 @@ BM25_INDEX_FILE = "bm25_index.pkl"
 BM25_METADATA_FILE = "bm25_metadata.json"
 
 def _tokenize(text: str) -> List[str]:
-    """
-    Simple whitespace + lowercase tokenizer for BM25.
-    """
     text = text.lower()
 
     for char in ['.', ',', '!', '?', ';', ':', '(', ')', '[', ']', '"', "'"]:
@@ -28,9 +25,6 @@ def _tokenize(text: str) -> List[str]:
     return tokens
 
 class BM25Retriever:
-    """
-    BM25 keyword search over document chunks.
-    """
     def __init__(self):
         self.index_dir = settings.bm25_index_path
         self.index_dir.mkdir(parents=True, exist_ok=True)
@@ -51,10 +45,6 @@ class BM25Retriever:
         )
 
     def _save_index(self) -> None:
-        """
-        Save BM25 model and metadata to disk.
-        Called after build_index() and add_chunks().
-        """
         with open(self.index_path, 'wb') as f:
             pickle.dump({
                 "bm25": self.bm25,
@@ -71,10 +61,6 @@ class BM25Retriever:
         )
 
     def _load_index(self) -> None:
-        """
-        Load BM25 index from disk if it exists.
-        Called automatically on initialization.
-        """
         if not self.index_path.exists() or not self.metadata_path.exists():
             logger.info("bm25_no_existing_index_found")
             return
@@ -100,10 +86,6 @@ class BM25Retriever:
             self.corpus_tokens  = []
 
     def build_index(self, chunks: List) -> None:
-        """
-        Build a fresh BM25 index from a list of chunks.
-        Replaces any existing index completely.
-        """
         if not chunks:
             logger.warning("build_index_called_with_empty_chunks")
             return
@@ -141,10 +123,6 @@ class BM25Retriever:
         )
 
     def add_chunks(self, chunks: List) -> None:
-        """
-        Add new chunks to an existing BM25 index.
-        Rebuilds the model with all old + new chunks combined.
-        """
         if not chunks:
             return
 
@@ -199,10 +177,6 @@ class BM25Retriever:
         )
 
     def delete_document(self, document_id: str) -> int:
-        """
-        Remove all chunks of a document from the BM25 index.
-        Called when re-ingesting an updated document.
-        """
         original_count = len(self.chunk_metadata)
 
         filtered_metadata = []
@@ -250,10 +224,6 @@ class BM25Retriever:
             top_k: int = None,
             filter_document_id: Optional[str] = None
     ) -> List[RetrievedChunk]:
-        """
-        Search for chunks matching the query using BM25 scoring.
-        Optionally filter results to a specific document.
-        """
         if self.bm25 is None:
             logger.warning("bm25_search_called_but_no_index_built")
             return []
@@ -316,10 +286,6 @@ class BM25Retriever:
         return results
     
     def get_stats(self) -> dict:
-        """
-        Return BM25 index statistics.
-        Used by /metrics API endpoint.
-        """
         return {
             "total_chunks": len(self.chunk_metadata),
             "index_built": self.bm25 is not None,

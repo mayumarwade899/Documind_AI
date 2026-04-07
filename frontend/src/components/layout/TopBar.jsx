@@ -1,14 +1,5 @@
 import { cn } from '../../utils/cn.js'
 
-/**
- * Reusable page header bar.
- *
- * <TopBar
- *   title="Documents"
- *   subtitle="Manage your knowledge base"
- *   actions={<Button>Upload</Button>}
- * />
- */
 export function TopBar({ title, subtitle, actions, className, children }) {
   return (
     <div className={cn(

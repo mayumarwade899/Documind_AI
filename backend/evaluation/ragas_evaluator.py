@@ -23,9 +23,6 @@ settings = get_settings()
 
 @dataclass
 class MetricScore:
-    """
-    Score for a single RAGAS metric.
-    """
     name: str
     score: float
     passed: bool
@@ -33,10 +30,6 @@ class MetricScore:
 
 @dataclass
 class EvaluationReport:
-    """
-    Complete RAGAS evaluation report.
-    Saved to disk after every evaluation run.
-    """
     run_id: str
     timestamp: str
     dataset_size: int
@@ -53,9 +46,6 @@ class EvaluationReport:
     metadata: dict = field(default_factory=dict)
 
 class RAGASEvaluator:
-    """
-    Runs RAGAS Evaluation on golden dataset
-    """
     def __init__(
         self,
         generator: Optional[AnswerGenerator] = None,
@@ -88,9 +78,6 @@ class RAGASEvaluator:
         self,
         pairs: List[GoldenQAPair]
     ) -> List[dict]:
-        """
-        Run each golden question through the live RAG system.
-        """
         results = []
 
         for i, pair in enumerate(pairs, start = 1):
@@ -143,9 +130,6 @@ class RAGASEvaluator:
         self,
         max_questions: Optional[int] = None
     ) -> EvaluationReport:
-        """
-        Run full RAGAS evaluation against the golden dataset.
-        """
         import uuid
 
         start_time = time.time()
@@ -258,9 +242,6 @@ class RAGASEvaluator:
         return report
     
     def _save_report(self, report: EvaluationReport) -> None:
-        """
-        Save evaluation report as JSON to disk.
-        """
         filename = (
             f"eval_{report.timestamp[:10]}_"
             f"{report.run_id}.json"

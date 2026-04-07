@@ -11,9 +11,6 @@ async def get_metrics(
     days: int = 7,
     tracker: MetricsTracker = Depends(get_metrics_tracker)
 ):
-    """
-    Full metrics dashboard for the last N days.
-    """
     return tracker.get_summary(days=days)
 
 @router.get("/latency")
@@ -21,9 +18,6 @@ async def get_latency(
     days: int = 7,
     tracker: MetricsTracker = Depends(get_metrics_tracker)
 ):
-    """
-    Get latency percentiles only: p50, p95, p99.
-    """
     stats = tracker.get_latency_stats(days = days)
     return {
         "period_days": days,
@@ -41,9 +35,6 @@ async def get_daily(
     days: int = 7,
     tracker: MetricsTracker = Depends(get_metrics_tracker)
 ):
-    """
-    Per-day aggregated metrics.
-    """
     from dataclasses import asdict
     daily = tracker.get_daily_summary(days = days)
     return {

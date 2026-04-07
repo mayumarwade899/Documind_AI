@@ -14,9 +14,6 @@ settings = get_settings()
 
 @dataclass
 class ClaimVerification:
-    """
-    Verification result for a single claim extracted from answer.
-    """
     claim: str
     is_supported: bool
     supporting_chunk_ids: List[str] = field(default_factory = list)
@@ -24,9 +21,6 @@ class ClaimVerification:
 
 @dataclass
 class VerificationResult:
-    """
-    Complete verification result for a full answer.
-    """
     is_fully_supported: bool 
     support_ratio: float 
     confidence: float 
@@ -44,20 +38,12 @@ class VerificationResult:
     metadata: dict = field(default_factory=dict)
 
 def _check_citations(answer: str) -> Tuple[bool, int]:
-    """
-    Check if answer contains [Source: ...] citation patterns.
-    """
     citation_pattern = r'\[Source:\s*.+?,\s*Page:\s*\d+\]'
     citations = re.findall(citation_pattern, answer, re.IGNORECASE)
 
     return len(citations) > 0, len(citations)
 
 def _extract_cited_sources(answer: str) -> List[dict]:
-    """
-    Extract all cited sources from answer text.
-    Returns list of dicts with filename and page number.
-    Used to cross-check against actual retrieved chunks.
-    """
     pattern = r'\[Source:\s*(.+?),\s*Page:\s*(\d+)\]'
     matches = re.findall(pattern, answer, re.IGNORECASE)
 
@@ -73,9 +59,6 @@ def _validate_citations_against_chunks(
     answer: str,
     chunks: List[RetrievedChunk]
 ) -> Tuple[List[dict], List[dict]]:
-    """
-    Check that cited sources actually exist in retrieved chunks.
-    """
     cited = _extract_cited_sources(answer)
 
     real_sources = {
@@ -96,9 +79,6 @@ def _validate_citations_against_chunks(
     return valid, phantoms
 
 class AnswerVerifier:
-    """
-    Verifies generated answers are grounded in retrieved chunks.
-    """
     def __int__(
         self,
         llm_client: Optional[GeminiClient] = None,
@@ -116,9 +96,6 @@ class AnswerVerifier:
         answer: str,
         chunks: List[RetrievedChunk]
     ) -> dict:
-        """
-        Use Gemini to verify answer claims against chunks.
-        """
         verification_prompt = self.prompt_builder.build_verification_prompt(
             answer = answer,
             chunks = chunks
@@ -144,9 +121,6 @@ class AnswerVerifier:
         chunks: List[RetrievedChunk]
     ) -> List[ClaimVerification]:
         
-        """
-        Convert LLM verification result into ClaimVerification objects.
-        """
         unsupported = llm_result.get("unsupported_claims", [])
         confidence  = float(llm_result.get("confidence", 0.5))
 
@@ -169,9 +143,6 @@ class AnswerVerifier:
         chunks: List[RetrievedChunk],
         query: str = ""
     ) -> VerificationResult:
-        """
-        Run full verification on a generated answer.
-        """
         start_time = time.time()
 
         if not answer.strip():
@@ -285,9 +256,6 @@ class AnswerVerifier:
         return result
     
     def _empty_result(self) -> VerificationResult:
-        """
-        Return a neutral result for empty answers.
-        """
         return VerificationResult(
             is_fully_supported = False,
             support_ratio = 0.0,

@@ -26,10 +26,6 @@ DEFAULT_QUESTIONS = [
 ]
 
 def load_questions_from_file(path: str) -> list:
-    """
-    Load questions from a text file. 
-    one question per line.
-    """
     with open(path, "r", encoding = "utf-8") as f:
         return [
             line.strip()
@@ -41,9 +37,6 @@ def generate_and_review(
     questions: list,
     auto_approve: bool = False
 ) -> list:
-    """
-    Run each question through RAG and collect approved pairs.
-    """
     generator = AnswerGenerator()
     approved = []
     total = len(questions)

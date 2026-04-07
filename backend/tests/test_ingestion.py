@@ -5,9 +5,6 @@ from ingestion.chunker import DocumentChunker
 from ingestion.embedder import GeminiEmbedder
 
 def test_document_loader_pdf():
-    """
-    Test PDF loading returns pages with content.
-    """
     loader = DocumentLoader()
     pdf_files = list(Path("data/documents").glob("*.pdf"))
 
@@ -21,25 +18,16 @@ def test_document_loader_pdf():
     assert all(p.content for p in doc.pages)
 
 def test_document_loader_unsupported():
-    """
-    Test loader raises error for unsupported file type.
-    """
     loader = DocumentLoader()
     with pytest.raises(ValueError):
         loader.load("test.xyz")
 
 def test_document_loader_missing_file():
-    """
-    Test loader raises error for missing file.
-    """
     loader = DocumentLoader()
     with pytest.raises(FileNotFoundError):
         loader.load("nonexistent.pdf")
 
 def test_chunker_basic():
-    """
-    Test chunker splits content into valid chunks.
-    """
     loader = DocumentLoader()
     chunker = DocumentChunker(chunk_size = 200, chunk_overlap = 50)
 
@@ -56,9 +44,6 @@ def test_chunker_basic():
     assert all(c.document_id == doc.document_id for c in chunks)
 
 def test_chunker_token_limit():
-    """
-    Test chunks don't wildly exceed chunk size.
-    """
     loader = DocumentLoader()
     chunker = DocumentChunker(chunk_size = 200, chunk_overlap = 50)
 
@@ -75,9 +60,6 @@ def test_chunker_token_limit():
         )
 
 def test_chunk_ids_unique():
-    """
-    Test all chunk IDs are unique.
-    """
     loader = DocumentLoader()
     chunker = DocumentChunker()
 

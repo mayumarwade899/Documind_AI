@@ -17,9 +17,6 @@ def _reciprocal_rank_fusion(
         bm25_weight: float = 0.5,
         vector_weight: float = 0.5
 ) -> List[RetrievedChunk]:
-    """
-    Merge two ranked lists using Reciprocal Rank Fusion (RRF)
-    """
     rrf_scores: Dict[str, float] = defaultdict(float)
 
     chunk_map: Dict[str, RetrievedChunk] = {}
@@ -75,20 +72,12 @@ def _reciprocal_rank_fusion(
     return merged
 
 class HybridRetriever:
-    """
-    Combines BM25 + vector search into one ranked result list.
-    This is the main retrieval interface used by the RAG pipeline.
-    """
     def __init__(
             self,
             vector_store: Optional[VectorStore] = None,
             bm25_retriever: Optional[BM25Retriever] = None,
             embedder: Optional[GeminiEmbedder] = None
     ):
-        """
-        Dependencies are injectable for easy testing.
-        If not provided, creates default instances.
-        """
         self.vector_store = vector_store or VectorStore()
         self.bm25_retriever = bm25_retriever or BM25Retriever()
         self.embedder = embedder or GeminiEmbedder()
@@ -103,10 +92,6 @@ class HybridRetriever:
             vector_weight: float = 0.5,
             filter_document_id: Optional[str] = None
     ) -> List[RetrievedChunk]:
-        """
-        Run hybrid retrieval for a single query.
-        Optionally scoped to a specific document.
-        """
         if not query.strip():
             logger.warning("hybrid_retriev_called_with_empty_query")
             return []
@@ -204,10 +189,6 @@ class HybridRetriever:
         top_k: int = None,
         filter_document_id: Optional[str] = None
     ) -> List[RetrievedChunk]:
-        """
-        Run hybrid retrieval across multiple query variants.
-        Optionally scoped to a specific document.
-        """
         if not queries:
             return []
         

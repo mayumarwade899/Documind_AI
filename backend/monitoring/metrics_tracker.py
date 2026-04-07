@@ -15,10 +15,6 @@ settings = get_settings()
 
 @dataclass
 class RequestMetric:
-    """
-    Metrics captured for a single RAG request.
-    One of these is written to disk per request.
-    """
     request_id: str
     timestamp: str 
     date: str 
@@ -50,9 +46,6 @@ class RequestMetric:
 
 @dataclass
 class LatencyStats:
-    """
-    Computed latency percentiles.
-    """
     p50_ms: float
     p95_ms: float 
     p99_ms: float 
@@ -63,9 +56,6 @@ class LatencyStats:
 
 @dataclass
 class DailySummary:
-    """
-    Aggregated stats for one day.
-    """
     date: str
     total_requests: int
     successful: int
@@ -81,18 +71,11 @@ def _append_jsonl(
     file_path: Path,
     record: dict
 ) -> None:
-    """
-    Append one JSON record to a .jsonl file.
-    """
     file_path.parent.mkdir(parents = True, exist_ok = True)
     with open(file_path, "a", encoding = "utf-8") as f:
         f.write(json.dumps(record, ensure_ascii = False) + "\n")
 
 def _read_jsonl(file_path: Path) -> List[dict]:
-    """
-    Read all records from a .jsonl file.
-    Returns empty list if file doesn't exist.
-    """
     if not file_path.exists():
         return []
     
@@ -109,9 +92,6 @@ def _read_jsonl(file_path: Path) -> List[dict]:
     return records
 
 def _compute_percentile(values: List[float], p: float) -> float:
-    """
-    Compute the p-th percentile of a list of values.
-    """
     if not values:
         return 0.0
     
@@ -126,11 +106,6 @@ def _compute_percentile(values: List[float], p: float) -> float:
     )
 
 class MetricsTracker:
-    """
-    Captures, stores, and aggregates request metrics.
-    One JSONL line per request. Efficient for both
-    writing and reading.
-    """
     def __init__(self):
         self.metrics_dir = settings.metrics_log_path
         self.metrics_dir.mkdir(parents = True, exist_ok = True)
@@ -141,16 +116,10 @@ class MetricsTracker:
         )
 
     def _today_file(self) -> Path:
-        """
-        Return path to today's metrics JSONL file.
-        """
         today = date.today().strftime("%Y_%m_%d")
         return self.metrics_dir / f"requests_{today}.jsonl"
     
     def _load_recent_records(self, days: int = 7) -> List[dict]:
-        """
-        Load metric records from the last N days.
-        """
         all_records = []
 
         for day_offset in range(days):
@@ -171,10 +140,6 @@ class MetricsTracker:
         rag_response, 
         verification_result=None
     ) -> RequestMetric:
-        """
-        Record metrics from a completed RAG request.
-        Called automatically after every generate() call.
-        """
         now = datetime.utcnow()
 
         is_verified = False
@@ -223,9 +188,6 @@ class MetricsTracker:
         return metric
     
     def get_latency_stats(self, days: int = 7) -> LatencyStats:
-        """
-        Compute p50/p95/p99 latency over the last N days.
-        """
         records = self._load_recent_records(days)
 
         if not records:
@@ -257,9 +219,6 @@ class MetricsTracker:
         )
     
     def get_daily_summary(self, days: int = 7) -> List[DailySummary]:
-        """
-        Get per-day aggregated metrics for the last N days.
-        """
         records = self._load_recent_records(days)
 
         by_date: Dict[str, List[dict]] = {}
@@ -314,9 +273,6 @@ class MetricsTracker:
         return summaries
     
     def get_summary(self, days: int = 7) -> dict:
-        """
-        Full metrics dashboard summary for the API endpoint.
-        """
         records = self._load_recent_records(days)
         latency = self.get_latency_stats(days)
         daily = self.get_daily_summary(days)

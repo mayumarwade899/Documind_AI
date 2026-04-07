@@ -11,9 +11,6 @@ CITATION_PATTERN = r'\[Source:\s*([^,\]]+),\s*Page:\s*(\d+)\]'
 
 @dataclass
 class CitationCheckResult:
-    """
-    Result of citation enforcement check.
-    """
     original_answer: str
     enforced_answer: str 
     citations_found: List[dict] 
@@ -23,13 +20,7 @@ class CitationCheckResult:
     compliance_score: float
 
 class CitationEnforcer:
-    """
-    Enforces citation standards in RAG answers.
-    """
     def extract_citations(self, text: str) -> List[dict]:
-        """
-        Extract all citations from answer text.
-        """
         matches = re.findall(CITATION_PATTERN, text, re.IGNORECASE)
         return [
             {
@@ -40,9 +31,6 @@ class CitationEnforcer:
         ]
     
     def find_uncited_sentences(self, answer: str) -> List[str]:
-        """
-        Find sentences that make factual claims but have no citation.
-        """
         if "cannot find this information" in answer.lower():
             return []
         
@@ -71,10 +59,6 @@ class CitationEnforcer:
         answer: str,
         chunks: List[RetrievedChunk]
     ) -> List[dict]:
-        """
-        Find citations that reference sources not in retrieved chunks.
-        These are hallucinated citations.
-        """
         cited = self.extract_citations(answer)
 
         real_sources = {
@@ -95,9 +79,6 @@ class CitationEnforcer:
         answer: str,
         chunks: List[RetrievedChunk]
     ) -> CitationCheckResult:
-        """
-        Full citation compliance check.
-        """
         if not answer.strip():
             return CitationCheckResult(
                 original_answer = "",

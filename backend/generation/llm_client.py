@@ -33,11 +33,6 @@ DEFAULT_COST = {"input": 0.0001, "output": 0.0004}
 
 @dataclass
 class LLMResponse:
-    """
-    Structured response from every Gemini API call.
-    Carries the answer text plus all metadata needed
-    for monitoring, cost tracking, and observability.
-    """
     text: str
     model: str 
     input_tokens: int 
@@ -53,9 +48,7 @@ def _calculate_cost(
     input_tokens: int,
     output_tokens: int
 ) -> float:
-    """
-    Estimate cost of a Gemini API call in USD.
-    """
+
     pricing = DEFAULT_COST
     for model_key in COST_PER_1K_TOKENS:
         if model_key in model:
@@ -68,18 +61,13 @@ def _calculate_cost(
     return round(input_cost + output_cost, 8)
 
 class GeminiClient:
-    """
-    Clean wrapper around the Gemini API.
-    """
     def __init__(
         self,
         model_name: str = None,
         temperature: float = None,
         max_tokens: int = None
     ):
-        """
-        Initialize Gemini client with settings from config.
-        """
+
         genai.configure(api_key=settings.gemini.gemini_api_key)
 
         self.model_name  = model_name  or settings.gemini.gemini_model
@@ -113,9 +101,7 @@ class GeminiClient:
         reraise = True
     )
     def _raw_generate(self, prompt: str) -> Any:
-        """
-        Make raw Gemini API call with retry logic.
-        """
+
         return self.model.generate_content(prompt)
     
     def generate(
@@ -123,11 +109,7 @@ class GeminiClient:
         prompt: str,
         metadata: Optional[dict] = None
     ) -> LLMResponse:
-        """
-        Generate a response from Gemini.
-        Measures latency, extracts token counts,
-        calculates cost, and returns a structured LLMResponse.
-        """
+
         if not prompt.strip():
             raise ValueError("Prompt cannot be empty")
         
@@ -223,11 +205,7 @@ class GeminiClient:
         prompt: str,
         metadata: Optional[dict] = None
     ) -> tuple[dict, LLMResponse]:
-        """
-        Generate a response and parse it as JSON.
-        Used by the answer verifier which expects
-        structured JSON back from Gemini.
-        """
+
         response = self.generate(prompt=prompt, metadata=metadata)
         text = response.text.strip()
 
@@ -248,10 +226,7 @@ class GeminiClient:
             return {}, response
         
     def count_tokens(self, text: str) -> int:
-        """
-        Count tokens for a text string using Gemini's tokenizer.
-        Useful for pre-checking prompt size before sending.
-        """
+
         try:
             result = self.model.count_tokens(text)
             return result.total_tokens

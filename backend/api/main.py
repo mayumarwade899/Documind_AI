@@ -17,11 +17,6 @@ settings = get_settings()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """
-    Runs on startup and shutdown.
-    Pre-warms all singleton pipeline components so the
-    first request doesn't pay the initialization cost.
-    """
     setup_logging(log_level = settings.api.log_level)
     logger =get_logger(__name__)
     logger.info("rag_system_starting_up")

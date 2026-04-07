@@ -14,9 +14,6 @@ def make_chunk(source_file = "test.pdf", page = 1):
     )
 
 def test_citation_extractor_valid():
-    """
-    Extracts correct citations from answer.
-    """
     enforcer = CitationEnforcer()
     answer = "The contract expires in 2025. [Source: test.pdf, Page: 1]"
     citations = enforcer.extract_citations(answer)
@@ -26,17 +23,11 @@ def test_citation_extractor_valid():
     assert citations[0]["page_number"] == 1
 
 def test_citation_extractor_none():
-    """
-    Returns empty list when no citations present.
-    """
     enforcer = CitationEnforcer()
     citations = enforcer.extract_citations("No citations here.")
     assert citations == []
 
 def test_phantom_citation_detected():
-    """
-    Detects citation for source not in retrieved chunks.
-    """
     enforcer = CitationEnforcer()
     answer = (
         "Something happened. "
@@ -49,9 +40,6 @@ def test_phantom_citation_detected():
     assert phantoms[0]["source_file"] == "phantom_file.pdf"
 
 def test_no_phantom_when_source_matches():
-    """
-    No phantoms when citation matches retrieved chunk.
-    """
     enforcer = CitationEnforcer()
     answer = "Expires in 2025. [Source: test.pdf, Page: 1]"
     chunks = [make_chunk("test.pdf", 1)]
@@ -59,9 +47,6 @@ def test_no_phantom_when_source_matches():
     assert phantoms == []
 
 def test_compliance_check_passing():
-    """
-    Fully cited answer passes compliance.
-    """
     enforcer = CitationEnforcer()
     answer = (
         "The contract expires in 2025. [Source: test.pdf, Page: 1]"
@@ -74,9 +59,6 @@ def test_compliance_check_passing():
     assert result.compliance_score > 0.0
 
 def test_compliance_check_empty_answer():
-    """
-    Empty answer returns zero compliance.
-    """
     enforcer = CitationEnforcer()
     result =  enforcer.check("", [])
     assert result.is_compliant == False

@@ -32,9 +32,6 @@ async def submit_feedback(
     request: FeedbackRequest,
     store: FeedbackStore = Depends(get_feedback_store)
 ):
-    """
-    Submit user feedback (thumbs up/down) on a RAG answer.
-    """
     try:
         feedback = store.save(
             query = request.query,
@@ -65,9 +62,6 @@ async def feedback_summary(
     days: int = 30,
     store: FeedbackStore = Depends(get_feedback_store)
 ):
-    """
-    Get aggregated feedback statistics.
-    """
     summary = store.get_summary(days=days)
     return {
         "period_days": summary.period_days,
@@ -87,10 +81,6 @@ async def get_negative_feedback(
     days: int = 30,
     store: FeedbackStore = Depends(get_feedback_store)
 ):
-    """
-    Get all negative feedback records for engineer review.
-    Used to identify gaps and improve the golden dataset.
-    """
     records = store.get_negative_feedback(days = days)
     return {
         "count": len(records),

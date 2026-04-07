@@ -1,12 +1,3 @@
-"""
-backend/api/routes/evaluation.py
-
-Exposes the golden dataset and latest evaluation report
-to the frontend via HTTP.  Mount this in api/main.py with:
-
-    from api.routes import evaluation
-    app.include_router(evaluation.router)
-"""
 
 import json
 from pathlib import Path
@@ -53,10 +44,6 @@ class EvalReportResponse(BaseModel):
 
 @router.get("/dataset", response_model=DatasetResponse)
 async def get_golden_dataset():
-    """
-    Return all pairs from the golden QA dataset.
-    Called by the frontend Evaluation page.
-    """
     try:
         dataset = Golden_Dataset()
         pairs = dataset.load()
@@ -81,7 +68,6 @@ async def get_golden_dataset():
 
 @router.get("/stats")
 async def get_dataset_stats():
-    """Return quick stats: total pairs, path, context coverage."""
     try:
         dataset = Golden_Dataset()
         return dataset.get_stats()
@@ -91,11 +77,6 @@ async def get_dataset_stats():
 
 @router.get("/latest", response_model=Optional[EvalReportResponse])
 async def get_latest_report():
-    """
-    Return the most recent evaluation report JSON from disk.
-    Reports are written by RAGASEvaluator._save_report() to
-    data/evaluation_reports/eval_YYYY-MM-DD_<run_id>.json
-    """
     reports_dir = Path("data/evaluation_reports")
     if not reports_dir.exists():
         return None
@@ -115,11 +96,6 @@ async def get_latest_report():
 
 @router.post("/run")
 async def run_evaluation(max_questions: Optional[int] = None):
-    """
-    Trigger a RAGAS evaluation run from the UI.
-    Runs the full pipeline: golden dataset → RAG answers → RAGAS metrics.
-    Returns the evaluation report.
-    """
     try:
         from evaluation.ragas_evaluator import RAGASEvaluator
     except ImportError as e:

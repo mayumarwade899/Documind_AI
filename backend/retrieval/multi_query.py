@@ -10,9 +10,6 @@ logger = get_logger(__name__)
 settings = get_settings()
 
 class MultiQueryRetriever:
-    """
-    Generates multiple query variants and merges retrieval results.
-    """
     def __init__(
         self,
         hybrid_retriever: Optional[HybridRetriever] = None,
@@ -29,9 +26,6 @@ class MultiQueryRetriever:
         top_k: int = None,
         num_variants: int = None
     ) -> List[RetrievedChunk]:
-        """
-        Retrieve using multiple query variants.
-        """
         k = top_k or settings.retrieval.final_top_k
         n = num_variants or settings.retrieval.multi_query_count
 

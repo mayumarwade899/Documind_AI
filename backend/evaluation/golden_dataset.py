@@ -11,10 +11,6 @@ settings = get_settings()
 
 @dataclass
 class GoldenQAPair:
-    """
-    A single ground-truth question-answer pair.
-    Used as reference for RAGAS evaluation scoring.
-    """
     question: str
     ground_truth: str
     contexts: List[str]
@@ -22,9 +18,6 @@ class GoldenQAPair:
     metadata: dict = field(default_factory = dict)
 
 class Golden_Dataset:
-    """
-    Loads, saves, and manages the golden QA dataset.
-    """
     def __init__(self, dataset_path: str = None):
         self.dataset_path = Path(
             dataset_path or settings.golden_dataset_path
@@ -37,10 +30,6 @@ class Golden_Dataset:
         )
 
     def load(self) -> List[GoldenQAPair]:
-        """
-        Load golden QA pairs from disk.
-        Returns empty list if file doesn't exist yet
-        """
         if not self.dataset_path.exists():
             logger.warning(
                 "golden_dataset_not_found",
@@ -77,9 +66,6 @@ class Golden_Dataset:
             raise
 
     def save(self, pairs: List[GoldenQAPair]) -> None:
-        """
-        Save golden QA pairs to disk as JSON.
-        """
         data = [
             {
                 "question": p.question,
@@ -105,9 +91,6 @@ class Golden_Dataset:
         new_pairs: List[dict],
         deduplicate: bool = True
     ) -> int:
-        """
-        Add new QA pairs to the existing dataset.
-        """
         existing = self.load()
 
         existing_questions = {
@@ -160,9 +143,6 @@ class Golden_Dataset:
         return added
     
     def get_stats(self) -> dict:
-        """
-        Return basic stats about the golden dataset.
-        """
         pairs = self.load()
         return {
             "total_pairs": len(pairs),

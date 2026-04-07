@@ -14,10 +14,6 @@ settings = get_settings()
 
 @dataclass
 class UserFeedback:
-    """
-    A single piece of user feedback on a RAG answer.
-    Stored as one line in the daily feedback JSONL file.
-    """
     feedback_id: str 
     timestamp: str 
     date: str 
@@ -39,9 +35,6 @@ class UserFeedback:
 
 @dataclass
 class FeedbackSummary:
-    """
-    Aggregated feedback statistics for a time period.
-    """
     period_days: int
     total_feedback: int
     positive: int 
@@ -54,17 +47,11 @@ class FeedbackSummary:
     low_rated_queries: List[str] 
 
 def _append_jsonl(file_path: Path, record: dict) -> None:
-    """
-    Append one record to a JSON file.
-    """
     file_path.parent.mkdir(parents = True, exist_ok = True)
     with open(file_path, "a", encoding = "utf-8") as f:
         f.write(json.dumps(record, ensure_ascii = False) + "\n")
 
 def _read_jsonl(file_path: Path) -> List[dict]:
-    """
-    Read all records from JSONL file.
-    """
     if not file_path.exists():
         return []
     
@@ -81,9 +68,6 @@ def _read_jsonl(file_path: Path) -> List[dict]:
     return records
 
 class FeedbackStore:
-    """
-    Stores and retrieves user feedback on RAG answers.
-    """
     def __init__(self):
         self.feedback_dir = settings.feedback_log_path
         self.feedback_dir.mkdir(parents = True, exist_ok = True)
@@ -94,16 +78,10 @@ class FeedbackStore:
         )
     
     def _today_file(self) -> Path:
-        """
-        Return path to today's feedback JSONL file.
-        """
         today = date.today().strftime("%Y_%m_%d")
         return self.feedback_dir / f"feedback_{today}.jsonl"
 
     def _load_recent_records(self, days: int = 30) -> List[dict]:
-        """
-        Load feedback records from the last N days.
-        """
         all_records = []
         for offset in range(days):
             target = (
@@ -128,9 +106,6 @@ class FeedbackStore:
         total_latency_ms: float = 0.0,
         model_used: str = ""
     ) -> UserFeedback:
-        """
-        Save a single piece of user feedback.
-        """
         if rating not in (1, 0, -1):
             logger.warning(
                 "invalid_rating_clamping",
@@ -178,11 +153,6 @@ class FeedbackStore:
         self,
         days: int = 30
     ) -> List[UserFeedback]:
-        """
-        Get all negative (thumbs down) feedback records.
-        Used by engineers to review what the system got wrong
-        and add to the golden evaluation dataset.
-        """
         records = self._load_recent_records(days)
 
         negative = [
@@ -202,9 +172,6 @@ class FeedbackStore:
         self,
         days: int = 30
     ) -> List[UserFeedback]:
-        """
-        Get all feedback records for a time period.
-        """
         records = self._load_recent_records(days)
         return [UserFeedback(**r) for r in records]
     
@@ -213,9 +180,6 @@ class FeedbackStore:
         days: int = 30,
         only_positive: bool = True
     ) -> List[dict]:
-        """
-        Export feedback as golden QA pairs for RAGAS evaluation.
-        """
         records = self._load_recent_records(days)
 
         if only_positive:
@@ -256,9 +220,6 @@ class FeedbackStore:
         return golden_pairs
     
     def get_summary(self, days: int = 30) -> FeedbackSummary:
-        """
-        Compute feedback statistics for a time period.
-        """
         records = self._load_recent_records(days)
 
         if not records:

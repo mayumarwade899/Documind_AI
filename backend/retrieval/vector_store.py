@@ -14,10 +14,6 @@ settings = get_settings()
 
 @dataclass
 class RetrievedChunk:
-    """
-    A chunk returned by any retrieval method
-    (vector search, BM25, or hybrid).
-    """
     chunk_id: str
     content: str
     source_file: str
@@ -28,14 +24,7 @@ class RetrievedChunk:
     metadata: dict = field(default_factory=dict)
 
 class VectorStore:
-    """
-    Manages all ChromaDB operations like storing, retrieving, and deleting.
-    """
     def __init__(self):
-        """
-        Initialize ChromaDB with persistent storage on disk.
-        Data survives across restarts — stored in data/chroma_db/
-        """
         persist_path = settings.chroma_persist_path
         persist_path.mkdir(parents=True, exist_ok=True)
 
@@ -61,9 +50,6 @@ class VectorStore:
         )
 
     def _add_chunks(self, chunks: List[EmbeddedChunk]) -> int:
-        """
-        Store a list of EmbeddedChunks in ChromaDB.
-        """
         if not chunks:
             logger.warning("add_chunks_called_with_empty_list")
             return 0
@@ -125,9 +111,6 @@ class VectorStore:
         top_k: int = None,
         filter_document_id: Optional[str] = None,
     ) -> List[RetrievedChunk]:
-        """
-        Search ChromaDB for chunks similar to the query vector.
-        """
         if not query_vector:
             raise ValueError("query_vector cannot be empty")
         
@@ -181,10 +164,6 @@ class VectorStore:
         return retrieved
     
     def delete_document(self, document_id: str) -> int:
-        """
-        Delete all chunks belonging to a document.
-        Called when re-ingesting an updated document.
-        """
         try:
             existing = self.collection.get(
                 where = {"document_id": {"$eq": document_id}},
@@ -221,10 +200,6 @@ class VectorStore:
             raise
 
     def document_exists(self, document_id: str) -> bool:
-        """
-        Check if a document is already stored in ChromaDB.
-        Used by ingestion pipeline to skip re-processing.
-        """
         try:
             results = self.collection.get(
                 where = {"document_id": {"$eq": document_id}},
@@ -249,10 +224,6 @@ class VectorStore:
             return False
         
     def list_documents(self) -> list:
-        """
-        Return a list of all distinct ingested documents.
-        Each entry contains document_id, source_file, and chunk_count.
-        """
         try:
             all_data = self.collection.get(include=["metadatas"])
             doc_map = {}
@@ -278,10 +249,6 @@ class VectorStore:
             return []
 
     def get_collection_stats(self) -> dict:
-        """
-        Return basic stats about the collection.
-        Used by the metrics API endpoint.
-        """
         count = self.collection.count()
         logger.info("collection_stats_failed", total_chunks = count)
         return {

@@ -20,9 +20,6 @@ def make_chunk(
     )
 
 def test_prompt_builder_empty_chunks():
-    """
-    Empty chunks returns no-context prompt.
-    """
     builder = PromptBuilder()
     built = builder.build_rag_prompt(
         query = "What is this?",
@@ -32,9 +29,6 @@ def test_prompt_builder_empty_chunks():
     assert built.num_sources == 0
 
 def test_prompt_builder_with_chunks():
-    """
-    Chunks are included in prompt with source labels.
-    """
     builder = PromptBuilder()
     chunks = [make_chunk("c1", "The sky is blue.", 1)]
     built = builder.build_rag_prompt(
@@ -46,9 +40,6 @@ def test_prompt_builder_with_chunks():
     assert built.num_sources == 1
 
 def test_prompt_builder_token_limit():
-    """
-    Long chunks are trimmed to fit token budget.
-    """
     builder = PromptBuilder(max_context_tokens = 100)
     chunks = [
         make_chunk(f"c{i}", "word " * 200, i)
@@ -61,9 +52,6 @@ def test_prompt_builder_token_limit():
     assert built.total_context_tokens <= 600
 
 def test_format_chunks_as_sources():
-    """
-    Sources are correctly formatted.
-    """
     builder = PromptBuilder()
     chunks = [
         make_chunk("c1", "Content A", 1),
@@ -75,9 +63,6 @@ def test_format_chunks_as_sources():
     assert sources[0]["page_number"] in [1, 2]
 
 def test_cost_calculation():
-    """
-    Cost calculation uses correct pricing.
-    """
     cost = _calculate_cost(
         model = "gemini-2.5-flash",
         input_tokens = 1000,
@@ -86,9 +71,6 @@ def test_cost_calculation():
     assert cost == pytest.approx(0.0005, rel = 1e-3)
 
 def test_verification_prompt_built():
-    """
-    Verification prompt contains answer and context.
-    """
     builder = PromptBuilder()
     chunks = [make_chunk("c1", "The contract expires in 2025.")]
     prompt = builder.build_verification_prompt(
