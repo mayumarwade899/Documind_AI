@@ -98,22 +98,26 @@ class AnswerGenerator:
     
     def _step_retrieve(
         self,
-        rewritten: RewrittenQuery
+        rewritten: RewrittenQuery,
+        filter_document_id: Optional[str] = None
     ) -> List[RetrievedChunk]:
         
         """
         Run hybrid retrieval across all query variants.
         Uses multi-query retrieval if variants exist.
+        Optionally scoped to a specific document.
         """
         if len(rewritten.all_queries) > 1:
             return self.retriever.retrieve_multi_query(
                 queries = rewritten.all_queries,
-                top_k = settings.retrieval.vector_search_top_k
+                top_k = settings.retrieval.vector_search_top_k,
+                filter_document_id = filter_document_id
             )
         else:
             return self.retriever.retrieve(
                 query = rewritten.rewritten_query,
-                top_k = settings.retrieval.vector_search_top_k
+                top_k = settings.retrieval.vector_search_top_k,
+                filter_document_id = filter_document_id
             )
         
     def _step_rerank(
@@ -159,9 +163,11 @@ class AnswerGenerator:
         query: str,
         use_query_rewriting: bool = True,
         use_multi_query: bool = True,
+        filter_document_id: Optional[str] = None,
     ) -> RAGResponse:
         """
         Run the full RAG pipeline for a user question.
+        Optionally scoped to a specific document.
         """
         if not query.strip():
             raise ValueError("Query cannot be empty")
@@ -198,7 +204,7 @@ class AnswerGenerator:
         retrieval_start = time.time()
         
         try:
-            chunks = self._step_retrieve(rewritten)
+            chunks = self._step_retrieve(rewritten, filter_document_id)
         except Exception as e:
             logger.error("retrieval_step_failed", error=str(e))
             return self._error_response(

@@ -248,6 +248,35 @@ class VectorStore:
             )
             return False
         
+    def list_documents(self) -> list:
+        """
+        Return a list of all distinct ingested documents.
+        Each entry contains document_id, source_file, and chunk_count.
+        """
+        try:
+            all_data = self.collection.get(include=["metadatas"])
+            doc_map = {}
+
+            for meta in all_data["metadatas"]:
+                doc_id = meta.get("document_id", "")
+                if doc_id and doc_id not in doc_map:
+                    doc_map[doc_id] = {
+                        "document_id": doc_id,
+                        "source_file": meta.get("source_file", ""),
+                        "chunk_count": 0,
+                    }
+                if doc_id:
+                    doc_map[doc_id]["chunk_count"] += 1
+
+            documents = sorted(doc_map.values(), key=lambda d: d["source_file"])
+
+            logger.info("list_documents", total=len(documents))
+            return documents
+
+        except Exception as e:
+            logger.error("list_documents_failed", error=str(e))
+            return []
+
     def get_collection_stats(self) -> dict:
         """
         Return basic stats about the collection.

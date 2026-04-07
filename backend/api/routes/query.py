@@ -20,6 +20,7 @@ class QueryRequest(BaseModel):
     use_query_rewriting: bool = True
     use_multi_query: bool = True
     verify_answer: bool = True
+    document_id: Optional[str] = None
 
 class SourceItem(BaseModel):
     source_file: str
@@ -77,7 +78,8 @@ async def query(
         rag_response = generator.generate(
             query = request.query,
             use_query_rewriting = request.use_query_rewriting,
-            use_multi_query = request.use_multi_query
+            use_multi_query = request.use_multi_query,
+            filter_document_id = request.document_id
         )
     except Exception as e:
         logger.error("query_generation_failed", error = str(e))

@@ -135,3 +135,18 @@ async def ingest_status(
         "vector_store": stats,
         "bm25_index":   bm25
     }
+
+@router.get("/documents")
+async def get_ingested_documents(
+    pipeline: IngestionPipeline = Depends(get_ingestion_pipeline)
+):
+    """
+    Return a list of all ingested documents with their IDs.
+    Used by the frontend to populate the document selector.
+    """
+    try:
+        documents = pipeline.vector_store.list_documents()
+        return {"documents": documents}
+    except Exception as e:
+        logger.error("get_ingested_documents_failed", error=str(e))
+        raise HTTPException(status_code=500, detail=str(e))

@@ -100,10 +100,12 @@ class HybridRetriever:
             query: str,
             top_k: int = None,
             bm25_weight: float = 0.5,
-            vector_weight: float = 0.5
+            vector_weight: float = 0.5,
+            filter_document_id: Optional[str] = None
     ) -> List[RetrievedChunk]:
         """
         Run hybrid retrieval for a single query.
+        Optionally scoped to a specific document.
         """
         if not query.strip():
             logger.warning("hybrid_retriev_called_with_empty_query")
@@ -116,7 +118,8 @@ class HybridRetriever:
             "hybrid_retrieval_started",
             query_preview = query[:80],
             candidate_k = candidate_k,
-            final_top_k = k
+            final_top_k = k,
+            filter_document_id = filter_document_id or "all"
         )
 
         try:
@@ -129,7 +132,8 @@ class HybridRetriever:
         try:
             bm25_results = self.bm25_retriever.search(
                 query = query,
-                top_k = candidate_k
+                top_k = candidate_k,
+                filter_document_id = filter_document_id
             )
             logger.debug(
                 "bm25_results_fetched",
@@ -142,7 +146,8 @@ class HybridRetriever:
         try:
             vector_results = self.vector_store.search(
                 query_vector = query_vector,
-                top_k = candidate_k
+                top_k = candidate_k,
+                filter_document_id = filter_document_id
             )
             logger.debug(
                 "vector_results_fetched",
@@ -196,11 +201,12 @@ class HybridRetriever:
     def retrieve_multi_query(
         self,
         queries: List[str],
-        top_k: int = None
+        top_k: int = None,
+        filter_document_id: Optional[str] = None
     ) -> List[RetrievedChunk]:
         """
         Run hybrid retrieval across multiple query variants.
-        Used by the multi-query retrieval module.
+        Optionally scoped to a specific document.
         """
         if not queries:
             return []
@@ -209,14 +215,19 @@ class HybridRetriever:
 
         logger.info(
             "multi_query_retrieval_started",
-            num_queries = len(queries)
+            num_queries = len(queries),
+            filter_document_id = filter_document_id or "all"
         )
 
         all_results: Dict[str, RetrievedChunk] = {}
 
         for i, query in enumerate(queries):
             try:
-                results = self.retrieve(query = query, top_k = k)
+                results = self.retrieve(
+                    query = query,
+                    top_k = k,
+                    filter_document_id = filter_document_id
+                )
 
                 for chunk in results:
                     if chunk.chunk_id not in all_results:

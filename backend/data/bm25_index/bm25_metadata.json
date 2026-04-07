@@ -42,5 +42,1941 @@
       "parser": "pdfplumber",
       "file_type": "pdf"
     }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p1_c0",
+    "content": "Created by Goyashy (@explainx.ai)\nRETRIEVAL-AUGMENTED\nGENERATION",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 1,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p2_c0",
+    "content": "MODULE 1\nIntroduction to RAG and\nCreated by Goyashy (@explainx.ai)\nLLMs",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 2,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p3_c0",
+    "content": "WHAT IS RAG ? RAG, or Retrieval-Augmented Generation, is an approach that\ncombines large language models (LLMs) with external data\nsources. It enhances the model's responses by retrieving relevant\nCreated by Goyashy (@explainx.ai)\ninformation from a database or search system and using that\ndata to generate more accurate and contextually relevant\noutputs.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 3,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p4_c0",
+    "content": "Core Concepts\nExternal knowledge integration: Combining language\nmodels with external data sources for more informed\nresponses. Created by Goyashy (@explainx.ai)\nDynamic information retrieval: Automatically fetching\nrelevant data from databases or web sources during\ninteraction. Contextual response generation: Using retrieved data to\ncraft more accurate and context-aware answers.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 4,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p5_c0",
+    "content": "Principles\nGrounding LLM outputs in factual information:\nEnsuring that generated responses are based on reliable and\nup-to-date external data. Created by Goyashy (@explainx.ai)\nEnhancing model knowledge without retraining:\nUsing retrieval mechanisms to improve model performance\nwithout the need for extensive retraining on new datasets.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 5,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p6_c0",
+    "content": "Advantages of RAG over Traditional LLM\nAspect Traditional LLMs RAG\nInternal parameters are the weights and External + Parameters combines a model's\nbiases in a model that are adjusted internal parameters with information\nKnowledge source\nduring training to define its behavior retrieved from external sources to improve\nand outputs. responses. Created by Goyashy (@explainx.ai)\nEasy to update means a model can quickly\nRequires Retraining means a model needs to\nUpdatability\nincorporate new information without\nbe retrained to update or improve its\nrequiring retraining. knowledge. Can be inconsistent means the model's Generally more accurate means the\nFactual accuracy\noutputs might vary or lack reliability. model consistently provides correct and\nreliable responses. Black box refers to a system or model where the\nProvides sources means the model cites or\nBlack box internal workings are not visible or\nreferences the external information it uses, offering\nunderstandable, making it difficult to see how\ntransparency and traceability for its responses. decisions are made.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 6,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p7_c0",
+    "content": "Use 1 Enhanced Content Creation\nCases of\n2 Customer Feedback Analysis\nRAG\n3 Market Intelligence\nCreated by Goyashy (@explainx.ai)\n4 Personalized Recommendations\n5 Dialogue Systems and Chatbots",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 7,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p8_c0",
+    "content": "Architecture Of RAG\nFramework\nPost Processing\nResponse\nLLM\nUser\nPrompt\nCreated by Goyashy (@explainx.ai)\nQuestion\nSemantic\nSearch\nContextual\nData\nOrignal Content New Content\nVector Database",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 8,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p9_c0",
+    "content": "Large Language Models (LLMs) Overview\nDefinition and importance in NLP\nLLMs are AI models designed to understand and generate human-\nlike text, playing a critical role in natural language processing\nCreated by Goyashy (@explainx.ai)\n(NLP) by enabling machines to interpret, analyze, and generate\nhuman language.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 9,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p10_c0",
+    "content": "Key capabilities\nText generation: Understanding: Translation:\nCreating coherent Comprehending and Converting text\nand contextually summarizing large between languages\nCreated by Goyashy (@explainx.ai)\nrelevant text from text inputs. with high accuracy. prompts.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 10,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p11_c0",
+    "content": "Evolution of LLMs\nGPT (Generative Pre-trained\nTransformer)\nIntroduced: 2018 by OpenAI. Key Innovation: First large-scale transformer-based language\nCreated by Goyashy (@explainx.ai)\nmodel. Used unsupervised learning on vast text data, followed by\nfine-tuning. Impact: Highlighted the power of transformers for NLP and pre-\ntraining on large datasets.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 11,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p12_c0",
+    "content": "GPT-2\nIntroduced: 2019 by OpenAI. Key Innovation: Scaled up to 1.5 billion parameters, improving text\ngeneration and coherence. Created by Goyashy (@explainx.ai)\nImpact: Raised ethical concerns due to its ability to generate\nrealistic text.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 12,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p13_c0",
+    "content": "GPT-3\nIntroduced: 2020 by OpenAI. Key Innovation: Scaled up to 175 billion parameters, enabling\nCreated by Goyashy (@explainx.ai) few-shot learning. Impact: Widely adopted for various applications, from chatbots\nto creative writing tools.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 13,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p14_c0",
+    "content": "ChatGPT (and GPT-4)\nIntroduced: ChatGPT in late 2022, GPT-4 in 2023. Key Innovation: Enhanced contextual understanding for\nconversational AI, with GPT-4 adding multimodal capabilities (text\nCreated by Goyashy (@explainx.ai)\nand images). Impact: ChatGPT popularized conversational AI; GPT-4 set new\nstandards for multimodal interaction in human-computer\ncommunication.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 14,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p15_c0",
+    "content": "GPT-4o\nIntroduced: March 2023 by OpenAI. Key Innovation: GPT-4.0 scaled to trillions of parameters,\nimproving complex reasoning and contextual accuracy. Created by Goyashy (@explainx.ai)\nImpact: Sparked ethical debates on AI safety, bias, and misuse,\nleading to calls for stricter guidelines and transparency in AI\ndeployment.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 15,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p16_c0",
+    "content": "GPT-4o\nIntroduced: March 2023 by OpenAI. Key Innovation: GPT-4.0 scaled to trillions of parameters,\nimproving complex reasoning and contextual accuracy. Created by Goyashy (@explainx.ai)\nImpact: Sparked ethical debates on AI safety, bias, and misuse,\nleading to calls for stricter guidelines and transparency in AI\ndeployment.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 16,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p17_c0",
+    "content": "GPT-4o Mini\nIntroduced: March 2023 alongside GPT-4.0 by OpenAI. Key Innovation: GPT-4.0 Mini is a compact, resource-efficient\nversion of GPT-4.0, maintaining advanced features with\nCreated by Goyashy (@explainx.ai)\nreduced computational needs. Impact: Expanded advanced AI's reach, promoting use in\nchatbots and content creation, and ignited discussions on\ndemocratizing AI and the risks of widespread access to\npowerful generative models.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 17,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p18_c0",
+    "content": "BERT (Bidirectional Encoder\nRepresentations from Transformers)\nIntroduced: 2018 by Google. Key Innovation: Introduced bidirectional training, improving\nCreated by Goyashy (@explainx.ai)\ncontext understanding from both directions in a sentence. Impact: Became foundational for NLP tasks, setting new\nbenchmarks for accuracy and efficiency.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 18,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p19_c0",
+    "content": "T5 (Text-To-Text Transfer Transformer)\nIntroduced: 2019 by Google. Key Innovation: Framed all NLP tasks as text-to-text\nproblems, unifying tasks like translation, summarization, and\nCreated by Goyashy (@explainx.ai)\nquestion answering. Impact: Became popular for multi-task learning, showcasing\nthe effectiveness of a single model framework for diverse NLP\ntasks.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 19,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p20_c0",
+    "content": "Claude 3.5\nIntroduced: June 21, 2024 by Anthropic. Key Innovation: Advanced vision, 200K token context, \"Artifacts\"\nfeature, twice the speed of Claude 3 Opus. Created by Goyashy (@explainx.ai)\nImpact: Superior in coding, reasoning, and visual tasks; sparked\ndiscussions on responsible AI in customer support and\ncollaboration.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 20,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p21_c0",
+    "content": "Gemini 1.5\nIntroduced: February 2024 by Google. Key Innovation: Processes up to 1 million tokens with Mixture-of-\nExperts (MoE) architecture for improved efficiency. Created by Goyashy (@explainx.ai)\nImpact: Enhances performance across text, audio, video, and\nimages, enabling advanced applications like document\nsummarization and data analysis. Prompted discussions on\nethical implications in education and content creation.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 21,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p22_c0",
+    "content": "Gemini 1.5 Pro\nIntroduced: February 2024 as part of the Gemini 1.5 rollout. Key Innovation: Mid-size multimodal model with breakthroughs\nin long-context understanding, matching the performance of\nCreated by Goyashy (@explainx.ai)\nGemini 1.0 Ultra. Impact: Boosts capabilities for developers and enterprises in\ndata processing and content generation, raising questions\nabout responsible AI use across industries.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 22,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p23_c0",
+    "content": "Current State-of-the-Art\nTransformers and Beyond: Current models are exploring efficiency improvements,\nlike sparse transformers, and multimodal capabilities that integrate text, images, and\nother data types. Created by Goyashy (@explainx.ai)\nEthical and Responsible AI: There is increasing focus on making LLMs more ethical,\nfair, and interpretable, addressing concerns like bias and environmental impact. Real-World Applications: LLMs are now integral to various applications, from\npersonalized assistants and content creation to advanced research tools,\ncontinually pushing the limits of what AI can achieve.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 23,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p24_c0",
+    "content": "Types of LLMs\nOpen-source\nCreated by Goyashy (@explainx.ai)\nClosed -Source",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 24,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p25_c0",
+    "content": "Open-source model :- LLama 3.1 by Meta\nCreated by Goyashy (@explainx.ai)\nFeatures: Capabilities:\nUse cases:\nLarge-scale model High accuracy in\nNLP tasks, research,\nwith extensive understanding and\nand development. language capabilities. generating text.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 25,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p26_c0",
+    "content": "Open-source model :- Gemma by Google\nCreated by Goyashy (@explainx.ai)\nKey Characteristics: Advantages:\nAdvanced language Versatility across\nunderstanding and multiple languages\ngeneration. and tasks.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 26,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p27_c0",
+    "content": "Types of LLMs\nOpen-source\nCreated by Goyashy (@explainx.ai)\nClosed -Source",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 27,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p28_c0",
+    "content": "Types of LLMs\nClosed -Source LLMs\nDefinition: These models are owned by\ncompanies and are usually available through paid\nAPIs or services. The source code and underlying\nmodel architecture are typically not publicly\nCreated by Goyashy (@explainx.ai)\ndisclosed.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 28,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p29_c0",
+    "content": "Claude by Anthropic\nUnique Features: Designed with a focus on safety\nand ethical use, Claude emphasizes user control and\nminimizing harmful outputs. It incorporates\nguardrails to align with human values. Created by Goyashy (@explainx.ai)\nEthical Considerations: Built with strong AI safety\nprinciples, aiming to reduce risks associated with\nlarge-scale language models and promote\nresponsible AI behavior.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 29,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p30_c0",
+    "content": "Closed -Source GPT-4.0 mini Model by OpenAI\nCapabilities\nEfficient Reasoning:\nExcels in complex reasoning tasks and\ncoding challenges, making it suitable for\nnuanced applications\nCreaRteda bpy Giodya sPhyr (@oetxpolatinxy.api) ing:\nIdeal for quickly developing and testing AI-\npowered applications, thanks to its lower\ncomputational demands\nSeamless Integration:\nEasily integrates with Azure services,\nmaking it versatile for various enterprise-\nlevel and small business applications",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 30,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p31_c0",
+    "content": "Closed -Source GPT-4.0 mini Model By OpenAI\nUse Cases\nCreated by Goyashy (@explainx.ai)\nContent Creation: Customer Support: Educational Tools:\nGenerates high- Enhances chatbots Facilitates language\nquality written and virtual assistants learning and\ncontent, including for accurate and academic assistance\narticles, reports, and engaging applications. creative writing. interactions.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 31,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p32_c0",
+    "content": "Closed -Source GPT-4 Model By OpenAI\nCapabilities\nCreated by Goyashy (@explainx.ai)\nEnhanced Multimodal Abilities: Complex Task Handling:\nUnderstanding: Incorporates Excels at complex tasks\nImproves on GPT-3.5 multimodal capabilities, requiring nuanced\nwith deeper contextual allowing it to understanding and\nunderstanding and more understand and generation, including\naccurate responses, generate both text and sophisticated dialogue\nleveraging a larger model images, broadening its and detailed analysis. size and advanced application scope. training techniques.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 32,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p33_c0",
+    "content": "Closed -Source GPT-4 Model By OpenAI\nUse Cases\nReal-Time Translation: Enables live language\ntranslation for travel apps, international\ncommunication, and multilingual support. Created by Goyashy (@explainx.ai)\nOn-Device AI: Ideal for personal assistants,\noffline translation, and privacy-sensitive tasks\non smartphones and low-power devices. Educational Tools: Powers AI-driven tutoring,\nlanguage learning, and coding platforms,\nproviding personalized learning experiences.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 33,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p34_c0",
+    "content": "Comparison Of Open-Source And Closed -Source Models\nAspect Open-Source Models Closed -Source Models\nFree and accessible to everyone, User-friendly with support, but access\nAccessibility\nbut requires technical expertise. is restricted and requires payment. Limited customization\nCreated by Goyashy (@explainx.ai) Highly customizable with full code\nCustomizability\nthrough APIs, less flexibility. access, but needs technical skills. High performance with community Generally high performance with\nPerformance contributions; varies by provider optimizations; limited to\nimplementation. provider's infrastructure. Subscription or usage fees; includes\nFree software but incurs costs for\nCost\nsupport and maintenance. infrastructure and maintenance.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 34,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p35_c0",
+    "content": "The Role of RAG In Enhancing LLM Capabilities\nImproving factual\nconsistency\nCreated by Goyashy (@explainx.ai)\nEnhancing\ndomain-specific\nknowledge\nReducing\nhallucinations",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 35,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p36_c0",
+    "content": "Improving Factual Consistency\nExamples of LLM Outputs\nWithout RAG: An LLM might produce incorrect\nresponses, like “The capital of Australia is Sydney,”\nrelying only on its internal (and possibly outdated)\nCreated by Goyashy (@explainx.ai)\nknowledge. With RAG: The LLM retrieves up-to-date information\nfrom trusted sources, generating accurate\nresponses like, “The capital of Australia is Canberra.”",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 36,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p37_c0",
+    "content": "Improving Factual Consistency\nHow RAG grounds responses in\nretrieved information\nRAG enhances LLMs by integrating external information\nretrieval for more accurate responses. Created by Goyashy (@explainx.ai)\nSteps:\n1.Query Generation: The model creates a query from\nthe input. 2.Information Retrieval: Relevant data is fetched from\nexternal sources. 3.Response Generation: The LLM uses this data to\ngenerate a fact-based response.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 37,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p38_c0",
+    "content": "Reducing Hallucinations\nDefinition of Hallucination in LLM\nContext\nIn the context of LLMs, a hallucination refers to\nthe generation of incorrect or fabricated\nCreated by Goyashy (@explainx.ai)\ninformation that the model produces, which is not\nbased on actual facts or reliable sources.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 38,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p39_c0",
+    "content": "Reducing Hallucinations\nTechniques RAG Uses to Mitigate False Information\nContextual Validation: Cross-checks data\nfrom multiple sources to improve accuracy\nand consistency. Dynamic Querying: Generates context-\nCreated by Goyashy (@explainx.ai)\nspecific queries to retrieve precise,\nrelevant information. Information Retrieval: Fetches relevant data\nfrom external sources, reducing false\ninformation by grounding responses in\nfactual content. Post-Processing Checks: Applies checks\nafter response generation to correct\ninaccuracies before delivery.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 39,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p40_c0",
+    "content": "Enhancing Domain-Specific Knowledge\nAdapting General LLMs to Specialized Fields\nFine-Tuning: Adapts the LLM to specialized knowledge by\ntraining it on domain-specific datasets (e.g., medical texts\nfor healthcare queries). Created by Goyashy (@explainx.ai)\nPrompt Engineering: Crafts detailed prompts to guide the\nLLM in generating accurate, field-specific responses (e.g.,\nlegal or technical advice). Domain-Specific Retrieval: Integrates specialized\nknowledge bases (e.g., legal databases) for precise,\nrelevant information retrieval.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 40,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p41_c0",
+    "content": "Enhancing Domain-Specific Knowledge\nCase Studies of RAG in Various Industries\nHealthcare: Retrieves Finance: Pulls data Legal: Accesses Customer Support:\nCreated by Goyashy (@explainx.ai)\nthe latest medical from market reports current case law Uses a company’s\nresearch to provide for informed and precedents, knowledge base to\naccurate treatment investment advice, improving legal deliver accurate\noptions and drug enhancing accuracy research and answers, improving\ninteraction advice, in financial document drafting. customer support\nimproving clinical forecasting. interactions. decision-making.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 41,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p42_c0",
+    "content": "Demo\nCreated by Goyashy (@explainx.ai)\nRunning a Basic Open-Source LLM Locally",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 42,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p43_c0",
+    "content": "MODULE 2\nVector Databases And\nCreated by Goyashy (@explainx.ai)\nEmbeddings",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 43,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p44_c0",
+    "content": "Understanding Vector Databases\nDefinition: A vector database stores and queries\nvector embeddings, numerical representations of\nCreated by Goyashy (@explainx.ai) data like text, images, or audio. Generated by\nmachine learning models, these embeddings capture\nsemantic meaning and enable efficient similarity\nsearch.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 44,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p45_c0",
+    "content": "Key Concepts\nVector Embeddings: Numerical representations (multi-dimensional\nvectors) that encode semantic properties of objects. Generated by\nmodels like BERT, GPT, or CNNs, they represent data in a compact,\nmachine-readable form. Similarity Search: Finds vectors close to the query using metrics like:\nCosine Similarity: Measures the angle between vectors. Created by Goyashy (@explainx.ai)\nEuclidean Distance: Measures straight-line distance. Dot Product: Measures similarity based on vector multiplication. Use Cases:\nRecommendation Systems: Retrieve similar products, media, or content. Search Augmentation: Retrieve semantically relevant results even\nwithout keyword matches. NLP: Embed queries and documents to find relevant text.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 45,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p46_c0",
+    "content": "Core Components of Vector Databases\nStorage: Designed to store large numbers of\nhigh-dimensional embeddings, sometimes\nwith thousands of dimensions. Querying: Focused on similarity-based\nsearch, finding vectors closest to the\nCreaqtedu bey Groyya sfhoy (@r erxpelalinex.vai)ant results. Indexing: Uses techniques like Approximate\nNearest Neighbor (ANN) algorithms (e.g.,\nFAISS, HNSW) and partitioning to enable fast\nsearches and reduce computational cost. Scalability: Optimized to handle massive\ndatasets, scaling to millions or billions of\nvectors.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 46,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p47_c0",
+    "content": "Role In RAG Systems\nEfficient Storage of Document Embeddings\nStorage: RAG systems generate embeddings for documents, which are stored in\nvector databases. These embeddings capture the semantic content of the documents\nCreated by Goyashy (@explainx.ai)\nin a format that can be efficiently managed, even with large volumes of data. Scalability: Vector databases are designed to handle extensive datasets, making\nthem ideal for RAG systems that require storing embeddings for entire knowledge\nbases or document collections.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 47,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p48_c0",
+    "content": "Role In RAG Systems\nFast Similarity Search for Relevant Information Retrieval\nSimilarity Search: When a query is received, the RAG system generates a\nquery embedding. The vector database performs a fast similarity search,\ncomparing this embedding against the stored document embeddings. Created by Goyashy (@explainx.ai)\nNearest Neighbor Search: The database identifies the most\nsemantically similar documents or passages to the query, enabling\nthe retrieval of the most relevant information. Real-Time Performance: The speed and efficiency of vector databases ensure\nthat relevant documents can be retrieved quickly, supporting real-time\napplications like chatbots, search engines, and recommendation systems.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 48,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p49_c0",
+    "content": "Types Of Vector Databases\nFAISS (Facebook AI Similarity Search):\nAn open-source library developed by\nFacebook AI that supports efficient\nsimilarity search and clustering of\nPinecone:\ndense vectors. Created by Goyashy (@explainx.ai)\nA fully managed vector database service\ndesigned for fast similarity search,\nincluding support for real-time use cases. Weaviate:\nAn open-source vector search engine\nthat combines vector embeddings\nMilvus:\nwith traditional search techniques. A cloud-native, open-source vector database\noptimized for large-scale embedding data and\nmachine learning workloads.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 49,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p50_c0",
+    "content": "Use Cases Beyond RAG\nRecommendation Systems: Vector embeddings help\nmatch user preferences with similar products, media, or\ncontent, enhancing personalization. Image Search: Embeddings of images allow finding\nCreated by Goyashy (@explainx.ai) visually similar images based on content rather than\nkeywords. Anomaly Detection: Detects outliers by identifying vectors\nthat deviate from the norm in financial transactions,\nmanufacturing, or cybersecurity systems.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 50,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p51_c0",
+    "content": "Introduction to Embeddings\nDefinition:Embeddings are dense vector\nrepresentations of data (e.g., text, images, audio) that\nCreated by Goyashy (@explainx.ai) capture semantic meaning. Generated by machine\nlearning models, they position similar data points\ncloser in vector space. This enables tasks like\nsimilarity search and classification.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 51,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p52_c0",
+    "content": "How Embeddings Work\nVisualization: Word and sentence embeddings can be\nvisualized in a lower-dimensional space (e.g., 2D or 3D)\nusing techniques like PCA or t-SNE, showing how related\nconcepts cluster together based on meaning. Created by Goyashy (@explainx.ai)\nCapturing Semantic Meaning: Embeddings transform\ndata into high-dimensional vectors, where similar data\npoints (e.g., words, sentences) are positioned closer\ntogether, reflecting their semantic similarity.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 52,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p53_c0",
+    "content": "Different Embedding Models\nWord2Vec: Generates embeddings by predicting\nwords in a context or using words to predict their\nsurrounding words. Produces fixed-size vectors\nbased on co-occurrence in a corpus. Created by Goyashy (@explainx.ai)\nGloVe: Creates embeddings by factorizing the\nword co-occurrence matrix of a corpus,\ncapturing global statistical information about\nword pairs. BERT-Based Embeddings: Provides context-aware\nembeddings by considering the entire sentence or\npassage, allowing for nuanced understanding of\nword meanings in different contexts.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 53,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p54_c0",
+    "content": "GPT Embeddings\nDescription: GPT models generate embeddings using a transformer\narchitecture trained on diverse texts, capturing rich contextual information. Advantages: Use Cases:\nContextual Understanding: Conversational AI: Enhances\nCreated by Goyashy (@explainx.ai)\nCaptures nuanced meanings chatbot responses and\nand context. dialogue systems. Versatility: Handles text Content Generation: Creates\ngeneration, summarization, and coherent and contextually\ntranslation. relevant text. Pre-trained Knowledge: Semantic Search: Improves\nApplies extensive pre-training search engines by matching\nto various domains. queries with relevant content.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 54,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p55_c0",
+    "content": "Indexing And Similarity Search\nIntroduction To Indexing and similarity\nIndexing structures embeddings for fast access,\nwhile similarity search uses metrics like cosine\nsimilarity to find the closest matches. These\nCreated by Goyashy (@explainx.ai)\nprocesses enable efficient and accurate data\nretrieval in AI applications.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 55,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p56_c0",
+    "content": "Techniques For Efficient Retrieval\nFAISS (Facebook AI Similarity Search)\nIVF (Inverted File Index): Partitions vector space into\nclusters, searching only within relevant ones. Created by Goyashy (@explainx.ai)\nAdvantage: Balances speed and accuracy, ideal for\nlarge datasets. HNSW (Hierarchical Navigable Small World):\nUses a multi-layered graph for efficient data\nsearch. Advantage: High accuracy and fast searches,\nespecially in high-dimensional spaces.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 56,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p57_c0",
+    "content": "Techniques For Efficient Retrieval\nAnnoy (Approximate Nearest Neighbors Oh Yeah)\nDescription: A tree-based indexing method that\nCreated by Goyashy (@explainx.ai)\nuses random projections to build multiple trees,\nproviding a fast and memory-efficient way to find\napproximate nearest neighbors. Advantage: Optimized for scenarios where retrieval\nspeed is crucial, even at the cost of some accuracy.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 57,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p58_c0",
+    "content": "Speed vs. Accuracy Trade-offs\nSpeed:\nAccuracy:\nAnnoy: Prioritizes speed, making it\nHNSW: Known for high accuracy,\nideal for real-time applications where\nmaking it suitable for tasks where\nrapid responses are needed, though it\nprecision is critical. may sacrifice some accuracy. Created by Goyashy (@explainx.ai)\nIVF: Provides a balanced approach\nwith decent accuracy and speed, IVF: Balances speed with reasonable\nsuitable for a wide range of accuracy, making it a versatile choice\napplications. for large-scale searches. Annoy: Focuses more on speed, HNSW: Offers a fast search with high\nwhich can lead to less accurate accuracy, though it can be more\nresults in some cases. computationally intensive to build the\nindex.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 58,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p59_c0",
+    "content": "Similarity Metrics\nCosine Similarity:\nDescription: Measures the angle between vectors, focusing on direction. When to Use: Text analysis and high-dimensional spaces where direction is\nkey. Created by Goyashy (@explainx.ai)\nEuclidean Distance:\nDescription: Calculates the straight-line distance between points, considering\nboth direction and magnitude. When to Use: Clustering and classification in low-dimensional spaces. Dot Product:\nDescription: Computes the product of vector magnitudes and the cosine of the\nangle. When to Use: Large-scale searches and recommendation systems with normalized\nvectors.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 59,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p60_c0",
+    "content": "Demo\nCreated by Goyashy (@explainx.ai)\nSetting up a Simple Vector Database",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 60,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p61_c0",
+    "content": "MODULE 3\nBuilding a Basic RAG Pipeline\nCreated by Goyashy (@explainx.ai)",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 61,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p62_c0",
+    "content": "Building a Basic RAG Pipeline\nOverview of the RAG Architecture\nDocument Corpus: The collection of\ndocuments or knowledge base from which\ninformation will be retrieved. Language Model: The generative AI model\nthat produces responses. Created by Goyashy (@explainx.ai)\nEmbedding Model: Used to convert text into\nvector representations. Prompt Template: Structures how retrieved\ninformation and the query are presented to\nthe language model. Vector Database: Stores and indexes the\nembedded documents for efficient similarity\nsearch. Orchestrator: Coordinates the flow of\ninformation between components. Retriever: Responsible for finding relevant\ndocuments based on the input query.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 62,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p63_c0",
+    "content": "Document Loaders And Text Splitting\nTypes of Document Loaders\nPDF Loaders:\nHTML Loaders: CSV Loaders: JSON Loaders:\nFunction: Extracts\nFunction: Parses Function: Reads Function: Parses\nCreated by Gotyaeshxy t(@ aexnpladinx .dai)ata from\nand extracts and processes and loads JSON\nPDFs. content from CSV data. data. Use Cases:\nHTML. Use Cases: Use Cases: APIs,\nResearch papers,\nUse Cases: Blog Datasets, configuration\nreports, legal\nposts, articles, web spreadsheets, files, data\ndocuments. content. tabular data. exchanges. Tools: PyMuPDF,\nTools: Tools: Pandas, Tools: Python’s\nPDFMiner,\nBeautifulSoup, lxml, Python’s CSV json module,\npdfplumber. html.parser. module. JSON libraries.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 63,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p64_c0",
+    "content": "Text Splitting Techniques\nBy Character Count: Divides text based on a fixed\nnumber of characters. Use Case: Useful for processing text in chunks of\nmanageable size. By Paragraph: Divides text at paragraph\nCreated by Goyashy (@explainx.ai)\nbreaks. Use Case: Maintains natural context for\nmore coherent processing. By Sentence: Splits text at sentence boundaries. Use Case: Ideal for tasks needing coherent sentence-\nlevel context. Importance of Maintaining Context:\nEnsures that splits do not disrupt the\nmeaning or flow of the text, preserving\ncoherence and relevance in analysis or\ngeneration tasks.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 64,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p65_c0",
+    "content": "Embedding Generation And Vector Storage\nChoosing an Embedding Model\nSpeed-Oriented Models: Accuracy-Oriented Balanced Models:\nExamples: Word2Vec, Models: Examples: DistilBERT,\nCreated by Goyashy (@explainx.ai)\nFastText. Examples: BERT, GPT. MiniLM. Advantages: Fast training Advantages: High Advantages: Good\nand inference; suited for accuracy and balance of speed and\nreal-time and large-scale contextual accuracy. data. understanding. Trade-Offs: Not as fast as\nTrade-Offs: Lower Trade-Offs: Slower and speed-oriented models or\naccuracy and contextual costlier inference. as accurate as full-scale\nunderstanding. transformers.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 65,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p66_c0",
+    "content": "Embedding Generation And Vector Storage\nIntegrating with vector databases\nFlat Indexing (Brute Force Search):\nDescription: Compares query embeddings with\nall stored embeddings. Advantages: Exact nearest neighbors, simple\nCreated by Goyashy (@explainx.ai)\nimplementation. Indexing\nStrategies for\nLarge Document\nCollections\nApproximate Nearest Neighbor (ANN) Indexing:\nExamples: FAISS, Annoy, HNSW. Description: Uses algorithms for faster, approximate\nsearches. Advantages: Fast search, scalable to millions of vectors.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 66,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p67_c0",
+    "content": "Query Processing and Augmentation\nQuery Understanding and Reformulation\nDescription Techniques\nCreated by Goyashy (@explainx.ai)\nAnalyzes and refines Includes parsing\nuser queries to better queries for intent,\nalign with relevant correcting typos, and\ndata. enhancing clarity",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 67,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p68_c0",
+    "content": "Query Processing and Augmentation\nTechniques for Expanding Queries\nSynonym Contextual Feedback\nExpansion Expansion Incorporation\nCreated by Goyashy (@explainx.ai)\nAdds related terms or Uses context to Adjusts queries based\nsynonyms to broaden include relevant on user interactions\nsearch scope. terms or concepts. and previous search\nresults to improve\nretrieval accuracy.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 68,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p69_c0",
+    "content": "LLM Integration For Generation\nPrompt Engineering for Effective Use of Retrieved Context\nMethod: Approach: Benefit:\nCreated by Goyashy (@explainx.ai)\nCraft prompts to Frame the Enhances response\nincorporate retrieved retrieved data to quality by using\ninformation for align with the LLM’s relevant, up-to-date\naccurate LLM language strengths. information, e.g.,\nresponses. referencing specific\nproduct details for\nfocused output.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 69,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p70_c0",
+    "content": "LLM Integration For Generation\nBalancing Retrieved Information with LLM Knowledge\nMethod: Combine Approach: Balance Benefit: Avoids over-\nCreated by Goyashy (@explainx.ai)\nretrieved data with retrieved data and reliance on either\nLLM’s internal LLM knowledge to source, producing\nknowledge for ensure coherence and accurate, contextually\ncontextually rich and alignment. appropriate responses\naccurate responses. and reducing the risk of\nhallucination or\nirrelevance.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 70,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p71_c0",
+    "content": "LangChain Framework\nIntroduction to LangChain\nLangChain is a framework for integrating large\nlanguage models with external data sources,\nfacilitating retrieval-augmented generation (RAG). Created by Goyashy (@explainx.ai)\nIt offers modular design, pre-built components,\nand flexible integration, simplifying the\ndevelopment and deployment of context-aware\nAI applications.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 71,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p72_c0",
+    "content": "LangChain Framework\nKey Features\nIntegration Capabilities:\nIt supports seamless integration with\nvarious data sources (APIs, databases,\nModular Design:\ndocument stores) and machine learning\nLangChain offers a modular approach,\nmodels. allowing developers to mix and match\nCreated by Goyashy (@explainx.ai)\ncomponents like document loaders,\nembedding models, and vector databases. Customization:\nProvides flexible customization options for\nquery processing, retrieval methods, and\nEase of Use:\nresponse generation. Comes with built-in utilities and pre-\nconfigured setups to quickly get started with\nRAG applications.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 72,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p73_c0",
+    "content": "LangChain Framework\nHow LangChain Simplifies RAG Implementation\nStreamlined Workflow: LangChain simplifies RAG by unifying embedding, retrieval, and LLM\nintegration in one framework. Created by Goyashy (@explainx.ai)\nPre-Built Components: Includes ready-to-use tools for document ingestion, vector storage,\nand query processing. Flexibility and Scalability: Modular design supports scaling with advanced indexing and\nlarge-scale vector databases. Community and Support: Active community and extensive documentation aid in adoption and\ncustomization.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 73,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p74_c0",
+    "content": "LangChain Framework\nLangChain Components\nChains: Sequences of tasks executed in order to manage data flow and\nprocessing in complex workflows. Created by Goyashy (@explainx.ai)\nAgents: Entities that interact with external systems to perform tasks or\nretrieve information based on user input. Memory: Stores and retrieves contextual information to maintain\ncontinuity and relevance in interactions. Prompts: Templates that guide the LLM to produce specific, accurate\noutputs by framing input data effectively.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 74,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p75_c0",
+    "content": "LangChain Framework\nLangChain Expression Language (LCEL)\nSyntax and Basic Usage\nSyntax:\nLCEL uses a simple, expressive syntax to define data transformations and interactions within LangChain. It often involves\nspecifying variables, functions, and operations to handle data flow and processing. Example:\nCreated by Goyashy (@explainx.ai)\nThis example shows a transformation operation where input data is filtered for \"keyword\" and then processed by function. Basic Usage:\nDefine Operations: Use LCEL to specify how data should be manipulated or processed at various stages of the RAG pipeline. Combine Components: Integrate different LangChain components (like Chains or Agents) using LCEL to create complex\nworkflows. Parameterize: LCEL allows for parameterized expressions, making it easier to adapt and reuse expressions across different\ncontexts.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 75,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p76_c0",
+    "content": "LangChain Framework\nBenefits of Using LCEL in RAG Pipelines\nEnhanced Flexibility:\nLCEL provides a flexible way to define and adjust data processing and\ntransformations, allowing for easy customization of RAG pipelines. Improved Clarity:\nCreated by Goyashy (@explainx.ai) Its expressive syntax helps clearly specify the sequence of operations and\ninteractions, improving the readability and maintainability of the pipeline code. Streamlined Integration:\nLCEL facilitates the integration of various components and data sources,\nmaking it simpler to build and manage complex RAG systems. Efficient Development:\nReduces boilerplate code and simplifies the implementation of common\npatterns, accelerating the development process and reducing errors.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 76,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p77_c0",
+    "content": "Demo\nCreated by Goyashy (@explainx.ai)\nImplementing a Simple RAG Pipeline",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 77,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p78_c0",
+    "content": "MODULE 4\nCreated by Goyashy (@explainx.ai)\nAdvanced RAG Techniques",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 78,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p79_c0",
+    "content": "Advanced RAG Techniques\nIntroduction To Advanced RAG\nTechniques\nAdvanced RAG Techniques are sophisticated\nstrategies that enhance the performance and\naccuracy of Retrieval-Augmented Generation\nCreated by Goyashy (@explainx.ai)\nsystems. These techniques refine the integration\nof information retrieval and generative models,\nenabling more accurate and contextually relevant\nresponses. They involve leveraging complex\nmethods to improve the system's capabilities and\nadaptability in diverse applications.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 79,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p80_c0",
+    "content": "Key Components Of Advanced RAG Techniques\nCross-Modal Retrieval: Retrieves\nMulti-Vector Retrieval: Uses across different data types using\nmultiple vectors for detailed unified embeddings for versatility. query representation,\nimproving precision. Contextual Reranking: Refines\nresult rankings based on\nKnowledge-Enhanced\nCreated by Goyashy (@explainx.ai) additional context, such as user\nRetrieval: Integrates external\ninteractions. knowledge bases for richer\nActive Learning for Retrieval:\ncontext and relevance. Uses user feedback to continually\nimprove retrieval relevance. Hybrid Retrieval: Combines\nkeyword and vector-based\nsearches for balanced retrieval\nHierarchical Retrieval: Structures\neffectiveness. the retrieval process in layers for\nimproved efficiency and specificity.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 80,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p81_c0",
+    "content": "Text Splitting And Chunking Strategies\nImportance of Effective Text Splitting\nImpact on Retrieval\nContext Preservation:\nCreated by Goyashy (@explainx.ai)\nAccuracy:\nProper splitting preserves\nEffective text splitting ensures\nthe integrity of ideas,\nkey details are retrieved\nensuring retrieved chunks\nwithout losing important\nremain coherent and\ncontext. Poor splitting can\nmeaningful. result in incomplete or\nirrelevant results.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 81,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p82_c0",
+    "content": "Text Splitting And Chunking Strategies\nBalancing Chunk Size with Semantic Coherence\nChunk Size:\nSmaller chunks boost retrieval speed but risk losing\nCreated by Goyashy (@explainx.ai)\ncontext; larger chunks maintain coherence but may\ninclude irrelevant info. Semantic Coherence:\nBalance chunk size to keep meaning intact while\nensuring relevance, enhancing retrieval and\nresponse quality.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 82,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p83_c0",
+    "content": "Different Splitting Techniques\nToken-Based Splitting: Semantic Splitting: Paragraph Splitting: Sentence Splitting:\nSplits text by token Divides text by Splits at paragraph Divides text by\ncount, suitable for meaning using boundaries to keep sentence markers. Created bfy iGtotyianshgy ( @wexiptlahinixn.a i)model embeddings. related ideas Use Case:\nlimits. Use Case: Tasks intact. Summarization or\nUse Case: Long texts needing deep context Use Case: translation. for LLMs. understanding. Document retrieval Advantage:\nAdvantage: Precise Advantage: Produces or topic modeling. Ensures logical\ncontrol over chunk meaningful, Advantage: Retains flow and coherent\nsize. contextually relevant thematic analysis. chunks. coherence.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 83,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p84_c0",
+    "content": "Query Transformation And Expansion\nTechniques for Improving Retrieval Accuracy\nSynonym Expansion:\nDescription: Expands queries with synonyms or related words using tools like WordNet or\nembeddings. Advantage: Increases chances of retrieving relevant results by capturing phrasing variations. Created by Goyashy (@explainx.ai)\nConcept Expansion:\nDescription: Adds related terms or entities to broaden the query scope. Advantage: Enhances comprehensiveness by retrieving documents on related concepts. Query Reformulation:\nDescription: Rephrases queries for better alignment with target content. Advantage: Improves precision by matching query language with document phrasing.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 84,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p85_c0",
+    "content": "Hypothesis Generation: HyDE Technique\nExplanation of Hypothetical Document Embeddings (HyDE)\nCreated by Goyashy (@explainx.ai)\nDescription: Generates synthetic document\nembeddings to explore potential retrieval scenarios for\nhypothetical or unseen documents. Purpose: Improves retrieval by considering conceptually\nrelevant documents that aren't present in the database.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 85,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p86_c0",
+    "content": "Hypothesis Generation: HyDE Technique\nImplementing HyDE with LangChain\nLangChain Overview:\nA framework for building applications that integrate language models for\nvarious tasks. Created by Goyashy (@explainx.ai)\nImplementation Steps:\n1.Define Scenarios: Identify where hypothetical embeddings are needed. 2.Generate Embeddings: Use LangChain to create these embeddings\nbased on context. 3.Integrate: Incorporate embeddings into the retrieval system for better\nsearch results. Advantage: HyDE with LangChain expands retrieval by exploring more\npossibilities.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 86,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p87_c0",
+    "content": "Demo\nCreated by Goyashy (@explainx.ai)\nComparing retrieval results with\nand without query expansion",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 87,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p88_c0",
+    "content": "Reranking And Filtering Retrieved Documents\nReranking: Filtering:\nReordering search results based on Refining results by excluding\nadditional criteria to improve irrelevant or low-quality\nrelevance. documents. Contextual Reranking: Adjusts Content-Based Filtering: Filters\nCreated by Goyashy (@explainx.ai)\nbased on user context or query by content relevance. history. Metadata Filtering: Uses\nModel-Based Reranking: Uses attributes like date or author. ML models to predict and User-Preference Filtering:\nreorder results by relevance. Tailors results to individual\nFeedback-Based Reranking: preferences. Adapts rankings using user\nfeedback.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 88,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p89_c0",
+    "content": "Using Cross-Encoders For Reranking\nExplanation of Cross-Encoders vs. Bi-Encoders\nBi-Encoders\nCross-Encoders\nCreated by Goyashy (@explainx.ai)\nBi-Encoders:\nCross-Encoders:\nEncode query and document\nJointly encode query and\nseparately, comparing them with\ndocument to assess relevance. a similarity metric. Advantages:\nAdvantages:\nHigher accuracy by\nMore efficient with\ncapturing interactions. precomputed embeddings. Better contextual\nScalable for large retrieval\nunderstanding of\nsystems. relevance.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 89,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p90_c0",
+    "content": "Popular Models: SentenceTransformers, MonoT5\nSentenceTransformers: MonoT5: Benefits:\nDescription: Uses bi- Description: Employs Cross-Encoders:\nCreated by Goyashy (@explainx.ai)\nencoders for cross-encoder for Enhanced interaction\ngenerating high-quality text generation and understanding for\nsentence embeddings, relevance precise reranking. improving similarity assessment. Bi-Encoders: Efficient\ntasks. Use Case: Detailed and scalable, ideal for\nUse Case: Fast text pair ranking and large-scale systems. semantic similarity and fine-grained\nembedding tasks. reranking.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 90,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p91_c0",
+    "content": "LLM-Based Document Filtering\nImplementing a Relevance\nUsing LLMs for Document\nScoring System:\nRelevance\nInput Processing: Feed query\nDescription: LLMs assess\nand document pairs to the LLM. document relevance by\nRelevance Assessment: LLM\nunderstanding content in\nCreated by Goyashy (@explainx.ai)\nassigns scores based on query-\nrelation to a query, capturing\ndocument match. nuanced meanings and\nThreshold Filtering: Retain\ncontext. documents meeting the\nUse Case: Effective for precise\nrelevance threshold. relevance needs, such as legal\nContinuous Learning: Refine\nor research document\nscoring with user feedback and\nanalysis. new data.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 91,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p92_c0",
+    "content": "Demo\nCreated by Goyashy (@explainx.ai)\nImplementing a reranking pipeline\nComparing results before and after reranking",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 92,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p93_c0",
+    "content": "Advanced RAG Architectures\nOverview\nAdvanced Retrieval-Augmented Generation (RAG)\narchitectures enhance traditional RAG systems\nwith sophisticated components and methods. Created by Goyashy (@explainx.ai)\nThey aim to boost accuracy, efficiency, and\nscalability, making them ideal for complex tasks\nand large-scale applications.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 93,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p94_c0",
+    "content": "Multi-Step Retrieval\nCoarse-to-Fine Retrieval Strategies\nDescription: A hierarchical approach where an initial broad search (coarse) is followed by refined\nsearches (fine) to handle large datasets efficiently. Steps:\nCreated by Goyashy (@explainx.ai)\nCoarse Retrieval: Quickly retrieves a broad set of documents using methods like keyword\nmatching or ANN search. Fine Retrieval: Refines this set using advanced techniques like vector search or cross-\nencoders for improved precision. Advantages:\nScalability: Efficiently manages large data volumes by filtering out less relevant documents\nearly. Accuracy: Enhances relevance with detailed analysis in later stages.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 94,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p95_c0",
+    "content": "Multi-Step Retrieval\nImplementing Multi-Step Retrieval with LangChain\nLangChain Overview: A framework for chaining language tasks, suited for multi-step retrieval. Created by Goyashy (@explainx.ai)\nImplementation Steps:\nCoarse Retrieval: Set up basic search; retrieve broad document set. Fine Retrieval: Refine with advanced models; integrate coarse and fine steps. Final Output: Optimize and deliver refined documents. Advantages:\nModularity: Easy to adjust steps. Efficiency: Balances speed and accuracy. Customization: Flexible integration of models/tools.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 95,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p96_c0",
+    "content": "Hybrid Search\nOverview: Hybrid search combines dense and sparse retrieval methods to leverage the\nstrengths of both approaches, enhancing the accuracy and relevance of search results. Combining Dense and Sparse Retrieval: . BM25 + Embedding Hybrid\nSparse Retrieval (e.g., BM25): Approach:\nDescription: Uses term-frequency Initial Retrieval: Use BM25\nCreated by Goyashy (@explainx.ai)\nmethods for exact keyword matches. for broad keyword-based\nStrength: High precision with exact search. terms. Dense Filtering: Refine\nwith embeddings for\nDense Retrieval (e.g., Embeddings): semantic relevance. Description: Uses vector-based Final Ranking: Combine\nmethods for semantic similarity. BM25 and embedding\nStrength: Finds similar content based scores for a ranked list. on meaning.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 96,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p97_c0",
+    "content": "Demo\nCreated by Goyashy (@explainx.ai)\nBuilding an advanced RAG system with\nmulti-step retrieval",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 97,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p98_c0",
+    "content": "MODULE 5\nScaling and Deploying\nCreated by Goyashy (@explainx.ai)\nRAG Systems",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 98,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p99_c0",
+    "content": "Metrics for Evaluating RAG Performance\nPrecision\nDefinition: Precision measures the proportion of relevant\ndocuments retrieved out of all the retrieved documents. Created by Goyashy (@explainx.ai)\nFormula -",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 99,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p100_c0",
+    "content": "Metrics for Evaluating RAG Performance\nRecall\nDefinition: Recall measures the proportion of relevant\ndocuments that were retrieved out of all the relevant\ndocuments available. Created by Goyashy (@explainx.ai)\nFormula -",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 100,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p101_c0",
+    "content": "Metrics for Evaluating RAG Performance\nF1-Score\nDefinition: The F1-Score is the harmonic mean of Precision and\nRecall, providing a balance between the two. Created by Goyashy (@explainx.ai)\nFormula -",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 101,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p102_c0",
+    "content": "Metrics for Evaluating RAG Performance\nMean Reciprocal Rank (MRR)\nDefinition: MRR is a metric for evaluating systems that\nreturn ranked lists of results. It measures the average of\nthe reciprocal ranks of the first relevant result. Created by Goyashy (@explainx.ai)\nFormula -",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 102,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p103_c0",
+    "content": "Metrics for Evaluating RAG Performance\nBLEU (Bilingual Evaluation Understudy)\nDefinition: BLEU measures how many n-grams (typically 1 to 4 words) in the generated\ntext match those in the reference text. Formula: BLEU is calculated based on precision over different n-gram sizes, combined\nCreated by Goyashy (@explainx.ai)\nwith a brevity penalty to penalize shorter translations. Use Case: Commonly used in machine translation, it helps evaluate how similar the\ngenerated content is to the reference in terms of matching exact words or phrases. However, it can sometimes miss out on meaning since it focuses on exact matches.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 103,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p104_c0",
+    "content": "Metrics for Evaluating RAG Performance\nROUGE (Recall-Oriented Understudy for Gisting\nEvaluation)\nDefinition: ROUGE measures the overlap between the generated text and the reference\ntext, with a focus on recall (capturing all relevant information). The most common\nCreated by Goyashy (@explainx.ai)\nversions are:\n1.ROUGE-N: Overlap of n-grams. 2.ROUGE-L: Longest Common Subsequence (LCS) between the generated and reference\ntexts. Formula: ROUGE measures precision, recall, and F1 for n-gram overlaps and LCS. Use Case: Typically used in summarization tasks, ROUGE gives an indication of how well\nthe generated content captures the important aspects of the reference text.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 104,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p105_c0",
+    "content": "Metrics for Evaluating RAG Performance\nMETEOR (Metric for Evaluation of Translation with\nExplicit ORdering)\nDefinition: METEOR is designed to improve on BLEU by considering synonyms,\nstemming, and paraphrasing, along with exact matches. It calculates both precision and\nCreated by Goyashy (@explainx.ai)\nrecall. Formula: METEOR considers not just n-grams but also word order and synonym\nmatches, providing a score based on precision and recall while rewarding matches for\nparaphrasing. Use Case: This metric is useful when you're interested in capturing meaning rather than\njust exact matches. It is often applied in machine translation and summarization tasks.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 105,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p106_c0",
+    "content": "Metrics for Evaluating RAG Performance\nBERTScore\nDefinition: BERTScore uses contextual embeddings from BERT to compare the semantic\nsimilarity between the generated and reference texts, rather than focusing on exact word\nmatches. Created by Goyashy (@explainx.ai)\nHow it Works: It computes the cosine similarity between embeddings of the words in the\ngenerated and reference texts to measure how close they are in meaning. Use Case: Useful for capturing the underlying meaning and context in tasks like abstractive\nsummarization and dialogue generation. BERTScore addresses the limitations of metrics\nlike BLEU and ROUGE by focusing on semantic similarity.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 106,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p107_c0",
+    "content": "RAG-specific metrics\nFaithfulness\nDefinition Use Cases\nCreated by Goyashy (@explainx.ai)\nFaithfulness measures how RAG systems often combine\naccurately the generated generated and retrieved\ncontent reflects the information information, so reducing\nfrom the retrieved documents, hallucinations is crucial for\nensuring that the generated text maintaining trust. High\ndoes not introduce unsupported faithfulness ensures that the\nclaims or hallucinations. output is grounded in facts from\nthe retrieved documents.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 107,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p108_c0",
+    "content": "RAG-specific metrics\nRelevance\nDefinition Use Cases\nCreated by Goyashy (@explainx.ai)\nRelevance assesses the quality\nEnsuring the retrieved\nof the retrieved documents and\ndocuments are relevant is\nhow well they contribute to\ncritical for optimizing the\nanswering the user's query. It\ngeneration step, as it directly\nmeasures how closely the\nimpacts the quality and\ndocuments match the query and\naccuracy of the generated\nhow helpful they are for\nresponses. generating the final output.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 108,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p109_c0",
+    "content": "Introduction to RAGAS Framework\nOverview of RAGAS\nThe RAGAS (Retriever-Augmented Generation Evaluation System) framework is\ndesigned to assess the performance and quality of Retriever-Augmented Generation\n(RAG) models. RAG models, which combine document retrieval with generative AI, are\nCreated by Goyashy (@explainx.ai)\nincreasingly used in applications that require the synthesis of information from vast\ndata sources.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 109,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p110_c0",
+    "content": "Introduction to RAGAS Framework\nPurpose and key features\nEvaluates Retriever-Augmented Generation (RAG) pipelines for relevance, fluency, and\nfact-consistency. Created by Goyashy (@explainx.ai)\nKey Features:\nScoring system to assess retrieval and generation. Optimizes retrieval quality and generative accuracy.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 110,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p111_c0",
+    "content": "Introduction to RAGAS Framework\nIntegration with LangChain\nActive Search:\nSeamless\nLangChain supports\nIntegration:\ndynamic updates to LangChain enables\nretrieval strategies chaining retrieval and\nCreated by Goyashy (@explainx.ai)\ngeneration tasks for\nbased on real-time\nRAGAS\ndata. implementation. Enhanced Retrieval: Adaptive\nCombines traditional Generation:\nand advanced Links retrieval results\nretrieval methods, with language\nsupporting hybrid models, ensuring\napproaches in contextually relevant,\nRAGAS. high-quality output.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 111,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p112_c0",
+    "content": "RAGAS evaluation metrics\nCreated by Goyashy (@explainx.ai)\nContext Recall:\nAnswer Context Faithfulness:\nEvaluate the\nRelevancy: Ensure the\nRelevancy:\nsystem's ability\nMeasure how generated content\nAssess if the\nto retrieve the\nrelevant the accurately reflects\nretrieved context\nmost pertinent\ngenerated answer the retrieved\naligns with the information from\nis to the query. information. query. the source.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 112,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p113_c0",
+    "content": "Creating AI-augmented test sets\nTechniques for generating diverse test questions\nPrompt Engineering:\nCraft prompts to generate various question types (e.g., multiple-\nchoice, short-answer, essays) by specifying topics and difficulty. Created by Goyashy (@explainx.ai)\nData Augmentation:\nCreate question variations using paraphrasing, reformulation, or\nsynonym replacement. Cross-Domain Generation:\nUse models trained on different domains to generate questions\nacross various subjects.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 113,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p114_c0",
+    "content": "Creating AI-augmented test sets\nEnsuring coverage of different question types and\ndifficulties\nQuestion Type Variation: Include multiple-choice, true/false, short answer, and essay questions. Strategy: Design prompts to request specific types and ensure their presence in the test set. Created by Goyashy (@explainx.ai)\nDifficulty Level Distribution: Generate questions from basic to advanced for balance. Strategy: Adjust model parameters or fine-tune to vary question difficulty. Expert Review: Subject matter experts validate questions for accuracy and relevance. Strategy: Experts review a sample to ensure quality across types and difficulty levels.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 114,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p115_c0",
+    "content": "Optimizing RAG Pipelines\nFine-tuning strategies for embeddings:\nDomain Adaptation: Adjust embeddings to capture industry-specific\nCreated by Goyashy (@explainx.ai)\nterminology. Approach: Fine-tune embeddings on domain-specific corpora (e.g., legal or\nmedical texts). Benefits: Improves relevance and accuracy for domain-specific content.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 115,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p116_c0",
+    "content": "Optimizing RAG Pipelines\nFine-tuning strategies for embeddings:\nTransfer Learning: Adapt general embeddings to a specific domain using\nCreated by Goyashy (@explainx.ai)\nadditional training. Approach: Fine-tune pre-trained models like BERT or GPT with domain-\nspecific data. Benefits: Leverages general knowledge while refining domain-specific\nunderstanding.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 116,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p117_c0",
+    "content": "Optimizing RAG Pipelines\nContrastive learning approaches\nContrastive Learning: Learn embeddings by contrasting similar and\nCreated by Goyashy (@explainx.ai)\ndissimilar data pairs. Approach: Use methods like SimCLR or MoCo with positive (similar) and\nnegative (dissimilar) pairs. Benefits: Enhances embedding quality for better retrieval and classification.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 117,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p118_c0",
+    "content": "Optimizing RAG Pipelines\nContrastive learning approaches\nTriplet Loss: Learn to distinguish between an anchor, a positive (same class),\nCreated by Goyashy (@explainx.ai)\nand a negative (different class) example. Approach: Train with a loss function that pulls the positive closer to the\nanchor than the negative. Benefits: Refines embeddings to cluster similar items and separate\ndissimilar ones.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 118,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p119_c0",
+    "content": "Optimizing RAG Pipelines\nLLM optimization for RAG\nPrompt Engineering:\nCraft prompts to optimize how large language models (LLMs)\nutilize retrieved context for more accurate responses. Created by Goyashy (@explainx.ai)\nTechniques:\nContextual Prompts: Design prompts that clearly instruct the model to use the provided context or\nretrieved documents effectively. For example, explicitly ask the model to summarize the retrieved\ninformation or integrate specific details. Instruction Tuning: Refine prompts to guide the model in generating responses that are better aligned with\nthe context, such as specifying the type of information to focus on or the format of the output. Example Prompting: Provide examples within the prompt of how to use the retrieved context to generate\nresponses, helping the model understand the desired output format.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 119,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p120_c0",
+    "content": "Optimizing RAG Pipelines\nLLM optimization for RAG\nFew-Shot Learning:\nUse a few relevant examples to guide LLMs in improving\nperformance within RAG systems, enhancing response quality. Created by Goyashy (@explainx.ai)\nTechniques:\nFew-Shot Examples: Provide the model with a few examples of desired responses or formats based on\nthe retrieved documents, enabling it to generalize from limited data. Prompt Templates: Use predefined templates that include placeholders for retrieved information,\nguiding the model in generating responses based on these examples. Dynamic Few-Shot Learning: Adaptively update few-shot examples based on the context and retrieved\ndocuments, allowing the model to handle diverse queries and contexts more effectively.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 120,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p121_c0",
+    "content": "Optimizing RAG Pipelines\nHyperparameter optimization\nChunk Size:\nDescription: Size of text chunks for document splitting. Impact: Affects context preservation; larger chunks retain more context\nbut might include irrelevant details; smaller chunks might miss context. Created by Goyashy (@explainx.ai)\nNumber of Retrieved Documents:\nDescription: Number of documents retrieved for response generation. Impact: Influences the breadth of information; too few can lack context,\ntoo many can overwhelm and reduce relevance. Reranking Thresholds:\nDescription: Criteria for selecting and reranking documents based on\nrelevance. Impact: Balances precision and recall; helps in selecting high-quality,\nrelevant documents.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 121,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p122_c0",
+    "content": "Optimizing RAG Pipelines\nUsing Bayesian Optimization for Parameter Tuning\nDefine Objective Function:\nSet up an objective function that measures the performance of the RAG system\nbased on selected metrics (e.g., relevance, accuracy). Surrogate Model Training:\nCreated by Goyashy (@explainx.ai)\nTrain a probabilistic model (like Gaussian Process) to estimate the objective\nfunction’s behavior based on previous evaluations. Parameter Adjustment:\nIteratively adjust parameters based on the surrogate model’s predictions and\nobserved performance to optimize the hyperparameters. Exploration and Exploitation:\nUse acquisition functions like Expected Improvement and Upper Confidence Bound\nto balance exploring new parameter settings with exploiting known promising ones.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 122,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p123_c0",
+    "content": "Demo\nEvaluating and Optimizing a RAG System\nCreated by Goyashy (@explainx.ai)",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 123,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p124_c0",
+    "content": "MODULE 6\nScaling and Deploying\nCreated by Goyashy (@explainx.ai)\nRAG Systems",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 124,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p125_c0",
+    "content": "Scaling And Deploying RAG Systems\nEfficient Indexing Strategies\nHierarchical Indexing: Use multi-level\nindexes to speed up retrieval by narrowing\ndown with a coarse index first. Approximate Nearest Neighbor (ANN)\nCreatSede bya Groycashhy: ( @Eefxpflaiicnxi.aei)ntly find similar vectors in high-\ndimensional spaces with methods like HNSW\nor Annoy. Sharding: Distribute data across servers to\nhandle large datasets and balance load. Inverted Indexes: Quickly locate documents\nby terms, ideal for full-text search.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 125,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p126_c0",
+    "content": "Scaling And Deploying RAG Systems\nIncremental Updating of Vector Stores\nBatch Updates: Periodically update vectors to reduce overhead and ensure\nconsistency. Delta Indexing: Update only changed or new documents to cut\nCreated by Goyashy (@explainx.ai)\ndown on computational costs. Version Control: Track versions to roll back if needed and manage\nupdates effectively. Consistency Checks: Verify that updated vectors are correctly indexed and\nreflect the latest data. Efficient Data Storage: Use fast, distributed storage solutions optimized\nfor vector data.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 126,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p127_c0",
+    "content": "Scaling And Deploying RAG Systems\nLoad Balancing and Caching Techniques\nCaching: Reduce backend load by caching frequent data and\nquery results. Tools: Redis, Memcached. Created by Goyashy (@explainx.ai)\nLoad Balancing: Distribute requests across servers using\ntechniques like round-robin or IP hash. Tools: Nginx, HAProxy. CDNs: Serve static data closer to users to cut\nlatency and reduce server traffic. Reverse Proxies: Manage requests, caching, load balancing, SSL\ntermination, and security.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 127,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p128_c0",
+    "content": "Scaling And Deploying RAG Systems\nAsynchronous Processing for Improved Throughput\nMessage Queues: Use RabbitMQ or Kafka for asynchronous request handling to\nimprove scalability and reliability. Created by Goyashy (@explainx.ai)\nCaching: Cache frequent data and query results with Redis or Memcached to\nreduce backend load. Event-Driven Architecture: Use events for asynchronous processing,\nenhancing system responsiveness. Rate Limiting: Limit the number of requests per user or service to\nprevent overload and ensure fair use.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 128,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p129_c0",
+    "content": "Scaling And Deploying RAG Systems\nScaling Retrieval with Distributed Vector Databases\nVector Databases: Use distributed databases like Pinecone, Milvus,\nor Weaviate for fast similarity searches and handling large-scale\nvectors. Created by Goyashy (@explainx.ai)\nSharding: Distribute data across multiple shards or nodes to\nenhance retrieval speed and enable horizontal scaling. Replication: Copy data across multiple nodes for high\navailability and fault tolerance.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 129,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p130_c0",
+    "content": "Scaling And Deploying RAG Systems\nParallel Processing of Queries and Document Chunks\nQuery Parallelism: Distribute queries across nodes to\nreduce latency and speed up responses. Created by Goyashy (@explainx.ai)\nDocument Chunking: Split documents into chunks for\nparallel processing and efficient retrieval. Load Balancing: Evenly distribute tasks to avoid\nbottlenecks and optimize resource use.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 130,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p131_c0",
+    "content": "Scaling And Deploying RAG Systems\nOverview of relevant AWS services\n(EC2, ECS, Lambda)\nAmazon EC2 (Elastic Compute Cloud)\nPurpose: Offers scalable virtual servers for\nCreated by Goyashy (@explainx.ai)\nrunning applications and services. Use Case: Suitable for distributed vector\ndatabases, data processing, and custom\napplications. Scaling: Auto-scaling adjusts instances based\non demand, ensuring optimal performance.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 131,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p132_c0",
+    "content": "Scaling And Deploying RAG Systems\nOverview of relevant AWS services\n(EC2, ECS, Lambda)\nAmazon ECS (Elastic Container Service)\nPurpose: Orchestrates Docker containers,\nCreated by Goyashy (@explainx.ai)\nsimplifying deployment and scaling. Use Case: Ideal for managing containerized\napplications and distributed vector\ndatabases. Scaling: Auto-scales container tasks based\non metrics, with integration options for EC2 or\nFargate.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 132,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p133_c0",
+    "content": "Scaling And Deploying RAG Systems\nOverview of relevant AWS services\n(EC2, ECS, Lambda)\nAWS Lambda\nCreated by Goyashy (@explainx.ai)\nPurpose: Runs code in response to events\nwith automatic resource management. Use Case: Best for event-driven tasks and\nlightweight data transformations. Scaling: Automatically scales with incoming\nrequests, handling tasks in parallel.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 133,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p134_c0",
+    "content": "Scaling And Deploying RAG Systems\nCI/CD pipelines for RAG systems\nCI/CD (Continuous Integration and Continuous\nDeployment) pipelines are essential for managing\nand automating the development, testing, and\nCreated by Goyashy (@explainx.ai)\ndeployment of Retrieval-Augmented Generation\n(RAG) systems.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 134,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p135_c0",
+    "content": "Scaling And Deploying RAG Systems\nContinuous Integration (CI)\nAutomated Testing: Use tools like Jenkins or GitHub Actions to run\ntests on RAG components automatically. Created by Goyashy (@explainx.ai)\nUnit Tests: Test individual functions and algorithms for accuracy and\nperformance. Integration Tests: Ensure smooth operation between retrieval and\ngeneration components. Performance Testing: Assess system performance under different\nloads to verify scalability.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 135,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p136_c0",
+    "content": "Scaling And Deploying RAG Systems\nContinuous Deployment (CD)\nAutomated Deployment: Rolling Updates: Rollback Mechanism:\nCreated by Goyashy (@explainx.ai)\nUse tools like AWS Deploy updates with Implement rollback\nCodePipeline or GitHub minimal downtime using capabilities to revert to\nActions to automate rolling updates or blue- previous versions if\ndeployments. green deployments. needed.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 136,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p137_c0",
+    "content": "Scaling And Deploying RAG Systems\nVersion Control for Documents and Embeddings\nGit: Manage code and\nconfiguration versions with\nGit, using branches and pull\nCreated by Goyashy (@explainx.ai)\nrequests for updates. Version\nControl\nSystems\nDVC: Version large data files\nand models with DVC,\nintegrated with Git for\nreproducibility and tracking.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 137,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p138_c0",
+    "content": "Scaling And Deploying RAG Systems\nVersion Control for Documents and Embeddings\nMetadata Management: Track and\nmanage document embeddings and\nCreated by Goyashy (@explainx.ai)\nfeatures with metadata for easy\nretrieval and versioning. Document\nManagement\nDocument Repositories: Store\nand version documents in\nmanaged repositories or\ndatabases to track changes.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 138,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p139_c0",
+    "content": "Scaling And Deploying RAG Systems\nVersion Control for Documents and Embeddings\nEmbedding Registry:\nTrack and version embeddings with a\nregistry for consistency and traceability. Created by Goyashy (@explainx.ai)\nEmbedding\nVersioning\nArtifact Management:\nUse tools like AWS S3 or Artifactory to manage\nand version model artifacts and embeddings,\nensuring correct versions in production.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 139,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p140_c0",
+    "content": "Scaling And Deploying RAG Systems\nMonitoring and Maintaining Deployed Models\nLatency: Time taken for model predictions; high latency affects real-\ntime use. Accuracy: Model’s prediction correctness; includes precision,\nrecall, F1-score. Created by Goyashy (@explainx.ai)\nThroughput: Number of predictions per time unit; measures efficiency a\nscalability. Error Rates: False positives and negatives; shows error types and\nfrequencies. Resource Utilization: CPU, GPU, and memory use; indicates model’s\nresource needs.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 140,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p141_c0",
+    "content": "Scaling And Deploying RAG Systems\nSetting Up Monitoring Dashboards\nChoose Tool: Pick from Prometheus, Grafana, Datadog,\nor cloud-native options like AWS CloudWatch, Azure\nMonitor, or Google Cloud Monitoring. Set Alerts: Configure alerts for metrics that\nexceed thresholds to ensure prompt issue\nCreated by Goyashy (@explainx.ai)\nresolution. Define Metrics/Logs: Identify essential metrics and\nlogs based on model and application needs. Integrate Logging: Ensure model logs are\nintegrated with your monitoring system for full\nvisibility. Create Visualizations: Design dashboards to monitor\nmetrics like latency, throughput, and accuracy. Regular Reviews: Update dashboards and\nmonitoring setups periodically to reflect\nchanges in model performance.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 141,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p142_c0",
+    "content": "Scaling And Deploying RAG Systems\nStrategies for Keeping the Knowledge Base Current\nData Refreshes: Schedule regular updates\n(daily/weekly/monthly) to keep data current. Real-Time Integration: Use APIs or streaming\nCreated by Goyashy (@explainx.ai) for live data updates in real-time applications. Version Control: Track data versions to\nmanage changes and monitor impacts on\nmodel performance. Automated Pipelines: Set up ETL pipelines to\nautomate data processing and updates. Data Quality: Regularly clean and validate\ndata to ensure accuracy. Feedback Loops: Incorporate user feedback to\nadapt and enhance data relevance.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 142,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p143_c0",
+    "content": "Scaling And Deploying RAG Systems\nWhen to Update LLMs and Embedding Models\nAdditive Updates: Incrementally append new\nvectors without altering existing ones. Vector Pruning: Remove outdated vectors to\nmaintain efficiency and relevance. Created by Goyashy (@explainx.ai)\nBatch Updates: Periodically process and add\nvectors in batches. Re-training: Retrain or fine-tune models to\nkeep vectors accurate. Index Maintenance: Update or re-index to\ninclude new vectors in the retrieval structure. Versioning: Track versions of the vector store\nfor rollback and change management.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 143,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p144_c0",
+    "content": "Scaling And Deploying RAG Systems\nWhen to Update LLMs and Embedding Models\nPerformance Degradation: If accuracy drops or errors increase,\nupdate the model with new data or improvements. Data Drift: Changes in data patterns require retraining or fine-\nCreated by Goyashy (@explaintx.uai)ning the model. New Data: Incorporate newly available data to boost accuracy and\nrelevance. Model Enhancements: Leverage better algorithms or techniques\nto improve performance. User Feedback: Update the model based on user feedback to\nensure relevance and satisfaction.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 144,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p145_c0",
+    "content": "Scaling And Deploying RAG Systems\nHow to Update LLMs and Embedding Models\nCreated by Goyashy (@explainx.ai)\nFine-Tuning: Retraining: Model Replacement: Incremental Updates:\nApproach: Approach: Train Approach: Swap out Approach:\nContinue training from scratch or the old model for a Gradually integrate\nwith recent data. with new data. newer version. new data. Process: Apply Process: Retrain Process: Deploy the Process: Apply\nfurther training on the model on the updated model while small updates to\na smaller, new updated dataset ensuring gradually adjust\ndataset to refine to learn new compatibility and the model's\nperformance. patterns. improved results. knowledge.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 145,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p146_c0",
+    "content": "Scaling And Deploying RAG Systems\nA/B Testing New Model Versions\nDefine Objectives Design Experiment Deploy Models\nCreated by Goyashy (@explainx.ai)\nPurpose: Identify key\nGroups: Split Implementation:\nevaluation aspects\ndata/users into Deploy both models\nlike accuracy or\ngroups for A/B testing in a controlled\nresponse time. (current vs. new environment using\nMetrics: Choose\nmodel). feature toggles or\nrelevant measures\nControls: Ensure both traffic routing. such as precision,\ngroups face similar\nrecall, or user\nconditions for valid\nsatisfaction. comparisons",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 146,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p147_c0",
+    "content": "Scaling And Deploying RAG Systems\nA/B Testing New Model Versions\nMake Decisions Analyze Results Collect Data\nCreated by Goyashy (@explainx.ai)\nEvaluation: Decide\nComparison: Evaluate Monitoring: Track\nwhether to fully\nand compare interactions,\ndeploy, continue\nperformance metrics. performance, and\ntesting, or improve\nStatistical Testing: user feedback for\nthe new model. Determine significance both models. Iteration: Refine the\nof performance\nmodel based on\ndifferences. feedback and results.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 147,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p148_c0",
+    "content": "Demo\nDeploying a RAG System\nCreated by Goyashy (@explainx.ai)",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 148,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p149_c0",
+    "content": "MODULE 7\nReal-World RAG\nCreated by Goyashy (@explainx.ai)\nApplications and Future\nTrends",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 149,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p150_c0",
+    "content": "Real-World RAG Applications And Future Trends\nImplementing RAG for Corporate Knowledge Bases\nBackground: Problem: Solution:\nCreated by Goyashy (@explainx.ai)\nA multinational corporation Siloed Data: Information was The corporation implemented a\nstruggled to manage and fragmented across multiple Retrieval-Augmented\nretrieve insights from its systems, complicating search Generation (RAG) system,\nscattered knowledge base and retrieval. integrating LLMs with a\nacross various platforms, Inefficient Searches: retrieval mechanism to deliver\nleading to inefficiencies and Employees spent too much accurate, relevant information\nmissed opportunities. time searching, reducing efficiently. productivity. Inconsistent Documents:\nDifferent departments had\nvarying versions, causing\nconfusion.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 150,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p151_c0",
+    "content": "Real-World RAG Applications And Future Trends\nImplementation Steps\nData Integration:\nUnified data sources with APIs and standardization. RAG Model Setup:\nFine-tuned LLM and built a retrieval system with vector databases. Created by Goyashy (@explainx.ai)\nSearch Interface:\nDeveloped an intuitive search interface linked to the RAG model. Testing & Optimization:\nGathered feedback, fine-tuned for accuracy. Deployment & Training:\nDeployed system and trained employees",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 151,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p152_c0",
+    "content": "Real-World RAG Applications And Future Trends\nOutcome\nImproved Efficiency:\nCreated by Goyashy (@explainx.ai)\nEnhanced Accuracy: Better Decision-Making:\nSearch time reduced by\nRAG delivered more Faster access to reliable\n60%, significantly\naccurate, consistent data improved decision-\nboosting employee\ninformation, minimizing making and overall\nproductivity and task\nerrors and improving business performance\ncompletion. data reliability. metrics.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 152,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p153_c0",
+    "content": "Real-World RAG Applications And Future Trends\nCI/Demo: Building an Advanced Enterprise Search System\nwith RAG\nData Collection and\nPreprocessing\nBuilding the User\nCreated by Goyashy (@explainx.ai) Interface\nSetting Up the\nRetrieval System\nTesting and\nFeedback\nFine-Tuning\nthe LLM\nDeployment\nIntegrating\nRAG",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 153,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p154_c0",
+    "content": "Scaling And Deploying RAG Systems\nStep 1: Data Collection and\nPreprocessing\nAggregate data from various internal sources\nlike databases, document management\nCreated by Goyashy (@explainx.ai)\nsystems, and email servers. Clean and preprocess the data to ensure\nconsistency and usability.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 154,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p155_c0",
+    "content": "Scaling And Deploying RAG Systems\nStep 2: Setting Up the Retrieval\nSystem\nUse a vector database like Pinecone or FAISS\nto index documents and make them\nCreated by Goyashy (@explainx.ai)\nsearchable. Create embeddings for the documents using\na pre-trained transformer model like BERT or\nGPT.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 155,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p156_c0",
+    "content": "Scaling And Deploying RAG Systems\nStep 3: Fine-Tuning the LLM\nFine-tune a large language model (like GPT-3\nor a custom LLM) on the company’s specific\nCreated by Goyashy (@explainx.ai)\ndomain data. Ensure the model understands the\nterminology and context relevant to the\norganization.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 156,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p157_c0",
+    "content": "Scaling And Deploying RAG Systems\nStep 4: Integrating RAG\nCombine the fine-tuned LLM with the retrieval\nsystem. Created by Goyashy (@explainx.ai)\nSet up a pipeline where user queries are first\nused to retrieve relevant documents, and then\nthe LLM generates responses based on the\nretrieved data.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 157,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p158_c0",
+    "content": "Scaling And Deploying RAG Systems\nStep 5: Building the User Interface\nDevelop a web-based search interface with a\nsimple and intuitive design. Created by Goyashy (@explainx.ai)\nAllow users to input queries in natural\nlanguage and receive responses enriched\nwith context and references.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 158,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p159_c0",
+    "content": "Scaling And Deploying RAG Systems\nStep 6: Testing and Feedback\nConduct testing with a small group of users\nto identify any issues or areas for\nimprovement. Created by Goyashy (@explainx.ai)\nIterate on the design and model performance\nbased on user feedback.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 159,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p160_c0",
+    "content": "Scaling And Deploying RAG Systems\nStep 7: Deployment\nDeploy the system on the company’s internal\nnetwork. Created by Goyashy (@explainx.ai)\nEnsure it is scalable and can handle the\nexpected query load from all employees.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 160,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p161_c0",
+    "content": "Scaling And Deploying RAG Systems\nEnhancing Customer Support Chatbots with RAG Capabilities\nMulti-Turn Conversation Pipeline:\nDevelop mechanisms for maintaining context across multiple turns to ensure coherent\nresponses. Contextual Memory:\nCreated by Goyashy (@explainx.ai)\nStore conversation history to provide relevant and continuous responses throughout\ninteractions. Testing and Optimization:\nPerform user testing to refine chatbot performance and handle complex\nqueries effectively. Deployment and Continuous Learning:\nDeploy the chatbot and set up continuous learning to improve from new\ninteractions.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 161,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p162_c0",
+    "content": "Scaling And Deploying RAG Systems\nEnhancing Customer Support Chatbots with RAG Capabilities\nIntegrating RAG into the Chatbot:\nCombine the retrieval system with the LLM for accurate, contextually relevant\nresponses. Created by Goyashy (@explainx.aiF) ine-Tuning the LLM:\nFine-tune the language model on support dialogues and company-specific\nknowledge. Setting Up the Retrieval System:\nIndex support documents in a vector database for quick, relevant retrieval. Data Aggregation and Preprocessing:\nGather and preprocess customer support data, including FAQs and past chats.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 162,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p163_c0",
+    "content": "Real-World RAG Applications And Future Trends\nContent Generation and Summarization Using RAG\nRAG Overview:\nRAG combines large language models (LLMs) with external data retrieval to\nproduce accurate, relevant content. Created by Goyashy (@explainx.ai)\nApplication in Content Creation:\nRAG generates articles or reports by retrieving relevant data from databases\nor documents, then using LLMs to generate coherent text. Summarization Techniques:\nRAG retrieves key info to create concise summaries, ideal for summarizing\nlong-form content while retaining context.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 163,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p164_c0",
+    "content": "Real-World RAG Applications And Future Trends\nLong-Form Content Summarization Techniques\nExtractive Summarization:\nSelects key sentences from the text, preserving\noriginal wording but may lose context. Abstractive Summarization:\nGenerates new sentences summarizing key\nCreated by Goyashy (@explainx.ai)\npoints, resulting in more fluid summaries but\nrequiring tuning. Use of RAG:\nRAG enriches summaries by retrieving additional\ncontext or related information for a more\nHybrid Approaches:\ncomprehensive result. Combines extractive and abstractive methods\nfor accurate, concise, and well-structured\nsummaries.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 164,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p165_c0",
+    "content": "Real-World RAG Applications And Future Trends\nCoordinating Multiple LLMs for\nComplex Tasks\nMulti-agent systems in the context of Retrieval-\nAugmented Generation (RAG) involve using\nCreated by Goyashy (@explainx.ai)\nmultiple Large Language Models (LLMs) to\ncollaboratively solve complex tasks. These\nsystems are designed to leverage the strengths\nof different models or specialized agents to\nachieve more effective and accurate outcomes.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 165,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p166_c0",
+    "content": "Coordinating Multiple LLMs For Complex Tasks\nTask Specialization:\nLLMs focus on specific tasks like Q&A, summarization, or translation\nfor better efficiency. Coordination Mechanisms:\nCreated by Goyashy (@explainx.ai)\nAgents use learning and communication protocols to work\ntogether seamlessly. The key\ntrends\nScalability and Flexibility:\nThe system scales by adding or adjusting agents based on task\ncomplexity. Distributed Knowledge Sources:\nAgents pull data from multiple sources to improve accuracy and\ncontent depth.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 166,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p167_c0",
+    "content": "Implementing a Simple Multi-Agent RAG System\nAgent Definition:\nAssign roles to each agent, such as retrieving documents, summarizing\ncontent, or generating responses. Communication Protocol:\nSet up how agents will communicate, using methods like message\npassing or a centralized controller. Created by Goyashy (@explainx.ai)\nRetrieval Mechanism:\nEnable agents to access external data via embedding-based search,\nkeyword search, or APIs. Coordination Strategy:\nDesign a rule-based or ML-driven system to manage the sequence of\nagent actions. Evaluation and Optimization:\nAssess performance through metrics like accuracy and response time,\nthen fine-tune roles for better results.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 167,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p168_c0",
+    "content": "Continuous Learning And Adaptive Retrieval In RAG Systems\nTechniques for Dynamically Updating Knowledge Bases\nIncremental Learning:\nGradually updates the model with new data, preventing loss of past knowledge\nusing techniques like Elastic Weight Consolidation (EWC). Automated Data Ingestion:\nAutomates regular updates to the knowledge base from websites, databases, or\nCreated by Goyashy (@explainx.ai)\nAPIs, minimizing manual effort. Federated Learning:\nAllows local model updates across distributed data sources, aggregating\nchanges without centralizing the data. Contextual Adaptation:\nAdjusts retrieval to prioritize relevant and up-to-date data based on query\ncontext. Active Learning:\nFocuses on uncertain data for targeted training and annotation.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 168,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p169_c0",
+    "content": "Continuous Learning And Adaptive Retrieval In RAG\nSystems\nExploration of Few-Shot and Zero-Shot Learning in RAG\nApplication in RAG:\nAllows the model to handle specialized queries\nCreated by Goyashy (@explainx.ai)\nwith minimal examples, useful for domain-specific\nscenarios with limited data. Few-Shot\nLearning\nImplementation:\nUses meta-learning to generalize across tasks,\nenabling efficient updates with new or rare\nconcepts in RAG systems.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 169,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p170_c0",
+    "content": "Continuous Learning And Adaptive Retrieval In RAG\nSystems\nExploration of Few-Shot and Zero-Shot Learning in RAG\nApplication in RAG:\nEnables handling of novel queries without prior\nCreated by Goyashy (@explainx.ai)\nexamples, crucial for RAG systems dealing with\nnew or unseen tasks. Zero-Shot\nLearning\nTechniques:\nUses pre-trained language models to interpret new\nqueries, supported by embedding-based retrieval to\nmatch queries with relevant information.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 170,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p171_c0",
+    "content": "Continuous Learning And Adaptive Retrieval In RAG\nSystems\nExploration of Few-Shot and Zero-Shot Learning in RAG\nCreated by Goyashy (@explAaindx.aai)ptive Retrieval in Few-Shot and Zero-Shot Scenarios:\nThe retrieval component of a RAG system can be adapted to better\nsupport few-shot and zero-shot learning by using similarity search\ntechniques that are robust to variations in the input. For example,\nembedding-based retrieval methods, which represent both queries and\ndocuments in a shared vector space, allow the system to retrieve relevant\ninformation even when dealing with previously unseen queries.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 171,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p172_c0",
+    "content": "Ethical Considerations And Responsible AI\nBias Mitigation in RAG Systems\nIdentifying and Addressing Biases: Implementing Fairness Metrics in RAG Evaluation:\nChallenge:RAG systems can inherit biases from Purpose: Ensure RAG systems operate fairly\ntraining data, resulting in skewed or unfair across various groups and contexts. outputs. Created by Goyashy (@explainx.ai) Approach:\nApproach: Fairness Metrics: Use metrics like\nBias Detection: Regularly analyze outputs to demographic parity, equal opportunity, or\nspot biased patterns, such as imbalanced disparate impact to evaluate system fairness. representation of groups or perspectives. Continuous Monitoring: Regularly assess\nBias Correction: Use techniques like data and adjust the system to enhance fairness\nbalancing, re-weighting, or bias-aware and equitable outcomes for diverse user\ntraining to mitigate biases and improve groups. fairness.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 172,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p173_c0",
+    "content": "Ethical Considerations And Responsible AI\nEnsuring Transparency and Explainability\nTechniques for Providing Source Developing User Interfaces that Promote\nAttribution: Understanding of RAG Outputs:\nSource Linking: Link output parts to Interactive Exploration: Enable users to\nspecific retrieved sources, ensuring explore sources behind content, e.g., by\nCreated by Goyashy (@explainx.ai)\nclear traceability of information hovering for related documents or\norigins. expandable sections for details. Highlighting and Summarization: Explanatory Overlays:Add overlays or\nUse visual markers or summaries to tooltips to explain how RAG arrived at\nshow how retrieved documents conclusions, improving user trust and\ncontribute to the output, clarifying understanding. the relationship between input and\nresult.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 173,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p174_c0",
+    "content": "Discussion And Brainstorming Session\nExploring Potential RAG Addressing Challenges Group Activity: Designing RAG\nApplications in Participants' and Limitations of Solutions for Real-World\nDomains: Current RAG Systems: Problems:\nObjective: Discover unique Discussion: Talk openly Task: Split participants into\nRAG opportunities in about challenges in RAG groups to design a RAG-\nCreated by Gpoyaasrhtyic (@ipeaxpnlatisn'x .iani)dustries or\nsystems, like scalability, based solution for a relevant\nfields.. bias, and accuracy issues. real-world problem in their\nfield. Approach: Encourage\nBrainstorming: Collaborate Output: Groups present their\nparticipants to share insights\non strategies or innovations solution, explaining the RAG\nfrom their own domains,\nto overcome these system's functionality,\ndiscussing how RAG\nlimitations and improve RAG problem-solving approach,\ntechnology could address\neffectiveness. and expected benefits. existing challenges or\nenhance current workflows.",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 174,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p175_c0",
+    "content": "Created by Goyashy (@explainx.ai)",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 175,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
+  },
+  {
+    "chunk_id": "60895d7b567675f014f145d2405cc5a3_p176_c0",
+    "content": "Created by Goyashy (@explainx.ai)",
+    "source_file": "Explainx.ai_RAG.pdf",
+    "page_number": 176,
+    "document_id": "60895d7b567675f014f145d2405cc5a3",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf"
+    }
   }
 ]

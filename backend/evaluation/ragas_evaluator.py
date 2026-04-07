@@ -13,7 +13,7 @@ from ragas.metrics import (
     answer_correctness,
 )
 
-from evaluation.golden_dataset import GoldenDataset, GoldenQAPair
+from evaluation.golden_dataset import Golden_Dataset, GoldenQAPair
 from generation.answer_generator import AnswerGenerator
 from config.settings import get_settings
 from config.logging_config import get_logger
@@ -59,11 +59,11 @@ class RAGASEvaluator:
     def __init__(
         self,
         generator: Optional[AnswerGenerator] = None,
-        dataset: Optional[GoldenDataset]   = None,
+        dataset: Optional[Golden_Dataset]   = None,
         reports_dir: str = "data/evaluation_reports"
     ):
         self.generator = generator or AnswerGenerator()
-        self.dataset = dataset   or GoldenDataset()
+        self.dataset = dataset   or Golden_Dataset()
         self.reports_dir = Path(reports_dir)
         self.reports_dir.mkdir(parents = True, exist_ok = True)
 
@@ -179,7 +179,7 @@ class RAGASEvaluator:
         logger.info("running_ragas_metrics")
 
         try:
-            ragas_result = self.evaluate(
+            ragas_result = evaluate(
                 dataset = eval_dataset,
                 metrics = [
                     faithfulness,

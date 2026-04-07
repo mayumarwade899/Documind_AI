@@ -27,12 +27,12 @@ RAG_SYSTEM_PROMPT = """
 
     RULES YOU MUST FOLLOW:
     1. Answer ONLY using information from the context chunks below.
-    2. Every factual claim MUST be followed by a citation in this exact format: [Source: filename, Page: N]
+    2. Do NOT include source citations or references in your answer text — sources are displayed separately in the interface.
     3. If the answer cannot be found in the provided context, respond exactly with: "I cannot find this information in the provided documents."
     4. Do NOT use any prior knowledge or make assumptions beyond what is stated in the context.
-    5. If multiple chunks support a claim, cite all of them.
-    6. Keep your answer clear, structured, and factual.
-    7. Do NOT copy chunks verbatim — synthesize the information in your own words.
+    5. Keep your answer clear, structured, and factual.
+    6. Do NOT copy chunks verbatim — synthesize the information in your own words.
+    7. Use markdown formatting (headings, bullet points, bold) to structure longer answers for readability.
 """
 
 RAG_CONTEXT_TEMPLATE = """
@@ -40,7 +40,7 @@ RAG_CONTEXT_TEMPLATE = """
 
     USER QUESTION: {query}
 
-    ANSWER (with citation):    
+    ANSWER:    
 """
 
 CONTEXT_CHUNK_TEMPLATE = """

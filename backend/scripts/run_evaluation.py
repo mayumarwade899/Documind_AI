@@ -5,7 +5,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from evaluation.ragas_evaluator import RAGASEvaluator
-from evaluation.golden_dataset import GoldenDataset
+from evaluation.golden_dataset import Golden_Dataset
 from monitoring.feedback_store import FeedbackStore
 from config.logging_config import setup_logging, get_logger
 
@@ -20,7 +20,7 @@ def add_feedback_to_golden(days: int = 30) -> None:
     print(f"\n📥 Exporting positive feedback (last {days} days)...")
 
     store = FeedbackStore()
-    golden = GoldenDataset()
+    golden = Golden_Dataset()
     pairs = store.export_as_golden_pairs(
         days = days,
         only_positive = True
@@ -92,6 +92,12 @@ def main():
     )
 
     parser.add_argument(
+        "--add-feedback",
+        action = "store_true",
+        help = "Import positive feedback as golden pairs before evaluating"
+    )
+
+    parser.add_argument(
         "--stats",
         action = "store_true",
         help = "Just show golden dataset stats, no evaluation"
@@ -100,7 +106,7 @@ def main():
     args = parser.parse_args()
 
     if args.stats:
-        dataset = GoldenDataset()
+        dataset = Golden_Dataset()
         stats = dataset.get_stats()
         print("\n📋 Golden Dataset Stats")
         print("="*40)
@@ -114,7 +120,7 @@ def main():
     if args.add_feedback:
         add_feedback_to_golden(days = args.feedback_days)
 
-    dataset = GoldenDataset()
+    dataset = Golden_Dataset()
     stats = dataset.get_stats()
 
     if stats["total_pairs"] == 0:

@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.routes import query, ingest, feedback, metrics
+from api.routes import query, ingest, feedback, metrics, evaluation
 from api.dependencies import (
     get_answer_generator,
     get_ingestion_pipeline,
@@ -65,6 +65,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], 
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
 )
@@ -73,6 +74,7 @@ app.include_router(query.router)
 app.include_router(ingest.router)
 app.include_router(feedback.router)
 app.include_router(metrics.router)
+app.include_router(evaluation.router)
 
 @app.get("/health", tags = ["System"])
 async def health():

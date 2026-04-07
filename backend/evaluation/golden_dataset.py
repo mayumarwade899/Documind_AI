@@ -50,14 +50,14 @@ class Golden_Dataset:
         
         try:
             with open(self.dataset_path, "r", encoding = "utf-8") as f:
-                raw = json.load()
+                raw = json.load(f)
 
             pairs = [
                 GoldenQAPair(
                     question = item["question"],
                     ground_truth = item["ground_truth"],
                     contexts = item.get("contexts", []),
-                    source_files = item.get("source_files", []),
+                    source_file = item.get("source_files", item.get("source_file", [])),
                     metadata = item.get("metadata", {})
                 )
                 for item in raw

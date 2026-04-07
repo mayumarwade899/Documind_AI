@@ -49,3 +49,4 @@ Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 po
 {"feedback_dir": "D:\\Projects\\documind_ai\\backend\\data\\feedback", "event": "feedback_store_initialized", "level": "info", "logger": "monitoring.feedback_store", "timestamp": "2026-04-01T15:19:42.209807Z"}
 {"event": "monitoring_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-01T15:19:42.210803Z"}
 {"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-01T15:19:42.211928Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-02T06:30:33.896613Z"}

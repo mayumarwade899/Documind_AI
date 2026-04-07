@@ -247,10 +247,12 @@ class BM25Retriever:
     def search(
             self,
             query: str,
-            top_k: int = None
+            top_k: int = None,
+            filter_document_id: Optional[str] = None
     ) -> List[RetrievedChunk]:
         """
         Search for chunks matching the query using BM25 scoring.
+        Optionally filter results to a specific document.
         """
         if self.bm25 is None:
             logger.warning("bm25_search_called_but_no_index_built")
@@ -274,17 +276,23 @@ class BM25Retriever:
             range(len(scores)),
             key = lambda i: scores[i],
             reverse = True
-        )[:k]
+        )
 
         results = []
 
         for idx in top_indices:
+            if len(results) >= k:
+                break
+
             score = float(scores[idx])
 
             if score <= 0:
                 continue
 
             meta = self.chunk_metadata[idx]
+
+            if filter_document_id and meta["document_id"] != filter_document_id:
+                continue
 
             results.append(RetrievedChunk(
                 chunk_id=meta["chunk_id"],
@@ -301,7 +309,8 @@ class BM25Retriever:
             "bm25_search_complete",
             query_preview = query[:60],
             results_found = len(results),
-            top_score = results[0].score if results else 0
+            top_score = results[0].score if results else 0,
+            filter_document_id = filter_document_id or "none"
         )
 
         return results

@@ -45,9 +45,16 @@ class LoadedDocument:
 def _generate_document_id(file_path: str) -> str:
     """
     Same file always get same ID, prevents duplicate ingestion.
+    Reads in 64KB chunks to avoid loading entire large files into memory.
     """
+    h = hashlib.md5()
     with open(file_path, "rb") as f:
-        return hashlib.md5(f.read()).hexdigest()
+        while True:
+            chunk = f.read(65536)
+            if not chunk:
+                break
+            h.update(chunk)
+    return h.hexdigest()
 
 def _clean_text(text: str) -> str:
     """
@@ -83,10 +90,10 @@ def _load_pdf(file_path: str, document_id: str) -> List[DocumentPage]:
     filename = Path(file_path).name
     pages = []
 
+    pypdf_reader = None  # Lazy-loaded only when pdfplumber fails
+
     try:
         plumber_doc = pdfplumber.open(file_path)
-        pypdf_reader = PdfReader(file_path)
-
         total_pages = len(plumber_doc.pages)
 
         logger.info(
@@ -110,6 +117,8 @@ def _load_pdf(file_path: str, document_id: str) -> List[DocumentPage]:
             
             if not raw_text.strip():
                 try:
+                    if pypdf_reader is None:
+                        pypdf_reader = PdfReader(file_path)
                     pypdf_page = pypdf_reader.pages[page_num]
                     raw_text = pypdf_page.extract_text() or ""
                     if raw_text.strip():
