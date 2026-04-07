@@ -73,7 +73,8 @@ async def feedback_summary(
         "negative_rate": summary.negative_rate,
         "avg_rating": summary.avg_rating,
         "recent_comments": summary.recent_comments,
-        "low_rated_queries": summary.low_rated_queries
+        "low_rated_queries": summary.low_rated_queries,
+        "daily_trend": summary.daily_trend
     }
 
 @router.get("/negative")

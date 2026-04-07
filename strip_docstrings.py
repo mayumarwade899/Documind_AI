@@ -31,18 +31,15 @@ def strip_docstrings(source: str, filepath: str) -> str:
         return source
 
     lines = source.splitlines(keepends=True)
-    removals = []  # list of (start_line, end_line) 1-indexed
+    removals = []  
 
     for node in ast.walk(tree):
-        # Only strip docstrings from functions, methods, classes, and modules
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef, ast.Module)):
             if (node.body and isinstance(node.body[0], ast.Expr) and
                     isinstance(node.body[0].value, (ast.Constant, ast.Str))):
                 doc_node = node.body[0]
-                # Get the string value
                 val = doc_node.value.value if isinstance(doc_node.value, ast.Constant) else doc_node.value.s
 
-                # Skip if it's very short/useful (single-line, like "# noqa" equivalent)
                 if isinstance(val, str) and len(val.strip()) < 15:
                     continue
 
@@ -51,11 +48,9 @@ def strip_docstrings(source: str, filepath: str) -> str:
     if not removals:
         return source
 
-    # Sort removals in reverse order so line numbers stay valid
     removals.sort(key=lambda x: x[0], reverse=True)
 
     for start, end in removals:
-        # Remove the docstring lines (1-indexed to 0-indexed)
         del lines[start - 1:end]
 
     result = ''.join(lines)

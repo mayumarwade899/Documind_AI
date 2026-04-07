@@ -137,3 +137,25 @@ async def get_ingested_documents(
     except Exception as e:
         logger.error("get_ingested_documents_failed", error=str(e))
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.delete("/documents/{document_id}")
+async def delete_document(
+    document_id: str,
+    pipeline: IngestionPipeline = Depends(get_ingestion_pipeline)
+):
+    try:
+        deleted = pipeline.vector_store.delete_document(document_id)
+        if deleted == 0:
+            raise HTTPException(status_code=404, detail="Document not found")
+
+        try:
+            pipeline.bm25.rebuild_index(pipeline.vector_store)
+        except Exception:
+            logger.warning("bm25_rebuild_after_delete_failed")
+
+        return {"success": True, "document_id": document_id, "chunks_deleted": deleted}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error("delete_document_failed", error=str(e))
+        raise HTTPException(status_code=500, detail=str(e))

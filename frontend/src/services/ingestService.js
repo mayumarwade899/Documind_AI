@@ -17,3 +17,7 @@ export async function getIngestStatus() {
 export async function getDocuments() {
   return api.get('/ingest/documents')
 }
+
+export async function deleteDocument(documentId) {
+  return api.del(`/ingest/documents/${encodeURIComponent(documentId)}`)
+}

@@ -163,13 +163,39 @@ class RAGASEvaluator:
         logger.info("running_ragas_metrics")
 
         try:
+            import nest_asyncio
+            nest_asyncio.apply()
+            from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+            
+            class SafeGemini(ChatGoogleGenerativeAI):
+                async def _agenerate(self, messages, stop = None, run_manager = None, **kwargs):
+                    kwargs.pop("temperature", None)
+                    return await super()._agenerate(messages, stop=stop, run_manager=run_manager, **kwargs)
+                
+                def _generate(self, messages, stop = None, run_manager = None, **kwargs):
+                    kwargs.pop("temperature", None)
+                    return super()._generate(messages, stop=stop, run_manager=run_manager, **kwargs)
+
+            gemini_llm = SafeGemini(
+                model="gemini-1.5-flash",
+                google_api_key=settings.gemini.gemini_api_key,
+                temperature=0.0
+            )
+            
+            gemini_embeddings = GoogleGenerativeAIEmbeddings(
+                model="models/embedding-001",
+                google_api_key=settings.gemini.gemini_api_key
+            )
+
             ragas_result = evaluate(
                 dataset = eval_dataset,
                 metrics = [
                     faithfulness,
                     context_relevancy,
                     answer_correctness
-                ]
+                ],
+                llm = gemini_llm,
+                embeddings = gemini_embeddings
             )
         except Exception as e:
             logger.error("ragas_evaluation_failed", error = str(e))

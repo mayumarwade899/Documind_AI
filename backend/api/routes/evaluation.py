@@ -1,11 +1,9 @@
-
 import json
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
 
-from evaluation.golden_dataset import Golden_Dataset
 from config.settings import get_settings
 from config.logging_config import get_logger
 
@@ -13,24 +11,10 @@ router = APIRouter(prefix="/evaluation", tags=["Evaluation"])
 logger = get_logger(__name__)
 settings = get_settings()
 
-class GoldenPair(BaseModel):
-    question: str
-    ground_truth: str
-    contexts: List[str] = []
-    source_files: List[str] = []
-    metadata: dict = {}
-
-
-class DatasetResponse(BaseModel):
-    total: int
-    pairs: List[GoldenPair]
-
-
 class MetricScore(BaseModel):
     score: float
     passed: bool
     threshold: float
-
 
 class EvalReportResponse(BaseModel):
     run_id: str
@@ -40,40 +24,6 @@ class EvalReportResponse(BaseModel):
     avg_score: float
     metrics: dict
     evaluation_latency_ms: float
-
-
-@router.get("/dataset", response_model=DatasetResponse)
-async def get_golden_dataset():
-    try:
-        dataset = Golden_Dataset()
-        pairs = dataset.load()
-
-        return DatasetResponse(
-            total=len(pairs),
-            pairs=[
-                GoldenPair(
-                    question=p.question,
-                    ground_truth=p.ground_truth,
-                    contexts=p.contexts or [],
-                    source_files=getattr(p, "source_file", []),
-                    metadata=p.metadata or {},
-                )
-                for p in pairs
-            ],
-        )
-    except Exception as e:
-        logger.error("get_golden_dataset_failed", error=str(e))
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@router.get("/stats")
-async def get_dataset_stats():
-    try:
-        dataset = Golden_Dataset()
-        return dataset.get_stats()
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
 
 @router.get("/latest", response_model=Optional[EvalReportResponse])
 async def get_latest_report():
@@ -93,19 +43,37 @@ async def get_latest_report():
         logger.error("get_latest_report_failed", error=str(e))
         raise HTTPException(status_code=500, detail=str(e))
 
+@router.get("/history", response_model=List[EvalReportResponse])
+async def get_history_reports():
+    reports_dir = Path("data/evaluation_reports")
+    if not reports_dir.exists():
+        return []
+
+    report_files = sorted(reports_dir.glob("eval_*.json"), reverse=True)
+    reports = []
+    
+    for rf in report_files:
+        try:
+            with open(rf, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            reports.append(EvalReportResponse(**data))
+        except Exception as e:
+            logger.warning("failed_to_load_report", file=str(rf), error=str(e))
+            
+    return reports
 
 @router.post("/run")
-async def run_evaluation(max_questions: Optional[int] = None):
+async def run_evaluation(max_questions: Optional[int] = 5):
     try:
-        from evaluation.ragas_evaluator import RAGASEvaluator
+        from evaluation.trulens_evaluator import TruLensEvaluator
     except ImportError as e:
         raise HTTPException(
             status_code=503,
-            detail=f"RAGAS dependencies not installed: {e}. Run: pip install ragas datasets"
+            detail=f"Dependencies not installed: {e}."
         )
 
     try:
-        evaluator = RAGASEvaluator()
+        evaluator = TruLensEvaluator()
         report = evaluator.evaluate(max_questions=max_questions)
 
         return {

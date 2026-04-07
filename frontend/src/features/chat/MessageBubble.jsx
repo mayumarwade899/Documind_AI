@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { ThumbsUp, ThumbsDown, Copy, Check, Bot, User } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { CitationCard } from './CitationCard.jsx'
 import { ConfidenceBar, InlineMeta } from '../../components/shared/index.jsx'
 import { cn } from '../../utils/cn.js'
@@ -55,6 +55,8 @@ export function MessageBubble({ message, onFeedback }) {
   const { role, content, sources, verification, metrics, feedback } = message
   const isAssistant = role === 'assistant'
   const [copied, setCopied] = useState(false)
+  const [showCommentBox, setShowCommentBox] = useState(false)
+  const [commentText, setCommentText] = useState('')
 
   function copyAnswer() {
     navigator.clipboard.writeText(content)
@@ -135,18 +137,63 @@ export function MessageBubble({ message, onFeedback }) {
                   <ThumbsUp size={11} />
                 </button>
                 <button
-                  onClick={() => onFeedback?.('negative')}
+                  onClick={() => {
+                    if (feedback === 'negative') return
+                    setShowCommentBox(true)
+                  }}
                   className={cn(
                     'flex items-center gap-1 px-2 py-1 rounded-md text-[10px] transition-colors',
                     feedback === 'negative'
                       ? 'bg-red-100 dark:bg-red-950 text-red-600'
-                      : 'text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800 hover:text-red-500'
+                      : (showCommentBox ? 'bg-surface-200 dark:bg-surface-700 text-red-500' : 'text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800 hover:text-red-500')
                   )}
                 >
                   <ThumbsDown size={11} />
                 </button>
               </div>
             </div>
+
+            {/* Comment Box */}
+            <AnimatePresence>
+              {showCommentBox && feedback !== 'negative' && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mt-3 overflow-hidden"
+                >
+                  <div className="p-3 bg-surface-50 dark:bg-surface-900/50 rounded-lg border border-surface-200 dark:border-surface-700">
+                    <p className="text-[10px] font-semibold text-surface-500 mb-2">What went wrong?</p>
+                    <textarea
+                      value={commentText}
+                      onChange={e => setCommentText(e.target.value)}
+                      placeholder="Optional feedback..."
+                      className="w-full text-xs p-2 bg-white dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-md resize-none h-16 focus:outline-none focus:border-brand-500 mb-2 text-surface-700 dark:text-surface-300 placeholder:text-surface-400"
+                    />
+                    <div className="flex justify-end gap-2">
+                      <button
+                        onClick={() => {
+                          setShowCommentBox(false)
+                          setCommentText('')
+                        }}
+                        className="px-2 py-1 text-[10px] text-surface-500 hover:text-surface-700 dark:hover:text-surface-300"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={() => {
+                          onFeedback?.('negative', commentText)
+                          setShowCommentBox(false)
+                        }}
+                        className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded text-[10px] font-semibold transition-colors disabled:opacity-50"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </>
         ) : (
           <p className="whitespace-pre-wrap">{content}</p>

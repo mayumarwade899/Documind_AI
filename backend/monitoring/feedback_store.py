@@ -44,7 +44,8 @@ class FeedbackSummary:
     negative_rate: float
     avg_rating: float 
     recent_comments: List[str] 
-    low_rated_queries: List[str] 
+    low_rated_queries: List[str]
+    daily_trend: List[Dict[str, int]] = field(default_factory=list)
 
 def _append_jsonl(file_path: Path, record: dict) -> None:
     file_path.parent.mkdir(parents = True, exist_ok = True)
@@ -174,51 +175,7 @@ class FeedbackStore:
     ) -> List[UserFeedback]:
         records = self._load_recent_records(days)
         return [UserFeedback(**r) for r in records]
-    
-    def export_as_golden_pairs(
-        self,
-        days: int = 30,
-        only_positive: bool = True
-    ) -> List[dict]:
-        records = self._load_recent_records(days)
 
-        if only_positive:
-            records = [r for r in records if r.get("rating") == 1]
-
-        golden_pairs = []
-        for r in records:
-            contexts = [
-                s.get("content_preview", "")
-                for s in r.get("sources", [])
-                if s.get("content_preview")
-            ]
-
-            source_files = list({
-                s.get("source_file", "")
-                for s in r.get("sources", [])
-                if s.get("source_file")
-            })
-
-            golden_pairs.append({
-                "question": r.get("query", ""),
-                "ground_truth": r.get("answer", ""),
-                "contexts": contexts,
-                "source_files": source_files,
-                "rating": r.get("rating", 0),
-                "feedback_id": r.get("feedback_id", ""),
-                "date": r.get("date", ""),
-                "comment": r.get("comment", "")
-            })
-
-            logger.info(
-            "golden_pairs_exported",
-            total_feedback = len(records),
-            pairs_exported = len(golden_pairs),
-            only_positive = only_positive
-        )
-
-        return golden_pairs
-    
     def get_summary(self, days: int = 30) -> FeedbackSummary:
         records = self._load_recent_records(days)
 
@@ -233,7 +190,8 @@ class FeedbackStore:
                 negative_rate = 0.0,
                 avg_rating = 0.0,
                 recent_comments = [],
-                low_rated_queries = []
+                low_rated_queries = [],
+                daily_trend = []
             )
 
         ratings = [r.get("rating", 0) for r in records]
@@ -263,6 +221,22 @@ class FeedbackStore:
             if r.get("rating") == -1
         })[:20]
 
+        from collections import defaultdict
+        daily = defaultdict(lambda: {"date": "", "positive": 0, "negative": 0, "neutral": 0})
+        for r in records:
+            d = r.get("date", "")
+            if not d: continue
+            rt = r.get("rating", 0)
+            daily[d]["date"] = d
+            if rt == 1:
+                daily[d]["positive"] += 1
+            elif rt == -1:
+                daily[d]["negative"] += 1
+            else:
+                daily[d]["neutral"] += 1
+        
+        daily_trend = sorted(list(daily.values()), key=lambda x: x["date"])
+
         return FeedbackSummary(
             period_days = days,
             total_feedback = total,
@@ -273,7 +247,8 @@ class FeedbackStore:
             negative_rate = round(negative / total, 3),
             avg_rating = round(statistics.mean(ratings), 3),
             recent_comments = recent_comments,
-            low_rated_queries = low_rated_queries
+            low_rated_queries = low_rated_queries,
+            daily_trend = daily_trend
         )
     
     

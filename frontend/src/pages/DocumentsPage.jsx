@@ -5,21 +5,22 @@ import { useDropzone } from 'react-dropzone'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Upload, FileText, CheckCircle, AlertCircle, RefreshCw,
-  Database, Layers, Clock, HardDrive, RotateCcw, MessageSquare, ArrowRight
+  Database, Layers, HardDrive, RotateCcw, MessageSquare, ArrowRight,
+  Trash2, Search
 } from 'lucide-react'
 import toast from 'react-hot-toast'
 
-import { ingestFile, ingestDirectory, getIngestStatus } from '../services/ingestService.js'
-import { Button, Badge, Progress, Skeleton, EmptyState } from '../components/ui/index.jsx'
+import { ingestFile, ingestDirectory, getIngestStatus, getDocuments, deleteDocument } from '../services/ingestService.js'
+import { Button, Badge, Progress, Skeleton, EmptyState, Card } from '../components/ui/index.jsx'
 import { formatBytes, formatLatency } from '../utils/format.js'
 import { cn } from '../utils/cn.js'
 
 function FileQueueItem({ item }) {
   const statusConfig = {
-    pending:    { icon: <div className="w-3.5 h-3.5 rounded-full border-2 border-brand-500 border-t-transparent animate-spin" />, badge: 'info',    label: 'Processing' },
-    done:       { icon: <CheckCircle size={14} className="text-emerald-500" />,  badge: 'success', label: 'Ingested' },
-    error:      { icon: <AlertCircle size={14} className="text-red-500" />,       badge: 'danger',  label: 'Failed' },
-    skipped:    { icon: <CheckCircle size={14} className="text-surface-400" />,  badge: 'default', label: 'Skipped (duplicate)' },
+    pending: { icon: <div className="w-3.5 h-3.5 rounded-full border-2 border-brand-500 border-t-transparent animate-spin" />, badge: 'info', label: 'Processing' },
+    done: { icon: <CheckCircle size={14} className="text-emerald-500" />, badge: 'success', label: 'Ingested' },
+    error: { icon: <AlertCircle size={14} className="text-red-500" />, badge: 'danger', label: 'Failed' },
+    skipped: { icon: <CheckCircle size={14} className="text-surface-400" />, badge: 'default', label: 'Skipped (duplicate)' },
   }
   const cfg = statusConfig[item.status] ?? statusConfig.pending
 
@@ -55,17 +56,66 @@ function FileQueueItem({ item }) {
   )
 }
 
+function DocumentRow({ doc, onDelete, isDeleting }) {
+  return (
+    <div className="flex items-center gap-3 px-4 py-3 border-b border-surface-100 dark:border-surface-800 last:border-0 hover:bg-surface-50 dark:hover:bg-surface-800/40 transition-colors">
+      <div className="w-8 h-8 rounded-lg bg-brand-50 dark:bg-brand-950/50 flex items-center justify-center shrink-0">
+        <FileText size={14} className="text-brand-600 dark:text-brand-400" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-medium text-surface-800 dark:text-surface-200 truncate">{doc.source_file}</p>
+        <p className="text-xs text-surface-400 mt-0.5">{doc.chunk_count} chunks</p>
+      </div>
+      <Badge variant="brand" size="xs">{doc.chunk_count} chunks</Badge>
+      <button
+        onClick={() => onDelete(doc.document_id)}
+        disabled={isDeleting}
+        className="p-1.5 rounded-lg text-surface-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors disabled:opacity-40"
+        title="Delete document"
+      >
+        {isDeleting ? <RefreshCw size={13} className="animate-spin" /> : <Trash2 size={13} />}
+      </button>
+    </div>
+  )
+}
+
 export default function DocumentsPage() {
   const navigate = useNavigate()
   const qc = useQueryClient()
   const [queue, setQueue] = useState([])
   const [forceReingest, setForceReingest] = useState(false)
+  const [docSearch, setDocSearch] = useState('')
+  const [deletingId, setDeletingId] = useState(null)
 
   const { data: status, isLoading: statusLoading } = useQuery({
     queryKey: ['ingest-status'],
     queryFn: getIngestStatus,
     refetchInterval: 10_000,
   })
+
+  const { data: docsData, isLoading: docsLoading } = useQuery({
+    queryKey: ['ingested-documents'],
+    queryFn: getDocuments,
+    refetchInterval: 15_000,
+  })
+
+  const documents = (docsData?.documents ?? []).filter(d =>
+    !docSearch || d.source_file.toLowerCase().includes(docSearch.toLowerCase())
+  )
+
+  async function handleDelete(documentId) {
+    setDeletingId(documentId)
+    try {
+      const res = await deleteDocument(documentId)
+      toast.success(`Deleted — ${res.chunks_deleted} chunks removed`)
+      qc.invalidateQueries({ queryKey: ['ingested-documents'] })
+      qc.invalidateQueries({ queryKey: ['ingest-status'] })
+    } catch (err) {
+      toast.error(err.message)
+    } finally {
+      setDeletingId(null)
+    }
+  }
 
   function updateItem(id, updates) {
     setQueue(q => q.map(item => item.id === id ? { ...item, ...updates } : item))
@@ -80,6 +130,7 @@ export default function DocumentsPage() {
       if (status === 'done') {
         toast.success(`${file.name} ingested — ${result.total_chunks} chunks`)
         qc.invalidateQueries({ queryKey: ['ingest-status'] })
+        qc.invalidateQueries({ queryKey: ['ingested-documents'] })
       } else if (status === 'skipped') {
         toast(`${file.name} already indexed`, { icon: '📄' })
       } else {
@@ -122,16 +173,16 @@ export default function DocumentsPage() {
     onSuccess: (res) => {
       toast.success(`Directory scan complete — ${res.successful_files} files, ${res.total_chunks} chunks`)
       qc.invalidateQueries({ queryKey: ['ingest-status'] })
+      qc.invalidateQueries({ queryKey: ['ingested-documents'] })
     },
     onError: (err) => toast.error(err.message),
   })
 
   const vectorChunks = status?.vector_store?.total_chunks ?? 0
-  const bm25Chunks   = status?.bm25_index?.total_chunks   ?? 0
+  const bm25Chunks = status?.bm25_index?.total_chunks ?? 0
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
-      {/* Header */}
       <div className="flex items-center justify-between h-14 px-6 border-b border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-900 shrink-0">
         <div>
           <h1 className="text-base font-semibold text-surface-900 dark:text-white">Documents</h1>
@@ -150,12 +201,7 @@ export default function DocumentsPage() {
             </div>
             Force re-ingest
           </label>
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={() => scanMutation.mutate()}
-            disabled={scanMutation.isPending}
-          >
+          <Button variant="secondary" size="sm" onClick={() => scanMutation.mutate()} disabled={scanMutation.isPending}>
             <RotateCcw size={14} className={cn(scanMutation.isPending && 'animate-spin')} />
             Scan directory
           </Button>
@@ -171,12 +217,11 @@ export default function DocumentsPage() {
       </div>
 
       <div className="flex-1 overflow-y-auto px-6 py-5 space-y-5">
-        {/* Stats cards */}
         <div className="grid grid-cols-3 gap-3">
           {[
             { icon: <Database size={16} />, label: 'Vector chunks', value: vectorChunks.toLocaleString(), color: 'text-brand-600 dark:text-brand-400', bg: 'bg-brand-50 dark:bg-brand-950/50' },
-            { icon: <Layers size={16} />,   label: 'BM25 chunks',   value: bm25Chunks.toLocaleString(),   color: 'text-sky-600 dark:text-sky-400', bg: 'bg-sky-50 dark:bg-sky-950/50' },
-            { icon: <HardDrive size={16} />, label: 'Index built',  value: status?.bm25_index?.index_built ? 'Ready' : 'Empty', color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/50' },
+            { icon: <Layers size={16} />, label: 'BM25 chunks', value: bm25Chunks.toLocaleString(), color: 'text-sky-600 dark:text-sky-400', bg: 'bg-sky-50 dark:bg-sky-950/50' },
+            { icon: <HardDrive size={16} />, label: 'Index built', value: status?.bm25_index?.index_built ? 'Ready' : 'Empty', color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/50' },
           ].map(c => (
             <div key={c.label} className="bg-white dark:bg-surface-850 rounded-xl p-4 border border-surface-200 dark:border-surface-700">
               <div className={cn('inline-flex p-2 rounded-lg mb-2', c.bg)}>
@@ -190,7 +235,6 @@ export default function DocumentsPage() {
           ))}
         </div>
 
-        {/* Drop zone */}
         <div
           {...getRootProps()}
           className={cn(
@@ -210,19 +254,11 @@ export default function DocumentsPage() {
           <p className="text-sm text-surface-400">or click to browse · PDF, TXT, DOCX · max 50 MB</p>
         </div>
 
-        {/* Upload queue */}
         {queue.length > 0 && (
           <div>
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-sm font-semibold text-surface-700 dark:text-surface-300">
-                Upload queue
-              </h2>
-              <button
-                onClick={() => setQueue([])}
-                className="text-xs text-surface-400 hover:text-surface-600 dark:hover:text-surface-300"
-              >
-                Clear
-              </button>
+              <h2 className="text-sm font-semibold text-surface-700 dark:text-surface-300">Upload queue</h2>
+              <button onClick={() => setQueue([])} className="text-xs text-surface-400 hover:text-surface-600 dark:hover:text-surface-300">Clear</button>
             </div>
             <div className="space-y-2">
               <AnimatePresence>
@@ -231,6 +267,49 @@ export default function DocumentsPage() {
             </div>
           </div>
         )}
+
+        <div>
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-sm font-semibold text-surface-700 dark:text-surface-300">
+              Ingested documents
+              {!docsLoading && <span className="ml-2 text-surface-400 font-normal">({docsData?.documents?.length ?? 0})</span>}
+            </h2>
+            <div className="relative">
+              <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-surface-400" />
+              <input
+                type="text"
+                placeholder="Filter documents..."
+                value={docSearch}
+                onChange={e => setDocSearch(e.target.value)}
+                className="pl-8 pr-3 py-1.5 text-xs rounded-lg border border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-850 text-surface-700 dark:text-surface-300 placeholder:text-surface-400 focus:outline-none focus:ring-1 focus:ring-brand-500 w-48"
+              />
+            </div>
+          </div>
+
+          {docsLoading ? (
+            <div className="space-y-2">
+              {Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} className="h-14 rounded-xl" />)}
+            </div>
+          ) : documents.length === 0 ? (
+            <Card className="p-8 text-center">
+              <Database size={24} className="mx-auto text-surface-300 dark:text-surface-600 mb-2" />
+              <p className="text-sm text-surface-400">
+                {docSearch ? 'No documents match your filter' : 'No documents ingested yet. Upload files above to get started.'}
+              </p>
+            </Card>
+          ) : (
+            <Card className="overflow-hidden p-0">
+              {documents.map(doc => (
+                <DocumentRow
+                  key={doc.document_id}
+                  doc={doc}
+                  onDelete={handleDelete}
+                  isDeleting={deletingId === doc.document_id}
+                />
+              ))}
+            </Card>
+          )}
+        </div>
       </div>
     </div>
   )

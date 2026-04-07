@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import {
   MessageSquare, FileText, BarChart3, FlaskConical,
   Zap, CheckCircle, DollarSign, Hash, ArrowRight,
-  Plus, Upload
+  Plus, Upload, ShieldCheck
 } from 'lucide-react'
 import { getMetrics, getHealthStatus } from '../services/metricsService.js'
 import { getIngestStatus } from '../services/ingestService.js'
@@ -94,18 +94,19 @@ export default function DashboardPage() {
         {/* Metrics grid */}
         <section>
           <h2 className="text-xs font-semibold uppercase tracking-widest text-surface-400 mb-3">Last 7 days</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
             {metricsLoading ? (
-              Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-28 rounded-xl" />)
+              Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} className="h-28 rounded-xl" />)
             ) : metrics ? (
               <>
                 <MetricCard icon={<Hash size={16} />}        label="Total queries"  value={metrics.total_requests?.toLocaleString() ?? '0'} sub={`${metrics.successful} succeeded`} color="brand" />
                 <MetricCard icon={<Zap size={16} />}         label="p95 latency"    value={formatLatency(metrics.latency?.p95_ms)}            sub={`avg ${formatLatency(metrics.latency?.avg_ms)}`} color="amber" />
+                <MetricCard icon={<ShieldCheck size={16} />} label="Groundedness"   value={formatPercent(metrics.avg_support_ratio)}          sub="avg support ratio" color="violet" />
                 <MetricCard icon={<DollarSign size={16} />}  label="Total cost"     value={formatCost(metrics.total_cost_usd)}                sub={`${formatCost(metrics.avg_cost_usd)} / request`} color="emerald" />
                 <MetricCard icon={<CheckCircle size={16} />} label="Success rate"   value={formatPercent(metrics.success_rate)}               sub={`${metrics.failed} failed`} color="sky" />
               </>
             ) : (
-              <div className="col-span-4">
+              <div className="col-span-2 lg:col-span-5">
                 <Card className="p-6 text-center">
                   <p className="text-sm text-surface-400">No metrics yet. Send your first query to see stats here.</p>
                 </Card>

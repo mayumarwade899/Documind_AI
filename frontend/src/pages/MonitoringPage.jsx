@@ -236,9 +236,10 @@ export default function MonitoringPage() {
         )}
 
         {tab === 'feedback' && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <Card className="p-4">
-              <h3 className="text-sm font-semibold text-surface-700 dark:text-surface-300 mb-4">Feedback summary</h3>
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <Card className="p-4">
+                <h3 className="text-sm font-semibold text-surface-700 dark:text-surface-300 mb-4">Feedback summary</h3>
               {feedback ? (
                 <div className="space-y-4">
                   <div className="grid grid-cols-3 gap-3 text-center">
@@ -279,6 +280,28 @@ export default function MonitoringPage() {
                   <p className="text-xs text-surface-400 text-center py-6">No negative feedback 🎉</p>
                 )}
               </div>
+              </Card>
+            </div>
+            
+            <Card className="p-4">
+              <h3 className="text-sm font-semibold text-surface-700 dark:text-surface-300 mb-4">Daily feedback trend</h3>
+              {feedback?.daily_trend?.length > 0 ? (
+                <ResponsiveContainer width="100%" height={220}>
+                  <LineChart data={feedback.daily_trend} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
+                    <CartesianGrid stroke={gridColor} strokeDasharray="3 3" />
+                    <XAxis dataKey="date" tick={{ fontSize: 11, fill: axisColor }} />
+                    <YAxis tick={{ fontSize: 11, fill: axisColor }} />
+                    <Tooltip content={<ChartTooltipContent />} />
+                    <Line type="monotone" dataKey="positive" name="Positive" stroke="#10b981" strokeWidth={2} dot={false} />
+                    <Line type="monotone" dataKey="negative" name="Negative" stroke="#ef4444" strokeWidth={2} dot={false} />
+                    <Line type="monotone" dataKey="neutral" name="Neutral" stroke="#8b5cf6" strokeWidth={2} dot={false} />
+                  </LineChart>
+                </ResponsiveContainer>
+              ) : (
+                <div className="flex flex-col items-center justify-center h-[220px]">
+                  <p className="text-xs text-surface-400">Not enough data for trend</p>
+                </div>
+              )}
             </Card>
           </div>
         )}

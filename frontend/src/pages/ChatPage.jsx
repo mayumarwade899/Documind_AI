@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { GitBranch, MessageSquare, FileText, ChevronDown, X, Upload } from 'lucide-react'
+import { GitBranch, MessageSquare, FileText, ChevronDown, X, Upload, Download } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 import { useChatStore } from '../store/chatStore.js'
@@ -153,7 +153,7 @@ export default function ChatPage() {
     }
   }
 
-  async function handleFeedback(messageIndex, sentiment) {
+  async function handleFeedback(messageIndex, sentiment, commentText = null) {
     if (!activeConv) return
     const msg = activeConv.messages[messageIndex]
     if (!msg || msg.role !== 'assistant') return
@@ -171,6 +171,7 @@ export default function ChatPage() {
         answer: msg.content ?? '',
         rating: sentiment === 'positive' ? 1 : -1,
         sources: msg.sources ?? [],
+        comment: commentText,
         rewritten_query: msg.rewrittenQuery ?? '',
         num_chunks_used: msg.metrics?.num_chunks_used ?? 0,
         total_latency_ms: msg.metrics?.total_latency_ms ?? 0,
@@ -182,6 +183,18 @@ export default function ChatPage() {
     } catch {
       toast.error('Could not save feedback')
     }
+  }
+
+  const exportChat = () => {
+    if (!activeConv || activeConv.messages.length === 0) return
+    const text = activeConv.messages.map(m => `### ${m.role === 'user' ? 'User' : 'Assistant'}\n${m.content}`).join('\n\n')
+    const blob = new Blob([text], { type: 'text/markdown' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${activeConv.title || 'chat_export'}.md`
+    a.click()
+    URL.revokeObjectURL(url)
   }
 
   return (
@@ -204,6 +217,17 @@ export default function ChatPage() {
             {activeConv?.title ?? 'Chat'}
           </span>
           <div className="flex items-center gap-1.5">
+            {activeConv?.messages?.length > 0 && (
+              <button
+                onClick={exportChat}
+                className="flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-lg border border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-850 text-surface-500 dark:text-surface-400 hover:border-surface-300 dark:hover:border-surface-600 transition-all"
+                title="Export as Markdown"
+              >
+                <Download size={12} />
+                <span>Export</span>
+              </button>
+            )}
+            
             {/* Document selector */}
             <div className="relative" ref={dropdownRef}>
               <button
@@ -385,7 +409,7 @@ export default function ChatPage() {
             <MessageBubble
               key={msg.id ?? i}
               message={msg}
-              onFeedback={(sentiment) => handleFeedback(i, sentiment)}
+              onFeedback={(sentiment, commentText) => handleFeedback(i, sentiment, commentText)}
             />
           ))}
 

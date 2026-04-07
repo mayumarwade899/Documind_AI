@@ -79,6 +79,32 @@ async def health():
         "model":   settings.gemini.gemini_model
     }
 
+@app.get("/settings", tags = ["System"])
+async def get_system_settings():
+    return {
+        "gemini": {
+            "model": settings.gemini.gemini_model,
+            "embedding_model": settings.gemini.gemini_embedding_model,
+            "temperature": settings.gemini.gemini_temperature,
+            "max_tokens": settings.gemini.gemini_max_tokens
+        },
+        "chunking": {
+            "chunk_size": settings.chunking.chunk_size,
+            "chunk_overlap": settings.chunking.chunk_overlap
+        },
+        "retrieval": {
+            "vector_search_top_k": settings.retrieval.vector_search_top_k,
+            "bm25_search_top_k": settings.retrieval.bm25_search_top_k,
+            "final_top_k": settings.retrieval.final_top_k,
+            "multi_query_count": settings.retrieval.multi_query_count
+        },
+        "evaluation": {
+            "min_faithfulness_score": settings.evaluation.min_faithfulness_score,
+            "min_context_relevance_score": settings.evaluation.min_context_relevance_score,
+            "min_answer_correctness_score": settings.evaluation.min_answer_correctness_score
+        }
+    }
+
 @app.get("/", tags = ["System"])
 async def root():
     return {

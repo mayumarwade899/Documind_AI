@@ -9,6 +9,7 @@ import ChatPage from './pages/ChatPage.jsx'
 import DocumentsPage from './pages/DocumentsPage.jsx'
 import EvaluationPage from './pages/EvaluationPage.jsx'
 import MonitoringPage from './pages/MonitoringPage.jsx'
+import SettingsPage from './pages/SettingsPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import { ErrorBoundary } from './components/ui/ErrorBoundary.jsx'
 import { useUIStore } from './store/uiStore.js'
@@ -45,6 +46,7 @@ export default function App() {
               <Route path="/documents" element={<DocumentsPage />} />
               <Route path="/evaluation" element={<EvaluationPage />} />
               <Route path="/monitoring" element={<MonitoringPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
