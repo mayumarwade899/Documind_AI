@@ -32,11 +32,6 @@ export function timeAgo(dateStr) {
   } catch { return dateStr }
 }
 
-export function formatDate(dateStr, fmt = 'MMM d, yyyy') {
-  try {
-    return format(new Date(dateStr), fmt)
-  } catch { return dateStr }
-}
 
 export function formatPercent(ratio, decimals = 1) {
   if (ratio == null) return '—'

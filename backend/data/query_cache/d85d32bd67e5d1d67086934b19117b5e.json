@@ -1,0 +1,171 @@
+{
+  "query": "What primary right does a patent confer on its owner regarding the protected invention?",
+  "document_id": null,
+  "cached_at": 1776282805.1817355,
+  "response": {
+    "answer": "A patent confers on its owner a primary legal right to prevent or stop others from making, using, offering for sale, selling, or importing the protected invention. This is often referred to as a \"right to exclude\" others.\n\nSpecifically, a patent grants its owner:\n*   **An exclusive right to prevent others:** This means the owner can legally stop all others from trespassing on the invention.\n*   **Actions that can be prevented:** The owner can prevent others from:\n    *   Making the patented product or process.\n    *   Using the patented product or process.\n    *   Offering the patented product for sale.\n    *   Selling the patented product.\n    *   Importing the patented product or process.\n\nIt is crucial to understand that this right is not a \"right or freedom to use\" the patented invention itself. Unlike a title deed for a piece of land, which gives the owner the right to occupy and use the land, a patent does not grant the owner the right to use their own protected invention. This distinction arises because an invention, even if patented, might be based on a concept that was already patented by someone else, and that prior patent might still be legally valid. In such cases, the boundaries of two distinct patents may overlap, unlike the physical boundaries of two pieces of land which never overlap.\n\nTherefore, the primary right conferred by a patent is solely the exclusive right to prevent others from engaging in specific commercial activities related to the defined invention without the owner's permission. This right is legally valid for a maximum period of 20 years, calculated from the filing date of the earliest relevant patent application, provided that periodic maintenance fees are paid and the patent is not revoked or declared invalid by a court.",
+    "query": "What primary right does a patent confer on its owner regarding the protected invention?",
+    "rewritten_query": "What primary right does a patent confer on its owner regarding the protected invention?",
+    "sources": [
+      {
+        "source_file": "patent.pdf",
+        "page_number": 12,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p12_c0",
+        "relevance_score": 1.0,
+        "content_preview": "More Reference 1\u20106: Role of Patent\nAn invention, by itself, is not like physical property that we own. But when a\npatent is used to protect an invention, the act of patenting makes it a kind\nof privat..."
+      },
+      {
+        "source_file": "patent.pdf",
+        "page_number": 34,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p34_c0",
+        "relevance_score": 0.9586,
+        "content_preview": "4) A patent owner may assign or transfer the patent or conclude licensing\ncontracts. Answer : 2)\nA patent is like a deed of land, which confers the right to prevent others from\ntrespassing on the terr..."
+      },
+      {
+        "source_file": "patent.pdf",
+        "page_number": 22,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p22_c0",
+        "relevance_score": 0.7148,
+        "content_preview": "patent. In fact, whether knowingly or unknowingly if you have incorporated a\npatented invention or practiced or incorporated an invention sufficiently similar to\na patented invention, then you may be ..."
+      },
+      {
+        "source_file": "patent.pdf",
+        "page_number": 25,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p25_c0",
+        "relevance_score": 0.7109,
+        "content_preview": "If the patent owner does nothing about the violation of his patent right in the\nmarketplace, competitors will sooner or later attempt to make similar or identical\nproducts. In some cases, competitors ..."
+      },
+      {
+        "source_file": "patent.pdf",
+        "page_number": 13,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p13_c0",
+        "relevance_score": 0.5018,
+        "content_preview": "3. Period of Patent\nA national or regional patent office grants a patent. Once granted, it can\nremain legally valid for a maximum period of 20 years that commences\nfrom the date on which the relevant ..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p12_c0",
+        "content": "More Reference 1\u20106: Role of Patent\nAn invention, by itself, is not like physical property that we own. But when a\npatent is used to protect an invention, the act of patenting makes it a kind\nof private property that the owner can control. But, in some respects, the\nrights in a patent are comparable to those of a title deed of a piece of land. A patent confers on its owner a legal right, as in the case of land, to stop all\nothers from trespassing on the invention, just like the owner of a piece of land\nhas the right to stop trespassers from entering, using or occupying his land. However, unlike a title deed of land, a patent gives its owner not the right\nto use the protected invention but to prevent or stop all others from using it. The reason for this is that the invention could be based on a concept which\nwas itself patented by someone else, and that other patent is still legally\nvalid. In other words, this situation is the result of a patented invention\nbeing further improved in a novel and non\u2010obvious way that becomes\nanother patentable invention. So, while the boundaries of two distinct pieces\nof land never overlap, those of two patents may overlap. In other words, a patent provides its owner a \u2018right to exclude\u2019 others but\nnot a \u2018right or freedom to use\u201d the patented invention. So, a patent gives its\nowner only an exclusive right to prevent or stop others, from making, using,\noffering for sale, selling or importing a product or process. More Reference 1\u20105: Basics of a Patent\n1. Definition\nA patent is an exclusive right granted by a government for an invention,\nwhich is a product or a process that provides, in general, a new way of\ndoing something, or offers a new technical solution to a problem. 2. Criteria for granting a patent\nIn order to be patentable, an invention must meet the following three\ncriteria:\na. It must be new;\nb. It must involve an inventive step(that is, non\u2010obvious to a person\nskilled in the relevant field of technology); and\nc. It must be capable of industrial application.",
+        "source_file": "patent.pdf",
+        "page_number": 12,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 1.0,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.016235,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.016235,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p34_c0",
+        "content": "4) A patent owner may assign or transfer the patent or conclude licensing\ncontracts. Answer : 2)\nA patent is like a deed of land, which confers the right to prevent others from\ntrespassing on the territory delineated by picket fences. However, unlike a deed to\nland, a patent gives its owner the right not to occupy the land but to trespass on\nthe land in the picket fence. That is, a patent shall confer on its owner the\nexclusive rights to prevent others from making, using, offering, for sell, selling or\nimporting a defined invention. Therefore, a patent owner can exercise the freedom\nto operate his patented invention as long as it does not infringe other patents. Q3. Identify the incorrect statement\n1) A patent application must provide detailed technical information about the\nfeatures of the claimed invention;\n2) An applicant must not disclose in a patent application how the invention can be\nmade or carried out;\n3) A patent application must indicate how the invention may be applied in industry\nor commerce\n4) By reading a patent application a person with ordinary skills in that field of\ntechnology must be able to practice, use or reproduce the invention without\nhaving to do undue experimentation. Answer: 2)\nA key reason for the grant of a patent is as an incentive for the disclosure of new\ntechnical knowledge. Therefore, the details of an invention are published in the\nofficial gazette or journal either 18 months after the date of filing the patent\napplication and/or soon after the patent is granted. Thus wide dissemination of the\nnew technical knowledge is ensured spurring further technical advancement",
+        "source_file": "patent.pdf",
+        "page_number": 34,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 0.9586,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.016288,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.9586,
+          "rerank_rank": 2,
+          "original_score": 0.016288,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p22_c0",
+        "content": "patent. In fact, whether knowingly or unknowingly if you have incorporated a\npatented invention or practiced or incorporated an invention sufficiently similar to\na patented invention, then you may be also hauled up for patent infringement. A patent owner can legally stop your business from using the patent, and also\nsue for damages. In many situations, an injunction may be equally or more\ncostly than any potential damages levied by a court in due course. This may\nhappen when you have a big inventory that must be destroyed and the\nretooling costs for modifying your production process. So, technically speaking, patent infringement means others have entered a\nprohibited space defined by one of the claims in your patent. As we discussed\nearlier, a patent provides its owner with the right to prevent or stop others from\nmaking, using, selling or importing the patented product without the owner\u2019s\npermission for a period of 20 years calculated from filing date of the earliest\nrelevant patent application. Therefore, the original patent owner or his assignee\nmay enforce his right in a patent. If a product in question physically has or\nperform all of elements contained in your patent\u2019s broadest claim, then it would\ninfringe your patent and you can take legal action against its manufacturer or\ndistributor or retailer. Let\u2019s look at a simple case:",
+        "source_file": "patent.pdf",
+        "page_number": 22,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 0.7148,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.015385,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.7148,
+          "rerank_rank": 3,
+          "original_score": 0.015385,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p25_c0",
+        "content": "If the patent owner does nothing about the violation of his patent right in the\nmarketplace, competitors will sooner or later attempt to make similar or identical\nproducts. In some cases, competitors may benefit from economies of scale,\ngreater market access, or access to cheaper primary resources, and therefore\nbe able to make a similar or identical product at a cheaper price, putting heavy\npressure on the innovator of the original product. On occasions, this may erode\nonly profits or drive the original innovator out of business because, usually, the\nduplicated product may dominate the market and attract customers more than\nthe original one. More Reference 3\u20101: Enforcing your patent\nThe main responsibility for identifying, monitoring and taking action against\nimitators or infringers of a patent lies with its owner. The remedies available to a patent owner include:\n1. Injunction\nA court order requiring an entity to stop doing a certain act. For a\ncompany an injunction may mean an order to stop selling its product\ndeemed to be infringing. 2. Damages\nDamages are typically based on lost profits or established royalties, but\nin no event shall be less than a reasonable royalty for the infringers\u2019 use\nof the patented invention. Learn more: Alternative to Litigation: Arbitration or Mediation\nIn some countries, litigation has become an increasingly common tool\nfor protection of patent rights, encouraged by such staggering damage\nawards. However, patent litigation is normally best avoided by\ncompanies, big or small. Instead of a lawsuit, if both parties agree, the\nentire infringement dispute may be settled through negotiations in the\nform of mediation or arbitration. An advantage of mediation is that the parties retain control of the",
+        "source_file": "patent.pdf",
+        "page_number": 25,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 0.7109,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.015774,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.7109,
+          "rerank_rank": 4,
+          "original_score": 0.015774,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p13_c0",
+        "content": "3. Period of Patent\nA national or regional patent office grants a patent. Once granted, it can\nremain legally valid for a maximum period of 20 years that commences\nfrom the date on which the relevant patent application was filed, provided\nthe periodic maintenance fees are duly paid during this period and the\npatent is not revoked or declared invalid by a court. 4. Territorial principle\nA patent is a territorial right, thus it is limited to the geographical\nboundary of the relevant country or region for which it has been granted. For obtaining patent protection in other countries or regions, many patent\napplications may have to be filed at the relevant national or regional\npatent office in the legally prescribed time limit. 5. Use of Patent\nLike the owner of any other private property, a patent owner has the\nright to prevent others from using it, abandon it, sell it, that is, assign it\nfor a fee or free (gift), and allow one or many others to use it, while\nretaining its ownership, by \u2018licensing out\u2019 the patent for one or more\nspecified purposes, during a specified time period, in one or more\nspecified jurisdictions. Licensing is always done for a valid consideration\nthat may be in cash or kind, as may be mutually agreed and specified in\na written and formally signed license agreement. LEARNING POINT 2: Patent application\n1. Evaluating the patentability of an invention\nYou are under no obligation to conduct a prior art search before filing a patent\napplication, and indeed, not all applications are preceded by such a search for\nwant of time or lack of access to patent search facilities for cost or other\nreasons. For example, you may have no time to do so, if you identify\npatentable inventions only during a patent clearance procedure just prior to the",
+        "source_file": "patent.pdf",
+        "page_number": 13,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 0.5018,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.014454,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.5018,
+          "rerank_rank": 5,
+          "original_score": 0.014454,
+          "original_method": "hybrid"
+        }
+      }
+    ],
+    "total_latency_ms": 8432.62,
+    "retrieval_latency_ms": 531.19,
+    "reranking_latency_ms": 710.54,
+    "generation_latency_ms": 7188.31,
+    "input_tokens": 2061,
+    "output_tokens": 359,
+    "total_tokens": 2420,
+    "cost_usd": 0.0003497,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "hybrid"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

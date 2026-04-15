@@ -1,0 +1,172 @@
+{
+  "query": "Considering a RAG pipeline where a vector database facilitates initial document retrieval and dynamic few-shot learning optimizes the LLM's response generation, how would BERTScore be applied to specifically evaluate the semantic impact of the few-shot optimization, especially if the retrieved documents were also subject to contextual reranking?",
+  "document_id": null,
+  "cached_at": 1776276728.5462747,
+  "response": {
+    "answer": "I cannot find this information in the provided documents.",
+    "query": "Considering a RAG pipeline where a vector database facilitates initial document retrieval and dynamic few-shot learning optimizes the LLM's response generation, how would BERTScore be applied to specifically evaluate the semantic impact of the few-shot optimization, especially if the retrieved documents were also subject to contextual reranking?",
+    "rewritten_query": "Considering a RAG pipeline where a vector database facilitates initial document retrieval and dynamic few-shot learning optimizes the LLM's response generation, how would BERTScore be applied to specifically evaluate the semantic impact of the few-shot optimization, especially if the retrieved documents were also subject to contextual reranking?",
+    "sources": [
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 120,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p120_c0",
+        "relevance_score": 1.0,
+        "content_preview": "Optimizing RAG Pipelines\nLLM optimization for RAG\nFew-Shot Learning:\nUse a few relevant examples to guide LLMs in improving\nperformance within RAG systems, enhancing response quality. Created by Goyas..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 171,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p171_c0",
+        "relevance_score": 0.7707,
+        "content_preview": "Continuous Learning And Adaptive Retrieval In RAG\nSystems\nExploration of Few-Shot and Zero-Shot Learning in RAG\nCreated by Goyashy (@explAaindx.aai)ptive Retrieval in Few-Shot and Zero-Shot Scenarios:..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 119,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p119_c0",
+        "relevance_score": 0.7359,
+        "content_preview": "Optimizing RAG Pipelines\nLLM optimization for RAG\nPrompt Engineering:\nCraft prompts to optimize how large language models (LLMs)\nutilize retrieved context for more accurate responses. Created by Goyas..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 157,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p157_c0",
+        "relevance_score": 0.6731,
+        "content_preview": "Scaling And Deploying RAG Systems\nStep 4: Integrating RAG\nCombine the fine-tuned LLM with the retrieval\nsystem. Created by Goyashy (@explainx.ai)\nSet up a pipeline where user queries are first\nused to..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 121,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p121_c0",
+        "relevance_score": 0.6576,
+        "content_preview": "Optimizing RAG Pipelines\nHyperparameter optimization\nChunk Size:\nDescription: Size of text chunks for document splitting. Impact: Affects context preservation; larger chunks retain more context\nbut mi..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p120_c0",
+        "content": "Optimizing RAG Pipelines\nLLM optimization for RAG\nFew-Shot Learning:\nUse a few relevant examples to guide LLMs in improving\nperformance within RAG systems, enhancing response quality. Created by Goyashy (@explainx.ai)\nTechniques:\nFew-Shot Examples: Provide the model with a few examples of desired responses or formats based on\nthe retrieved documents, enabling it to generalize from limited data. Prompt Templates: Use predefined templates that include placeholders for retrieved information,\nguiding the model in generating responses based on these examples. Dynamic Few-Shot Learning: Adaptively update few-shot examples based on the context and retrieved\ndocuments, allowing the model to handle diverse queries and contexts more effectively.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 120,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 1.0,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.016288,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.016288,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p171_c0",
+        "content": "Continuous Learning And Adaptive Retrieval In RAG\nSystems\nExploration of Few-Shot and Zero-Shot Learning in RAG\nCreated by Goyashy (@explAaindx.aai)ptive Retrieval in Few-Shot and Zero-Shot Scenarios:\nThe retrieval component of a RAG system can be adapted to better\nsupport few-shot and zero-shot learning by using similarity search\ntechniques that are robust to variations in the input. For example,\nembedding-based retrieval methods, which represent both queries and\ndocuments in a shared vector space, allow the system to retrieve relevant\ninformation even when dealing with previously unseen queries.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 171,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.7707,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015927,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.7707,
+          "rerank_rank": 2,
+          "original_score": 0.015927,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p119_c0",
+        "content": "Optimizing RAG Pipelines\nLLM optimization for RAG\nPrompt Engineering:\nCraft prompts to optimize how large language models (LLMs)\nutilize retrieved context for more accurate responses. Created by Goyashy (@explainx.ai)\nTechniques:\nContextual Prompts: Design prompts that clearly instruct the model to use the provided context or\nretrieved documents effectively. For example, explicitly ask the model to summarize the retrieved\ninformation or integrate specific details. Instruction Tuning: Refine prompts to guide the model in generating responses that are better aligned with\nthe context, such as specifying the type of information to focus on or the format of the output. Example Prompting: Provide examples within the prompt of how to use the retrieved context to generate\nresponses, helping the model understand the desired output format.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 119,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.7359,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.014706,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.7359,
+          "rerank_rank": 3,
+          "original_score": 0.014706,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p157_c0",
+        "content": "Scaling And Deploying RAG Systems\nStep 4: Integrating RAG\nCombine the fine-tuned LLM with the retrieval\nsystem. Created by Goyashy (@explainx.ai)\nSet up a pipeline where user queries are first\nused to retrieve relevant documents, and then\nthe LLM generates responses based on the\nretrieved data.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 157,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.6731,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.008955,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.6731,
+          "rerank_rank": 4,
+          "original_score": 0.008955,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p121_c0",
+        "content": "Optimizing RAG Pipelines\nHyperparameter optimization\nChunk Size:\nDescription: Size of text chunks for document splitting. Impact: Affects context preservation; larger chunks retain more context\nbut might include irrelevant details; smaller chunks might miss context. Created by Goyashy (@explainx.ai)\nNumber of Retrieved Documents:\nDescription: Number of documents retrieved for response generation. Impact: Influences the breadth of information; too few can lack context,\ntoo many can overwhelm and reduce relevance. Reranking Thresholds:\nDescription: Criteria for selecting and reranking documents based on\nrelevance. Impact: Balances precision and recall; helps in selecting high-quality,\nrelevant documents.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 121,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.6576,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.009231,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.6576,
+          "rerank_rank": 5,
+          "original_score": 0.009231,
+          "original_method": "bm25"
+        }
+      }
+    ],
+    "total_latency_ms": 5503.99,
+    "retrieval_latency_ms": 502.43,
+    "reranking_latency_ms": 862.95,
+    "generation_latency_ms": 4130.52,
+    "input_tokens": 947,
+    "output_tokens": 10,
+    "total_tokens": 957,
+    "cost_usd": 9.87e-05,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "bm25",
+      "hybrid"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

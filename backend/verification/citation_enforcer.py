@@ -1,6 +1,6 @@
 import re
-from dataclasses import dataclass, field
-from typing import List, Tuple, Optional
+from dataclasses import dataclass
+from typing import List
 
 from retrieval.vector_store import RetrievedChunk
 from config.logging_config import get_logger

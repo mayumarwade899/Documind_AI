@@ -2,7 +2,6 @@ import { cn } from '../../utils/cn.js'
 import { X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 
-/* ─── Button ─── */
 export function Button({ variant = 'primary', size = 'md', className, children, ...props }) {
   const base = 'inline-flex items-center gap-2 font-medium rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed select-none'
 
@@ -28,7 +27,6 @@ export function Button({ variant = 'primary', size = 'md', className, children, 
   )
 }
 
-/* ─── Badge ─── */
 export function Badge({ variant = 'default', size = 'sm', className, children }) {
   const variants = {
     default: 'bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400',
@@ -51,15 +49,7 @@ export function Badge({ variant = 'default', size = 'sm', className, children })
   )
 }
 
-/* ─── Spinner ─── */
-export function Spinner({ size = 'md', className }) {
-  const sizes = { xs: 'w-3 h-3', sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-7 h-7' }
-  return (
-    <div className={cn('rounded-full border-2 border-current border-t-transparent animate-spin opacity-70', sizes[size], className)} />
-  )
-}
 
-/* ─── Card ─── */
 export function Card({ className, children, hover = false, ...props }) {
   return (
     <div
@@ -75,7 +65,6 @@ export function Card({ className, children, hover = false, ...props }) {
   )
 }
 
-/* ─── Progress ─── */
 export function Progress({ value = 0, max = 100, variant = 'brand', className, showLabel = false }) {
   const pct = Math.min(100, Math.max(0, (value / max) * 100))
   const colors = {
@@ -101,7 +90,6 @@ export function Progress({ value = 0, max = 100, variant = 'brand', className, s
   )
 }
 
-/* ─── Tabs ─── */
 export function Tabs({ tabs, active, onChange, className }) {
   return (
     <div className={cn('flex gap-1 p-1 bg-surface-100 dark:bg-surface-800 rounded-lg', className)}>
@@ -132,50 +120,7 @@ export function Tabs({ tabs, active, onChange, className }) {
   )
 }
 
-/* ─── Modal ─── */
-export function Modal({ open, onClose, title, children, size = 'md', className }) {
-  const overlayRef = useRef(null)
 
-  useEffect(() => {
-    if (!open) return
-    const handle = (e) => { if (e.key === 'Escape') onClose() }
-    document.addEventListener('keydown', handle)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', handle)
-      document.body.style.overflow = ''
-    }
-  }, [open, onClose])
-
-  if (!open) return null
-
-  const sizes = { sm: 'max-w-sm', md: 'max-w-lg', lg: 'max-w-2xl', xl: 'max-w-4xl', full: 'max-w-[95vw]' }
-
-  return (
-    <div
-      ref={overlayRef}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in"
-      onClick={(e) => { if (e.target === overlayRef.current) onClose() }}
-    >
-      <div className={cn(
-        'relative w-full bg-white dark:bg-surface-850 rounded-2xl shadow-2xl border border-surface-200 dark:border-surface-700 animate-slide-up',
-        sizes[size], className
-      )}>
-        {title && (
-          <div className="flex items-center justify-between px-5 py-4 border-b border-surface-200 dark:border-surface-700">
-            <h2 className="text-base font-semibold text-surface-900 dark:text-white">{title}</h2>
-            <button onClick={onClose} className="p-1 rounded-md hover:bg-surface-100 dark:hover:bg-surface-800 text-surface-400 hover:text-surface-600 dark:hover:text-surface-300 transition-colors">
-              <X size={16} />
-            </button>
-          </div>
-        )}
-        <div className="p-5">{children}</div>
-      </div>
-    </div>
-  )
-}
-
-/* ─── Tooltip ─── */
 export function Tooltip({ content, children, side = 'top' }) {
   return (
     <div className="relative group">
@@ -193,7 +138,6 @@ export function Tooltip({ content, children, side = 'top' }) {
   )
 }
 
-/* ─── EmptyState ─── */
 export function EmptyState({ icon, title, description, action }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 px-8 text-center">
@@ -205,7 +149,6 @@ export function EmptyState({ icon, title, description, action }) {
   )
 }
 
-/* ─── Skeleton ─── */
 export function Skeleton({ className }) {
   return <div className={cn('skeleton rounded-lg', className)} />
 }

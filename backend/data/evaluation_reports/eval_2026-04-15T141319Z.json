@@ -1,0 +1,83 @@
+{
+    "run_id": "94943018",
+    "timestamp": "2026-04-15T14:13:19Z",
+    "dataset_size": 6,
+    "overall_passed": false,
+    "avg_score": 0.5694,
+    "metrics": {
+        "faithfulness": {
+            "score": 0.7166666666666667,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "context_relevance": {
+            "score": 0.725,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "answer_correctness": {
+            "score": 0.26666666666666666,
+            "passed": false,
+            "threshold": 0.6
+        }
+    },
+    "evaluation_latency_ms": 251189.46,
+    "total_cost_usd": 0.001096,
+    "total_tokens": 9390,
+    "questions": [
+        {
+            "query": "What are the main topics covered in the document?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 0.9,
+                "correctness": 0.1
+            }
+        },
+        {
+            "query": "can you tell me how to draft documents?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 0.0,
+                "faithfulness": 0.5,
+                "correctness": 0.1
+            }
+        },
+        {
+            "query": "Who created this document and when?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 0.75,
+                "faithfulness": 0.0,
+                "correctness": 0.1
+            }
+        },
+        {
+            "query": "Under what specific conditions is it permissible for a governing body member to receive remuneration from the Society, despite the general prohibition on profit distribution to members?",
+            "type": "recent",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 0.9,
+                "correctness": 0.1
+            }
+        },
+        {
+            "query": "In the event of a dispute arising amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process, what specific judicial body is designated to adjudicate its affairs, and whose directions will determine the final decision?",
+            "type": "recent",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 0.2
+            }
+        },
+        {
+            "query": "Considering Goyashy's recommendations for 'Testing and Feedback' in RAG systems, how would user feedback specifically inform the iteration and improvement of 'adaptive retrieval' mechanisms that leverage 'embedding-based retrieval methods' and 'HyDE with LangChain' to enhance performance in 'few-shot and zero-shot learning' scenarios?",
+            "type": "random",
+            "scores": {
+                "relevance": 0.6,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            }
+        }
+    ]
+}

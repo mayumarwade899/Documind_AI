@@ -1,0 +1,172 @@
+{
+  "query": "scaling and deploying rag system",
+  "document_id": "60895d7b567675f014f145d2405cc5a3",
+  "cached_at": 1776188744.4003541,
+  "response": {
+    "answer": "**Scaling And Deploying RAG Systems** involves several key steps and considerations:\n\n*   **Step 1: Data Collection and Preprocessing**\n    *   Aggregate data from various internal sources such as databases, document management systems, and email servers.\n    *   Clean and preprocess the data to ensure consistency and usability.\n\n*   **Step 2: Setting Up the Retrieval System**\n    *   Use a vector database, such as Pinecone or FAISS, to index documents and make them searchable.\n    *   Create embeddings for the documents using a pre-trained transformer model like BERT or GPT.\n\n*   **Step 4: Integrating RAG**\n    *   Combine the fine-tuned LLM with the retrieval system.\n    *   Set up a pipeline where user queries are first used to retrieve relevant documents, and then the LLM generates responses based on the retrieved data.\n\n*   **Step 7: Deployment**\n    *   Deploy the system on the company\u2019s internal network.\n    *   Ensure it is scalable and can handle the expected query load from all employees.\n\n*   **CI/CD pipelines for RAG systems**\n    *   CI/CD (Continuous Integration and Continuous Deployment) pipelines are essential for managing and automating the development, testing, and deployment of Retrieval-Augmented Generation (RAG) systems.",
+    "query": "scaling and deploying rag system",
+    "rewritten_query": "scaling and deploying rag system",
+    "sources": [
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 154,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p154_c0",
+        "relevance_score": 1.0,
+        "content_preview": "Scaling And Deploying RAG Systems\nStep 1: Data Collection and\nPreprocessing\nAggregate data from various internal sources\nlike databases, document management\nCreated by Goyashy (@explainx.ai)\nsystems, ..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 160,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p160_c0",
+        "relevance_score": 0.9197,
+        "content_preview": "Scaling And Deploying RAG Systems\nStep 7: Deployment\nDeploy the system on the company\u2019s internal\nnetwork. Created by Goyashy (@explainx.ai)\nEnsure it is scalable and can handle the\nexpected query load..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 157,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p157_c0",
+        "relevance_score": 0.7923,
+        "content_preview": "Scaling And Deploying RAG Systems\nStep 4: Integrating RAG\nCombine the fine-tuned LLM with the retrieval\nsystem. Created by Goyashy (@explainx.ai)\nSet up a pipeline where user queries are first\nused to..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 134,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p134_c0",
+        "relevance_score": 0.6742,
+        "content_preview": "Scaling And Deploying RAG Systems\nCI/CD pipelines for RAG systems\nCI/CD (Continuous Integration and Continuous\nDeployment) pipelines are essential for managing\nand automating the development, testing,..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 155,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p155_c0",
+        "relevance_score": 0.673,
+        "content_preview": "Scaling And Deploying RAG Systems\nStep 2: Setting Up the Retrieval\nSystem\nUse a vector database like Pinecone or FAISS\nto index documents and make them\nCreated by Goyashy (@explainx.ai)\nsearchable. Cr..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p154_c0",
+        "content": "Scaling And Deploying RAG Systems\nStep 1: Data Collection and\nPreprocessing\nAggregate data from various internal sources\nlike databases, document management\nCreated by Goyashy (@explainx.ai)\nsystems, and email servers. Clean and preprocess the data to ensure\nconsistency and usability.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 154,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 1.0,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.014286,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.014286,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p160_c0",
+        "content": "Scaling And Deploying RAG Systems\nStep 7: Deployment\nDeploy the system on the company\u2019s internal\nnetwork. Created by Goyashy (@explainx.ai)\nEnsure it is scalable and can handle the\nexpected query load from all employees.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 160,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.9197,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.016393,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.9197,
+          "rerank_rank": 2,
+          "original_score": 0.016393,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p157_c0",
+        "content": "Scaling And Deploying RAG Systems\nStep 4: Integrating RAG\nCombine the fine-tuned LLM with the retrieval\nsystem. Created by Goyashy (@explainx.ai)\nSet up a pipeline where user queries are first\nused to retrieve relevant documents, and then\nthe LLM generates responses based on the\nretrieved data.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 157,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.7923,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.009524,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.7923,
+          "rerank_rank": 3,
+          "original_score": 0.009524,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p134_c0",
+        "content": "Scaling And Deploying RAG Systems\nCI/CD pipelines for RAG systems\nCI/CD (Continuous Integration and Continuous\nDeployment) pipelines are essential for managing\nand automating the development, testing, and\nCreated by Goyashy (@explainx.ai)\ndeployment of Retrieval-Augmented Generation\n(RAG) systems.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 134,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.6742,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.008824,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.6742,
+          "rerank_rank": 4,
+          "original_score": 0.008824,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p155_c0",
+        "content": "Scaling And Deploying RAG Systems\nStep 2: Setting Up the Retrieval\nSystem\nUse a vector database like Pinecone or FAISS\nto index documents and make them\nCreated by Goyashy (@explainx.ai)\nsearchable. Create embeddings for the documents using\na pre-trained transformer model like BERT or\nGPT.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 155,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.673,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.009231,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.673,
+          "rerank_rank": 5,
+          "original_score": 0.009231,
+          "original_method": "bm25"
+        }
+      }
+    ],
+    "total_latency_ms": 13618.46,
+    "retrieval_latency_ms": 637.78,
+    "reranking_latency_ms": 312.22,
+    "generation_latency_ms": 8664.02,
+    "input_tokens": 559,
+    "output_tokens": 284,
+    "total_tokens": 843,
+    "cost_usd": 0.0001695,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "hybrid",
+      "bm25"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

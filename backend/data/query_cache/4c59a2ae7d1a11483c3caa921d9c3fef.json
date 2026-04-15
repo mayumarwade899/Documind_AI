@@ -1,0 +1,184 @@
+{
+  "query": "what are the objectives of these document",
+  "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+  "cached_at": 1776189100.0289345,
+  "response": {
+    "answer": "The objectives of these documents are as follows:\n\n*   The paper discusses the results of a study which **explored advanced learners of English engagement with their mobile devices to develop learning experiences that meet their needs and goals as foreign language learners.**\n*   It is of paramount importance, for both researchers and practitioners, **to comprehend the link between the modalities of the language learners' organization of their own learning experiences and environments and the role mobile technologies, in particular smartphones and tablets, play in these contexts.**\n*   The study investigated **ways advanced English language students use their mobile devices (i.e. smartphones and tablet computers) for their language learning.**\n*   The research question posed in the study was: **\"Do students engage with their mobile devices to develop learning experiences (e.g. the use of mobile devices for formal and/or informal English language study) that meet their needs and goals (e.g. the development of the target language skills and sub-skills) as English language learners? If yes, why and how do they do this?\"**",
+    "query": "what are the objectives of these document",
+    "rewritten_query": "what are the objectives of these document",
+    "sources": [
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 2,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p2_c0",
+        "relevance_score": 1.0,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\nnamely a research question, description of participants, data collection tools and\nanalysis. This is followed by the presentation of the results o..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 1,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p1_c0",
+        "relevance_score": 0.9332,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\nResearch paper\nA look at advanced learners\u2019 use of mobile devices for\nEnglish language study: Insights from interview data\nMariusz Kruk\nUniversity..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 4,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p4_c0",
+        "relevance_score": 0.8792,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\n3. Method\n3.1. Research question\nOne of the questions related to future research and practice in technology-mediated\nlearner autonomy addressed by..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 10,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p10_c0",
+        "relevance_score": 0.4965,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\ndata collection instrument, namely the semi-structured interview which was conducted\nonly once. Perhaps a different set of questions, their wordin..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p2_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\nnamely a research question, description of participants, data collection tools and\nanalysis. This is followed by the presentation of the results of the study. The article\ncloses with discussion and conclusions. 2. Literature review\n2.1. Autonomy in foreign/second language learning\nThe concept of autonomy in second/foreign language learning and teaching has been\nthe focus of attention for many researchers and practitioners for more than three\ndecades. According to Benson (2001), the notion of autonomy was introduced and\npopularized in 1981 by Henri Holec in his seminal report for the Council of Europe\nentitled Autonomy in Foreign Language Learning in which the researcher defined\nautonomy in the context of language learning as \u201cthe ability to take charge of one\u2019s own\nlearning\u201d (Holec, 1981, p. 3). Holec\u2019s idea of autonomy encompasses some components\nand capacities on the part of language learners (e.g. self-directed learning). For some\nother authors autonomy also involves \u201ca capacity \u2013 for detachment, critical reflection,\ndecision-making, and independent action\u201d (Little, 1991, p. 4) and \u201cthe capacity to take\ncontrol of one\u2019s own learning\u201d (Benson, 2001, p. 46). As stated by Benson (2011, p. 16), \u201cautonomy is multidimensional and takes many different forms according to the\nperson, the setting, and multiple contextual and micro-contextual factors\u201d and it is \u201ca\nmulti-faceted concept that consists of several layers\u201d (Reinders, 2011, p. 48) whose\nroots are based in political, societal and educational developments. In addition to this,\nwork on autonomy emphasizes social dimensions of learner autonomy in view of the\nfact that \u201cautonomous learners always do things for themselves, but they may or may\nnot do things on their own\u201d (Little, 2009, p. 223) and that by means of social\ninteractions language learners \u201cdevelop a capacity to analyze, reflect upon and\nsynthesize information to create new perspectives\u201d (Lee, 2011, p. 88). It should also be\nnoted that recent research shows that fostering autonomy is no longer predominantly a\nmatter of individualizing learning through out-of-class initiatives since the dominance of\nclassroom-based approaches (Benson, 2011). Finally, it has to be added that\nresearchers, in general, seem to be in agreement with the following claims suggested\nby Benson (2011): \u201c(a) language learners naturally tend to take control of their\nlearning, (b) learners who lack autonomy are capable of developing it, and (c)\nautonomous language learning is more effective than non-autonomous language\nlearning\u201d (p. 16). Perhaps in order to define the concept of autonomy in language learning it is necessary\nto understand who autonomous learners are. As Littlewood (1996) claims, an\nautonomous learner is \u201cone who has independent capacity to make and carry out\nchoices which govern his or her actions\u201d (p. 428). The researcher argues that this\ncapacity depends on two major components such as ability and willingness, and he\nclaims that the attributes can also be further subdivided. Thus, ability depends on\nhaving knowledge about the options from which one can choose and skills so as to\nchoose the most suitable alternatives.",
+        "source_file": "research_paper.pdf",
+        "page_number": 2,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 1.0,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "page_number": 2,
+          "parser": "pdfplumber",
+          "source_file": "research_paper.pdf",
+          "token_count": 805,
+          "total_chunks": 18,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.7927,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p1_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\nResearch paper\nA look at advanced learners\u2019 use of mobile devices for\nEnglish language study: Insights from interview data\nMariusz Kruk\nUniversity of Zielona Gora, Poland\n______________________________________________________________\nmkruk @ uz.zgora.pl\nAbstract\nThe paper discusses the results of a study which explored advanced learners of English\nengagement with their mobile devices to develop learning experiences that meet their\nneeds and goals as foreign language learners. The data were collected from 20 students\nby means of a semi-structured interview. The gathered data were subjected to\nqualitative and quantitative analysis. The results of the study demonstrated that, on the\none hand, some subjects manifested heightened awareness relating to the\nadvantageous role of mobile devices in their learning endeavors, their ability to reach\nfor suitable tools and retrieve necessary information so as to achieve their goals, meet\ntheir needs and adjust their learning of English to their personal learning styles, and on\nthe other, a rather intuitive and/or ad hoc use of their mobile devices in the classroom. Keywords: Learner autonomy, mobile devices, advanced EFL learners, learning\nEnglish. 1. Introduction\nMobile devices, smartphones and tablet computers in particular, have generated a lot of\ninterest among researchers in recent years (Byrne & Diem, 2014). This is because the\nopportunities these new technologies may offer (e.g. individualized learning, the variety\nof mobile apps available, easy access to the internet) and/or the fact that they are\nincreasingly more common among learners make them an important and potentially\nuseful addition to formal and informal language learning. According to Benson (2011), there has always been a connection between educational\ntechnologies and learner autonomy to the extent that they have often been intended for\nindependent practice. It should be noted, however, that this link and \u201cfuture enquiry\nand practice into technology-mediated learner autonomy will need to be increasingly\naligned to the tools, settings, and activities that are of significance to language learners\u201d\n(Reinders & White, 2016, p. 151). Reinders and White (2016) further argue that as long\nas \u201cthe potential range of settings, tools, and experiences is now virtually limitless,\nindividuals need to be increasingly adept at critical adaptive learning in order to benefit\nfrom and contribute effectively to those settings\u201d (p. 151). Beyond doubt, contemporary\nlanguage teachers should equip foreign/second language learners with appropriate\nknowledge concerning the affordances of mobile devices for language study and they\nshould prepare them for effective usage of such devices for this purpose. It is also of\nparamount importance, for both researchers and practitioners, to comprehend the link\nbetween the modalities of the language learners' organization of their own learning\nexperiences and environments and the role mobile technologies, in particular\nsmartphones and tablets, play in these contexts.",
+        "source_file": "research_paper.pdf",
+        "page_number": 1,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.9332,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "page_number": 1,
+          "parser": "pdfplumber",
+          "source_file": "research_paper.pdf",
+          "token_count": 773,
+          "total_chunks": 18,
+          "rerank_score": 0.9332,
+          "rerank_rank": 2,
+          "original_score": 0.7991,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p4_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\n3. Method\n3.1. Research question\nOne of the questions related to future research and practice in technology-mediated\nlearner autonomy addressed by Reinders and White in their recent critical overview of\nthe relationship between technology and autonomy in the journal Language Learning &\nTechnology (LLT) concerned language learners engagement with technology-mediated\nenvironments in order to develop learning experiences that reach their aims and meet\ntheir needs as language learners (Reinders & White, 2016). Taking this important\nmatter into consideration, and in view of the fact that mobile technology, including\nmobile devices such as smartphones and tablet computers, are ubiquitous and\nsubstantial constituents of almost every language learner\u2019s everyday life, the\nabovementioned question was modified and posed in this study in the following way:\nDo students engage with their mobile devices to develop learning experiences\n(e.g. the use of mobile devices for formal and/or informal English language\nstudy) that meet their needs and goals (e.g. the development of the target\nlanguage skills and sub-skills) as English language learners? If yes, why and how\ndo they do this? 3.2. Participants\nThe participants were 20 Polish university students of English philology, nine of whom\n(seven females and two males) were in the second year of their BA programme, six\n(five females and one male) in the third year and five (all females) in the second year of\ntheir MA program (1). The study participants were on average 22.22 years old (20.66 -\nyear 2, BA; 21.82 - year 3, BA and 24.50 - year 2, MA). The subjects reported having\nlearned English for an average of 11.38 years (10.49 - year 2, BA; 11.27 - year 3, BA\nand 12.21 - year 2, MA). The proficiency level represented by the participants of the\nstudy could be described as somewhere between B1 and B2 (second year BA students),\nB2 and C1 (third year BA students) and C1 and C2 (second year MA students), as\nspecified in the levels laid out in the Common European Framework of Reference for\nLanguages. 3.3. Data collection and analysis\nThe data were gathered by means of a semi-structured interview. This interview format\nwas chosen intentionally since it uses a set of prepared in advance guiding questions\nand prompts and interviewees are encouraged to elaborate on the problems raised\nduring it (D\u00f6rnyei, 2007). As D\u00f6rnyei (2007) explains, in this type of the interview \u201cthe\ninterviewer provides guidelines and direction (hence the \u2018-structured\u2019 part in the name),\nbut is also keen to follow up interesting developments and to let the interviewee\nelaborate on certain issues (hence the \u2018semi-\u2019 part)\u201d (p. 136). During the interview, the present researcher attempted to encourage the subjects to\ndescribe their learning experiences concerning the use of mobile devices for English\nstudy. This was a form of introspection where the students were prompted to examine\ntheir behaviors and provide a first person narrative of such experiences. All the study\nparticipants were informed that the interview concerned the use of mobile devices for\nEnglish study and they were asked for permission to be digitally recorded.",
+        "source_file": "research_paper.pdf",
+        "page_number": 4,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.8792,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "page_number": 4,
+          "parser": "pdfplumber",
+          "source_file": "research_paper.pdf",
+          "token_count": 806,
+          "total_chunks": 18,
+          "rerank_score": 0.8792,
+          "rerank_rank": 3,
+          "original_score": 0.7924,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p1_c1",
+        "content": "151). Beyond doubt, contemporary\nlanguage teachers should equip foreign/second language learners with appropriate\nknowledge concerning the affordances of mobile devices for language study and they\nshould prepare them for effective usage of such devices for this purpose. It is also of\nparamount importance, for both researchers and practitioners, to comprehend the link\nbetween the modalities of the language learners' organization of their own learning\nexperiences and environments and the role mobile technologies, in particular\nsmartphones and tablets, play in these contexts. Taking into consideration the above-mentioned issues, the study reported in this article\ninvestigated ways advanced English language students use their mobile devices (i.e. smartphones and tablet computers) for their language learning. The article commences\nwith a short overview of relevant literature. Next, the design of the study is described,\n18",
+        "source_file": "research_paper.pdf",
+        "page_number": 1,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.8387,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 1,
+          "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "page_number": 1,
+          "parser": "pdfplumber",
+          "source_file": "research_paper.pdf",
+          "token_count": 232,
+          "total_chunks": 18,
+          "rerank_score": 0.8387,
+          "rerank_rank": 4,
+          "original_score": 0.8122,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p10_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\ndata collection instrument, namely the semi-structured interview which was conducted\nonly once. Perhaps a different set of questions, their wording or a series of such\ninterviews carried out over a particular period of time (say one academic year) may\nhave yielded more detailed and insightful results. Despite these limitations, this study\nprovided some insights into why and how advanced English language learners engage\nwith their mobile devices to develop learning experiences. It should be stressed,\nhowever, that teacher involvement in creating conditions conducive to the use of mobile\ndevices for language study may result in greater learner engagement with mobile\ntechnology (i.e. mobile devices) and, at the same time, may lead to greater students\u2019\nindependence in learning the target language. References\nBenson, P. (2001). Teaching and researching autonomy in language learning. Harlow:\nPearson Education. Benson, P. (2011). What\u2019s new in autonomy? The Language Teacher, 35(4), 15-18. Benson, P. & Chik, A. (2010). New literacies and autonomy in foreign language learning. In M. J. Luz\u00f3n, M. N. Ruiz-Madrid & M. L. Villanueva (Eds.), Digital genres, new\nliteracies, and autonomy in language learning (pp. 63-80). Newcastle-upon-Tyne:\nCambridge Scholars Publishing. Byrne, J. & Diem, R. (2014). Profiling mobile English language learners. The JALT\nCALL Journal I, 10 (1), 3-19. Cakir, I. (2015). Opinions and attitudes of prospective teachers for the use of mobile\nphones in foreign language learning. Contemporary Educational Technology, 6(3), 239-\n255. Cavus, N. & Ibrahim, D. (2009). m-Learning: An experiment in using SMS to support\nlearning new English language words. British Journal of Educational Technology, 40(1),\n78-91. Dashtestani, R. (2015). Moving bravely towards mobile learning: Iranian students\u2019 use\nof mobile devices for learning English as a foreign language. Computer Assisted\nLanguage Learning, 29(4), 815-832. Demouy, V., Jones, A., Kan, Q., Kukulska-Hulme, A. & Eardley, A. (2016). Why and how\ndo distance learners use mobile devices for language learning? The EuroCALL\nReview, 24(1), 10-24. D\u00edaz-Vera, J. (Ed.). (2012). Left to my own devices: Learner autonomy and mobile-\nassisted language learning. Bingley, UK: Emerald Group. Djoub, Z. (2015). Mobile technology and learner autonomy in language learning. In J. Keengwe (Ed.), Promoting active learning through the integration of mobile\nand ubiquitous technologies (pp. 194-212). Hershey: IGI Global. D\u00f6rnyei, Z. (2007). Research methods in applied linguistics. Oxford: Oxford University\nPress. Holec, H. (1981). Autonomy and foreign language learning. Oxford: Pergamon Press. Jones, A. (2015). Mobile informal language learning: Exploring Welsh learners\u2019\npractices, eLearning Papers, 45, 4-14. Kukulska-Hulme, A., Norris, L. & Donohue, J. (2015). Mobile pedagogy for English\nlanguage teaching: A guide for teachers. British Council, London. Kukulska-Hulme, A. & Shield, L. (2008). An overview of mobile assisted language\nlearning: From content delivery to supported collaboration and\ninteraction. ReCALL, 20(3), 271-289. Kukulska-Hulme, A., Traxler, J. & Pettit, J. (2007). Designed and user-generated\nactivity in the mobile age. Journal of Learning Design, 2(1), 52-65. Lee, L. (2011). Blogging: Promoting learner autonomy and intercultural competence\nthrough study abroad. Language Learning & Technology, 5, 87-109. 27",
+        "source_file": "research_paper.pdf",
+        "page_number": 10,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.4965,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "page_number": 10,
+          "parser": "pdfplumber",
+          "source_file": "research_paper.pdf",
+          "token_count": 865,
+          "total_chunks": 18,
+          "rerank_score": 0.4965,
+          "rerank_rank": 5,
+          "original_score": 0.7879,
+          "original_method": "vector"
+        }
+      }
+    ],
+    "total_latency_ms": 12467.48,
+    "retrieval_latency_ms": 3131.33,
+    "reranking_latency_ms": 1158.6,
+    "generation_latency_ms": 4170.47,
+    "input_tokens": 2493,
+    "output_tokens": 216,
+    "total_tokens": 2709,
+    "cost_usd": 0.0003357,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "vector"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

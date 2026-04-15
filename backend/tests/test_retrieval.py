@@ -1,7 +1,7 @@
 import pytest
 from retrieval.vector_store import VectorStore, RetrievedChunk
 from retrieval.bm25_retriever import BM25Retriever
-from retrieval.hybrid_retriever import HybridRetriever, _reciprocal_rank_fusion
+from retrieval.hybrid_retriever import _reciprocal_rank_fusion
 
 def test_vector_store_stats():
     store = VectorStore()

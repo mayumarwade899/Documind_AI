@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import {
   FlaskConical, CheckCircle, XCircle, BookOpen,
@@ -12,6 +12,7 @@ import { runEvaluation as runEvalAPI } from '../services/evaluationService.js'
 import { Badge, Button, Card, Skeleton, EmptyState, Progress } from '../components/ui/index.jsx'
 import { formatPercent, formatLatency } from '../utils/format.js'
 import { cn } from '../utils/cn.js'
+import { useUIStore } from '../store/uiStore.js'
 
 const THRESHOLDS = {
   faithfulness: 0.7,
@@ -72,7 +73,7 @@ function ScoreGauge({ score, threshold, label }) {
 
 export default function EvaluationPage() {
   const [tab, setTab] = useState('results')
-  const [isRunning, setIsRunning] = useState(false)
+  const { isEvaluating, setEvaluating } = useUIStore()
 
   const { data: report, isLoading: reportLoading, refetch: refetchReport } = useQuery({
     queryKey: ['eval-report'],
@@ -80,24 +81,43 @@ export default function EvaluationPage() {
     retry: 0,
   })
 
-  const { data: historyReports, isLoading: historyLoading } = useQuery({
+  const { data: historyReports, isLoading: historyLoading, refetch: refetchHistory } = useQuery({
     queryKey: ['eval-history'],
     queryFn: () => api.get('/evaluation/history').catch(() => []),
     retry: 0,
   })
 
+  const { data: statusData } = useQuery({
+    queryKey: ['eval-status'],
+    queryFn: () => api.get('/evaluation/status'),
+    enabled: isEvaluating,
+    refetchInterval: isEvaluating ? 3000 : false,
+  })
+
+  useEffect(() => {
+    if (isEvaluating && statusData && statusData.is_running === false) {
+      setEvaluating(false)
+      refetchReport()
+      refetchHistory()
+
+      if (statusData.error) {
+        toast.error(`Evaluation failed: ${statusData.error}`)
+      } else {
+        toast.success('Evaluation complete! Metrics updated.')
+      }
+    }
+  }, [statusData, isEvaluating, setEvaluating, refetchReport, refetchHistory])
+
   async function handleRunEvaluation() {
-    setIsRunning(true)
+    setEvaluating(true)
     setTab('results')
     try {
       await runEvalAPI()
-      await refetchReport()
-      toast.success('Evaluation complete!')
+      toast.success('Evaluation started in background', { id: 'eval-start' })
     } catch (err) {
-      const msg = err?.detail || err?.message || 'Evaluation failed'
+      setEvaluating(false)
+      const msg = err?.detail || err?.message || 'Failed to start evaluation'
       toast.error(msg)
-    } finally {
-      setIsRunning(false)
     }
   }
 
@@ -134,10 +154,10 @@ export default function EvaluationPage() {
         <Button
           variant="secondary"
           size="sm"
-          disabled={isRunning}
+          disabled={isEvaluating}
           onClick={handleRunEvaluation}
         >
-          {isRunning ? (
+          {isEvaluating ? (
             <>
               <div className="w-3.5 h-3.5 rounded-full border-2 border-current border-t-transparent animate-spin" />
               Running…
@@ -248,9 +268,6 @@ export default function EvaluationPage() {
                   </div>
                 ))}
               </div>
-              <p className="text-[10px] text-surface-400 mt-3 font-mono">
-                Override via env: MIN_FAITHFULNESS_SCORE · MIN_CONTEXT_RELEVANCE_SCORE · MIN_ANSWER_CORRECTNESS_SCORE
-              </p>
             </Card>
           </div>
         )}

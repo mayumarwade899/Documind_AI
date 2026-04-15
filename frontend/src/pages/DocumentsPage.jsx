@@ -9,6 +9,7 @@ import {
   Trash2, Search
 } from 'lucide-react'
 import toast from 'react-hot-toast'
+import { useChatStore } from '../store/chatStore.js'
 
 import { ingestFile, ingestDirectory, getIngestStatus, getDocuments, deleteDocument } from '../services/ingestService.js'
 import { Button, Badge, Progress, Skeleton, EmptyState, Card } from '../components/ui/index.jsx'
@@ -57,6 +58,14 @@ function FileQueueItem({ item }) {
 }
 
 function DocumentRow({ doc, onDelete, isDeleting }) {
+  const navigate = useNavigate()
+  const { newConversation } = useChatStore()
+
+  function handleDocumentChat() {
+    const id = newConversation()
+    navigate(`/chat/${id}`, { state: { document_id: doc.document_id, source_file: doc.source_file } })
+  }
+
   return (
     <div className="flex items-center gap-3 px-4 py-3 border-b border-surface-100 dark:border-surface-800 last:border-0 hover:bg-surface-50 dark:hover:bg-surface-800/40 transition-colors">
       <div className="w-8 h-8 rounded-lg bg-brand-50 dark:bg-brand-950/50 flex items-center justify-center shrink-0">
@@ -67,20 +76,30 @@ function DocumentRow({ doc, onDelete, isDeleting }) {
         <p className="text-xs text-surface-400 mt-0.5">{doc.chunk_count} chunks</p>
       </div>
       <Badge variant="brand" size="xs">{doc.chunk_count} chunks</Badge>
-      <button
-        onClick={() => onDelete(doc.document_id)}
-        disabled={isDeleting}
-        className="p-1.5 rounded-lg text-surface-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors disabled:opacity-40"
-        title="Delete document"
-      >
-        {isDeleting ? <RefreshCw size={13} className="animate-spin" /> : <Trash2 size={13} />}
-      </button>
+      <div className="flex items-center gap-1">
+        <button
+          onClick={handleDocumentChat}
+          className="p-1.5 rounded-lg text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950/30 transition-colors"
+          title="Chat with this document"
+        >
+          <MessageSquare size={13} />
+        </button>
+        <button
+          onClick={() => onDelete(doc.document_id)}
+          disabled={isDeleting}
+          className="p-1.5 rounded-lg text-surface-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors disabled:opacity-40"
+          title="Delete document"
+        >
+          {isDeleting ? <RefreshCw size={13} className="animate-spin" /> : <Trash2 size={13} />}
+        </button>
+      </div>
     </div>
   )
 }
 
 export default function DocumentsPage() {
   const navigate = useNavigate()
+  const { newConversation } = useChatStore()
   const qc = useQueryClient()
   const [queue, setQueue] = useState([])
   const [forceReingest, setForceReingest] = useState(false)
@@ -206,7 +225,10 @@ export default function DocumentsPage() {
             Scan directory
           </Button>
           <button
-            onClick={() => navigate('/chat')}
+            onClick={() => {
+              const id = newConversation()
+              navigate(`/chat/${id}`)
+            }}
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-brand-500 dark:border-brand-600 text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950/40 transition-all"
           >
             <MessageSquare size={13} />

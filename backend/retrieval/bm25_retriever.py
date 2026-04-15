@@ -1,7 +1,5 @@
-import os
 import json
 import pickle
-from pathlib import Path
 from typing import List, Optional
 
 from rank_bm25 import BM25Okapi
@@ -35,16 +33,20 @@ class BM25Retriever:
         self.bm25: Optional[BM25Okapi] = None
         self.chunk_metadata: List[dict] = []
         self.corpus_tokens: List[List[str]] = []
+        self._loaded = False
 
-        self._load_index()
-
-        logger.info(
-            "bm25_retriever_initialized",
-            index_exists=self.bm25 is not None,
-            total_chunks=len(self.chunk_metadata)
-        )
+    def _ensure_loaded(self) -> None:
+        if not self._loaded:
+            self._load_index()
+            self._loaded = True
+            logger.debug(
+                "bm25_retriever_lazy_loaded",
+                index_exists=self.bm25 is not None,
+                total_chunks=len(self.chunk_metadata)
+            )
 
     def _save_index(self) -> None:
+        self._ensure_loaded()
         with open(self.index_path, 'wb') as f:
             pickle.dump({
                 "bm25": self.bm25,
@@ -74,7 +76,7 @@ class BM25Retriever:
             with open(self.metadata_path, "r", encoding="utf-8") as f:
                 self.chunk_metadata = json.load(f)
 
-            logger.info(
+            logger.debug(
                 "bm25_index_loaded",
                 total_chunks=len(self.chunk_metadata)
             )
@@ -86,6 +88,7 @@ class BM25Retriever:
             self.corpus_tokens  = []
 
     def build_index(self, chunks: List) -> None:
+        self._ensure_loaded()
         if not chunks:
             logger.warning("build_index_called_with_empty_chunks")
             return
@@ -123,6 +126,7 @@ class BM25Retriever:
         )
 
     def add_chunks(self, chunks: List) -> None:
+        self._ensure_loaded()
         if not chunks:
             return
 
@@ -177,6 +181,7 @@ class BM25Retriever:
         )
 
     def delete_document(self, document_id: str) -> int:
+        self._ensure_loaded()
         original_count = len(self.chunk_metadata)
 
         filtered_metadata = []
@@ -224,6 +229,7 @@ class BM25Retriever:
             top_k: int = None,
             filter_document_id: Optional[str] = None
     ) -> List[RetrievedChunk]:
+        self._ensure_loaded()
         if self.bm25 is None:
             logger.warning("bm25_search_called_but_no_index_built")
             return []
@@ -275,7 +281,7 @@ class BM25Retriever:
                 metadata=meta.get("metadata", {})
             ))
 
-        logger.info(
+        logger.debug(
             "bm25_search_complete",
             query_preview = query[:60],
             results_found = len(results),
@@ -286,6 +292,7 @@ class BM25Retriever:
         return results
     
     def get_stats(self) -> dict:
+        self._ensure_loaded()
         return {
             "total_chunks": len(self.chunk_metadata),
             "index_built": self.bm25 is not None,

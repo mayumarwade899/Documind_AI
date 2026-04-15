@@ -1,0 +1,278 @@
+{
+  "query": "Considering the EUROCALL Review's methodology of transcribing data in Microsoft Word 2016 for qualitative analysis, how might a RAG model, evaluated by the RAGAS framework and leveraging techniques like prompt engineering or fine-tuning with an open-source model like Gemma, enhance or automate the initial data comprehension and summarization steps, especially when dealing with large text inputs?",
+  "document_id": null,
+  "cached_at": 1776276203.0538797,
+  "response": {
+    "answer": "## Document Title\nRetriever-Augmented Generation (RAG) Models, Evaluation, and Applications with a Case Study on Mobile English Language Learning Data Analysis\n\n## Key Points\n- The EUROCALL Review, Volume 25, No. 2, September 2017, conducted a study using questions about mobile English language learning sessions, frequently learned content via mobile devices, increased",
+    "query": "Considering the EUROCALL Review's methodology of transcribing data in Microsoft Word 2016 for qualitative analysis, how might a RAG model, evaluated by the RAGAS framework and leveraging techniques like prompt engineering or fine-tuning with an open-source model like Gemma, enhance or automate the initial data comprehension and summarization steps, especially when dealing with large text inputs?",
+    "rewritten_query": "Considering the EUROCALL Review's methodology of transcribing data in Microsoft Word 2016 for qualitative analysis, how might a RAG model, evaluated by the RAGAS framework and leveraging techniques like prompt engineering or fine-tuning with an open-source model like Gemma, enhance or automate the initial data comprehension and summarization steps, especially when dealing with large text inputs?",
+    "sources": [
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 5,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p5_c0",
+        "relevance_score": 1.0,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\n\uf0b7 Do you organize regular formal or informal mobile English language learning\nsessions? \uf0b7 What do you learn most frequently by means of your mobil..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 109,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p109_c0",
+        "relevance_score": 0.5327,
+        "content_preview": "Introduction to RAGAS Framework\nOverview of RAGAS\nThe RAGAS (Retriever-Augmented Generation Evaluation System) framework is\ndesigned to assess the performance and quality of Retriever-Augmented Genera..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 164,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p164_c0",
+        "relevance_score": 0.4539,
+        "content_preview": "Real-World RAG Applications And Future Trends\nLong-Form Content Summarization Techniques\nExtractive Summarization:\nSelects key sentences from the text, preserving\noriginal wording but may lose context..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 163,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p163_c0",
+        "relevance_score": 0.439,
+        "content_preview": "Real-World RAG Applications And Future Trends\nContent Generation and Summarization Using RAG\nRAG Overview:\nRAG combines large language models (LLMs) with external data retrieval to\nproduce accurate, r..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 151,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p151_c0",
+        "relevance_score": 0.4229,
+        "content_preview": "Real-World RAG Applications And Future Trends\nImplementation Steps\nData Integration:\nUnified data sources with APIs and standardization. RAG Model Setup:\nFine-tuned LLM and built a retrieval system wi..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 3,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p3_c0",
+        "relevance_score": 0.3782,
+        "content_preview": "WHAT IS RAG ? RAG, or Retrieval-Augmented Generation, is an approach that\ncombines large language models (LLMs) with external data\nsources. It enhances the model's responses by retrieving relevant\nCre..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 110,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p110_c0",
+        "relevance_score": 0.3193,
+        "content_preview": "Introduction to RAGAS Framework\nPurpose and key features\nEvaluates Retriever-Augmented Generation (RAG) pipelines for relevance, fluency, and\nfact-consistency. Created by Goyashy (@explainx.ai)\nKey Fe..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 120,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p120_c0",
+        "relevance_score": 0.2625,
+        "content_preview": "Optimizing RAG Pipelines\nLLM optimization for RAG\nFew-Shot Learning:\nUse a few relevant examples to guide LLMs in improving\nperformance within RAG systems, enhancing response quality. Created by Goyas..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p5_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\n\uf0b7 Do you organize regular formal or informal mobile English language learning\nsessions? \uf0b7 What do you learn most frequently by means of your mobile device(s)? Why\nthis? \uf0b7 Do you feel that thanks to the use of your mobile device(s) you devote more\ntime for learning the English language? \uf0b7 As far as learning English through your mobile device(s) is concerned, do you\nconsider yourself as an experienced user of such device(s)? The gathered data were subjected to qualitative and quantitative analysis. The analysis\nstarted with partial transcription of the important parts of the data (D\u00f6rnyei, 2007) on a\ncomputer word processor program Microsoft Word 2016. Then the transcribed parts of\nthe data were read several times in order to look for common themes and frequently\noccurring information. The recurring ideas were coded and recoded, revised and\nupdated. The researcher used the highlighting function of the word processor program\nwhich allows the user to highlight the text on the transcript with different colors and\ncomments to record any observations and thematic categories recognized in the data. The emerged categories were reviewed, compared, modified and either merged or\nabandoned. It should also be noted that the obtained data were analyzed quantitatively. This type of analysis involved counting the number of the interviewees\u2019 responses and\ncalculating percentages. 4. Findings\nA thorough analysis of the data yielded the following thematic categories: usage of\nmobile devices, reasons for using mobile devices, resources and tools, mobile\nencounters, language practiced and study performance. 4.1. Usage of mobile devices\nTable 1 shows the study participants\u2019 mobile devices (MobDs) usage descriptions. The\ntable demonstrates that smartphones were the most often used mobile devices by the\nstudents. In addition, the numerical information in the table indicates that the\nparticipants, on average, had been using them for English language study for about\n3.80 years (minimum 2, maximum 6 years). 9 (45%) and 11 (55%) of the subjects\nstarted using their mobile devices at senior high school and university, respectively. It\nshould also be added that, with the exception of one student (i.e. S9), all the other\nparticipants claimed to use their mobile devices in order to learn English much more\nfrequently with time. Finally, more than half of the students (55%) regarded themselves\nas experienced or fairly experienced users of their MobDs for English language learning;\nhowever, 45% claimed not to be very skilful in this area. Table 1. The students\u2019 mobile devices usage descriptions. Year/ Use of MobDs\nSelf-assessed\nLevel of Student Sex Device used for language experience\nstudy study (approx.)\nS1 female smartphone and tablet 2 years not very experienced\nS2 female smartphone 5 years experienced\nS3 female smartphone 5 years fairly experienced\n2nd year\nS4 female smartphone, rarely tablet 4 years fairly experienced\nB.A. S5 female smartphone 3 years not very experienced\nS6 male smartphone 2 years experienced\nS7 female smartphone and tablet 5 years fairly experienced\n22",
+        "source_file": "research_paper.pdf",
+        "page_number": 5,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 1.0,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "rrf_score": 0.008197,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.008197,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p109_c0",
+        "content": "Introduction to RAGAS Framework\nOverview of RAGAS\nThe RAGAS (Retriever-Augmented Generation Evaluation System) framework is\ndesigned to assess the performance and quality of Retriever-Augmented Generation\n(RAG) models. RAG models, which combine document retrieval with generative AI, are\nCreated by Goyashy (@explainx.ai)\nincreasingly used in applications that require the synthesis of information from vast\ndata sources.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 109,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.5327,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.014643,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.5327,
+          "rerank_rank": 2,
+          "original_score": 0.014643,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p164_c0",
+        "content": "Real-World RAG Applications And Future Trends\nLong-Form Content Summarization Techniques\nExtractive Summarization:\nSelects key sentences from the text, preserving\noriginal wording but may lose context. Abstractive Summarization:\nGenerates new sentences summarizing key\nCreated by Goyashy (@explainx.ai)\npoints, resulting in more fluid summaries but\nrequiring tuning. Use of RAG:\nRAG enriches summaries by retrieving additional\ncontext or related information for a more\nHybrid Approaches:\ncomprehensive result. Combines extractive and abstractive methods\nfor accurate, concise, and well-structured\nsummaries.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 164,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.4539,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "60895d7b567675f014f145d2405cc5a3",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "page_number": 164,
+          "parser": "pdfplumber",
+          "source_file": "Explainx.ai_RAG.pdf",
+          "token_count": 151,
+          "total_chunks": 176,
+          "rrf_score": 0.007576,
+          "in_bm25": false,
+          "in_vector": true,
+          "rerank_score": 0.4539,
+          "rerank_rank": 3,
+          "original_score": 0.007576,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p163_c0",
+        "content": "Real-World RAG Applications And Future Trends\nContent Generation and Summarization Using RAG\nRAG Overview:\nRAG combines large language models (LLMs) with external data retrieval to\nproduce accurate, relevant content. Created by Goyashy (@explainx.ai)\nApplication in Content Creation:\nRAG generates articles or reports by retrieving relevant data from databases\nor documents, then using LLMs to generate coherent text. Summarization Techniques:\nRAG retrieves key info to create concise summaries, ideal for summarizing\nlong-form content while retaining context.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 163,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.439,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "60895d7b567675f014f145d2405cc5a3",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "page_number": 163,
+          "parser": "pdfplumber",
+          "source_file": "Explainx.ai_RAG.pdf",
+          "token_count": 140,
+          "total_chunks": 176,
+          "rrf_score": 0.007812,
+          "in_bm25": false,
+          "in_vector": true,
+          "rerank_score": 0.439,
+          "rerank_rank": 4,
+          "original_score": 0.007812,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p151_c0",
+        "content": "Real-World RAG Applications And Future Trends\nImplementation Steps\nData Integration:\nUnified data sources with APIs and standardization. RAG Model Setup:\nFine-tuned LLM and built a retrieval system with vector databases. Created by Goyashy (@explainx.ai)\nSearch Interface:\nDeveloped an intuitive search interface linked to the RAG model. Testing & Optimization:\nGathered feedback, fine-tuned for accuracy. Deployment & Training:\nDeployed system and trained employees",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 151,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.4229,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.013603,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.4229,
+          "rerank_rank": 5,
+          "original_score": 0.013603,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p3_c0",
+        "content": "WHAT IS RAG ? RAG, or Retrieval-Augmented Generation, is an approach that\ncombines large language models (LLMs) with external data\nsources. It enhances the model's responses by retrieving relevant\nCreated by Goyashy (@explainx.ai)\ninformation from a database or search system and using that\ndata to generate more accurate and contextually relevant\noutputs.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 3,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.3782,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.013178,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.3782,
+          "rerank_rank": 6,
+          "original_score": 0.013178,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p110_c0",
+        "content": "Introduction to RAGAS Framework\nPurpose and key features\nEvaluates Retriever-Augmented Generation (RAG) pipelines for relevance, fluency, and\nfact-consistency. Created by Goyashy (@explainx.ai)\nKey Features:\nScoring system to assess retrieval and generation. Optimizes retrieval quality and generative accuracy.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 110,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.3193,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "60895d7b567675f014f145d2405cc5a3",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "page_number": 110,
+          "parser": "pdfplumber",
+          "source_file": "Explainx.ai_RAG.pdf",
+          "token_count": 77,
+          "total_chunks": 176,
+          "rrf_score": 0.007937,
+          "in_bm25": false,
+          "in_vector": true,
+          "rerank_score": 0.3193,
+          "rerank_rank": 7,
+          "original_score": 0.007937,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p120_c0",
+        "content": "Optimizing RAG Pipelines\nLLM optimization for RAG\nFew-Shot Learning:\nUse a few relevant examples to guide LLMs in improving\nperformance within RAG systems, enhancing response quality. Created by Goyashy (@explainx.ai)\nTechniques:\nFew-Shot Examples: Provide the model with a few examples of desired responses or formats based on\nthe retrieved documents, enabling it to generalize from limited data. Prompt Templates: Use predefined templates that include placeholders for retrieved information,\nguiding the model in generating responses based on these examples. Dynamic Few-Shot Learning: Adaptively update few-shot examples based on the context and retrieved\ndocuments, allowing the model to handle diverse queries and contexts more effectively.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 120,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.2625,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.014186,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.2625,
+          "rerank_rank": 8,
+          "original_score": 0.014186,
+          "original_method": "hybrid"
+        }
+      }
+    ],
+    "total_latency_ms": 16585.53,
+    "retrieval_latency_ms": 636.38,
+    "reranking_latency_ms": 1594.07,
+    "generation_latency_ms": 14349.07,
+    "input_tokens": 1818,
+    "output_tokens": 79,
+    "total_tokens": 1897,
+    "cost_usd": 0.0002134,
+    "num_chunks_retrieved": 20,
+    "num_chunks_used": 8,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "hybrid",
+      "vector",
+      "bm25"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

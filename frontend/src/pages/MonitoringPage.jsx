@@ -28,7 +28,7 @@ function ChartTooltipContent({ active, payload, label }) {
 
 export default function MonitoringPage() {
   const [days, setDays] = useState(7)
-  const [tab, setTab]   = useState('overview')
+  const [tab, setTab] = useState('overview')
   const { theme } = useUIStore()
 
   const { data: metrics, isLoading } = useQuery({
@@ -53,8 +53,8 @@ export default function MonitoringPage() {
   })
 
   const chartColor = theme === 'dark' ? '#a78bfa' : '#7c4dff'
-  const gridColor  = theme === 'dark' ? '#2a2a32' : '#f1f1f3'
-  const axisColor  = theme === 'dark' ? '#52525e' : '#d0d0d6'
+  const gridColor = theme === 'dark' ? '#2a2a32' : '#f1f1f3'
+  const axisColor = theme === 'dark' ? '#52525e' : '#d0d0d6'
 
   const dailyData = (daily?.days ?? []).slice().reverse().map(d => ({
     date: d.date?.slice(5),
@@ -66,15 +66,14 @@ export default function MonitoringPage() {
   }))
 
   const tabs = [
-    { id: 'overview',  label: 'Overview'  },
-    { id: 'latency',   label: 'Latency'   },
-    { id: 'cost',      label: 'Cost'      },
-    { id: 'feedback',  label: 'Feedback'  },
+    { id: 'overview', label: 'Overview' },
+    { id: 'latency', label: 'Latency' },
+    { id: 'cost', label: 'Cost' },
+    { id: 'feedback', label: 'Feedback' },
   ]
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
-      {/* Header */}
       <div className="flex items-center justify-between h-14 px-6 border-b border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-900 shrink-0">
         <div>
           <h1 className="text-base font-semibold text-surface-900 dark:text-white">Monitoring</h1>
@@ -100,24 +99,21 @@ export default function MonitoringPage() {
       </div>
 
       <div className="flex-1 overflow-y-auto px-6 py-5 space-y-5">
-        {/* KPI Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {isLoading ? (
             Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-28 rounded-xl" />)
           ) : metrics ? (
             <>
-              <MetricCard icon={<Hash size={16} />}         label="Total requests" value={metrics.total_requests?.toLocaleString() ?? '—'} sub={`${metrics.successful} successful · ${metrics.failed} failed`} color="brand" />
-              <MetricCard icon={<Zap size={16} />}          label="p95 latency"    value={formatLatency(metrics.latency?.p95_ms)} sub={`avg ${formatLatency(metrics.latency?.avg_ms)}`} color="amber" />
-              <MetricCard icon={<DollarSign size={16} />}   label="Total cost"     value={formatCost(metrics.total_cost_usd)} sub={`~${formatCost(metrics.avg_cost_usd)} / request`} color="emerald" />
-              <MetricCard icon={<CheckCircle size={16} />}  label="Success rate"   value={formatPercent(metrics.success_rate)} sub={`${metrics.total_requests} total queries`} color="sky" />
+              <MetricCard icon={<Hash size={16} />} label="Total requests" value={metrics.total_requests?.toLocaleString() ?? '—'} sub={`${metrics.successful} successful · ${metrics.failed} failed`} color="brand" />
+              <MetricCard icon={<Zap size={16} />} label="p95 latency" value={formatLatency(metrics.latency?.p95_ms)} sub={`avg ${formatLatency(metrics.latency?.avg_ms)}`} color="amber" />
+              <MetricCard icon={<DollarSign size={16} />} label="Total cost" value={formatCost(metrics.total_cost_usd)} sub={`~${formatCost(metrics.avg_cost_usd)} / request`} color="emerald" />
+              <MetricCard icon={<CheckCircle size={16} />} label="Success rate" value={formatPercent(metrics.success_rate)} sub={`${metrics.total_requests} total queries`} color="sky" />
             </>
           ) : null}
         </div>
 
-        {/* Tabs */}
         <Tabs tabs={tabs} active={tab} onChange={setTab} />
 
-        {/* Charts */}
         {tab === 'overview' && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <Card className="p-4">
@@ -129,7 +125,7 @@ export default function MonitoringPage() {
                   <YAxis tick={{ fontSize: 11, fill: axisColor }} />
                   <Tooltip content={<ChartTooltipContent />} />
                   <Bar dataKey="success" name="Success" fill={chartColor} radius={[3, 3, 0, 0]} />
-                  <Bar dataKey="failed"  name="Failed"  fill="#f87171" radius={[3, 3, 0, 0]} />
+                  <Bar dataKey="failed" name="Failed" fill="#f87171" radius={[3, 3, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </Card>
@@ -140,7 +136,7 @@ export default function MonitoringPage() {
                 <AreaChart data={dailyData} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
                   <defs>
                     <linearGradient id="latGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%"  stopColor={chartColor} stopOpacity={0.3} />
+                      <stop offset="5%" stopColor={chartColor} stopOpacity={0.3} />
                       <stop offset="95%" stopColor={chartColor} stopOpacity={0} />
                     </linearGradient>
                   </defs>
@@ -218,13 +214,27 @@ export default function MonitoringPage() {
             </Card>
 
             <Card className="p-4 space-y-3">
-              <h3 className="text-sm font-semibold text-surface-700 dark:text-surface-300 mb-2">Cost summary</h3>
+              <h3 className="text-sm font-semibold text-surface-700 dark:text-surface-300 mb-2">Cost breakdown</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-3 bg-brand-50/50 dark:bg-brand-950/20 rounded-xl border border-brand-100 dark:border-brand-900/30">
+                  <p className="text-[10px] uppercase tracking-wider text-surface-400 font-semibold mb-1">User Chats</p>
+                  <p className="text-lg font-bold text-brand-600 dark:text-brand-400">{formatCost(metrics?.breakdown?.chat?.cost)}</p>
+                  <p className="text-[10px] text-surface-400 mt-1">{metrics?.breakdown?.chat?.count} queries · {formatTokens(metrics?.breakdown?.chat?.tokens)}</p>
+                </div>
+                <div className="p-3 bg-violet-50/50 dark:bg-violet-950/20 rounded-xl border border-violet-100 dark:border-violet-900/30">
+                  <p className="text-[10px] uppercase tracking-wider text-surface-400 font-semibold mb-1">System Evaluation</p>
+                  <p className="text-lg font-bold text-violet-600 dark:text-violet-400">{formatCost(metrics?.breakdown?.evaluation?.cost)}</p>
+                  <p className="text-[10px] text-surface-400 mt-1">{metrics?.breakdown?.evaluation?.count} queries · {formatTokens(metrics?.breakdown?.evaluation?.tokens)}</p>
+                </div>
+              </div>
+
+              <h3 className="text-sm font-semibold text-surface-700 dark:text-surface-300 mt-6 mb-2">Efficiency metrics</h3>
               {[
-                { label: 'Total cost',    value: formatCost(metrics?.total_cost_usd) },
-                { label: 'Avg per req',   value: formatCost(metrics?.avg_cost_usd) },
-                { label: 'Total tokens',  value: formatTokens(metrics?.total_tokens) },
-                { label: 'Avg tokens',    value: formatTokens(metrics?.avg_tokens) },
-                { label: 'Avg support',   value: formatPercent(metrics?.avg_support_ratio) },
+                { label: 'Total cost', value: formatCost(metrics?.total_cost_usd) },
+                { label: 'Avg per req', value: formatCost(metrics?.avg_cost_usd) },
+                { label: 'Total tokens', value: formatTokens(metrics?.total_tokens) },
+                { label: 'Avg tokens', value: formatTokens(metrics?.avg_tokens) },
+                { label: 'Avg support', value: formatPercent(metrics?.avg_support_ratio) },
               ].map(r => (
                 <div key={r.label} className="flex justify-between py-2 border-b border-surface-100 dark:border-surface-800 last:border-0 text-sm">
                   <span className="text-surface-500">{r.label}</span>
@@ -240,49 +250,49 @@ export default function MonitoringPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <Card className="p-4">
                 <h3 className="text-sm font-semibold text-surface-700 dark:text-surface-300 mb-4">Feedback summary</h3>
-              {feedback ? (
-                <div className="space-y-4">
-                  <div className="grid grid-cols-3 gap-3 text-center">
-                    {[
-                      { label: 'Positive', value: feedback.positive, color: 'text-emerald-600 dark:text-emerald-400' },
-                      { label: 'Neutral',  value: feedback.neutral,  color: 'text-surface-500' },
-                      { label: 'Negative', value: feedback.negative, color: 'text-red-500' },
-                    ].map(f => (
-                      <div key={f.label}>
-                        <p className={cn('text-2xl font-semibold', f.color)}>{f.value}</p>
-                        <p className="text-xs text-surface-400 mt-0.5">{f.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="h-2 bg-surface-100 dark:bg-surface-700 rounded-full overflow-hidden flex">
-                    <div className="h-full bg-emerald-400" style={{ width: `${feedback.positive_rate * 100}%` }} />
-                    <div className="h-full bg-red-400"     style={{ width: `${feedback.negative_rate * 100}%` }} />
-                  </div>
-                  <p className="text-xs text-surface-400 text-center">
-                    {formatPercent(feedback.positive_rate)} positive · avg rating {feedback.avg_rating?.toFixed(2)}
-                  </p>
-                </div>
-              ) : <Skeleton className="h-32" />}
-            </Card>
-
-            <Card className="p-4">
-              <h3 className="text-sm font-semibold text-surface-700 dark:text-surface-300 mb-3">Negative feedback</h3>
-              <div className="space-y-2 max-h-64 overflow-y-auto">
-                {negativeFeedback?.feedback?.length ? (
-                  negativeFeedback.feedback.map((f) => (
-                    <div key={f.feedback_id} className="p-2.5 rounded-lg border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/20">
-                      <p className="text-xs font-medium text-surface-700 dark:text-surface-300 truncate">{f.query}</p>
-                      {f.comment && <p className="text-xs text-red-600 dark:text-red-400 mt-1 italic">"{f.comment}"</p>}
-                      <p className="text-[10px] text-surface-400 mt-1">{timeAgo(f.date)}</p>
+                {feedback ? (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-3 gap-3 text-center">
+                      {[
+                        { label: 'Positive', value: feedback.positive, color: 'text-emerald-600 dark:text-emerald-400' },
+                        { label: 'Neutral', value: feedback.neutral, color: 'text-surface-500' },
+                        { label: 'Negative', value: feedback.negative, color: 'text-red-500' },
+                      ].map(f => (
+                        <div key={f.label}>
+                          <p className={cn('text-2xl font-semibold', f.color)}>{f.value}</p>
+                          <p className="text-xs text-surface-400 mt-0.5">{f.label}</p>
+                        </div>
+                      ))}
                     </div>
-                  ))
-                ) : (
-                  <p className="text-xs text-surface-400 text-center py-6">No negative feedback 🎉</p>
-                )}
-              </div>
+                    <div className="h-2 bg-surface-100 dark:bg-surface-700 rounded-full overflow-hidden flex">
+                      <div className="h-full bg-emerald-400" style={{ width: `${feedback.positive_rate * 100}%` }} />
+                      <div className="h-full bg-red-400" style={{ width: `${feedback.negative_rate * 100}%` }} />
+                    </div>
+                    <p className="text-xs text-surface-400 text-center">
+                      {formatPercent(feedback.positive_rate)} positive · avg rating {feedback.avg_rating?.toFixed(2)}
+                    </p>
+                  </div>
+                ) : <Skeleton className="h-32" />}
+              </Card>
+
+              <Card className="p-4">
+                <h3 className="text-sm font-semibold text-surface-700 dark:text-surface-300 mb-3">Negative feedback</h3>
+                <div className="space-y-2 max-h-64 overflow-y-auto">
+                  {negativeFeedback?.feedback?.length ? (
+                    negativeFeedback.feedback.map((f) => (
+                      <div key={f.feedback_id} className="p-2.5 rounded-lg border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/20">
+                        <p className="text-xs font-medium text-surface-700 dark:text-surface-300 truncate">{f.query}</p>
+                        {f.comment && <p className="text-xs text-red-600 dark:text-red-400 mt-1 italic">"{f.comment}"</p>}
+                        <p className="text-[10px] text-surface-400 mt-1">{timeAgo(f.date)}</p>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-xs text-surface-400 text-center py-6">No negative feedback 🎉</p>
+                  )}
+                </div>
               </Card>
             </div>
-            
+
             <Card className="p-4">
               <h3 className="text-sm font-semibold text-surface-700 dark:text-surface-300 mb-4">Daily feedback trend</h3>
               {feedback?.daily_trend?.length > 0 ? (

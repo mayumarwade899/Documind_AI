@@ -1,0 +1,106 @@
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:46:40.955745Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:46:40.955745Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:46:40.955745Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:47:03.707278Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:47:03.714353Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:47:03.715344Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:51:42.266594Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:52:14.815294Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:52:14.816195Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:52:14.816195Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionGetEvent: capture() takes 1 positional argument but 3 were given
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:12:03.210530Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:13:38.743284Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:13:38.745025Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:13:38.746034Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:14:04.927384Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:14:04.927384Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:14:04.927384Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionGetEvent: capture() takes 1 positional argument but 3 were given
+{"filename": "Pleadings & Conveyancing.pdf", "path": "data\\documents\\Pleadings & Conveyancing.pdf", "event": "file_uploaded", "level": "info", "logger": "api.routes.ingest", "timestamp": "2026-04-15T19:14:38.916282Z"}
+{"file_path": "data\\documents\\Pleadings & Conveyancing.pdf", "event": "document_load_started", "level": "info", "logger": "ingestion.document_loader", "timestamp": "2026-04-15T19:14:38.916282Z"}
+{"filename": "Pleadings & Conveyancing.pdf", "pages_extracted": 140, "event": "pdf_loading_complete", "level": "info", "logger": "ingestion.document_loader", "timestamp": "2026-04-15T19:14:59.184199Z"}
+{"filename": "Pleadings & Conveyancing.pdf", "document_id": "ac77f8d650c4f4527495cb0bdfa68403", "pages": 140, "size_kb": 884.56, "event": "document_load_complete", "level": "info", "logger": "ingestion.document_loader", "timestamp": "2026-04-15T19:14:59.184199Z"}
+{"filename": "Pleadings & Conveyancing.pdf", "num_chunks": 148, "event": "embedding_chunks", "level": "info", "logger": "ingestion.pipeline", "timestamp": "2026-04-15T19:14:59.203650Z"}
+{"stored": 148, "total_in_collection": 354, "event": "chunks_stored", "level": "info", "logger": "retrieval.vector_store", "timestamp": "2026-04-15T19:15:05.389165Z"}
+{"filename": "Pleadings & Conveyancing.pdf", "stored": 148, "event": "chunks_stored_in_chromadb", "level": "info", "logger": "ingestion.pipeline", "timestamp": "2026-04-15T19:15:05.393384Z"}
+{"new_chunks": 148, "existing_chunks": 206, "event": "bm25_adding_chunks", "level": "info", "logger": "retrieval.bm25_retriever", "timestamp": "2026-04-15T19:15:05.394052Z"}
+{"path": "D:\\Projects\\documind_ai\\backend\\data\\bm25_index", "total_chunks": 354, "event": "bm25_index_saved", "level": "info", "logger": "retrieval.bm25_retriever", "timestamp": "2026-04-15T19:15:05.478398Z"}
+{"added": 148, "total_chunks": 354, "event": "bm25_chunks_added", "level": "info", "logger": "retrieval.bm25_retriever", "timestamp": "2026-04-15T19:15:05.478398Z"}
+{"filename": "Pleadings & Conveyancing.pdf", "count": 148, "event": "chunks_added_to_bm25", "level": "info", "logger": "ingestion.pipeline", "timestamp": "2026-04-15T19:15:05.478398Z"}
+{"filename": "Pleadings & Conveyancing.pdf", "document_id": "ac77f8d650c4f4527495cb0bdfa68403", "pages": 140, "chunks": 148, "latency_ms": 26562.12, "event": "file_ingestion_complete", "level": "info", "logger": "ingestion.pipeline", "timestamp": "2026-04-15T19:15:05.478398Z"}
+{"error": "_call_gemini() got an unexpected keyword argument 'max_tokens'", "event": "combined_rewrite_failed", "level": "warning", "logger": "retrieval.query_rewriter", "timestamp": "2026-04-15T19:15:21.950545Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+{"query_preview": "What are the main findings of this document?", "total_latency_ms": 15525.1, "chunks_used": 5, "event": "streaming_generation_complete", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T19:15:33.477216Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:15:33.589160Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:16:06.519749Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:16:06.520837Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:16:06.522281Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:16:41.876007Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:17:03.108529Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:17:03.109399Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:17:03.110403Z"}
+{"error": "_call_gemini() got an unexpected keyword argument 'max_tokens'", "event": "combined_rewrite_failed", "level": "warning", "logger": "retrieval.query_rewriter", "timestamp": "2026-04-15T19:19:06.295380Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+{"query_preview": "List the key takeaways from the document?", "total_latency_ms": 21510.77, "chunks_used": 6, "event": "streaming_generation_complete", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T19:19:23.804291Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:21:31.524730Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:21:56.859817Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:21:56.864841Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:21:56.864841Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:35:05.615270Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:35:30.239130Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:35:30.241146Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:35:30.241146Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:45:07.600443Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:46:39.074104Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:46:39.077671Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:46:39.077671Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:48:02.111514Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:48:25.628868Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:48:25.629444Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:48:25.629444Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:49:24.865642Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:49:24.865642Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T19:49:24.865642Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionGetEvent: capture() takes 1 positional argument but 3 were given
+{"filename": "patent.pdf", "path": "data\\documents\\patent.pdf", "event": "file_uploaded", "level": "info", "logger": "api.routes.ingest", "timestamp": "2026-04-15T19:49:55.433868Z"}
+{"file_path": "data\\documents\\patent.pdf", "event": "document_load_started", "level": "info", "logger": "ingestion.document_loader", "timestamp": "2026-04-15T19:49:55.438409Z"}
+{"filename": "patent.pdf", "pages_extracted": 33, "event": "pdf_loading_complete", "level": "info", "logger": "ingestion.document_loader", "timestamp": "2026-04-15T19:50:09.465580Z"}
+{"filename": "patent.pdf", "document_id": "11f0fe637836a1c73c010e287ba3ad24", "pages": 33, "size_kb": 312.76, "event": "document_load_complete", "level": "info", "logger": "ingestion.document_loader", "timestamp": "2026-04-15T19:50:09.465580Z"}
+{"filename": "patent.pdf", "num_chunks": 33, "event": "embedding_chunks", "level": "info", "logger": "ingestion.pipeline", "timestamp": "2026-04-15T19:50:09.479414Z"}
+{"stored": 33, "total_in_collection": 387, "event": "chunks_stored", "level": "info", "logger": "retrieval.vector_store", "timestamp": "2026-04-15T19:50:14.165506Z"}
+{"filename": "patent.pdf", "stored": 33, "event": "chunks_stored_in_chromadb", "level": "info", "logger": "ingestion.pipeline", "timestamp": "2026-04-15T19:50:14.165506Z"}
+{"new_chunks": 33, "existing_chunks": 354, "event": "bm25_adding_chunks", "level": "info", "logger": "retrieval.bm25_retriever", "timestamp": "2026-04-15T19:50:14.165506Z"}
+{"path": "D:\\Projects\\documind_ai\\backend\\data\\bm25_index", "total_chunks": 387, "event": "bm25_index_saved", "level": "info", "logger": "retrieval.bm25_retriever", "timestamp": "2026-04-15T19:50:14.338399Z"}
+{"added": 33, "total_chunks": 387, "event": "bm25_chunks_added", "level": "info", "logger": "retrieval.bm25_retriever", "timestamp": "2026-04-15T19:50:14.339455Z"}
+{"filename": "patent.pdf", "count": 33, "event": "chunks_added_to_bm25", "level": "info", "logger": "ingestion.pipeline", "timestamp": "2026-04-15T19:50:14.339455Z"}
+{"filename": "patent.pdf", "document_id": "11f0fe637836a1c73c010e287ba3ad24", "pages": 33, "chunks": 33, "latency_ms": 18901.81, "event": "file_ingestion_complete", "level": "info", "logger": "ingestion.pipeline", "timestamp": "2026-04-15T19:50:14.339455Z"}
+{"error": "_call_gemini() got an unexpected keyword argument 'max_tokens'", "event": "combined_rewrite_failed", "level": "warning", "logger": "retrieval.query_rewriter", "timestamp": "2026-04-15T19:50:46.015490Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+{"query_preview": "summarize this document", "total_latency_ms": 22124.88, "chunks_used": 7, "event": "streaming_generation_complete", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T19:51:04.139170Z"}
+{"step": "1/6", "query": "What are the main topics covered in the document?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T19:51:33.725783Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T19:51:34.206457Z"}
+{"step": "2/6", "query": "List the key takeaways from the document?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T19:52:07.212335Z"}
+{"is_summary": true, "final_top_k": 8, "context_budget": 4000, "max_output_tokens": 2000, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T19:52:07.738877Z"}
+{"step": "3/6", "query": "What is the primary purpose of this document?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T19:52:44.589233Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T19:52:45.110894Z"}
+{"step": "4/6", "query": "What is the maximum legal validity period for a granted patent?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T19:53:05.644636Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T19:53:06.118058Z"}
+{"step": "5/6", "query": "What primary right does a patent confer on its owner regarding the protected inv...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T19:53:16.742240Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T19:53:17.277723Z"}
+{"step": "6/6", "query": "What is the purpose of 'Chains' within the LangChain framework?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T19:53:39.759971Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T19:53:40.273164Z"}
+{"path": "data\\evaluation_reports\\eval_2026-04-15T195351Z.json", "cost_usd": 0.0015802, "event": "hybrid_report_saved", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T19:53:51.457097Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T20:12:13.137770Z"}

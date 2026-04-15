@@ -1,9 +1,7 @@
 import sys
-import json
-from pathlib import Path
 from typing import Optional
 
-from evaluation.ragas_evaluator import RAGASEvaluator, EvaluationReport
+from evaluation.ragas_evaluator import RAGASEvaluator
 from evaluation.golden_dataset import GoldenDataset
 from config.settings import get_settings
 from config.logging_config import setup_logging, get_logger

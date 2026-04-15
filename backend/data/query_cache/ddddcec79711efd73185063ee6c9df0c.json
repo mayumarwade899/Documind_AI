@@ -1,0 +1,180 @@
+{
+  "query": "can you tell me how to draft documents?",
+  "document_id": null,
+  "cached_at": 1776276059.5948384,
+  "response": {
+    "answer": "I cannot find this information in the provided documents.",
+    "query": "can you tell me how to draft documents?",
+    "rewritten_query": "can you tell me how to draft documents?",
+    "sources": [
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 138,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p138_c0",
+        "relevance_score": 1.0,
+        "content_preview": "Scaling And Deploying RAG Systems\nVersion Control for Documents and Embeddings\nMetadata Management: Track and\nmanage document embeddings and\nCreated by Goyashy (@explainx.ai)\nfeatures with metadata fo..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 9,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p9_c0",
+        "relevance_score": 0.933,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\ninformation and more on language production, on the use of English ... there is\nless time used but it\u2019s more effective. (S14)\nIt is also interesti..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 62,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p62_c0",
+        "relevance_score": 0.9045,
+        "content_preview": "Building a Basic RAG Pipeline\nOverview of the RAG Architecture\nDocument Corpus: The collection of\ndocuments or knowledge base from which\ninformation will be retrieved. Language Model: The generative A..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 119,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p119_c0",
+        "relevance_score": 0.8181,
+        "content_preview": "Optimizing RAG Pipelines\nLLM optimization for RAG\nPrompt Engineering:\nCraft prompts to optimize how large language models (LLMs)\nutilize retrieved context for more accurate responses. Created by Goyas..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 173,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p173_c0",
+        "relevance_score": 0.7934,
+        "content_preview": "Ethical Considerations And Responsible AI\nEnsuring Transparency and Explainability\nTechniques for Providing Source Developing User Interfaces that Promote\nAttribution: Understanding of RAG Outputs:\nSo..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p138_c0",
+        "content": "Scaling And Deploying RAG Systems\nVersion Control for Documents and Embeddings\nMetadata Management: Track and\nmanage document embeddings and\nCreated by Goyashy (@explainx.ai)\nfeatures with metadata for easy\nretrieval and versioning. Document\nManagement\nDocument Repositories: Store\nand version documents in\nmanaged repositories or\ndatabases to track changes.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 138,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 1.0,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "60895d7b567675f014f145d2405cc5a3",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "page_number": 138,
+          "parser": "pdfplumber",
+          "source_file": "Explainx.ai_RAG.pdf",
+          "token_count": 89,
+          "total_chunks": 176,
+          "rrf_score": 0.007246,
+          "in_bm25": false,
+          "in_vector": true,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.007246,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p9_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\ninformation and more on language production, on the use of English ... there is\nless time used but it\u2019s more effective. (S14)\nIt is also interesting to note that the use of mobile devices might be valuable for\nkinesthetic or tactical language learners:\nI think I spend more time \u2026 for me it\u2019s much nicer and more interesting than\nsitting and reading books \u2026 it\u2019s better for me since I\u2019m kinesthetic so it\u2019s hard\nfor me to sit and read a traditional book ... it\u2019s because I don\u2019t remember then\nmuch but when I use my smartphone which is mobile I can ... I can do it while\ndoing other activities and this makes things easier for me. (S5)\nFinally, it should be noted that 5 (25%) interviewees were not able to say whether or\nnot the use of mobile devices made them study the target language more effectively or\nefficiently and they expressed their opinion by simply claiming that \u201cIt\u2019s difficult to say\u201d. 5. Discussion and conclusions\nThe picture that emerges from the analysis of the collected data regarding the advanced\nlearners' use of mobile devices for learning English is relatively encouraging. This is\nbecause all the study participants used, at least to some extent, their mobile devices\n(i.e. smartphones and/or tablet computers) in order to learn the English language\nautonomously. Moreover, the positive impact of using mobile devices for English study\nwas acknowledged by the majority of the interviewees. Their beneficial contribution to\ntheir English development was chiefly linked with easy access to English language\nresources, the opportunity to store them, comfort in using their smartphones and\ntablets anywhere and anytime as well as perceived gains in English learning. The results\nof the study also showed that all interviewees engaged with their smartphones and/or\ntablet computers to practice the target language vocabulary (plus some students also\nclaimed to learn pronunciation of English words) and the majority of the subjects used\ntheir mobile devices autonomously in their leisure time as well as during language\nclasses. Such a state of affairs can be explained in terms of increased awareness on the\npart of some students of the beneficial role of MobDs in foreign language learning, their\nability to reach for appropriate tools and retrieve needed information to achieve their\ngoals and adjust their learning of the target language to their personal learning styles. Despite this positive view of MobDs reported by the study participants, the results of the\nstudy also revealed that only a few subjects engaged with their mobile devices to\nmaster target language skills such as reading, listening, writing and speaking as well as\nEnglish language grammar. In addition, some interviewees limited themselves to a\nrather intuitive and perhaps even spontaneous use of their mobile devices in the\nlanguage classroom. It should also be noted that almost half of the subjects regarded\nthemselves as quite inexperienced in using their mobile devices when it comes to\nlearning the English language despite the fact that some of the students had been using\nthem with the intention of learning English for years.",
+        "source_file": "research_paper.pdf",
+        "page_number": 9,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.933,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "rrf_score": 0.007812,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.933,
+          "rerank_rank": 2,
+          "original_score": 0.007812,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p62_c0",
+        "content": "Building a Basic RAG Pipeline\nOverview of the RAG Architecture\nDocument Corpus: The collection of\ndocuments or knowledge base from which\ninformation will be retrieved. Language Model: The generative AI model\nthat produces responses. Created by Goyashy (@explainx.ai)\nEmbedding Model: Used to convert text into\nvector representations. Prompt Template: Structures how retrieved\ninformation and the query are presented to\nthe language model. Vector Database: Stores and indexes the\nembedded documents for efficient similarity\nsearch. Orchestrator: Coordinates the flow of\ninformation between components. Retriever: Responsible for finding relevant\ndocuments based on the input query.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 62,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.9045,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.01555,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.9045,
+          "rerank_rank": 3,
+          "original_score": 0.01555,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p119_c0",
+        "content": "Optimizing RAG Pipelines\nLLM optimization for RAG\nPrompt Engineering:\nCraft prompts to optimize how large language models (LLMs)\nutilize retrieved context for more accurate responses. Created by Goyashy (@explainx.ai)\nTechniques:\nContextual Prompts: Design prompts that clearly instruct the model to use the provided context or\nretrieved documents effectively. For example, explicitly ask the model to summarize the retrieved\ninformation or integrate specific details. Instruction Tuning: Refine prompts to guide the model in generating responses that are better aligned with\nthe context, such as specifying the type of information to focus on or the format of the output. Example Prompting: Provide examples within the prompt of how to use the retrieved context to generate\nresponses, helping the model understand the desired output format.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 119,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.8181,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.007246,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.8181,
+          "rerank_rank": 4,
+          "original_score": 0.007246,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p173_c0",
+        "content": "Ethical Considerations And Responsible AI\nEnsuring Transparency and Explainability\nTechniques for Providing Source Developing User Interfaces that Promote\nAttribution: Understanding of RAG Outputs:\nSource Linking: Link output parts to Interactive Exploration: Enable users to\nspecific retrieved sources, ensuring explore sources behind content, e.g., by\nCreated by Goyashy (@explainx.ai)\nclear traceability of information hovering for related documents or\norigins. expandable sections for details. Highlighting and Summarization: Explanatory Overlays:Add overlays or\nUse visual markers or summaries to tooltips to explain how RAG arrived at\nshow how retrieved documents conclusions, improving user trust and\ncontribute to the output, clarifying understanding. the relationship between input and\nresult.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 173,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.7934,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.007692,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.7934,
+          "rerank_rank": 5,
+          "original_score": 0.007692,
+          "original_method": "bm25"
+        }
+      }
+    ],
+    "total_latency_ms": 8260.33,
+    "retrieval_latency_ms": 505.68,
+    "reranking_latency_ms": 1686.69,
+    "generation_latency_ms": 6064.93,
+    "input_tokens": 1406,
+    "output_tokens": 10,
+    "total_tokens": 1416,
+    "cost_usd": 0.0001446,
+    "num_chunks_retrieved": 20,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "hybrid",
+      "vector",
+      "bm25"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

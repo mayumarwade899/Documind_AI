@@ -1,0 +1,171 @@
+{
+  "query": "What are the main topics covered in the document?",
+  "document_id": null,
+  "cached_at": 1776282702.0602782,
+  "response": {
+    "answer": "The documents cover several main topics related to legal concepts, specifically focusing on **Conveyancing** and **Pleadings**, as well as general principles of **Law Branches** and **Fundamental Rules of Pleading**.",
+    "query": "What are the main topics covered in the document?",
+    "rewritten_query": "What are the main topics covered in the document?",
+    "sources": [
+      {
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 101,
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p101_c0",
+        "relevance_score": 1.0,
+        "content_preview": "94\nThe term \u2018Deed\u2019, \u2018Conveyance\u2019 and \u2018Deed of Conveyance\u2019 or \u2018Conveyancing\u2019 are frequently\nused interchangeably to denote one and the same legal concept, and each is being commonly\nunderstood to mean ..."
+      },
+      {
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 3,
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p3_c0",
+        "relevance_score": 0.9767,
+        "content_preview": "iii\ndetermining the rights, liabilities and duties of the litigants. It is procedural law which puts\nlife into the substantive law by providing remedy for enforcement of those rights and\nliabilities. ..."
+      },
+      {
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 14,
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p14_c0",
+        "relevance_score": 0.8356,
+        "content_preview": "7\n(5) The plea that a woman claiming maintenance has lost her right due to continuous\ndesertion or living in adultery should be specifically raised. (6) Where the plea is based on custom, it must be s..."
+      },
+      {
+        "source_file": "patent.pdf",
+        "page_number": 17,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p17_c0",
+        "relevance_score": 0.5377,
+        "content_preview": "to practice or repeat the invention without having to do undue experimentation. At the end of every patent specification, there are one or more numbered\ndefinitions, referred to as \u2018claims\u2019, which def..."
+      },
+      {
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 76,
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p76_c0",
+        "relevance_score": 0.4831,
+        "content_preview": "69\nthe purchaser not to transfer the purchased land under the Act without the sanction of the\nCollector. Section 43 (2) of the Act says \u201cany transfer or partition of land in contravention of\nSub-Secti..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p101_c0",
+        "content": "94\nThe term \u2018Deed\u2019, \u2018Conveyance\u2019 and \u2018Deed of Conveyance\u2019 or \u2018Conveyancing\u2019 are frequently\nused interchangeably to denote one and the same legal concept, and each is being commonly\nunderstood to mean an instrument in writing whereby the grantor conveys to the grantee some\nright, title or interest in or upon some real property . Thus, by the aforesaid expressions, we\nmean each of them as document, indenture or instrument in writing. So , the terms,\n\u2018conveyance\u2019, \u2018conveyancing\u2019, \u2018deed of conveyance\u2019 or \u2018conveyancing\u2019, \u2018deed\u2019, \u2018document\u2019,\n\u2018indenture\u2019 and \u2018instrument\u2019 are interchangeable for the purpose of drafting of documents. Object and Function of Conveyancing\nMovable property may be physically given and taken by actual delivery, while this is not\npossible in case of immovable property. Thus, conveyancing is that branch of the law of\ntransfer of property which deals with the mode and form of transfer to which both- the\ntransferor and the transferee have agreed upon. Its main object is to enable the owners of real\nproperty to make voluntary transfers of their right, title and interest therein for some specific\npurpose and for a specified period. Such transfers are not otherwise possible than by\nconveyancing. It expresses the intention of the parties to the deed of conveyance so that accordingly it shall\ntake effect. In case of any doubt, dispute, ambiguity and susceptibility, the real intention of\nthe parties may be discovered from the words, phrases and the expression used in the deed. A\ntransferor may have passed the property intending to pass; but if he has not expressed himself\nin suitable words of the language, the deed may be defective or susceptible of two or more\nconstructions; and so the benefits of the transfer may be lost to the transferee. Where any\nadverse claimant interposes before the transferee, may get actual legal possession of the\ntransferred property, it may be quite possible that the transferor with all his willingness may\nnot be able to help the transferee. It helps the court and judicial tribunals to determine any dispute if subsequently arises\nbetween the parties to the deed. It serves the purpose of both- the transferor and the transferee\nin protecting their interests. It protects the interest of the transferee from any precedent and /or\nsubsequent acts or omissions of the transferor or any other person claiming through or under\nhim against the expressed intention of the grant and the covenant of the deed; and likewise,\nthe interest of the transferor is also protected from any subsequent acts or omissions of the\ntransferee. It is a document of title to the property and forms the basis of a record of rights\nmaintained by the Government. It is, also, a documentary piece of evidence. COMPONENTS OF DEEDS\nDrafting of a deed involves the law by which parties are governed, effect of the transaction\nand certainty and clarity by using appropriate words and expressions. An ordinary deed of\ntransfer may conveniently be divided into the following parts: Description of the deed; Date;\nParties; Recitals; Testatum; Consideration; Receipt; Operative words; Parcels; Exception and\nReservations (if any); Habendum; Covenants (if any); Testimonium. The part of the deed",
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 101,
+        "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
+        "score": 1.0,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776280503.9951813,
+          "rrf_score": 0.009091,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.009091,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p3_c0",
+        "content": "iii\ndetermining the rights, liabilities and duties of the litigants. It is procedural law which puts\nlife into the substantive law by providing remedy for enforcement of those rights and\nliabilities. In this way, both the branches of law are complementary to each other and at the\nsame time independent of each other. Indian Penal Code, 1860, Customs Act, 1962,\nPrevention of Food Adulteration Act,1954, Sale of Goods Act, 1930,Transfer of Property Act,\n1982 and Rent Control Legislations, etc. are the examples of substantive laws, whereas Code\nof Criminal Procedure, 1973, Code of Civil Procedure, 1908, Indian Evidence Act, 1872, etc. are procedural laws. However, there are certain laws, regarding which, due to the nature of\ntheir provisions and the object, for which they were legislated, it is difficult to point out as to\nwhether they are substantive laws or procedural laws. In such cases, on one hand the\nprovision of such a law provides procedure for enforcement of certain rights and at the same\ntime violation of that procedure leads to taking away of that substantive right of the violator. For example, under the Registration Act, 1908 if a particular document, which requires\ncompulsory registration, is not registered then the party to that document, claiming right on\nthe strength of the contents of the said document would not be able to establish his\nsubstantive right under that unregistered instrument. PLEADINGS\nIt would be beneficial to distinguish between the pleadings and conveyancing. The dictionary\nmeaning of the term \u2018plead\u2019 means \u2018to state and argue a case\u2019. Therefore, pleading comprises\nof respective contentions of the parties in a dispute, which are reduced into writing. \u2018Pleadings\u2019, under Civil as well as Criminal Law, meant that to determine what the parties\nwere currently fighting about. Pleading is the beginning stage of a lawsuit in which parties\nformally submit their claims and defences. In Civil proceedings the plaintiff submits a plaint\nstating the cause of action -- the issue or issues in controversy. The defendant submits an\nanswer- the reply- the written statement- stating his or her defences and denials. In other\nwords it is nothing but the formal presentation of claims and defences by parties to a lawsuit. Therefore, it includes every legal document filed in a lawsuit, petition, motion and/or hearing,\nincluding complaint, petition, answer/reply, rejoinder, motion, declaration and memorandum\nof points and authorities (written argument citing precedents and statutes). Hence, the term pleading would be applicable to the Court proceedings including\nfiling of the complaint/plaint, etc., replies thereto and other incidental documents related to\nthe dispute filed by either of the parties. Needless to mention here that, our legal system is\nadversary legal system wherein there are two contesting parties. One party stakes its claim or\nright to a particular thing, which is disputed by the opposite side before the Court. Under\nthese circumstances each of the parties in support of its claim files in writing various\ncontentions and submissions in terms of the different provisions under the law before the\nCourt. All these documents constitute pleadings.",
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 3,
+        "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
+        "score": 0.9767,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776280503.9951813,
+          "rrf_score": 0.009375,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.9767,
+          "rerank_rank": 2,
+          "original_score": 0.009375,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p14_c0",
+        "content": "7\n(5) The plea that a woman claiming maintenance has lost her right due to continuous\ndesertion or living in adultery should be specifically raised. (6) Where the plea is based on custom, it must be stated in the precise form what the custom\nis. For instance, if a childless Mohammedan widow claims one-fourth share in the property of\nher husband as allowed by Shia Law, she must allege that her husband was a Shia. The following are exception to this fundamental rule of pleading. (a) Content of documents: Whenever the contents of document are material, it shall be\nsufficient in any pleading to state the effect thereof as briefly as possible without setting out\nwhole or any part thereof unless any precise words thereof are material. Foe instance, if plaintiff\u2019s claim is based on a sale-deed, it is sufficient to state that \u201cdefendant\nhas sold the property to the property to the plaintiff by a sale-deed dated......\u201d\n(b) Matters of Inducement: It means introductory or prefatory facts which should be stated in\nthe first and second paras in the body of the plaint or written statement. Though it is not\nnecessary yet sometimes it is desirable to commence a plaint with some introductory\nallegations stating who the parties are, what business they carry on how they are related and\nconnected and other surrounding circumstances leading up to the dispute. Though these are\nnot material facts yet these are allowed in England and hence in India too. But the matter of\ninducement should be reduced to the minimum need. (3) Facts, Not Evidence\nThe third fundamental rule of pleading has been laid down by Order 6, rule 2 of the Code of\nCivil Procedure. It says that every pleading must contain a statement of material facts but not\nthe evidence by which they are to be proved. The material facts on which a party relies are\ncalled Facta Prabanda, i.e. the facts to be proved, and they should be stated in the pleadings. The evidence or facts by which Facta Probanda are to be proved are called Facts Probantia,\nand they are not to be stated in the pleadings. Facta Probanda are not the facts in issue but\nonly relevant facts which will be proved at the trial in order to established facts in issue. For\ninstance, in a suit of damages for malicious prosecution the plaintiff should only allege in the\nplaint that the defendant was actuated by malice in prosecuting him. He must not allege that\nhe had previously given evidence against the defendant and the defendant had vowed to take\nrevenge. The plaintiff is by all means entitled to tender evidence to prove this fact. Secondly,\nin a policy of life insurance, the condition that the policy shall be void, if the holder dies of\nhis own hand, in the defence it is not necessary to state that the assured brought the pistol a\nfew days before his death and made all preparation to kill himself. It is sufficient to state in\ndefence that the assured died of his own hand. In some cases where the facts in issue and\nrelevant facts are so mixed up that it is very difficult to separate them and if it is so the\nrelevant facts may be stated. For example, where custom is based on village administration\npaper, which is the basis of claim and its sole proof. In such cases the record has to be\npleaded.",
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 14,
+        "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
+        "score": 0.8356,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776280503.9951813,
+          "rrf_score": 0.008824,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.8356,
+          "rerank_rank": 3,
+          "original_score": 0.008824,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p17_c0",
+        "content": "to practice or repeat the invention without having to do undue experimentation. At the end of every patent specification, there are one or more numbered\ndefinitions, referred to as \u2018claims\u2019, which define particularly and distinctly the\ninvention. Each claim is a single\u2010sentence with a list of elements (or a list of\nsteps in a method or process claim) and explains how they cooperate. Usually, most of the individual elements of a claim are old! What is new\nmay be only the claimed combination of old elements or some old and some\nnew elements. Also, in some countries, a claim may define a new use of an old\nproduct. It may also define a simplification of a known product or process. (2) Claims\na. Role of claims\nThe claims demarcate in words the boundary of your invention. Claims\nare the heart of a patent, even though the description is important, and\nsometimes the drawings may also be important. For example, the claims demarcate in words the boundary of your\ninvention, just like a picket\u2010fence defines the extent of land covered by\na deed for a piece of land. If the description includes some features\nthat are not covered by the claims, then all such features are not\nprotected by the patent. That is, all such features become a part of the\n\u2018prior art\u2019 that may be used by others without your permission, and you\nwould not be able to do anything about it. b. Independent claims and dependent claims\nOf the multiple claims in a patent, at least one or more are\nindependent, while the rest are dependent. An independent claim is\ncompletely self\u2010contained, whereas a dependent claim refers to one of\nearlier independent or dependent claims and is considered to include all\nof its own limitations as well as those of any one of the claims to\nwhich it refers. It is important to note that an invention may be covered by one or\nmore claims of a prior patent, and may still be patentable.",
+        "source_file": "patent.pdf",
+        "page_number": 17,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 0.5377,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.009836,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.5377,
+          "rerank_rank": 4,
+          "original_score": 0.009836,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p76_c0",
+        "content": "69\nthe purchaser not to transfer the purchased land under the Act without the sanction of the\nCollector. Section 43 (2) of the Act says \u201cany transfer or partition of land in contravention of\nSub-Section (1) shall be invalid\u201d. Section 70 (mb) lays down a duty on Mamlatdar to decide\nU/s. 48B or 84 C whether a transfer or acquisition of land is invalid and to dispose off land as\nprovided in Section 84 C. Section 83 A (1) lays down that no person shall acquire land by\ntransfer which is invalid under any of the provisions of the Act. Section 83 A(2) lays down\nthat a persons acquiring land by invalid transfer shall be liable to consequences as laid down\nin Section 84 or 84 C of the Act. Section 84 of the Act provides for summary eviction of\nunauthorised or wrongful occupant of the land. Section 84 C of the Act gives authority to the\nMamlatdar to hold enquiry of any such illegal transfer and to decide it accordingly. Section 84\nC (3) lays down that land declared to be invalidly transferred to vest in the State. Section 84 C\n(1) gives the power to the Collector to dispose the land which are declared to be invalidly\ntransferred. VII) Because in the Section 32 R, 43 (1), 43 (2), Section 70 (mb), Section 83 A (1), 83 A (2),\nSection 84, 84 C, 84 C(3) and 84 CC (1) of the Bombay Tenancy Act, at many places the\nwords \u201cany transfer\u201d are used as these sections are having wider scope covering all types of\ntransfers, and not only to the six kinds of transfers mentioned in Section 43 of the Act. Therefore the reasoning of these authorities below that the will and Hakka Sod Patrak are not\ncovered by Section 43 of the Act do not stand good in law. VIII) Because the will and registered Hakka Sod Patrak have resulted into permanent transfer\nin perpetuity of this land purchased by the tenant U/s 32 of the Act, without sanction from the\nCollector U/s. 43 of the Act and therefore the application filed U/s 43 read with section 84 C\nof the Act was liable to be allowed completely. IX) Because the definition of transfer as given in Section 5 Chapter II in Transfer of property\nAct is totally neglected by the learned three authorities below. X) Because the learned authorities below have not taken into consideration all the\ncircumstances of this case while deciding the matter. XI) Because the judgments and orders of three authorities below are contrary to law and good\nconscience. XII) The petitioner crave, leave of this Honorable Court to add, amend, and alter the grounds\nraised in this petition\n6. GROUNDS FOR INTERIM RELIEF:\nA. That the petitioner apprehends that the respondents may sell, alienate or part with\nthe property illegally. 7. MAIN PRAYER:\nWherefore, it is respectfully prayed that this Hon\u2019ble Court may kindly be pleased to:\na) Grant the special leave petition from the final judgment and order dated 14.12.2015 of the\nHon\u2019ble High Court of Judicature of Bombay Bench at Aurangabad in Civil Writ Petition\nNo.5427 of 2015 titled \u201cVasant S/o Sh. Shankar Bhavsar Versus Digambar & Ors.\u201d And",
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 76,
+        "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
+        "score": 0.4831,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776280503.9951813,
+          "rrf_score": 0.009231,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.4831,
+          "rerank_rank": 5,
+          "original_score": 0.009231,
+          "original_method": "bm25"
+        }
+      }
+    ],
+    "total_latency_ms": 8306.18,
+    "retrieval_latency_ms": 452.36,
+    "reranking_latency_ms": 914.04,
+    "generation_latency_ms": 6936.26,
+    "input_tokens": 2311,
+    "output_tokens": 46,
+    "total_tokens": 2357,
+    "cost_usd": 0.0002495,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "bm25"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "query": "Given the 'Current State-of-the-Art' trend towards multimodal capabilities integrating text, images, and other data types, how do the specifically listed 'Document Loaders' (PDF, HTML, CSV, JSON) currently support or fall short in ingesting such diverse data for a RAG system, and what implications does this gap have for a developer choosing between open-source and closed-source models based on their customizability and performance characteristics?",
+  "document_id": null,
+  "cached_at": 1776270977.0274892,
+  "response": {
+    "answer": "Given the 'Current State-of-the-Art' trend towards multimodal capabilities that integrate text, images, and other data types, the specifically listed 'Document Loaders' primarily support the ingestion of textual and structured data:\n\n*   **PDF Loaders**:\n    *   **Function**: Extracts data from PDFs.\n    *   **Use Cases**: Research papers, reports, legal documents.\n    *   **Support for Multimodal Data**: While PDFs can contain images, the description focuses on extracting \"data\" from PDFs, not explicitly ingesting or processing images as a distinct multimodal data type for integration.\n*   **HTML Loaders**:\n    *   **Function**: Parses and extracts content from HTML.\n    *   **Use Cases**: Blog posts, articles, web content.\n    *   **Support for Multimodal Data**: HTML can embed or reference images, but the description emphasizes extracting \"content,\" not explicitly ingesting or processing images as a distinct multimodal data type",
+    "query": "Given the 'Current State-of-the-Art' trend towards multimodal capabilities integrating text, images, and other data types, how do the specifically listed 'Document Loaders' (PDF, HTML, CSV, JSON) currently support or fall short in ingesting such diverse data for a RAG system, and what implications does this gap have for a developer choosing between open-source and closed-source models based on their customizability and performance characteristics?",
+    "rewritten_query": "Given the 'Current State-of-the-Art' trend towards multimodal capabilities integrating text, images, and other data types, how do the specifically listed 'Document Loaders' (PDF, HTML, CSV, JSON) currently support or fall short in ingesting such diverse data for a RAG system, and what implications does this gap have for a developer choosing between open-source and closed-source models based on their customizability and performance characteristics?",
+    "sources": [
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 23,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p23_c0",
+        "relevance_score": 1.0,
+        "content_preview": "Current State-of-the-Art\nTransformers and Beyond: Current models are exploring efficiency improvements,\nlike sparse transformers, and multimodal capabilities that integrate text, images, and\nother dat..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 162,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p162_c0",
+        "relevance_score": 0.3101,
+        "content_preview": "Scaling And Deploying RAG Systems\nEnhancing Customer Support Chatbots with RAG Capabilities\nIntegrating RAG into the Chatbot:\nCombine the retrieval system with the LLM for accurate, contextually relev..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 21,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p21_c0",
+        "relevance_score": 0.2404,
+        "content_preview": "Gemini 1.5\nIntroduced: February 2024 by Google. Key Innovation: Processes up to 1 million tokens with Mixture-of-\nExperts (MoE) architecture for improved efficiency. Created by Goyashy (@explainx.ai)\n..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 63,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p63_c0",
+        "relevance_score": 0.1695,
+        "content_preview": "Document Loaders And Text Splitting\nTypes of Document Loaders\nPDF Loaders:\nHTML Loaders: CSV Loaders: JSON Loaders:\nFunction: Extracts\nFunction: Parses Function: Reads Function: Parses\nCreated by Goty..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p23_c0",
+        "content": "Current State-of-the-Art\nTransformers and Beyond: Current models are exploring efficiency improvements,\nlike sparse transformers, and multimodal capabilities that integrate text, images, and\nother data types. Created by Goyashy (@explainx.ai)\nEthical and Responsible AI: There is increasing focus on making LLMs more ethical,\nfair, and interpretable, addressing concerns like bias and environmental impact. Real-World Applications: LLMs are now integral to various applications, from\npersonalized assistants and content creation to advanced research tools,\ncontinually pushing the limits of what AI can achieve.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 23,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 1.0,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.009677,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.009677,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p162_c0",
+        "content": "Scaling And Deploying RAG Systems\nEnhancing Customer Support Chatbots with RAG Capabilities\nIntegrating RAG into the Chatbot:\nCombine the retrieval system with the LLM for accurate, contextually relevant\nresponses. Created by Goyashy (@explainx.aiF) ine-Tuning the LLM:\nFine-tune the language model on support dialogues and company-specific\nknowledge. Setting Up the Retrieval System:\nIndex support documents in a vector database for quick, relevant retrieval. Data Aggregation and Preprocessing:\nGather and preprocess customer support data, including FAQs and past chats.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 162,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.3101,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.009524,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.3101,
+          "rerank_rank": 2,
+          "original_score": 0.009524,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p21_c0",
+        "content": "Gemini 1.5\nIntroduced: February 2024 by Google. Key Innovation: Processes up to 1 million tokens with Mixture-of-\nExperts (MoE) architecture for improved efficiency. Created by Goyashy (@explainx.ai)\nImpact: Enhances performance across text, audio, video, and\nimages, enabling advanced applications like document\nsummarization and data analysis. Prompted discussions on\nethical implications in education and content creation.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 21,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.2404,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.009091,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.2404,
+          "rerank_rank": 3,
+          "original_score": 0.009091,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p63_c0",
+        "content": "Document Loaders And Text Splitting\nTypes of Document Loaders\nPDF Loaders:\nHTML Loaders: CSV Loaders: JSON Loaders:\nFunction: Extracts\nFunction: Parses Function: Reads Function: Parses\nCreated by Gotyaeshxy t(@ aexnpladinx .dai)ata from\nand extracts and processes and loads JSON\nPDFs. content from CSV data. data. Use Cases:\nHTML. Use Cases: Use Cases: APIs,\nResearch papers,\nUse Cases: Blog Datasets, configuration\nreports, legal\nposts, articles, web spreadsheets, files, data\ndocuments. content. tabular data. exchanges. Tools: PyMuPDF,\nTools: Tools: Pandas, Tools: Python\u2019s\nPDFMiner,\nBeautifulSoup, lxml, Python\u2019s CSV json module,\npdfplumber. html.parser. module. JSON libraries.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 63,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.1695,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.016393,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.1695,
+          "rerank_rank": 4,
+          "original_score": 0.016393,
+          "original_method": "hybrid"
+        }
+      }
+    ],
+    "total_latency_ms": 11782.89,
+    "retrieval_latency_ms": 900.25,
+    "reranking_latency_ms": 3765.49,
+    "generation_latency_ms": 6886.3,
+    "input_tokens": 821,
+    "output_tokens": 202,
+    "total_tokens": 1023,
+    "cost_usd": 0.0001629,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 4,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "bm25",
+      "hybrid"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

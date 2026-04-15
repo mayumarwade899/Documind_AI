@@ -2,7 +2,6 @@ import pytest
 from pathlib import Path
 from ingestion.document_loader import DocumentLoader
 from ingestion.chunker import DocumentChunker
-from ingestion.embedder import GeminiEmbedder
 
 def test_document_loader_pdf():
     loader = DocumentLoader()

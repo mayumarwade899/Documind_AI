@@ -1,0 +1,171 @@
+{
+  "query": "In the event of a dispute arising amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process, what specific judicial body is designated to adjudicate its affairs, and whose directions will determine the final decision?",
+  "document_id": null,
+  "cached_at": 1776276178.3741684,
+  "response": {
+    "answer": "In the event of any dispute arising amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process:\n\n*   The adjudgement of its affairs shall be referred to **the principal court of original civil jurisdiction of Lucknow (U.P.)**.\n*   The final decision shall be taken as per **directions of the court**.",
+    "query": "In the event of a dispute arising amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process, what specific judicial body is designated to adjudicate its affairs, and whose directions will determine the final decision?",
+    "rewritten_query": "In the event of a dispute arising amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process, what specific judicial body is designated to adjudicate its affairs, and whose directions will determine the final decision?",
+    "sources": [
+      {
+        "source_file": "IIA Rules and Regulations.pdf",
+        "page_number": 10,
+        "chunk_id": "95b57943d6efe707bbbf1ed21e510261_p10_c0",
+        "relevance_score": 1.0,
+        "content_preview": "Not less than two third of the members of the Association may determine that it shall be\ndissolved and thereupon dissolve forthwith or at time then agreed upon and all necessary steps\nshall be taken f..."
+      },
+      {
+        "source_file": "IIA Rules and Regulations.pdf",
+        "page_number": 4,
+        "chunk_id": "95b57943d6efe707bbbf1ed21e510261_p4_c0",
+        "relevance_score": 0.7382,
+        "content_preview": "(a) Any company/firm engaged in manufacturing and processing and assembling\nactivities and other industrial activities and commodities or any such products used\nby the common man/industries in India o..."
+      },
+      {
+        "source_file": "IIA Rules and Regulations.pdf",
+        "page_number": 9,
+        "chunk_id": "95b57943d6efe707bbbf1ed21e510261_p9_c0",
+        "relevance_score": 0.7235,
+        "content_preview": "15. ACCOUNTS:\nThe Treasurer of the Association would arrange for maintenance of accounts, getting the\nsame audited and presenting them before General Body duly adopted by CEC in time. The\nFinancial ye..."
+      },
+      {
+        "source_file": "IIA Rules and Regulations.pdf",
+        "page_number": 6,
+        "chunk_id": "95b57943d6efe707bbbf1ed21e510261_p6_c0",
+        "relevance_score": 0.6747,
+        "content_preview": "II) Must possess a valid MSME Entrepreneur Memorandum Part-II\nacknowledgement to be enclosed along with the nomination form. III) Must have been an Office bearer at Chapter level having an exposure of..."
+      },
+      {
+        "source_file": "IIA Rules and Regulations.pdf",
+        "page_number": 8,
+        "chunk_id": "95b57943d6efe707bbbf1ed21e510261_p8_c0",
+        "relevance_score": 0.6508,
+        "content_preview": "(d) The CEC will meet at least once in a quarter. Minimums 7 days clear notice shall be\ngiven to call such meeting. The quorum of the meeting shall be 7 members. 13. LOCAL/DISTRICT CHAPTER:\nThe Local ..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "95b57943d6efe707bbbf1ed21e510261_p10_c0",
+        "content": "Not less than two third of the members of the Association may determine that it shall be\ndissolved and thereupon dissolve forthwith or at time then agreed upon and all necessary steps\nshall be taken for the disposal and settlement of the Property of the Association, its claims and\nliabilities, as may be decided by the CEC provided in the event of any dispute arising amongst\nthe CEC or the members of the Association. The adjudgement of its affairs shall be referred to\nthe principal court of original civil jurisdiction of Lucknow (U.P.) and the final decision shall\nbe taken as per directions of the court. If on winding up or dissolution of the society, there\nshall remain, after settlement of all debts and liabilities, any property whatsoever, the same shall\nnot be paid to or distributed amongst the members of the society but shall be given away to\nany charitable society or constitution promoting similar charitable objects. 20. MOVEABLE AND IMMOVABLE PROPERTIES:\nIn furtherance to its objects and activities defined hereinabove, the power to acquire, take on\nlease, rent or otherwise land and building and any other property movable and immovable which\nis required or conducive for the purpose of the Association shall vest in the Association. All immovable properties of the Association shall vest in the Trust promoted by the Association\nand shall be held by them under the declaration of the trust subject to the power and provisions\ndeclared therein or contained in and concerning the same. All movable properties shall vest with the Association to be administered as per directions of\nthe CEC from time to time. The Association shall also be entitled to improve, manage and\nmaintain all or any part of the property of the Association or such immovable properties as may\nbe entrusted to the Association by the members. No member of the society shall have any\npersonal claim on any movable assets or immovable assets or immovable properties by virtue of\nhis membership. Such assets stated above, belonging to society can be let out with adequate\ncompensation to society as stated in the Income Tax Act. 21. AMENDMENT OF RULES AND REGULATIONS:\nThese rules and regulations may be amended by a majority of two-third of the members of the\nAssociation present at a specially called General Body Meeting for the purpose. 22. The Association is authorized to initiate and to subject legal action on its own behalf or on\nbehalf of its members, jointly or severally, in all courts established by law, whether on\nauthorization by member or by an individual or by a group of individual.",
+        "source_file": "IIA Rules and Regulations.pdf",
+        "page_number": 10,
+        "document_id": "95b57943d6efe707bbbf1ed21e510261",
+        "score": 1.0,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776191455.1451414,
+          "rrf_score": 0.016393,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.016393,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "95b57943d6efe707bbbf1ed21e510261_p4_c0",
+        "content": "(a) Any company/firm engaged in manufacturing and processing and assembling\nactivities and other industrial activities and commodities or any such products used\nby the common man/industries in India or in any other country. (b) Any company/firm/individual engaged in imparting services like consultancy and\nother professional services. (c) All individuals or organizations or association engaged in promotion of industrial\nactivities or services either in private or public sector, subject to prior approval of\nCEC at a regular meeting. (d) The CEC can also enroll as members such individuals who in opinion of CEC have\ncontributed or are competent to contribute their services for the benefit and\nperformance of the objective of the society. Such membership shall automatically\nterminate on the 30th day of June next after the date of nomination. However the\nCEC in its discretion may by resolution, from year to year continue such\nmembership for the ensuring year. (e) The CEC can also enroll life members as well as patrons of the society. 6. ADMISSION FEE AND SUBSCRIPTION:\nThe Annual subscription and admission fees for membership of the Association shall be\nfixed by the CEC and the CEC may revise it from time to time. The term of Association will\nstart on 1st of April and will end on 31st March every year. 7. TERMINATION OF MEMBERSHIP:\nThe membership may be terminated by the CEC in the following manner and on the\nhappening of the following contingencies:\n(a) Death of the member. (b) Insanity of the member. (c) If the member has been declared insolvent. (d) If the member has been convicted in a criminal case by a court of law. (e) Resignation by the member: The resignation shall be in writing and will be submitted\nafter paying all outstanding dues including subscription as on date of resignation. (f) The subscription of the member is due for 2 years or more, then the membership may\nalso be terminated by CEC. (g) If the member is found working derogatory to the interest of the Association. 8. CENTRAL EXECUTIVE COMMITTEE (CEC):\nThe CEC will be the governing body of the Association and shall comprise of:-\n(a) Elected members up to 21 as per rules of the Association defined in the rules and\nregulations elsewhere. (b) All the office bearers of the society i.e. The President, Sr Vice President, Vice\nPresident(s) and General Secretary, Secretary(ies),Treasurer, Chairman of U.P. Sub-Committee(s) and Chairman of area/District Chapters. 4\nI I A R u l e s & R e g u l a t i o n s",
+        "source_file": "IIA Rules and Regulations.pdf",
+        "page_number": 4,
+        "document_id": "95b57943d6efe707bbbf1ed21e510261",
+        "score": 0.7382,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776191455.1451414,
+          "rrf_score": 0.015629,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.7382,
+          "rerank_rank": 2,
+          "original_score": 0.015629,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "95b57943d6efe707bbbf1ed21e510261_p9_c0",
+        "content": "15. ACCOUNTS:\nThe Treasurer of the Association would arrange for maintenance of accounts, getting the\nsame audited and presenting them before General Body duly adopted by CEC in time. The\nFinancial year shall be from April to March. All bank accounts whether Saving/Current/Overdraft or otherwise, would be operated, as per\nresolution passed by the CEC, from time to time and with such stipulation as may be\nprescribed normally jointly by at least 3 office bearers. There will be a separate account\nmaintained by the District Chapter which will be operated by at least any two of the three\noffice bearers of the chapter jointly. However, the bank account of the district chapter can\nonly be opened on written authority by the President of the Association. If at any stage, the\nPresident of the Association comes to the conclusion that the manner of operation of the\nbank account is prejudicial to the interest of the Association; the President will be entitled to\nget the bank account of the district chapter freeze. In such an event, the amount deposited in\nsuch bank account, shall be transferred to the central fund. True accounts shall be kept of all\nsums of money received and expended by the society and by local/district chapter of the\nsociety separately. The matters in respect of which such receipt and expenditure takes place,\nand of the property, credits and liabilities of the society and subject to any reasonable\nrestriction as to the time and manner of inspecting the same that may be imposed in\naccordance with the regulation of the society for the time being in force, the accounts shall\nbe open for the inspection of the members. Once at least every year, the accounts of the\nsociety and of local/district chapters separately shall be examined and the correctness of the\nBalance sheet and the Income and Expenditure account ascertained by one or more properly\nqualified auditor or auditors. 16. AUDIT:\nThe auditor(s) appointed by CEC shall audit the accounts of the Association and furnish\naudit report to the treasurer and President. Chairman of District Chapter shall also appoint\nauditors separately, and get their accounts duly audited. 17. (a) The Association can sue through its President, who will be responsible for looking\nafter or carrying on all legal cases, appoint advocates etc\n(b) Arbitration\nShould any dispute arise between any member or members or a former member and\nthe Association, which cannot be satisfactorily settled under the procedures already\nprovided for such purpose, the matters in difference shall be settled by arbitration. Each party shall appoint an arbitrator and the arbitrators shall appoint an umpire. Only members of the Association (IIA) may be appointed as umpire or as arbitrators. The Decision arrived at by the arbitrators, or in the event of their disagreement, by\nthe umpire, shall be final and binding on all parties. 18. RECORDS:\nThe General Secretary and Treasurer of the Association shall be responsible for the\nmaintenance of all registers like register of membership, minute\u2019s book and book of account. 19. DISSOLUTION OF ASSOCIATION:\n9\nI I A R u l e s & R e g u l a t i o n s",
+        "source_file": "IIA Rules and Regulations.pdf",
+        "page_number": 9,
+        "document_id": "95b57943d6efe707bbbf1ed21e510261",
+        "score": 0.7235,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776191455.1451414,
+          "rrf_score": 0.015877,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.7235,
+          "rerank_rank": 3,
+          "original_score": 0.015877,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "95b57943d6efe707bbbf1ed21e510261_p6_c0",
+        "content": "II) Must possess a valid MSME Entrepreneur Memorandum Part-II\nacknowledgement to be enclosed along with the nomination form. III) Must have been an Office bearer at Chapter level having an exposure of CEC\nmeetings at Central level/Divisional level /Working group head at Central level. IV) Must have complete faith on IIA Constitution, Culture and values and is not\nindulged in any kind of anti IIA activities at any point of time. V) Employee other than Director in a Pvt. Ltd Company of a member enterprise\nwill not be eligible for the election as CEC member of IIA. VI) Elected CEC member can be elected for maximum two terms. However elected\nCEC Member will not be eligible for election for the consecutive term. VII) Elected CEC Member will lose his / her status as CEC Member for remaining\ntenure (subject to the approval of President) in case his / her attendance in CEC\nMeeting in a year is less than 50%. For such remaining tenure, CEC may\nnominate / elect another senior member from the respective area and the\ncriteria of minimum attendance will apply to such nominated member also. 10. ELECTION OF PRESIDENT:\nElection Officer shall call the meeting of the elected members of CEC within 15 days of\nCEC election to elect a President of the Association. Any member of the Association whose\nname appears on voting list shall qualify to be elected as President of the Association, but\nfor not more than two consecutive terms. 11. ELIGIBILITY, DUTIES & FUNCTIONS OF THE OFFICE BEARERS:\nA) ELIGIBILITY:\nAll office bearers of the society including the President, District Chairman and Elected\nCEC Members must own a manufacturing unit. B) PRESIDENT\nThe President shall be the head of the organization. The President shall preside over all the\nmeetings of General Body. Central Executive Committee and such Committee of which he\nwould be the Chairman. The President so elected shall nominate the office bearers,\nChairman of sub-Committees, Local/ District Chapters as deemed necessary for the proper\nfunctioning of Association. The President shall have power to call meeting of the CEC, to give Directions to the\nSecretariat and to interpret the policy of the organization and be its Chief Spokesman. The President shall exercise the power of the CEC during the intervening period of two\nmeetings. Such action by him shall be placed before the next CEC meeting and ratified. The President shall have power to call for record from Secretariat and to do all such acts as\nmay be necessary and in furtherance of the objectives of the society. The Elected CEC Members will have power to impeach the President with a resolution\npassed by three fourth majority vote and to elect a new President in his place for the\nremaining tenure in a special CEC Meeting called by 1/3 Elected CEC Members. 6\nI I A R u l e s & R e g u l a t i o n s",
+        "source_file": "IIA Rules and Regulations.pdf",
+        "page_number": 6,
+        "document_id": "95b57943d6efe707bbbf1ed21e510261",
+        "score": 0.6747,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776191455.1451414,
+          "rrf_score": 0.015527,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.6747,
+          "rerank_rank": 4,
+          "original_score": 0.015527,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "95b57943d6efe707bbbf1ed21e510261_p8_c0",
+        "content": "(d) The CEC will meet at least once in a quarter. Minimums 7 days clear notice shall be\ngiven to call such meeting. The quorum of the meeting shall be 7 members. 13. LOCAL/DISTRICT CHAPTER:\nThe Local Chapters may be set up by CEC area wise where a minimum membership of 20 is\nassured, with the following conditions:-\n(1) Each chapter shall contribute an amount in lump sum every year to CEC as decided\nby CEC from time to time. (2) The local chapter will have to perform some minimum activity every month as\ndecided by the CEC of the Association and will send the report of the same to CEC. (3) The CEC will issue membership card and certificate to the District Chapter and\nmembership card to the members. OFFICERS AND EXECUTIVE COMMITTEE OF DISTRICT/LOCAL CHAPTERS\nCHAIRMAN (DISTRICT):\nChairman of the local chapter will nominate the members of executive committee of the\nchapter as per procedure to be framed by the CEC. However, the Chairman of the chapter\nshall be nominated by the President. The Chairman of the District shall nominate one Secretary, one or more Vice-Chairman, one\nTreasurer and any other officer as required from time to time. They shall perform such\nduties and function as assigned to them by the Chairman of the District. ACCOUNTS OF DISTRICT CHAPTER\n(a) Treasurer of the chapter shall be directly responsible for proper accounts for the\nreceipts and expenses and the proper records thereof. (b) All the accounts shall be audited by the Auditor appointed by the Executive\nCommittee. (c) The accounts in banks shall be operated by the treasurer and either of the Chairman\nor Secretary. (d) A list of members whose subscription in full is received by 31st Dec. should be sent\nto CEC every year in the month of January. 14. AMENDMENTS TO MEMORANDUM:\nWhenever, it shall appear to the Central Executive Committee advisable to alter, extend or\nabridge such purpose or purposes for which the Association has been established or to\namalgamate the Association either wholly or partially with any other Association, the CEC\nmay submit a proposition to the members in a written or printed report and convene a\nspecial meeting for consideration thereof. But no such proposition shall be carried into effect\nunless such report shall have been delivered or sent by post to the members of the\nAssociation before the special meeting by the CEC for the consideration thereof and unless\nsuch proposition shall have been agreed and passed by the voting of 2/3 members present at\na special meeting convened by the CEC at an interval of one month after the former\nmeeting. 8\nI I A R u l e s & R e g u l a t i o n s",
+        "source_file": "IIA Rules and Regulations.pdf",
+        "page_number": 8,
+        "document_id": "95b57943d6efe707bbbf1ed21e510261",
+        "score": 0.6508,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776191455.1451414,
+          "rrf_score": 0.015629,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.6508,
+          "rerank_rank": 5,
+          "original_score": 0.015629,
+          "original_method": "hybrid"
+        }
+      }
+    ],
+    "total_latency_ms": 4768.26,
+    "retrieval_latency_ms": 600.11,
+    "reranking_latency_ms": 1836.39,
+    "generation_latency_ms": 2320.57,
+    "input_tokens": 2562,
+    "output_tokens": 72,
+    "total_tokens": 2634,
+    "cost_usd": 0.000285,
+    "num_chunks_retrieved": 20,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "hybrid"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

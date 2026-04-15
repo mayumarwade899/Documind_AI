@@ -1,0 +1,172 @@
+{
+  "query": "Considering Goyashy's recommendations for 'Testing and Feedback' in RAG systems, how would user feedback specifically inform the iteration and improvement of 'adaptive retrieval' mechanisms that leverage 'embedding-based retrieval methods' and 'HyDE with LangChain' to enhance performance in 'few-shot and zero-shot learning' scenarios?",
+  "document_id": null,
+  "cached_at": 1776262360.1623273,
+  "response": {
+    "answer": "I cannot find this information in the provided documents.",
+    "query": "Considering Goyashy's recommendations for 'Testing and Feedback' in RAG systems, how would user feedback specifically inform the iteration and improvement of 'adaptive retrieval' mechanisms that leverage 'embedding-based retrieval methods' and 'HyDE with LangChain' to enhance performance in 'few-shot and zero-shot learning' scenarios?",
+    "rewritten_query": "Considering Goyashy's recommendations for 'Testing and Feedback' in RAG systems, how would user feedback specifically inform the iteration and improvement of 'adaptive retrieval' mechanisms that leverage 'embedding-based retrieval methods' and 'HyDE with LangChain' to enhance performance in 'few-shot and zero-shot learning' scenarios?",
+    "sources": [
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 147,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p147_c0",
+        "relevance_score": 1.0,
+        "content_preview": "Scaling And Deploying RAG Systems\nA/B Testing New Model Versions\nMake Decisions Analyze Results Collect Data\nCreated by Goyashy (@explainx.ai)\nEvaluation: Decide\nComparison: Evaluate Monitoring: Track..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 159,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p159_c0",
+        "relevance_score": 0.98,
+        "content_preview": "Scaling And Deploying RAG Systems\nStep 6: Testing and Feedback\nConduct testing with a small group of users\nto identify any issues or areas for\nimprovement. Created by Goyashy (@explainx.ai)\nIterate on..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 144,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p144_c0",
+        "relevance_score": 0.851,
+        "content_preview": "Scaling And Deploying RAG Systems\nWhen to Update LLMs and Embedding Models\nPerformance Degradation: If accuracy drops or errors increase,\nupdate the model with new data or improvements. Data Drift: Ch..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 142,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p142_c0",
+        "relevance_score": 0.6916,
+        "content_preview": "Scaling And Deploying RAG Systems\nStrategies for Keeping the Knowledge Base Current\nData Refreshes: Schedule regular updates\n(daily/weekly/monthly) to keep data current. Real-Time Integration: Use API..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 171,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p171_c0",
+        "relevance_score": 0.678,
+        "content_preview": "Continuous Learning And Adaptive Retrieval In RAG\nSystems\nExploration of Few-Shot and Zero-Shot Learning in RAG\nCreated by Goyashy (@explAaindx.aai)ptive Retrieval in Few-Shot and Zero-Shot Scenarios:..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p147_c0",
+        "content": "Scaling And Deploying RAG Systems\nA/B Testing New Model Versions\nMake Decisions Analyze Results Collect Data\nCreated by Goyashy (@explainx.ai)\nEvaluation: Decide\nComparison: Evaluate Monitoring: Track\nwhether to fully\nand compare interactions,\ndeploy, continue\nperformance metrics. performance, and\ntesting, or improve\nStatistical Testing: user feedback for\nthe new model. Determine significance both models. Iteration: Refine the\nof performance\nmodel based on\ndifferences. feedback and results.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 147,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 1.0,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015584,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.015584,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p159_c0",
+        "content": "Scaling And Deploying RAG Systems\nStep 6: Testing and Feedback\nConduct testing with a small group of users\nto identify any issues or areas for\nimprovement. Created by Goyashy (@explainx.ai)\nIterate on the design and model performance\nbased on user feedback.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 159,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.98,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.016235,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.98,
+          "rerank_rank": 2,
+          "original_score": 0.016235,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p144_c0",
+        "content": "Scaling And Deploying RAG Systems\nWhen to Update LLMs and Embedding Models\nPerformance Degradation: If accuracy drops or errors increase,\nupdate the model with new data or improvements. Data Drift: Changes in data patterns require retraining or fine-\nCreated by Goyashy (@explaintx.uai)ning the model. New Data: Incorporate newly available data to boost accuracy and\nrelevance. Model Enhancements: Leverage better algorithms or techniques\nto improve performance. User Feedback: Update the model based on user feedback to\nensure relevance and satisfaction.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 144,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.851,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.009091,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.851,
+          "rerank_rank": 3,
+          "original_score": 0.009091,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p142_c0",
+        "content": "Scaling And Deploying RAG Systems\nStrategies for Keeping the Knowledge Base Current\nData Refreshes: Schedule regular updates\n(daily/weekly/monthly) to keep data current. Real-Time Integration: Use APIs or streaming\nCreated by Goyashy (@explainx.ai) for live data updates in real-time applications. Version Control: Track data versions to\nmanage changes and monitor impacts on\nmodel performance. Automated Pipelines: Set up ETL pipelines to\nautomate data processing and updates. Data Quality: Regularly clean and validate\ndata to ensure accuracy. Feedback Loops: Incorporate user feedback to\nadapt and enhance data relevance.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 142,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.6916,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.008824,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.6916,
+          "rerank_rank": 4,
+          "original_score": 0.008824,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p171_c0",
+        "content": "Continuous Learning And Adaptive Retrieval In RAG\nSystems\nExploration of Few-Shot and Zero-Shot Learning in RAG\nCreated by Goyashy (@explAaindx.aai)ptive Retrieval in Few-Shot and Zero-Shot Scenarios:\nThe retrieval component of a RAG system can be adapted to better\nsupport few-shot and zero-shot learning by using similarity search\ntechniques that are robust to variations in the input. For example,\nembedding-based retrieval methods, which represent both queries and\ndocuments in a shared vector space, allow the system to retrieve relevant\ninformation even when dealing with previously unseen queries.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 171,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.678,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.016288,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.678,
+          "rerank_rank": 5,
+          "original_score": 0.016288,
+          "original_method": "hybrid"
+        }
+      }
+    ],
+    "total_latency_ms": 6954.89,
+    "retrieval_latency_ms": 480.33,
+    "reranking_latency_ms": 399.66,
+    "generation_latency_ms": 6070.59,
+    "input_tokens": 837,
+    "output_tokens": 10,
+    "total_tokens": 847,
+    "cost_usd": 8.77e-05,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "hybrid",
+      "bm25"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

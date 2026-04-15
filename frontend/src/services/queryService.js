@@ -16,7 +16,14 @@ export async function getNegativeFeedback(days = 30) {
   return api.get(`/feedback/negative?days=${days}`)
 }
 
-// SSE streaming query — returns a ReadableStream reader
+export async function getChatHistory(sessionId) {
+  return api.get(`/query/history/${sessionId}`)
+}
+
+export async function clearChatHistory(sessionId) {
+  return api.delete(`/query/history/${sessionId}`)
+}
+
 export async function streamQuery(payload) {
   const res = await fetch(`${BASE}/query/stream`, {
     method: 'POST',

@@ -1,6 +1,5 @@
 from dataclasses import dataclass, field
 from typing import List, Optional
-from pathlib import Path
 
 import chromadb
 from chromadb.config import Settings as ChromaInternalSettings
@@ -25,29 +24,36 @@ class RetrievedChunk:
 
 class VectorStore:
     def __init__(self):
-        persist_path = settings.chroma_persist_path
-        persist_path.mkdir(parents=True, exist_ok=True)
+        self.persist_path = settings.chroma_persist_path
+        self.persist_path.mkdir(parents=True, exist_ok=True)
+        self._client = None
+        self._collection = None
 
-        self.client = chromadb.PersistentClient(
-            path = str(persist_path),
-            settings = ChromaInternalSettings(
-                anonymized_telemetry = False
+    def _get_collection(self):
+        if self._collection is None:
+            if self._client is None:
+                self._client = chromadb.PersistentClient(
+                    path = str(self.persist_path),
+                    settings = ChromaInternalSettings(
+                        anonymized_telemetry = False
+                    )
+                )
+            
+            self._collection = self._client.get_or_create_collection(
+                name = settings.chroma.chroma_collection_name,
+                metadata = {
+                    "hnsw:space": "cosine"
+                }
             )
-        )
 
-        self.collection = self.client.get_or_create_collection(
-            name = settings.chroma.chroma_collection_name,
-            metadata = {
-                "hnsw:space": "cosine"
-            }
-        )
-
-        logger.info(
-            "vector_store_initialized",
-            persist_path = str(persist_path),
-            collection = settings.chroma.chroma_collection_name,
-            existing_chunks = self.collection.count()
-        )
+            logger.debug(
+                "vector_store_lazy_initialized",
+                persist_path = str(self.persist_path),
+                collection = settings.chroma.chroma_collection_name,
+                existing_chunks = self._collection.count()
+            )
+        
+        return self._collection
 
     def _add_chunks(self, chunks: List[EmbeddedChunk]) -> int:
         if not chunks:
@@ -83,7 +89,7 @@ class VectorStore:
             batch_documents = documents[i:i + BATCH_SIZE]
             batch_metadatas = metadatas[i:i + BATCH_SIZE]
 
-            self.collection.upsert(
+            self._get_collection().upsert(
                 ids = batch_ids,
                 embeddings = batch_embeddings,
                 documents = batch_documents,
@@ -100,7 +106,7 @@ class VectorStore:
         logger.info(
             "chunks_stored",
             stored = stored,
-            total_in_collection = self.collection.count()
+            total_in_collection = self._get_collection().count()
         )
 
         return stored
@@ -121,9 +127,9 @@ class VectorStore:
             where_filter = {"document_id": {"$eq": filter_document_id}}
 
         try:
-            results = self.collection.query(
+            results = self._get_collection().query(
                 query_embeddings = [query_vector],
-                n_results = min(k, self.collection.count()),
+                n_results = min(k, self._get_collection().count()),
                 where = where_filter,
                 include = ["documents", "metadatas", "distances"] 
             )
@@ -154,7 +160,7 @@ class VectorStore:
                 metadata=meta
             ))
 
-        logger.info(
+        logger.debug(
             "vector_search_complete",
             top_k=k,
             results_found=len(retrieved),
@@ -165,7 +171,7 @@ class VectorStore:
     
     def delete_document(self, document_id: str) -> int:
         try:
-            existing = self.collection.get(
+            existing = self._get_collection().get(
                 where = {"document_id": {"$eq": document_id}},
                 include = ["metadatas"]
             )
@@ -179,7 +185,7 @@ class VectorStore:
                 )
                 return 0
 
-            self.collection.delete(
+            self._get_collection().delete(
                 where = {"document_id": {"$eq": document_id}}
             )
 
@@ -201,7 +207,7 @@ class VectorStore:
 
     def document_exists(self, document_id: str) -> bool:
         try:
-            results = self.collection.get(
+            results = self._get_collection().get(
                 where = {"document_id": {"$eq": document_id}},
                 include = ["metadatas"],
                 limit = 1
@@ -225,7 +231,7 @@ class VectorStore:
         
     def list_documents(self) -> list:
         try:
-            all_data = self.collection.get(include=["metadatas"])
+            all_data = self._get_collection().get(include=["metadatas"])
             doc_map = {}
 
             for meta in all_data["metadatas"]:
@@ -241,7 +247,7 @@ class VectorStore:
 
             documents = sorted(doc_map.values(), key=lambda d: d["source_file"])
 
-            logger.info("list_documents", total=len(documents))
+            logger.debug("list_documents", total=len(documents))
             return documents
 
         except Exception as e:
@@ -249,11 +255,76 @@ class VectorStore:
             return []
 
     def get_collection_stats(self) -> dict:
-        count = self.collection.count()
-        logger.info("collection_stats_failed", total_chunks = count)
+        count = self._get_collection().count()
+        logger.debug("collection_stats", total_chunks = count)
         return {
             "collection_name": settings.chroma.chroma_collection_name,
             "total_chunks": count,
             "persist_path": str(settings.chroma_persist_path)
         }
+
+    def get_random_chunks(self, limit: int = 1) -> List[RetrievedChunk]:
+        """Fetch a random sample of chunks from the entire collection."""
+        total = self._get_collection().count()
+        if total == 0:
+            return []
+        
+        import random
+        all_ids = self._get_collection().get(include=[])["ids"]
+        sampled_ids = random.sample(all_ids, min(limit, total))
+        
+        results = self._get_collection().get(
+            ids=sampled_ids,
+            include=["documents", "metadatas"]
+        )
+        
+        retrieved = []
+        for chunk_id, content, meta in zip(results["ids"], results["documents"], results["metadatas"]):
+            retrieved.append(RetrievedChunk(
+                chunk_id=chunk_id,
+                content=content,
+                source_file=meta.get("source_file", ""),
+                page_number=int(meta.get("page_number", 0)),
+                document_id=meta.get("document_id", ""),
+                score=1.0, 
+                retrieval_method="sample_random",
+                metadata=meta
+            ))
+        return retrieved
+
+    def get_recent_chunks(self, limit: int = 5) -> List[RetrievedChunk]:
+        """Fetch chunks from the most recently ingested documents."""
+        total = self._get_collection().count()
+        if total == 0:
+            return []
+
+        results = self._get_collection().get(
+            include=["documents", "metadatas"]
+        )
+        
+        chunks = []
+        for chunk_id, content, meta in zip(results["ids"], results["documents"], results["metadatas"]):
+            chunks.append({
+                "chunk_id": chunk_id,
+                "content": content,
+                "meta": meta,
+                "timestamp": float(meta.get("ingested_at", 0))
+            })
+        
+        sorted_chunks = sorted(chunks, key=lambda x: x["timestamp"], reverse=True)
+        recent = sorted_chunks[:limit]
+        
+        retrieved = []
+        for r in recent:
+            retrieved.append(RetrievedChunk(
+                chunk_id=r["chunk_id"],
+                content=r["content"],
+                source_file=r["meta"].get("source_file", ""),
+                page_number=int(r["meta"].get("page_number", 0)),
+                document_id=r["meta"].get("document_id", ""),
+                score=1.0,
+                retrieval_method="sample_recent",
+                metadata=r["meta"]
+            ))
+        return retrieved
     

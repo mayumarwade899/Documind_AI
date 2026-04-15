@@ -1,6 +1,6 @@
 import time
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import google.generativeai as genai
 from tenacity import(
@@ -82,7 +82,7 @@ class GeminiEmbedder:
         genai.configure(api_key = settings.gemini.gemini_api_key)
         self.model_name = settings.gemini.gemini_embedding_model
 
-        logger.info(
+        logger.debug(
             "embedder_initialized",
             model=self.model_name
         )
@@ -170,7 +170,7 @@ class GeminiEmbedder:
                     embedding_model=self.model_name,
                 ))
 
-            logger.info(
+            logger.debug(
                 "batch_embedded",
                 batch=batch_num,
                 of=total_batches,
@@ -208,7 +208,7 @@ class GeminiEmbedder:
         total = len(chunks)
         total_batches = (total + self.BATCH_SIZE - 1) // self.BATCH_SIZE
 
-        logger.info(
+        logger.debug(
             "embedding_started",
             total_chunks=total,
             batch_size=self.BATCH_SIZE,
@@ -260,7 +260,7 @@ class GeminiEmbedder:
 
         elapsed = round(time.time() - start_time, 2)
 
-        logger.info(
+        logger.debug(
             "embedding_complete",
             total_chunks=total,
             embedded=len(all_embedded),

@@ -1,0 +1,83 @@
+{
+    "run_id": "e0092310",
+    "timestamp": "2026-04-15T16:13:45Z",
+    "dataset_size": 6,
+    "overall_passed": true,
+    "avg_score": 0.8194,
+    "metrics": {
+        "faithfulness": {
+            "score": 0.9833333333333334,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "context_relevance": {
+            "score": 0.725,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "answer_correctness": {
+            "score": 0.75,
+            "passed": true,
+            "threshold": 0.6
+        }
+    },
+    "evaluation_latency_ms": 186898.85,
+    "total_cost_usd": 0.001179,
+    "total_tokens": 9732,
+    "questions": [
+        {
+            "query": "What are the main topics covered in the document?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 0.9,
+                "correctness": 0.0
+            }
+        },
+        {
+            "query": "can you tell me how to draft documents?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 0.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            }
+        },
+        {
+            "query": "Who created this document and when?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 0.75,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            }
+        },
+        {
+            "query": "Beyond reimbursement of authorized expenses, under what specific conditions can a member of the Indian Industries Association legitimately receive financial remuneration or payment from the Society, according to the provided text?",
+            "type": "recent",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            }
+        },
+        {
+            "query": "In the event of a dispute arising specifically amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process, what is the designated authority for adjudging its affairs and taking the final decision?",
+            "type": "recent",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            }
+        },
+        {
+            "query": "When implementing a real-world RAG application, how does the LangChain framework's modular design and integration capabilities facilitate the setup of a retrieval system using vector databases and an open-source model like Gemma, and what specific role does prompt engineering play in enhancing the accuracy and quality of the final LLM responses after the initial data integration?",
+            "type": "random",
+            "scores": {
+                "relevance": 0.6,
+                "faithfulness": 1.0,
+                "correctness": 0.5
+            }
+        }
+    ]
+}

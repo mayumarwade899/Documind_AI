@@ -1,10 +1,12 @@
-from dataclasses import dataclass, field
+import tiktoken
+from dataclasses import dataclass
 from typing import List, Optional
-
 from retrieval.vector_store import RetrievedChunk
+from config.settings import get_settings
 from config.logging_config import get_logger
 
 logger = get_logger(__name__)
+settings = get_settings()
 
 @dataclass
 class BuiltPrompt:
@@ -15,59 +17,79 @@ class BuiltPrompt:
     num_sources: int
 
 RAG_SYSTEM_PROMPT = """
-    You are a precise document analysis assistant.
+You are a precise document assistant. Answer ONLY using the provided context chunks below.
 
-    Your job is to answer questions based STRICTLY on the provided context chunks.
+RULES:
+1. Use ONLY information from the context. No external knowledge.
+2. If the context does not contain the answer, say exactly: "I cannot find this information in the provided documents."
+3. Be EXTREMELY thorough and detailed in your answer — provide multi-paragraph explanations. Do not truncate or summarize if more detail is available.
+4. Use bullet points, bold text, and structure for clarity.
+5. Do NOT reference chunk numbers or say "according to the context".
+6. Break down complex concepts into step-by-step explanations or sections.
+7. Ensure every response ends with a complete sentence and proper punctuation. Avoid starting sentences you cannot finish.
+"""
 
-    RULES YOU MUST FOLLOW:
-    1. Answer ONLY using information from the context chunks below.
-    2. Do NOT include source citations or references in your answer text — sources are displayed separately in the interface.
-    3. If the answer cannot be found in the provided context, respond exactly with: "I cannot find this information in the provided documents."
-    4. Do NOT use any prior knowledge or make assumptions beyond what is stated in the context.
-    5. Keep your answer clear, structured, and factual.
-    6. Do NOT copy chunks verbatim — synthesize the information in your own words.
-    7. Use markdown formatting (headings, bullet points, bold) to structure longer answers for readability.
+SUMMARY_SYSTEM_PROMPT = """
+You are a precise document assistant. Produce a comprehensive structured summary using ONLY the provided context chunks.
+
+OUTPUT FORMAT (use these exact headings in markdown):
+## Document Title
+(infer from content)
+
+## Key Points
+- Point 1
+- Point 2
+- Point 3
+(list all significant points found in the context)
+
+## Summary
+(2–4 paragraph detailed summary of the main ideas)
+
+## Conclusion
+(1 paragraph covering conclusions, recommendations, or next steps)
+
+RULES:
+1. Use ONLY information from the provided context chunks.
+2. Be comprehensive — do not truncate or shorten.
+3. If context is insufficient, note it under the relevant section.
+4. Ensure every response ends with a complete sentence and proper punctuation.
 """
 
 RAG_CONTEXT_TEMPLATE = """
-    CONTEXT_CHUNKS: {context_block}
+CONTEXT:
+{context_block}
 
-    USER QUESTION: {query}
+QUESTION: {query}
 
-    ANSWER:    
+ANSWER:
 """
 
-CONTEXT_CHUNK_TEMPLATE = """
-    [Chunk {index}]
-    Source: {source_file}
-    Page: {page_number}
-    Content: {content}
-"""
+CONTEXT_CHUNK_TEMPLATE = "[{index}] ({source_file}, p.{page_number}):\n{content}"
 
 NO_CONTEXT_PROMPT = """
-    You are a document analysis assistant.
-    The user asked: "{query}"
-    No relevant context chunks were retrieved from the documents.
-    Respond with exactly: "I cannot find this information in the provided documents."
- """
+You are a document analysis assistant.
+The user asked: "{query}"
+No relevant context chunks were retrieved from the documents.
+Respond with exactly: "I cannot find this information in the provided documents."
+"""
 
 VERIFICATION_PROMPT = """
-    Your task is to verify if the answer below is fully supported by the provided context chunks.
-        
-    CONTEXT CHUNKS: {context_block}
-    ANSWER TO VERIFY: {answer}
+Your task is to verify if the answer below is fully supported by the provided context chunks.
+    
+CONTEXT CHUNKS: {context_block}
+ANSWER TO VERIFY: {answer}
 
-    Check each claim in the answer against the context chunks.
-        
-    Respond in this exact JSON format:
-    {{
-        "is_supported": true or false,
-        "unsupported_claims": ["claim 1", "claim 2"],
-        "confidence": 0.0 to 1.0,
-        "reasoning": "brief explanation"
-    }}
+Check each claim in the answer against the context chunks.
+    
+Respond in this exact JSON format:
+{{
+    "is_supported": true or false,
+    "unsupported_claims": ["claim 1", "claim 2"],
+    "confidence": 0.0 to 1.0,
+    "reasoning": "brief explanation"
+}}
 
-    If all claims are supported, unsupported_claims should be an empty list [].
+If all claims are supported, unsupported_claims should be an empty list [].
 """
 
 def _build_context_block(chunks: List[RetrievedChunk]) -> str:
@@ -88,13 +110,19 @@ def _build_context_block(chunks: List[RetrievedChunk]) -> str:
     return "\n".join(block_parts)
 
 def _estimate_tokens(text: str) -> int:
-    return len(text)
+    try:
+        encoding = tiktoken.get_encoding("cl100k_base")
+        return len(encoding.encode(text))
+    except Exception:
+        return len(text) // 4
 
 class PromptBuilder:
-    def __init__(self, max_context_tokens: int = 6000):
-        self.max_context_tokens = max_context_tokens
+    def __init__(self, max_context_tokens: int = None):
+        self.max_context_tokens = (
+            max_context_tokens or settings.retrieval.max_context_tokens
+        )
 
-        logger.info(
+        logger.debug(
             "prompt_builder_initialized",
             max_context_tokens=max_context_tokens
         )
@@ -124,7 +152,7 @@ class PromptBuilder:
             total_tokens += chunk_tokens
 
         if len(selected) < len(chunks):
-            logger.info(
+            logger.debug(
                 "chunks_trimmed_to_fit_token_limit",
                 original=len(chunks),
                 kept=len(selected),
@@ -136,8 +164,13 @@ class PromptBuilder:
     def build_rag_prompt(
         self,
         query: str,
-        chunks: List[RetrievedChunk]
+        chunks: List[RetrievedChunk],
+        max_context_tokens: Optional[int] = None,
+        is_summary: bool = False
     ) -> BuiltPrompt:
+        if max_context_tokens:
+            self.max_context_tokens = max_context_tokens
+            
         if not query.strip():
             raise ValueError("Query cannot be empty")
         
@@ -164,7 +197,8 @@ class PromptBuilder:
             query = query
         )
 
-        full_prompt = RAG_SYSTEM_PROMPT + context_section
+        system_prompt = SUMMARY_SYSTEM_PROMPT if is_summary else RAG_SYSTEM_PROMPT
+        full_prompt = system_prompt + context_section
 
         total_tokens = _estimate_tokens(full_prompt)
         unique_sources = len({c.source_file for c in selected_chunks})
@@ -177,9 +211,10 @@ class PromptBuilder:
             num_sources=unique_sources
         )
 
-        logger.info(
+        logger.debug(
             "rag_prompt_built",
             query_preview=query[:80],
+            is_summary=is_summary,
             chunks_in_context=len(selected_chunks),
             unique_sources=unique_sources,
             estimated_tokens=total_tokens

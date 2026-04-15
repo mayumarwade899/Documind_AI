@@ -3,7 +3,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional
 
-from ingestion.document_loader import DocumentLoader, LoadedDocument
+from ingestion.document_loader import DocumentLoader
 from ingestion.chunker import DocumentChunker, DocumentChunk
 from ingestion.embedder import GeminiEmbedder, EmbeddedChunk
 from retrieval.vector_store import VectorStore
@@ -55,7 +55,7 @@ class IngestionPipeline:
         self.vector_store = vector_store or VectorStore()
         self.bm25 = bm25 or BM25Retriever()
 
-        logger.info("ingestion_pipeline_initialized")
+        logger.debug("ingestion_pipeline_initialized")
 
     def _ingest_single_file(
         self,
@@ -65,7 +65,7 @@ class IngestionPipeline:
         start_time = time.time()
         filename = Path(file_path).name
 
-        logger.info(
+        logger.debug(
             "file_ingestion_started",
             filename=filename,
             force_reingest=force_reingest
@@ -81,7 +81,7 @@ class IngestionPipeline:
 
             if already_exists and not force_reingest:
                 latency = round((time.time() - start_time) * 1000, 2)
-                logger.info(
+                logger.debug(
                     "file_already_ingested_skipping",
                     filename = filename,
                     document_id = document_id
@@ -147,6 +147,10 @@ class IngestionPipeline:
                     ),
                     error = "Embedding generation failed for all chunks"
                 )
+            
+            ingested_at = time.time()
+            for chunk in embedded_chunks:
+                chunk.metadata["ingested_at"] = ingested_at
             
             stored_count = self.vector_store._add_chunks(embedded_chunks)
 

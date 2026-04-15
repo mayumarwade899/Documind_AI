@@ -73,7 +73,7 @@ class FeedbackStore:
         self.feedback_dir = settings.feedback_log_path
         self.feedback_dir.mkdir(parents = True, exist_ok = True)
 
-        logger.info(
+        logger.debug(
             "feedback_store_initialized",
             feedback_dir = str(self.feedback_dir)
         )
@@ -162,7 +162,7 @@ class FeedbackStore:
             if r.get("rating") == -1
         ]
 
-        logger.info(
+        logger.debug(
             "negative_feedback_fetched",
             days = days,
             count = len(negative)

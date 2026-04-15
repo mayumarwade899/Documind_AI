@@ -1,7 +1,7 @@
 import time
 import json
 from dataclasses import dataclass, field
-from typing import Optional, Dict, Any
+from typing import Optional, Any
 
 import google.generativeai as genai
 from tenacity import (
@@ -84,7 +84,7 @@ class GeminiClient:
             )
         )
 
-        logger.info(
+        logger.debug(
             "gemini_client_initialized",
             model = self.model_name,
             temperature = self.temperature,
@@ -100,13 +100,21 @@ class GeminiClient:
         ),
         reraise = True
     )
-    def _raw_generate(self, prompt: str) -> Any:
-
-        return self.model.generate_content(prompt)
+    def _raw_generate(self, prompt: str, max_tokens: Optional[int] = None) -> Any:
+        config = None
+        if max_tokens:
+            config = genai.GenerationConfig(
+                temperature = self.temperature,
+                max_output_tokens = max_tokens,
+                top_p = 0.95,
+                top_k = 40,
+            )
+        return self.model.generate_content(prompt, generation_config=config)
     
     def generate(
         self,
         prompt: str,
+        max_tokens: Optional[int] = None,
         metadata: Optional[dict] = None
     ) -> LLMResponse:
 
@@ -123,7 +131,7 @@ class GeminiClient:
         start_time =  time.time()
 
         try:
-            raw_response = self._raw_generate(prompt)
+            raw_response = self._raw_generate(prompt, max_tokens=max_tokens)
         except Exception as e:
             logger.error(
                 "llm_generate_failed_all_retries",
@@ -187,7 +195,7 @@ class GeminiClient:
             metadata = metadata or {}
         )
 
-        logger.info(
+        logger.debug(
             "llm_generate_complete",
             model = self.model_name,
             input_tokens = input_tokens,
@@ -199,6 +207,35 @@ class GeminiClient:
         )
 
         return response
+
+    def stream_generate(
+        self,
+        prompt: str,
+        max_tokens: Optional[int] = None,
+        metadata: Optional[dict] = None
+    ):
+        """Generator that yields text chunks as they are received."""
+        if not prompt.strip():
+            raise ValueError("Prompt cannot be empty")
+
+        config = None
+        if max_tokens:
+            config = genai.GenerationConfig(
+                temperature = self.temperature,
+                max_output_tokens = max_tokens
+            )
+
+        try:
+            response = self.model.generate_content(
+                prompt, 
+                generation_config=config,
+                stream=True
+            )
+            for chunk in response:
+                yield chunk.text
+        except Exception as e:
+            logger.error("streaming_generation_failed", error=str(e))
+            yield f"Error: {str(e)}"
     
     def generate_json(
         self,

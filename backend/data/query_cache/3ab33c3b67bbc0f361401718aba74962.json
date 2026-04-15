@@ -1,0 +1,191 @@
+{
+  "query": "What are the main findings of this document?",
+  "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+  "cached_at": 1776188848.898304,
+  "response": {
+    "answer": "The main findings of this document are:\n\n*   **Thematic Categories:** A thorough analysis of the data yielded the following thematic categories:\n    *   Usage of mobile devices\n    *   Reasons for using mobile devices\n    *   Resources and tools\n    *   Mobile encounters\n    *   Language practiced\n    *   Study performance\n*   **Mobile Device Usage:**\n    *   Smartphones were the most often used mobile devices by the students.\n    *   Participants had been using mobile devices for English language study for about 3.80 years on average (minimum 2, maximum 6 years).\n    *   9 (45%) of the subjects started using their mobile devices at senior high school, and 11 (55%) started at university.\n    *   With the exception of one student (S9), all other participants claimed to use their mobile devices to learn English much more frequently with time.\n*   **Self-Assessed Experience:**\n    *   More than half of the students (55%) regarded themselves as experienced or fairly experienced users of their mobile devices for English language learning.\n    *   However, 45% claimed not to be very skillful in this area.\n    *   Almost half of the subjects regarded themselves as quite inexperienced in using their mobile devices for learning English, despite some having used them for years with this intention.\n*   **Learner Engagement and Use Patterns:**\n    *   Some subjects manifested heightened awareness regarding the advantageous role of mobile devices in their learning endeavors, their ability to reach for suitable tools, and retrieve necessary information to achieve their goals, meet their needs, and adjust their English learning to their personal learning styles.\n    *   Conversely, some interviewees limited themselves to a rather intuitive and perhaps even spontaneous or ad hoc use of their mobile devices in the language classroom.\n*   **Implications for Teachers:**\n    *   The intuitive or spontaneous use and self-perceived inexperience may be due to a failure or underestimation of the role and place of mobile devices in foreign language learning and teaching on the part of language teachers.\n    *   It is warranted to say that subjects\u2019 use of mobile devices could be altered if teachers took into account the benefits they may offer.\n    *   Language teachers should present the affordances of mobile technology and discuss them with students during language classes.\n    *   Teachers should also select mobile apps and create opportunities for using them in- and out-of-class learning by offering or designing tasks devoted to practicing a variety of language skills and subsystems suitable for such devices.\n    *   To achieve this, teachers need to respond quickly to dynamic changes in contemporary foreign/second language learning and teaching contexts by undergoing official teacher training in technology-mediated language learning and teaching, as well as in learner autonomy.",
+    "query": "What are the main findings of this document?",
+    "rewritten_query": "What are the main findings of this document?",
+    "sources": [
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 9,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p9_c1",
+        "relevance_score": 1.0,
+        "content_preview": "In addition, some interviewees limited themselves to a\nrather intuitive and perhaps even spontaneous use of their mobile devices in the\nlanguage classroom. It should also be noted that almost half of ..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 5,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p5_c0",
+        "relevance_score": 0.916,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\n\uf0b7 Do you organize regular formal or informal mobile English language learning\nsessions? \uf0b7 What do you learn most frequently by means of your mobil..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 3,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p3_c1",
+        "relevance_score": 0.8158,
+        "content_preview": "Oz, 2015). As far as mobile devices are concerned,\nthey can be defined as \u201cany device that is small, autonomous and unobtrusive enough\nto accompany us in every moment and can be used for educational p..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 1,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p1_c0",
+        "relevance_score": 0.7992,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\nResearch paper\nA look at advanced learners\u2019 use of mobile devices for\nEnglish language study: Insights from interview data\nMariusz Kruk\nUniversity..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 10,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p10_c0",
+        "relevance_score": 0.7192,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\ndata collection instrument, namely the semi-structured interview which was conducted\nonly once. Perhaps a different set of questions, their wordin..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p9_c1",
+        "content": "In addition, some interviewees limited themselves to a\nrather intuitive and perhaps even spontaneous use of their mobile devices in the\nlanguage classroom. It should also be noted that almost half of the subjects regarded\nthemselves as quite inexperienced in using their mobile devices when it comes to\nlearning the English language despite the fact that some of the students had been using\nthem with the intention of learning English for years. Taking all these findings into\naccount, one may conclude that this is due to a failure or underestimation of the role\nand place of mobile devices in foreign language learning and teaching on the part of\nlanguage teachers. It seems therefore warranted to say that the subjects\u2019 use of mobile\ndevices could be altered if teachers took into account the benefits they may offer. For\nthis reason language teachers should, for instance, present the affordances of mobile\ntechnology and discuss them with students during language classes. They should also\nselect mobile apps and create opportunities for using them in- and out-of-class learning\nby offering or designing tasks devoted to practicing a variety of language skills and\nsubsystems suitable for the use of such devices. If this were to happen, teachers need\nto respond quickly to the constant and dynamic changes in contemporary\nforeign/second language learning and teaching contexts by undergoing official teacher\ntraining not only in the area of technology-mediated language learning and teaching but\nalso in the context of learner autonomy. As with all studies, the study reported in this paper has some limitations. Although the\ninterviewees represented a range of experience of English language learning, the small\nnumber of participants reduces the generalizability of the results. Another limitation is\nrelated to the fact that the group was largely homogenous, i.e. the subjects came from\nthe same institution and all studied English. Yet another weakness may concern the\n26",
+        "source_file": "research_paper.pdf",
+        "page_number": 9,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 1.0,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 1,
+          "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "page_number": 9,
+          "parser": "pdfplumber",
+          "source_file": "research_paper.pdf",
+          "token_count": 495,
+          "total_chunks": 18,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.8276,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p5_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\n\uf0b7 Do you organize regular formal or informal mobile English language learning\nsessions? \uf0b7 What do you learn most frequently by means of your mobile device(s)? Why\nthis? \uf0b7 Do you feel that thanks to the use of your mobile device(s) you devote more\ntime for learning the English language? \uf0b7 As far as learning English through your mobile device(s) is concerned, do you\nconsider yourself as an experienced user of such device(s)? The gathered data were subjected to qualitative and quantitative analysis. The analysis\nstarted with partial transcription of the important parts of the data (D\u00f6rnyei, 2007) on a\ncomputer word processor program Microsoft Word 2016. Then the transcribed parts of\nthe data were read several times in order to look for common themes and frequently\noccurring information. The recurring ideas were coded and recoded, revised and\nupdated. The researcher used the highlighting function of the word processor program\nwhich allows the user to highlight the text on the transcript with different colors and\ncomments to record any observations and thematic categories recognized in the data. The emerged categories were reviewed, compared, modified and either merged or\nabandoned. It should also be noted that the obtained data were analyzed quantitatively. This type of analysis involved counting the number of the interviewees\u2019 responses and\ncalculating percentages. 4. Findings\nA thorough analysis of the data yielded the following thematic categories: usage of\nmobile devices, reasons for using mobile devices, resources and tools, mobile\nencounters, language practiced and study performance. 4.1. Usage of mobile devices\nTable 1 shows the study participants\u2019 mobile devices (MobDs) usage descriptions. The\ntable demonstrates that smartphones were the most often used mobile devices by the\nstudents. In addition, the numerical information in the table indicates that the\nparticipants, on average, had been using them for English language study for about\n3.80 years (minimum 2, maximum 6 years). 9 (45%) and 11 (55%) of the subjects\nstarted using their mobile devices at senior high school and university, respectively. It\nshould also be added that, with the exception of one student (i.e. S9), all the other\nparticipants claimed to use their mobile devices in order to learn English much more\nfrequently with time. Finally, more than half of the students (55%) regarded themselves\nas experienced or fairly experienced users of their MobDs for English language learning;\nhowever, 45% claimed not to be very skilful in this area. Table 1. The students\u2019 mobile devices usage descriptions. Year/ Use of MobDs\nSelf-assessed\nLevel of Student Sex Device used for language experience\nstudy study (approx.)\nS1 female smartphone and tablet 2 years not very experienced\nS2 female smartphone 5 years experienced\nS3 female smartphone 5 years fairly experienced\n2nd year\nS4 female smartphone, rarely tablet 4 years fairly experienced\nB.A. S5 female smartphone 3 years not very experienced\nS6 male smartphone 2 years experienced\nS7 female smartphone and tablet 5 years fairly experienced\n22",
+        "source_file": "research_paper.pdf",
+        "page_number": 5,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.916,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "page_number": 5,
+          "parser": "pdfplumber",
+          "source_file": "research_paper.pdf",
+          "token_count": 787,
+          "total_chunks": 18,
+          "rerank_score": 0.916,
+          "rerank_rank": 2,
+          "original_score": 0.8186,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p3_c1",
+        "content": "Oz, 2015). As far as mobile devices are concerned,\nthey can be defined as \u201cany device that is small, autonomous and unobtrusive enough\nto accompany us in every moment and can be used for educational purposes\u201d\n(Trifanova Knapp, Ronchetti & Gamper, 2004, p. 3) or as \u201chand held electronic devices\nthat can be comfortably carried around in a pocket or bag, including MP3 players, digital\nrecorders, e-readers, tablets, and smartphones\u201d (Kukulska-Hulme, Norris & Donohue,\n2015, p. 39). A lot of studies concerning the use of mobile technology and mobile devices in language\nlearning have been published. The findings of these studies concentrated on, for\nexample, language learners\u2019 views on the use of mobile devices in language instruction\n(e.g. Oz, 2015), students\u2019 attitudes towards using mobile phones as instructional tools\nfor foreign language learning (e.g. Cakir, 2015), profiling mobile language learners (e.g. Byrne & Diem, 2014), their effect on learning a foreign/second language (e.g. Nah,\nWhite & Sussex, 2008; Cavus & Ibrahim, 2009; Zhang, Song & Burston, 2011),\ndistance language learning (e.g. Demouy, Jones, Kan, Kukulska-Hulme & Eardley,\n2016), informal language learning practices (Reinders & Cho, 2011; Jones, 2015),\nlearners\u2019 use of mobile devices for learning a foreign language (Stockwell, 2007;\nDashtestani, 2015) and autonomy in language learning (e.g. D\u00edaz-Vera, 2012; Djoub,\n2015). In addition to this, researchers investigated a number of applications of mobile\ndevices and presented both benefits and drawbacks of the usage of mobile technologies\n(e.g. Miangah & Nezarat, 2012), discussed the use of mobile devices in supporting\nsocial contacts and collaborative learning (e.g. Kukulska-Hulme & Shield, 2008) and\noffered guidelines related to the implementation of mobile learning into second/foreign\nlanguage instruction (e.g. Kukulska-Hulme et al., 2015). 20",
+        "source_file": "research_paper.pdf",
+        "page_number": 3,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.8158,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 1,
+          "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "page_number": 3,
+          "parser": "pdfplumber",
+          "source_file": "research_paper.pdf",
+          "token_count": 471,
+          "total_chunks": 18,
+          "rerank_score": 0.8158,
+          "rerank_rank": 3,
+          "original_score": 0.8215,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p1_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\nResearch paper\nA look at advanced learners\u2019 use of mobile devices for\nEnglish language study: Insights from interview data\nMariusz Kruk\nUniversity of Zielona Gora, Poland\n______________________________________________________________\nmkruk @ uz.zgora.pl\nAbstract\nThe paper discusses the results of a study which explored advanced learners of English\nengagement with their mobile devices to develop learning experiences that meet their\nneeds and goals as foreign language learners. The data were collected from 20 students\nby means of a semi-structured interview. The gathered data were subjected to\nqualitative and quantitative analysis. The results of the study demonstrated that, on the\none hand, some subjects manifested heightened awareness relating to the\nadvantageous role of mobile devices in their learning endeavors, their ability to reach\nfor suitable tools and retrieve necessary information so as to achieve their goals, meet\ntheir needs and adjust their learning of English to their personal learning styles, and on\nthe other, a rather intuitive and/or ad hoc use of their mobile devices in the classroom. Keywords: Learner autonomy, mobile devices, advanced EFL learners, learning\nEnglish. 1. Introduction\nMobile devices, smartphones and tablet computers in particular, have generated a lot of\ninterest among researchers in recent years (Byrne & Diem, 2014). This is because the\nopportunities these new technologies may offer (e.g. individualized learning, the variety\nof mobile apps available, easy access to the internet) and/or the fact that they are\nincreasingly more common among learners make them an important and potentially\nuseful addition to formal and informal language learning. According to Benson (2011), there has always been a connection between educational\ntechnologies and learner autonomy to the extent that they have often been intended for\nindependent practice. It should be noted, however, that this link and \u201cfuture enquiry\nand practice into technology-mediated learner autonomy will need to be increasingly\naligned to the tools, settings, and activities that are of significance to language learners\u201d\n(Reinders & White, 2016, p. 151). Reinders and White (2016) further argue that as long\nas \u201cthe potential range of settings, tools, and experiences is now virtually limitless,\nindividuals need to be increasingly adept at critical adaptive learning in order to benefit\nfrom and contribute effectively to those settings\u201d (p. 151). Beyond doubt, contemporary\nlanguage teachers should equip foreign/second language learners with appropriate\nknowledge concerning the affordances of mobile devices for language study and they\nshould prepare them for effective usage of such devices for this purpose. It is also of\nparamount importance, for both researchers and practitioners, to comprehend the link\nbetween the modalities of the language learners' organization of their own learning\nexperiences and environments and the role mobile technologies, in particular\nsmartphones and tablets, play in these contexts.",
+        "source_file": "research_paper.pdf",
+        "page_number": 1,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.7992,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "page_number": 1,
+          "parser": "pdfplumber",
+          "source_file": "research_paper.pdf",
+          "token_count": 773,
+          "total_chunks": 18,
+          "rerank_score": 0.7992,
+          "rerank_rank": 4,
+          "original_score": 0.8308,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p10_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\ndata collection instrument, namely the semi-structured interview which was conducted\nonly once. Perhaps a different set of questions, their wording or a series of such\ninterviews carried out over a particular period of time (say one academic year) may\nhave yielded more detailed and insightful results. Despite these limitations, this study\nprovided some insights into why and how advanced English language learners engage\nwith their mobile devices to develop learning experiences. It should be stressed,\nhowever, that teacher involvement in creating conditions conducive to the use of mobile\ndevices for language study may result in greater learner engagement with mobile\ntechnology (i.e. mobile devices) and, at the same time, may lead to greater students\u2019\nindependence in learning the target language. References\nBenson, P. (2001). Teaching and researching autonomy in language learning. Harlow:\nPearson Education. Benson, P. (2011). What\u2019s new in autonomy? The Language Teacher, 35(4), 15-18. Benson, P. & Chik, A. (2010). New literacies and autonomy in foreign language learning. In M. J. Luz\u00f3n, M. N. Ruiz-Madrid & M. L. Villanueva (Eds.), Digital genres, new\nliteracies, and autonomy in language learning (pp. 63-80). Newcastle-upon-Tyne:\nCambridge Scholars Publishing. Byrne, J. & Diem, R. (2014). Profiling mobile English language learners. The JALT\nCALL Journal I, 10 (1), 3-19. Cakir, I. (2015). Opinions and attitudes of prospective teachers for the use of mobile\nphones in foreign language learning. Contemporary Educational Technology, 6(3), 239-\n255. Cavus, N. & Ibrahim, D. (2009). m-Learning: An experiment in using SMS to support\nlearning new English language words. British Journal of Educational Technology, 40(1),\n78-91. Dashtestani, R. (2015). Moving bravely towards mobile learning: Iranian students\u2019 use\nof mobile devices for learning English as a foreign language. Computer Assisted\nLanguage Learning, 29(4), 815-832. Demouy, V., Jones, A., Kan, Q., Kukulska-Hulme, A. & Eardley, A. (2016). Why and how\ndo distance learners use mobile devices for language learning? The EuroCALL\nReview, 24(1), 10-24. D\u00edaz-Vera, J. (Ed.). (2012). Left to my own devices: Learner autonomy and mobile-\nassisted language learning. Bingley, UK: Emerald Group. Djoub, Z. (2015). Mobile technology and learner autonomy in language learning. In J. Keengwe (Ed.), Promoting active learning through the integration of mobile\nand ubiquitous technologies (pp. 194-212). Hershey: IGI Global. D\u00f6rnyei, Z. (2007). Research methods in applied linguistics. Oxford: Oxford University\nPress. Holec, H. (1981). Autonomy and foreign language learning. Oxford: Pergamon Press. Jones, A. (2015). Mobile informal language learning: Exploring Welsh learners\u2019\npractices, eLearning Papers, 45, 4-14. Kukulska-Hulme, A., Norris, L. & Donohue, J. (2015). Mobile pedagogy for English\nlanguage teaching: A guide for teachers. British Council, London. Kukulska-Hulme, A. & Shield, L. (2008). An overview of mobile assisted language\nlearning: From content delivery to supported collaboration and\ninteraction. ReCALL, 20(3), 271-289. Kukulska-Hulme, A., Traxler, J. & Pettit, J. (2007). Designed and user-generated\nactivity in the mobile age. Journal of Learning Design, 2(1), 52-65. Lee, L. (2011). Blogging: Promoting learner autonomy and intercultural competence\nthrough study abroad. Language Learning & Technology, 5, 87-109. 27",
+        "source_file": "research_paper.pdf",
+        "page_number": 10,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.7192,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "page_number": 10,
+          "parser": "pdfplumber",
+          "source_file": "research_paper.pdf",
+          "token_count": 865,
+          "total_chunks": 18,
+          "rerank_score": 0.7192,
+          "rerank_rank": 5,
+          "original_score": 0.8173,
+          "original_method": "vector"
+        }
+      }
+    ],
+    "total_latency_ms": 38620.22,
+    "retrieval_latency_ms": 549.52,
+    "reranking_latency_ms": 1190.38,
+    "generation_latency_ms": 32869.46,
+    "input_tokens": 2416,
+    "output_tokens": 586,
+    "total_tokens": 3002,
+    "cost_usd": 0.000476,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "vector"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

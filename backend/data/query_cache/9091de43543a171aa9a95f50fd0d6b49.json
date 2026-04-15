@@ -1,0 +1,171 @@
+{
+  "query": "What is the maximum legal validity period for a granted patent?",
+  "document_id": null,
+  "cached_at": 1776282789.1645591,
+  "response": {
+    "answer": "A patent, once granted, can remain legally valid for a maximum period of 20 years. This period begins from the date on which the relevant patent application was filed.\n\nFor the patent to maintain its legal validity throughout this maximum period, certain conditions must be met:\n*   Periodic maintenance fees must be duly paid during this 20-year timeframe.\n*   The patent must not be revoked or declared invalid by a court.\n\nThis maximum period of 20 years is counted from the filing date of the application or from the date of an earlier related application.",
+    "query": "What is the maximum legal validity period for a granted patent?",
+    "rewritten_query": "What is the maximum legal validity period for a granted patent?",
+    "sources": [
+      {
+        "source_file": "patent.pdf",
+        "page_number": 13,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p13_c0",
+        "relevance_score": 1.0,
+        "content_preview": "3. Period of Patent\nA national or regional patent office grants a patent. Once granted, it can\nremain legally valid for a maximum period of 20 years that commences\nfrom the date on which the relevant ..."
+      },
+      {
+        "source_file": "patent.pdf",
+        "page_number": 33,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p33_c0",
+        "relevance_score": 0.562,
+        "content_preview": "QUIZ\nQ1. Identify the incorrect statement:\n1) Inventions are protected and leveraged by the patent system to protect a\ncompany's products, to generate revenues and/or protect its R&D investments in\nth..."
+      },
+      {
+        "source_file": "patent.pdf",
+        "page_number": 20,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p20_c0",
+        "relevance_score": 0.4379,
+        "content_preview": "the patent office. Depending on the applicable patent law, you may file\nan appeal against the decision of the patent examiner to a Board of\nAppeal in the patent office or to a competent court in law. ..."
+      },
+      {
+        "source_file": "patent.pdf",
+        "page_number": 21,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p21_c0",
+        "relevance_score": 0.4323,
+        "content_preview": "eventually disclosed to the public by the patent office. Publishing it in\nan official journal or gazette brings it the notice of the entire world, so\nto say. In a very large number of countries, an un..."
+      },
+      {
+        "source_file": "patent.pdf",
+        "page_number": 16,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p16_c0",
+        "relevance_score": 0.3673,
+        "content_preview": "4. The maximum possible duration of utility models is usually much\nshorter than it is for patents;\n5. Utility models may, in some countries, be limited to certain fields of\ntechnology and may only be ..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p13_c0",
+        "content": "3. Period of Patent\nA national or regional patent office grants a patent. Once granted, it can\nremain legally valid for a maximum period of 20 years that commences\nfrom the date on which the relevant patent application was filed, provided\nthe periodic maintenance fees are duly paid during this period and the\npatent is not revoked or declared invalid by a court. 4. Territorial principle\nA patent is a territorial right, thus it is limited to the geographical\nboundary of the relevant country or region for which it has been granted. For obtaining patent protection in other countries or regions, many patent\napplications may have to be filed at the relevant national or regional\npatent office in the legally prescribed time limit. 5. Use of Patent\nLike the owner of any other private property, a patent owner has the\nright to prevent others from using it, abandon it, sell it, that is, assign it\nfor a fee or free (gift), and allow one or many others to use it, while\nretaining its ownership, by \u2018licensing out\u2019 the patent for one or more\nspecified purposes, during a specified time period, in one or more\nspecified jurisdictions. Licensing is always done for a valid consideration\nthat may be in cash or kind, as may be mutually agreed and specified in\na written and formally signed license agreement. LEARNING POINT 2: Patent application\n1. Evaluating the patentability of an invention\nYou are under no obligation to conduct a prior art search before filing a patent\napplication, and indeed, not all applications are preceded by such a search for\nwant of time or lack of access to patent search facilities for cost or other\nreasons. For example, you may have no time to do so, if you identify\npatentable inventions only during a patent clearance procedure just prior to the",
+        "source_file": "patent.pdf",
+        "page_number": 13,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 1.0,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.016393,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.016393,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p33_c0",
+        "content": "QUIZ\nQ1. Identify the incorrect statement:\n1) Inventions are protected and leveraged by the patent system to protect a\ncompany's products, to generate revenues and/or protect its R&D investments in\nthe marketplace. 2) In order to get useful inventions, you may have to access it from others who\nare willing to provide it by licensing it to you on mutually acceptable terms and\nconditions. 3) Inventions are made by a flash of genius and involve great scientific discoveries\nor great technical developments. 4) Inventions maybe also created by employees on the shop floor, by people in\nmarketing, sales and design, and not only by highly qualified engineers in\nmulti-disciplinary, high-tech laboratories. Answer: 3)\nMost people seem to think that inventions are made by a flash of genius and\ninvolve great scientific discoveries or great technical developments. Although this is\noccasionally the case, many famous inventions involved no great scientific\ndiscovery, or represented only a modest advance in fundamental technology and\nwere made by ordinary people working alone or in a small company. Most\ninventions are the result of practical analysis of a technical problem. The standard\nemployed to determine patentability is a legal standard and not a technical\nstandard. Q2. Identify the incorrect statement:\n1) A patent is granted by a notional office or regional office and has no effect\nbeyond the national or regional boundary of the country or countries concerned. 2) A patent confers on its owner the rights to make, use, offer for sale, sell,\nlicense and import a claimed invention. 3) A patent is valid for a maximum period of 20 years, counting from the filing\ndate of the application or from the date of an earlier related application.",
+        "source_file": "patent.pdf",
+        "page_number": 33,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 0.562,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.015975,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.562,
+          "rerank_rank": 2,
+          "original_score": 0.015975,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p20_c0",
+        "content": "the patent office. Depending on the applicable patent law, you may file\nan appeal against the decision of the patent examiner to a Board of\nAppeal in the patent office or to a competent court in law. If you agree to the grant of a patent with narrower claims than what\nwere originally drafted, then it is important to ensure that the description\nof the invention is reviewed and revised to exclude all information that\nis no longer required to be disclosed in these changed circumstances. Otherwise, in due course, when the patent application or the patent is\npublished, you would find that you have inadvertently allowed some of\nyour valuable trade secrets to be lost through such publication, as only\nthe information covered by the granted claims is protected by a patent. c. Grant of Patent\nWhen a patent application is accepted for grant, then, depending on the\napplicable patent law, it would be published in the official journal of the\npatent office for inviting objections from the public (which is called\n\u2018pre\u2010grant opposition\u2019). Objections to grant of the patent must be filed by\nany aggrieved party during the specified period of time. Or, it may be\npublished as granted with or without any pre\u2010grant opposition, depending\non the applicable patent law, and then allow post\u2010grant opposition by\naggrieved third parties. If the opposition succeeds partly then the patent\nmay still be granted but with narrower claims that may not serve your\npurpose. If it fails, then you would be granted a patent and a certificate\nof grant would be issued and the granted patent published in the official\njournal or gazette of the patent office. d. Publication\nTo get such useful rights as mentioned above, the applicant for a patent\nis required to disclose the claimed invention by providing its detailed,\naccurate and complete written description in the patent specification filed\nat the patent office. This description is initially kept secret but is",
+        "source_file": "patent.pdf",
+        "page_number": 20,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 0.4379,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.015738,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.4379,
+          "rerank_rank": 3,
+          "original_score": 0.015738,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p21_c0",
+        "content": "eventually disclosed to the public by the patent office. Publishing it in\nan official journal or gazette brings it the notice of the entire world, so\nto say. In a very large number of countries, an unexamined patent\napplication is published after 18 months of the date of filing the patent\n(priority) application. All patent offices publish the patent at the time of\nits registration or grant. Learn more: Pre\u2010grand opposition & Post\u2010grant opposition\n1. Pre\u2010grand opposition\nIn some countries, the grant of patent may be opposed by filing a\npre\u2010grant opposition. If the opposition is successful, then the patent\nmay not be granted or the scope of the claims may be narrowed\nfrom what was requested. 2. Post\u2010grant opposition\nIn other countries, the grant of patent may be opposed by filing a\npost\u2010grant opposition. If the opposition is successful, then the granted\npatent may be invalidated or the scope of the claims may be\nnarrowed from what was granted. In some countries both options may be possible. LEARNING POINT 3: Patent infringement\n1. Definition of patent infringement\nA patent owner has the right to exclude all others from using the patented\ninvention, and any one who practices the invention without the owner\u2019s consent,\ninfringes his rights. By exactly following the details as revealed in a patent you would infringe on a\npatent, unless what you do is exempted as being an experimental or research\nuse. But copying from a patent is not the only way for a business to violate a",
+        "source_file": "patent.pdf",
+        "page_number": 21,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 0.4323,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.015625,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.4323,
+          "rerank_rank": 4,
+          "original_score": 0.015625,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p16_c0",
+        "content": "4. The maximum possible duration of utility models is usually much\nshorter than it is for patents;\n5. Utility models may, in some countries, be limited to certain fields of\ntechnology and may only be available for products (not for processes); and\n6. Usually, a utility model application or a granted utility model may be\nconverted into a regular patent application. There may be a third option of defensive publication. You may publish\nyour invention if you do not consider it worthwhile to patent and if, at the\nsame time, you would like to prevent all others from patenting it. 3. Preparing a patent application\n(1) Detailed description of the invention\nThe detailed description must include:\na. Detailed technical information about the features of the claimed invention;\nb. How the invention can be made or carried out; and\nc. Its application in industry or commerce. More Reference 2\u20102: Main parts of a patent application\nA patent application has many parts, such as the title, bibliographic\ninformation and an abstract. But, from our current purposes, the two most\nimportant parts of a patent application are the detailed description of the\ninvention and the \u2018claims\u2019 which are usually at the end of the specification. The description discloses the invention in clear and precise terms. Often, it is necessary to illustrate the new ideas or concepts by examples to\nexplain how to work or carry out the invention in practice so as to enable a\nperson skilled in the relevant field of technology to understand the claimed\ninvention and use the technical information contained in the patent specification",
+        "source_file": "patent.pdf",
+        "page_number": 16,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 0.3673,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.015201,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.3673,
+          "rerank_rank": 5,
+          "original_score": 0.015201,
+          "original_method": "hybrid"
+        }
+      }
+    ],
+    "total_latency_ms": 3513.93,
+    "retrieval_latency_ms": 469.44,
+    "reranking_latency_ms": 688.6,
+    "generation_latency_ms": 2351.6,
+    "input_tokens": 2040,
+    "output_tokens": 118,
+    "total_tokens": 2158,
+    "cost_usd": 0.0002512,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "hybrid"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

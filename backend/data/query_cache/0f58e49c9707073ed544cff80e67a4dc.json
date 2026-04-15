@@ -1,0 +1,227 @@
+{
+  "query": "List the key takeaways from the document?",
+  "document_id": null,
+  "cached_at": 1776282740.4208696,
+  "response": {
+    "answer": "## Document Title\nLegal Procedures, Patent Claims, and Information Retrieval Systems\n\n## Key Points\n- Substantive law defines rights, liabilities, and duties, while procedural law provides remedies for their enforcement, with both branches being complementary yet independent.",
+    "query": "List the key takeaways from the document?",
+    "rewritten_query": "List the key takeaways from the document?",
+    "sources": [
+      {
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 3,
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p3_c0",
+        "relevance_score": 1.0,
+        "content_preview": "iii\ndetermining the rights, liabilities and duties of the litigants. It is procedural law which puts\nlife into the substantive law by providing remedy for enforcement of those rights and\nliabilities. ..."
+      },
+      {
+        "source_file": "patent.pdf",
+        "page_number": 17,
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p17_c0",
+        "relevance_score": 0.3234,
+        "content_preview": "to practice or repeat the invention without having to do undue experimentation. At the end of every patent specification, there are one or more numbered\ndefinitions, referred to as \u2018claims\u2019, which def..."
+      },
+      {
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 128,
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p128_c0",
+        "relevance_score": 0.2521,
+        "content_preview": "121\n7. Without prejudice to any rights and remedies herein contained, each of the parties hereto\nhereby releases and discharges the other from all actions, proceedings, claims and demands\non account o..."
+      },
+      {
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 87,
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p87_c0",
+        "relevance_score": 0.2122,
+        "content_preview": "80\nAccused is liable to be prosecuted an punished under Section 138 of the Negotiable\nInstruments Act, 1881 as amended upto-date. 7. That the Complainant has complied with all the requirements of Sect..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 96,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p96_c0",
+        "relevance_score": 0.18,
+        "content_preview": "Hybrid Search\nOverview: Hybrid search combines dense and sparse retrieval methods to leverage the\nstrengths of both approaches, enhancing the accuracy and relevance of search results. Combining Dense ..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 62,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p62_c0",
+        "relevance_score": 0.1669,
+        "content_preview": "Building a Basic RAG Pipeline\nOverview of the RAG Architecture\nDocument Corpus: The collection of\ndocuments or knowledge base from which\ninformation will be retrieved. Language Model: The generative A..."
+      },
+      {
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 27,
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p27_c0",
+        "relevance_score": 0.1044,
+        "content_preview": "20\nliable to be detained in civil imprisonment and attachment of his property. List of properties is\nattached. PRAYER:\nIt is, therefore most respectfully prayed that this Hon\u2019ble Court may be pleased ..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p3_c0",
+        "content": "iii\ndetermining the rights, liabilities and duties of the litigants. It is procedural law which puts\nlife into the substantive law by providing remedy for enforcement of those rights and\nliabilities. In this way, both the branches of law are complementary to each other and at the\nsame time independent of each other. Indian Penal Code, 1860, Customs Act, 1962,\nPrevention of Food Adulteration Act,1954, Sale of Goods Act, 1930,Transfer of Property Act,\n1982 and Rent Control Legislations, etc. are the examples of substantive laws, whereas Code\nof Criminal Procedure, 1973, Code of Civil Procedure, 1908, Indian Evidence Act, 1872, etc. are procedural laws. However, there are certain laws, regarding which, due to the nature of\ntheir provisions and the object, for which they were legislated, it is difficult to point out as to\nwhether they are substantive laws or procedural laws. In such cases, on one hand the\nprovision of such a law provides procedure for enforcement of certain rights and at the same\ntime violation of that procedure leads to taking away of that substantive right of the violator. For example, under the Registration Act, 1908 if a particular document, which requires\ncompulsory registration, is not registered then the party to that document, claiming right on\nthe strength of the contents of the said document would not be able to establish his\nsubstantive right under that unregistered instrument. PLEADINGS\nIt would be beneficial to distinguish between the pleadings and conveyancing. The dictionary\nmeaning of the term \u2018plead\u2019 means \u2018to state and argue a case\u2019. Therefore, pleading comprises\nof respective contentions of the parties in a dispute, which are reduced into writing. \u2018Pleadings\u2019, under Civil as well as Criminal Law, meant that to determine what the parties\nwere currently fighting about. Pleading is the beginning stage of a lawsuit in which parties\nformally submit their claims and defences. In Civil proceedings the plaintiff submits a plaint\nstating the cause of action -- the issue or issues in controversy. The defendant submits an\nanswer- the reply- the written statement- stating his or her defences and denials. In other\nwords it is nothing but the formal presentation of claims and defences by parties to a lawsuit. Therefore, it includes every legal document filed in a lawsuit, petition, motion and/or hearing,\nincluding complaint, petition, answer/reply, rejoinder, motion, declaration and memorandum\nof points and authorities (written argument citing precedents and statutes). Hence, the term pleading would be applicable to the Court proceedings including\nfiling of the complaint/plaint, etc., replies thereto and other incidental documents related to\nthe dispute filed by either of the parties. Needless to mention here that, our legal system is\nadversary legal system wherein there are two contesting parties. One party stakes its claim or\nright to a particular thing, which is disputed by the opposite side before the Court. Under\nthese circumstances each of the parties in support of its claim files in writing various\ncontentions and submissions in terms of the different provisions under the law before the\nCourt. All these documents constitute pleadings.",
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 3,
+        "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
+        "score": 1.0,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776280503.9951813,
+          "rrf_score": 0.008696,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.008696,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p17_c0",
+        "content": "to practice or repeat the invention without having to do undue experimentation. At the end of every patent specification, there are one or more numbered\ndefinitions, referred to as \u2018claims\u2019, which define particularly and distinctly the\ninvention. Each claim is a single\u2010sentence with a list of elements (or a list of\nsteps in a method or process claim) and explains how they cooperate. Usually, most of the individual elements of a claim are old! What is new\nmay be only the claimed combination of old elements or some old and some\nnew elements. Also, in some countries, a claim may define a new use of an old\nproduct. It may also define a simplification of a known product or process. (2) Claims\na. Role of claims\nThe claims demarcate in words the boundary of your invention. Claims\nare the heart of a patent, even though the description is important, and\nsometimes the drawings may also be important. For example, the claims demarcate in words the boundary of your\ninvention, just like a picket\u2010fence defines the extent of land covered by\na deed for a piece of land. If the description includes some features\nthat are not covered by the claims, then all such features are not\nprotected by the patent. That is, all such features become a part of the\n\u2018prior art\u2019 that may be used by others without your permission, and you\nwould not be able to do anything about it. b. Independent claims and dependent claims\nOf the multiple claims in a patent, at least one or more are\nindependent, while the rest are dependent. An independent claim is\ncompletely self\u2010contained, whereas a dependent claim refers to one of\nearlier independent or dependent claims and is considered to include all\nof its own limitations as well as those of any one of the claims to\nwhich it refers. It is important to note that an invention may be covered by one or\nmore claims of a prior patent, and may still be patentable.",
+        "source_file": "patent.pdf",
+        "page_number": 17,
+        "document_id": "11f0fe637836a1c73c010e287ba3ad24",
+        "score": 0.3234,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776282612.6272132,
+          "rrf_score": 0.009836,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.3234,
+          "rerank_rank": 2,
+          "original_score": 0.009836,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p128_c0",
+        "content": "121\n7. Without prejudice to any rights and remedies herein contained, each of the parties hereto\nhereby releases and discharges the other from all actions, proceedings, claims and demands\non account of the said partnership. 8. That it is mutually agreed if any dispute arises between the parties in relation to present\nDissolution Deed then the same shall be referred to the Sole Arbitrator to be appointed by\ncontinuing partner under the provisions of Arbitration and Conciliation Act, 1996, and place\nof arbitration shall be at New Delhi. IN WITNESS WHEREOF the parties have signed this document on the date first above\nwritten in presence of the following witnesses. FIRST PARTY\nSECOND PARTY\nWITNESSES (1) (2)\n* * * * *",
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 128,
+        "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
+        "score": 0.2521,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776280503.9951813,
+          "rrf_score": 0.008571,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.2521,
+          "rerank_rank": 3,
+          "original_score": 0.008571,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p87_c0",
+        "content": "80\nAccused is liable to be prosecuted an punished under Section 138 of the Negotiable\nInstruments Act, 1881 as amended upto-date. 7. That the Complainant has complied with all the requirements of Section 138 of the\nNegotiable Instruments Act, 1881 as amended upto-date namely the cheque in question were\npresented on ______ i.e. within the period of its validity, the demand for payment was made\nto the Accused on \u2026\u2026\u2026. i.e. within thirty days of the date or receipt of information\nregarding the dishonouring of the cheque. True copy of the said demand dated \u2026\u2026. is\nannexed hereto as Annexure \u2013 \u2018D\u2019. The postal receipt and the U.P.C. thereof are annexed\nhereto as Annexure-E collectively. The accused failed to make the payment within fifteen\ndays of the said notice and as such the Complainant has approached this Hon\u2019ble court within\none month of the date of the cause of action. The Compaint is therefore within time. 8. That the Hon\u2019ble Court has jurisdiction to entertain and try the present complaint because\nthe offence is committed within the jurisdiction of this Hon\u2019ble Court. (Mention how the\ncourt has jurisdiction based on the facts). PRAYER:\nIt is, therefore most respectfully prayed that his Hon\u2019ble Court may be pleased to summon the\naccused under Section 138 of the Negotiable Instruments Act, 1881 as amended upto-date and\nthe accused be tried and punished in accordance with law for the aforesaid offence committed\nby him. COMPLAINANT\nPlace THROUGH\nDate ADVOCATE\nNote : List of witnesses to be mentioned at the end of the complaint or separately after\nwriting short title of the complaint case \u2013\n1. Complainant;\n2. Banker(s) of the complainant with record of the cheque. 3. Banker(s) of the accused with record of the cheque\n4. Any other witness, if needed, as per the facts of the case\n* * * * *",
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 87,
+        "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
+        "score": 0.2122,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776280503.9951813,
+          "rrf_score": 0.008824,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.2122,
+          "rerank_rank": 4,
+          "original_score": 0.008824,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p96_c0",
+        "content": "Hybrid Search\nOverview: Hybrid search combines dense and sparse retrieval methods to leverage the\nstrengths of both approaches, enhancing the accuracy and relevance of search results. Combining Dense and Sparse Retrieval: . BM25 + Embedding Hybrid\nSparse Retrieval (e.g., BM25): Approach:\nDescription: Uses term-frequency Initial Retrieval: Use BM25\nCreated by Goyashy (@explainx.ai)\nmethods for exact keyword matches. for broad keyword-based\nStrength: High precision with exact search. terms. Dense Filtering: Refine\nwith embeddings for\nDense Retrieval (e.g., Embeddings): semantic relevance. Description: Uses vector-based Final Ranking: Combine\nmethods for semantic similarity. BM25 and embedding\nStrength: Finds similar content based scores for a ranked list. on meaning.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 96,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.18,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.009231,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.18,
+          "rerank_rank": 5,
+          "original_score": 0.009231,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p62_c0",
+        "content": "Building a Basic RAG Pipeline\nOverview of the RAG Architecture\nDocument Corpus: The collection of\ndocuments or knowledge base from which\ninformation will be retrieved. Language Model: The generative AI model\nthat produces responses. Created by Goyashy (@explainx.ai)\nEmbedding Model: Used to convert text into\nvector representations. Prompt Template: Structures how retrieved\ninformation and the query are presented to\nthe language model. Vector Database: Stores and indexes the\nembedded documents for efficient similarity\nsearch. Orchestrator: Coordinates the flow of\ninformation between components. Retriever: Responsible for finding relevant\ndocuments based on the input query.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 62,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.1669,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.009375,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.1669,
+          "rerank_rank": 6,
+          "original_score": 0.009375,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p27_c0",
+        "content": "20\nliable to be detained in civil imprisonment and attachment of his property. List of properties is\nattached. PRAYER:\nIt is, therefore most respectfully prayed that this Hon\u2019ble Court may be pleased to:\na) take appropriate action U/O 39 R 2-A of the Code of Civil Procedure and other provisions\nof law may be taken against the defendant/respondent and his property may be directed to be\nattached and he may be directed to be kept in civil imprisonment for the maximum term. b) direct restoration of the possession of the suit property to the plaintiff/applicant. c) any other appropriate orders/directions may also be passed as may be deemed fit in the\nfacts and circumstances of the case in favour of plaintiff/applicant. Delhi. Plaintiff/Applicant\nDated: Through\nAdvocate\n(Note: An affidavit, duly attested by oath commissioner, in support of this application is to be\nattached with to this application)\n* * * * *",
+        "source_file": "Pleadings & Conveyancing.pdf",
+        "page_number": 27,
+        "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
+        "score": 0.1044,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776280503.9951813,
+          "rrf_score": 0.009677,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.1044,
+          "rerank_rank": 7,
+          "original_score": 0.009677,
+          "original_method": "bm25"
+        }
+      }
+    ],
+    "total_latency_ms": 13194.61,
+    "retrieval_latency_ms": 522.51,
+    "reranking_latency_ms": 817.27,
+    "generation_latency_ms": 11854.84,
+    "input_tokens": 2520,
+    "output_tokens": 80,
+    "total_tokens": 2600,
+    "cost_usd": 0.000284,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 7,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "bm25"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

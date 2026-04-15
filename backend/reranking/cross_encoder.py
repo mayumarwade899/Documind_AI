@@ -15,7 +15,7 @@ def _get_model(model_name: str) -> CrossEncoder:
     global _cross_encoder_model
 
     if _cross_encoder_model is None:
-        logger.info(
+        logger.debug(
             "cross_encoder_loading",
             model=model_name
         )
@@ -27,7 +27,7 @@ def _get_model(model_name: str) -> CrossEncoder:
         )
         elapsed = round(time.time() - start, 2)
 
-        logger.info(
+        logger.debug(
             "cross_encoder_loaded",
             model = model_name,
             load_time_sec = elapsed
@@ -56,12 +56,12 @@ class CrossEncoderReranker:
         self.model_name = (
             model_name or settings.reranker.reranker_model
         )
-        self.model = _get_model(self.model_name)
+        self._model = None
 
-        logger.info(
-            "cross_encoder_reranker_ready",
-            model = self.model_name
-        )
+    def _get_lazy_model(self) -> CrossEncoder:
+        if self._model is None:
+            self._model = _get_model(self.model_name)
+        return self._model
 
     def rerank(
         self,
@@ -80,7 +80,7 @@ class CrossEncoderReranker:
         
         k = top_k or settings.retrieval.final_top_k
 
-        logger.info(
+        logger.debug(
             "reranking_started",
             query_preview = query[:80],
             num_chunks = len(chunks),
@@ -93,7 +93,8 @@ class CrossEncoderReranker:
             pairs.append((query, chunk.content))
 
         try:
-            raw_score: List[float] = self.model.predict(
+            model = self._get_lazy_model()
+            raw_score: List[float] = model.predict(
                 pairs,
                 batch_size = 32,
                 show_progress_bar = False
@@ -118,7 +119,7 @@ class CrossEncoderReranker:
 
         scored_chunks.sort(key = lambda x: x[0], reverse = True)
 
-        reranked = List[RetrievedChunk] = []
+        reranked: List[RetrievedChunk] = []
 
         for rank, (norm_score, chunk) in enumerate(
             scored_chunks[:k], start = 1
@@ -142,7 +143,7 @@ class CrossEncoderReranker:
 
         elapsed = round(time.time() - start_time, 3)
 
-        logger.info(
+        logger.debug(
             "reranking_complete",
             input_chunks = len(chunks),
             output_chunks = len(reranked),
@@ -168,7 +169,7 @@ class CrossEncoderReranker:
         filtered = [c for c in reranked if c.score >= min_score]
 
         if len(filtered) < len(reranked):
-            logger.info(
+            logger.debug(
                 "rerank_threshold_filter_applied",
                 before = len(reranked),
                 after = len(filtered),

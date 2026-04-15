@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import {
   LayoutDashboard, MessageSquare, FileText, BarChart3,
   FlaskConical, ChevronLeft, ChevronRight, Sun, Moon,
-  Zap, Plus, Settings
+  Zap, Plus
 } from 'lucide-react'
 import { cn } from '../../utils/cn.js'
 import { useUIStore } from '../../store/uiStore.js'
@@ -16,7 +16,6 @@ const NAV = [
   { to: '/documents', icon: FileText, label: 'Documents' },
   { to: '/evaluation', icon: FlaskConical, label: 'Evaluation' },
   { to: '/monitoring', icon: BarChart3, label: 'Monitoring' },
-  { to: '/settings', icon: Settings, label: 'Settings' },
 ]
 
 export default function Sidebar() {

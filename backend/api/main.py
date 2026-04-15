@@ -1,15 +1,9 @@
+import os
 from contextlib import asynccontextmanager
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.routes import query, ingest, feedback, metrics, evaluation
-from api.dependencies import (
-    get_answer_generator,
-    get_ingestion_pipeline,
-    get_metrics_tracker,
-    get_feedback_store
-)
 from config.settings import get_settings
 from config.logging_config import setup_logging, get_logger
 
@@ -17,28 +11,14 @@ settings = get_settings()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    os.environ["ANONYMIZED_TELEMETRY"] = "False"
+    os.environ["CHROMA_TELEMETRY_ENABLED"] = "False"
+
     setup_logging(log_level = settings.api.log_level)
-    logger =get_logger(__name__)
+    logger = get_logger(__name__)
     logger.info("rag_system_starting_up")
 
-    try:
-        get_ingestion_pipeline()
-        logger.info("ingestion_pipeline_ready")
-    except Exception as e:
-        logger.warning("ingestion_pipeline_warmup_failed", error=str(e))
-
-    try:
-        get_answer_generator()
-        logger.info("answer_generator_ready")
-    except Exception as e:
-        logger.warning("answer_generator_warmup_failed", error = str(e))
-
-    try:
-        get_metrics_tracker()
-        get_feedback_store()
-        logger.info("monitoring_ready")
-    except Exception as e:
-        logger.warning("monitoring_warmup_failed", error = str(e))
+    logger.info("rag_system_lazy_start_mode_enabled")
 
     logger.info(
         "rag_system_ready",

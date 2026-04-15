@@ -79,7 +79,7 @@ def _validate_citations_against_chunks(
     return valid, phantoms
 
 class AnswerVerifier:
-    def __int__(
+    def __init__(
         self,
         llm_client: Optional[GeminiClient] = None,
         prompt_builder: Optional[PromptBuilder] = None
@@ -124,7 +124,6 @@ class AnswerVerifier:
         unsupported = llm_result.get("unsupported_claims", [])
         confidence  = float(llm_result.get("confidence", 0.5))
 
-        all_chunk_ids = [c.chunk_id for c in chunks]
 
         claim_verification = []
         for claim in unsupported:

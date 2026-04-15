@@ -3,11 +3,11 @@ import { Send, Square, Sliders, ChevronDown } from 'lucide-react'
 import { cn } from '../../utils/cn.js'
 
 export function ChatInput({ onSend, onStop, isStreaming, disabled }) {
-  const [value, setValue]         = useState('')
-  const [showOpts, setShowOpts]   = useState(false)
-  const [useRewrite, setUseRewrite]   = useState(true)
+  const [value, setValue] = useState('')
+  const [showOpts, setShowOpts] = useState(false)
+  const [useRewrite, setUseRewrite] = useState(true)
   const [useMultiQuery, setUseMultiQuery] = useState(true)
-  const [verifyAnswer, setVerifyAnswer]   = useState(true)
+  const [verifyAnswer, setVerifyAnswer] = useState(true)
   const textareaRef = useRef(null)
 
   useEffect(() => {
@@ -31,15 +31,14 @@ export function ChatInput({ onSend, onStop, isStreaming, disabled }) {
 
   return (
     <div className="relative">
-      {/* Options panel */}
       {showOpts && (
         <div className="absolute bottom-full left-0 right-0 mb-2 p-3 bg-white dark:bg-surface-850 rounded-xl border border-surface-200 dark:border-surface-700 shadow-card">
           <p className="text-[10px] font-semibold uppercase tracking-widest text-surface-400 mb-2">Pipeline options</p>
           <div className="space-y-2">
             {[
               { label: 'Query rewriting', value: useRewrite, set: setUseRewrite, desc: 'Improves retrieval with LLM-rewritten query' },
-              { label: 'Multi-query',     value: useMultiQuery, set: setUseMultiQuery, desc: 'Generates 3 query variants for broader retrieval' },
-              { label: 'Verify answer',   value: verifyAnswer, set: setVerifyAnswer, desc: 'Cross-checks answer claims against source chunks' },
+              { label: 'Multi-query', value: useMultiQuery, set: setUseMultiQuery, desc: 'Generates 3 query variants for broader retrieval' },
+              { label: 'Verify answer', value: verifyAnswer, set: setVerifyAnswer, desc: 'Cross-checks answer claims against source chunks' },
             ].map(opt => (
               <label key={opt.label} className="flex items-start gap-3 cursor-pointer group">
                 <div className="mt-0.5">
@@ -66,17 +65,16 @@ export function ChatInput({ onSend, onStop, isStreaming, disabled }) {
         </div>
       )}
 
-      {/* Input area */}
       <div className="flex items-end gap-2 p-3 bg-white dark:bg-surface-850 rounded-xl border border-surface-200 dark:border-surface-700 shadow-card focus-within:border-brand-400 dark:focus-within:border-brand-500 transition-colors">
         <textarea
           ref={textareaRef}
           value={value}
           onChange={e => setValue(e.target.value)}
           onKeyDown={handleKey}
-          placeholder="Ask anything about your documents…"
+          placeholder={disabled ? 'Select a document above to start asking questions…' : 'Ask anything about your documents…'}
           disabled={disabled || isStreaming}
           rows={1}
-          className="flex-1 resize-none bg-transparent text-sm text-surface-900 dark:text-white placeholder:text-surface-400 focus:outline-none min-h-[24px] max-h-40 leading-6 disabled:opacity-50"
+          className="flex-1 resize-none bg-transparent text-sm text-surface-900 dark:text-white placeholder:text-surface-400 focus:outline-none min-h-[24px] max-h-40 leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
         />
 
         <div className="flex items-center gap-1.5 shrink-0">

@@ -1,11 +1,11 @@
+import os
 import json
-import time
 import uuid
 import statistics
 from pathlib import Path
 from datetime import datetime, date
-from dataclasses import dataclass, field, asdict
-from typing import List, Optional, Dict, Any
+from dataclasses import dataclass, asdict
+from typing import List, Optional, Dict
 
 from config.settings import get_settings
 from config.logging_config import get_logger
@@ -42,6 +42,7 @@ class RequestMetric:
     citation_count: int
 
     success: bool
+    request_type: str = "chat"
     error: Optional[str] = None
 
 @dataclass
@@ -107,10 +108,13 @@ def _compute_percentile(values: List[float], p: float) -> float:
 
 class MetricsTracker:
     def __init__(self):
+        os.environ["ANONYMIZED_TELEMETRY"] = "False"
+        os.environ["CHROMA_TELEMETRY_ENABLED"] = "False"
+
         self.metrics_dir = settings.metrics_log_path
         self.metrics_dir.mkdir(parents = True, exist_ok = True)
 
-        logger.info(
+        logger.debug(
             "metrics_tracker_initialized",
             metrics_dir = str(self.metrics_dir)
         )
@@ -172,6 +176,7 @@ class MetricsTracker:
             support_ratio = support_ratio,
             citation_count = citation_count,
             success = rag_response.success,
+            request_type = getattr(rag_response, "request_type", "chat"),
             error = rag_response.error
         )
 
@@ -187,17 +192,12 @@ class MetricsTracker:
 
         return metric
     
-    def get_latency_stats(self, days: int = 7) -> LatencyStats:
-        records = self._load_recent_records(days)
-
-        if not records:
-            return LatencyStats(
-                p50_ms=0, p95_ms=0, p99_ms=0,
-                min_ms=0, max_ms=0, avg_ms=0, samples=0
-            )
+    def get_latency_stats(self, days: int = 7, records: Optional[List[dict]] = None) -> LatencyStats:
+        if records is None:
+            records = self._load_recent_records(days)
 
         latencies = [
-            r["total_latency_ms"]
+            r.get("total_latency_ms", 0)
             for r in records
             if r.get("success") and r.get("total_latency_ms")
         ]
@@ -218,8 +218,9 @@ class MetricsTracker:
             samples = len(latencies)
         )
     
-    def get_daily_summary(self, days: int = 7) -> List[DailySummary]:
-        records = self._load_recent_records(days)
+    def get_daily_summary(self, days: int = 7, records: Optional[List[dict]] = None) -> List[DailySummary]:
+        if records is None:
+            records = self._load_recent_records(days)
 
         by_date: Dict[str, List[dict]] = {}
         for r in records:
@@ -236,7 +237,7 @@ class MetricsTracker:
             failed = [r for r in day_records if not r.get("success")]
 
             latencies = [
-                r["total_latency_ms"]
+                r.get("total_latency_ms", 0)
                 for r in successful
                 if r.get("total_latency_ms")
             ]
@@ -274,8 +275,8 @@ class MetricsTracker:
     
     def get_summary(self, days: int = 7) -> dict:
         records = self._load_recent_records(days)
-        latency = self.get_latency_stats(days)
-        daily = self.get_daily_summary(days)
+        latency = self.get_latency_stats(days, records = records)
+        daily = self.get_daily_summary(days, records = records)
 
         total_requests = len(records)
         total_cost = sum(r.get("cost_usd", 0) for r in records)
@@ -321,6 +322,17 @@ class MetricsTracker:
             },
 
             "avg_support_ratio": avg_support,
-
-            "daily": [asdict(d) for d in daily]
+            "daily": [asdict(d) for d in daily],
+            "breakdown": {
+                "chat": {
+                    "count": len([r for r in records if r.get("request_type", "chat") == "chat"]),
+                    "cost": round(sum(r.get("cost_usd", 0) for r in records if r.get("request_type", "chat") == "chat"), 6),
+                    "tokens": sum(r.get("total_tokens", 0) for r in records if r.get("request_type", "chat") == "chat")
+                },
+                "evaluation": {
+                    "count": len([r for r in records if r.get("request_type") == "evaluation"]),
+                    "cost": round(sum(r.get("cost_usd", 0) for r in records if r.get("request_type") == "evaluation"), 6),
+                    "tokens": sum(r.get("total_tokens", 0) for r in records if r.get("request_type") == "evaluation")
+                }
+            }
         }

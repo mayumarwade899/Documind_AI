@@ -1,0 +1,171 @@
+{
+  "query": "What is the purpose of 'Chains' within the LangChain framework?",
+  "document_id": null,
+  "cached_at": 1776282823.365728,
+  "response": {
+    "answer": "Within the LangChain framework, 'Chains' serve a specific purpose in managing data flow and processing within complex workflows.\n\n*   **Definition of Chains:** Chains are defined as sequences of tasks that are executed in a specific order.\n*   **Functionality:** Their primary role is to manage the flow of data and the processing steps involved in intricate workflows. This indicates that they orchestrate multiple operations or components to achieve a larger objective, ensuring that tasks are performed sequentially and data is handled appropriately at each stage.",
+    "query": "What is the purpose of 'Chains' within the LangChain framework?",
+    "rewritten_query": "What is the purpose of 'Chains' within the LangChain framework?",
+    "sources": [
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 74,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p74_c0",
+        "relevance_score": 1.0,
+        "content_preview": "LangChain Framework\nLangChain Components\nChains: Sequences of tasks executed in order to manage data flow and\nprocessing in complex workflows. Created by Goyashy (@explainx.ai)\nAgents: Entities that i..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 71,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p71_c0",
+        "relevance_score": 0.8627,
+        "content_preview": "LangChain Framework\nIntroduction to LangChain\nLangChain is a framework for integrating large\nlanguage models with external data sources,\nfacilitating retrieval-augmented generation (RAG). Created by G..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 75,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p75_c0",
+        "relevance_score": 0.8386,
+        "content_preview": "LangChain Framework\nLangChain Expression Language (LCEL)\nSyntax and Basic Usage\nSyntax:\nLCEL uses a simple, expressive syntax to define data transformations and interactions within LangChain. It often..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 76,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p76_c0",
+        "relevance_score": 0.697,
+        "content_preview": "LangChain Framework\nBenefits of Using LCEL in RAG Pipelines\nEnhanced Flexibility:\nLCEL provides a flexible way to define and adjust data processing and\ntransformations, allowing for easy customization..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 86,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p86_c0",
+        "relevance_score": 0.6646,
+        "content_preview": "Hypothesis Generation: HyDE Technique\nImplementing HyDE with LangChain\nLangChain Overview:\nA framework for building applications that integrate language models for\nvarious tasks. Created by Goyashy (@..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p74_c0",
+        "content": "LangChain Framework\nLangChain Components\nChains: Sequences of tasks executed in order to manage data flow and\nprocessing in complex workflows. Created by Goyashy (@explainx.ai)\nAgents: Entities that interact with external systems to perform tasks or\nretrieve information based on user input. Memory: Stores and retrieves contextual information to maintain\ncontinuity and relevance in interactions. Prompts: Templates that guide the LLM to produce specific, accurate\noutputs by framing input data effectively.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 74,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 1.0,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.016235,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.016235,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p71_c0",
+        "content": "LangChain Framework\nIntroduction to LangChain\nLangChain is a framework for integrating large\nlanguage models with external data sources,\nfacilitating retrieval-augmented generation (RAG). Created by Goyashy (@explainx.ai)\nIt offers modular design, pre-built components,\nand flexible integration, simplifying the\ndevelopment and deployment of context-aware\nAI applications.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 71,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.8627,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015975,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.8627,
+          "rerank_rank": 2,
+          "original_score": 0.015975,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p75_c0",
+        "content": "LangChain Framework\nLangChain Expression Language (LCEL)\nSyntax and Basic Usage\nSyntax:\nLCEL uses a simple, expressive syntax to define data transformations and interactions within LangChain. It often involves\nspecifying variables, functions, and operations to handle data flow and processing. Example:\nCreated by Goyashy (@explainx.ai)\nThis example shows a transformation operation where input data is filtered for \"keyword\" and then processed by function. Basic Usage:\nDefine Operations: Use LCEL to specify how data should be manipulated or processed at various stages of the RAG pipeline. Combine Components: Integrate different LangChain components (like Chains or Agents) using LCEL to create complex\nworkflows. Parameterize: LCEL allows for parameterized expressions, making it easier to adapt and reuse expressions across different\ncontexts.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 75,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.8386,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015806,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.8386,
+          "rerank_rank": 3,
+          "original_score": 0.015806,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p76_c0",
+        "content": "LangChain Framework\nBenefits of Using LCEL in RAG Pipelines\nEnhanced Flexibility:\nLCEL provides a flexible way to define and adjust data processing and\ntransformations, allowing for easy customization of RAG pipelines. Improved Clarity:\nCreated by Goyashy (@explainx.ai) Its expressive syntax helps clearly specify the sequence of operations and\ninteractions, improving the readability and maintainability of the pipeline code. Streamlined Integration:\nLCEL facilitates the integration of various components and data sources,\nmaking it simpler to build and manage complex RAG systems. Efficient Development:\nReduces boilerplate code and simplifies the implementation of common\npatterns, accelerating the development process and reducing errors.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 76,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.697,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015245,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.697,
+          "rerank_rank": 4,
+          "original_score": 0.015245,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p86_c0",
+        "content": "Hypothesis Generation: HyDE Technique\nImplementing HyDE with LangChain\nLangChain Overview:\nA framework for building applications that integrate language models for\nvarious tasks. Created by Goyashy (@explainx.ai)\nImplementation Steps:\n1.Define Scenarios: Identify where hypothetical embeddings are needed. 2.Generate Embeddings: Use LangChain to create these embeddings\nbased on context. 3.Integrate: Incorporate embeddings into the retrieval system for better\nsearch results. Advantage: HyDE with LangChain expands retrieval by exploring more\npossibilities.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 86,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.6646,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.014838,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.6646,
+          "rerank_rank": 5,
+          "original_score": 0.014838,
+          "original_method": "hybrid"
+        }
+      }
+    ],
+    "total_latency_ms": 3598.77,
+    "retrieval_latency_ms": 511.41,
+    "reranking_latency_ms": 858.53,
+    "generation_latency_ms": 2228.06,
+    "input_tokens": 891,
+    "output_tokens": 104,
+    "total_tokens": 995,
+    "cost_usd": 0.0001307,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "hybrid"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

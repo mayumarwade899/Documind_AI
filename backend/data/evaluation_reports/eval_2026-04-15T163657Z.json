@@ -1,0 +1,119 @@
+{
+    "run_id": "6daa63da",
+    "timestamp": "2026-04-15T16:36:57Z",
+    "dataset_size": 6,
+    "overall_passed": true,
+    "avg_score": 0.8583,
+    "metrics": {
+        "faithfulness": {
+            "score": 0.9833333333333334,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "context_relevance": {
+            "score": 0.7333333333333334,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "answer_correctness": {
+            "score": 0.8583333333333334,
+            "passed": true,
+            "threshold": 0.6
+        }
+    },
+    "evaluation_latency_ms": 138473.08,
+    "total_cost_usd": 0.001155,
+    "total_tokens": 9656,
+    "questions": [
+        {
+            "query": "What are the main topics covered in the document?",
+            "type": "baseline",
+            "answer": "The main topics covered in the documents are:\n\n*   **Building a Basic RAG Pipeline and RAG Architecture:** This includes an overview of components such as the Document Corpus, Language Model, Embedding Model, Prompt Template, Vector Database, Orchestrator, and Retriever.\n*   **LLM-Based Document Filtering:** This involves implementing a relevance scoring system using LLMs to assess document relevance, capturing nuanced meanings and context, and its use cases for precise relevance needs.\n*   **RAG-specific metrics - Relevance:** This defines relevance as the quality of retrieved documents and their contribution to answering a user's query, measuring how closely documents match the query and their helpfulness for generating output.\n*   **Current State-of-the-Art in AI:** This covers advancements like Transformers and beyond (exploring efficiency improvements and multimodal capabilities), Ethical and Responsible AI (focus on making LLMs more ethical, fair, and interpretable, addressing bias and environmental impact), and Real-World Applications of LLMs (integral to personalized assistants, content creation, and advanced research tools).\n*   **Research on Mobile Devices for English Study:** This details an interview process to encourage subjects to describe their learning experiences using mobile devices for English study, including specific questions asked about device usage, frequency, apps, and formal or informal study.",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 0.9,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "```json\n{\"score\": 1.0}\n```",
+                "faithfulness": "```json\n{\"score\": 0.9}\n```",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        },
+        {
+            "query": "can you tell me how to draft documents?",
+            "type": "baseline",
+            "answer": "I cannot find this information in the provided documents.",
+            "scores": {
+                "relevance": 0.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "```json\n{\"score\": 0.0}\n```",
+                "faithfulness": "{\"score\": 1.0}",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        },
+        {
+            "query": "Who created this document and when?",
+            "type": "baseline",
+            "answer": "*   **Creator:** Goyashy (@explainx.ai)\n\nI cannot find information about when this document was created in the provided documents.",
+            "scores": {
+                "relevance": 0.9,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 0.9}",
+                "faithfulness": "```json\n{\"score\": 1.0}\n```",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        },
+        {
+            "query": "Beyond reimbursement of authorized expenses, under what specific conditions can a member of the Indian Industries Association legitimately receive financial remuneration or payment from the Society, according to the provided text?",
+            "type": "recent",
+            "answer": "According to the provided documents, beyond reimbursement of authorized expenses, a member of the Indian Industries Association can legitimately receive financial remuneration or payment from the Society under the following specific conditions:\n\n*   **For Services Actually Rendered:**",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 0.7
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 1.0}",
+                "faithfulness": "{\"score\": 1.0}",
+                "correctness": "```json\n{\"score\": 0.7}\n```"
+            }
+        },
+        {
+            "query": "In the event of a dispute arising specifically amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process, what is the designated authority for adjudging its affairs and taking the final decision?",
+            "type": "recent",
+            "answer": "In the event of a dispute arising amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process:\n\n*   The adjudgement of its affairs shall be referred to the **principal court of original civil jurisdiction of Lucknow (U.P.)**.\n*   The final decision shall be taken as per the **directions of the court**.",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 1.0}",
+                "faithfulness": "{\"score\": 1.0}",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        },
+        {
+            "query": "Given the 'Current State-of-the-Art' trend towards multimodal capabilities integrating text, images, and other data types, how do the specifically listed 'Document Loaders' (PDF, HTML, CSV, JSON) currently support or fall short in ingesting such diverse data for a RAG system, and what implications does this gap have for a developer choosing between open-source and closed-source models based on their customizability and performance characteristics?",
+            "type": "random",
+            "answer": "Given the 'Current State-of-the-Art' trend towards multimodal capabilities that integrate text, images, and other data types, the specifically listed 'Document Loaders' primarily support the ingestion of textual and structured data:\n\n*   **PDF Loaders**:\n    *   **Function**: Extracts data from PDFs.\n    *   **Use Cases**: Research papers, reports, legal documents.\n    *   **Support for Multimodal Data**: While PDFs can contain images, the description focuses on extracting \"data\" from PDFs, not explicitly ingesting or processing images as a distinct multimodal data type for integration.\n*   **HTML Loaders**:\n    *   **Function**: Parses and extracts content from HTML.\n    *   **Use Cases**: Blog posts, articles, web content.\n    *   **Support for Multimodal Data**: HTML can embed or reference images, but the description emphasizes extracting \"content,\" not explicitly ingesting or processing images as a distinct multimodal data type",
+            "scores": {
+                "relevance": 0.5,
+                "faithfulness": 1.0,
+                "correctness": 0.45
+            },
+            "judge_reasoning": {
+                "relevance": "```json\n{\"score\": 0.5}\n```",
+                "faithfulness": "```json\n{\"score\": 1.0}\n```",
+                "correctness": "```json\n{\"score\": 0.45}\n```"
+            }
+        }
+    ]
+}

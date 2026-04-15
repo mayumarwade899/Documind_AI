@@ -1,7 +1,6 @@
 from dataclasses import dataclass, field
 from typing import List
 import re
-import uuid
 
 from config.settings import get_settings
 from config.logging_config import get_logger
@@ -107,7 +106,7 @@ class DocumentChunker:
         self.chunk_size = chunk_size or settings.chunking.chunk_size
         self.chunk_overlap = chunk_overlap or settings.chunking.chunk_overlap
 
-        logger.info(
+        logger.debug(
             "chunker initialized",
             chunk_size = self.chunk_size,
             chunk_overlap = self.chunk_overlap
@@ -123,14 +122,13 @@ class DocumentChunker:
         chunks = []
         for idx, chunk_text in enumerate(raw_chunks):
             chunk = DocumentChunk(
-                # Unique ID: document_id + page + chunk index
                 chunk_id = f"{page.document_id}_p{page.page_number}_c{idx}",
                 content = chunk_text,
                 document_id = page.document_id,
                 source_file = page.source_file,
                 page_number = page.page_number,
                 chunk_index = idx,
-                total_chunks = 0,          # Updated after all pages processed
+                total_chunks = 0,
                 token_count = _estimate_tokens(chunk_text),
                 metadata={
                     **page.metadata,
@@ -147,7 +145,7 @@ class DocumentChunker:
             return []
         
         source_file = pages[0].source_file
-        logger.info(
+        logger.debug(
             "chunking_started",
             source_file = source_file,
             total_pages = len(pages)
@@ -163,7 +161,7 @@ class DocumentChunker:
         for chunk in all_chunks:
             chunk.total_chunks = total
 
-        logger.info(
+        logger.debug(
             "chunking_complete",
             source_file = source_file,
             total_chunks = total,
@@ -188,7 +186,7 @@ class DocumentChunker:
                     error=str(e)
                 )
 
-        logger.info(
+        logger.debug(
             "all_documents_chunked",
             total_documents=len(documents),
             total_chunks=len(all_chunks)

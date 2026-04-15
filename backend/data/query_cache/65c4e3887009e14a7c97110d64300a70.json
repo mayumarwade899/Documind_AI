@@ -1,0 +1,172 @@
+{
+  "query": "Considering a RAG system designed for continuous learning and handling novel queries via zero-shot techniques, how would the selection of a similarity metric (e.g., Cosine Similarity vs. Euclidean Distance) impact its performance and scalability when deployed on distributed vector databases utilizing sharding and replication for high availability?",
+  "document_id": null,
+  "cached_at": 1776261926.9967678,
+  "response": {
+    "answer": "I cannot find this information in the provided documents.",
+    "query": "Considering a RAG system designed for continuous learning and handling novel queries via zero-shot techniques, how would the selection of a similarity metric (e.g., Cosine Similarity vs. Euclidean Distance) impact its performance and scalability when deployed on distributed vector databases utilizing sharding and replication for high availability?",
+    "rewritten_query": "Considering a RAG system designed for continuous learning and handling novel queries via zero-shot techniques, how would the selection of a similarity metric (e.g., Cosine Similarity vs. Euclidean Distance) impact its performance and scalability when deployed on distributed vector databases utilizing sharding and replication for high availability?",
+    "sources": [
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 170,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p170_c0",
+        "relevance_score": 1.0,
+        "content_preview": "Continuous Learning And Adaptive Retrieval In RAG\nSystems\nExploration of Few-Shot and Zero-Shot Learning in RAG\nApplication in RAG:\nEnables handling of novel queries without prior\nCreated by Goyashy (..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 171,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p171_c0",
+        "relevance_score": 0.9895,
+        "content_preview": "Continuous Learning And Adaptive Retrieval In RAG\nSystems\nExploration of Few-Shot and Zero-Shot Learning in RAG\nCreated by Goyashy (@explAaindx.aai)ptive Retrieval in Few-Shot and Zero-Shot Scenarios:..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 48,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p48_c0",
+        "relevance_score": 0.5184,
+        "content_preview": "Role In RAG Systems\nFast Similarity Search for Relevant Information Retrieval\nSimilarity Search: When a query is received, the RAG system generates a\nquery embedding. The vector database performs a fa..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 129,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p129_c0",
+        "relevance_score": 0.4479,
+        "content_preview": "Scaling And Deploying RAG Systems\nScaling Retrieval with Distributed Vector Databases\nVector Databases: Use distributed databases like Pinecone, Milvus,\nor Weaviate for fast similarity searches and ha..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 106,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p106_c0",
+        "relevance_score": 0.274,
+        "content_preview": "Metrics for Evaluating RAG Performance\nBERTScore\nDefinition: BERTScore uses contextual embeddings from BERT to compare the semantic\nsimilarity between the generated and reference texts, rather than fo..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p170_c0",
+        "content": "Continuous Learning And Adaptive Retrieval In RAG\nSystems\nExploration of Few-Shot and Zero-Shot Learning in RAG\nApplication in RAG:\nEnables handling of novel queries without prior\nCreated by Goyashy (@explainx.ai)\nexamples, crucial for RAG systems dealing with\nnew or unseen tasks. Zero-Shot\nLearning\nTechniques:\nUses pre-trained language models to interpret new\nqueries, supported by embedding-based retrieval to\nmatch queries with relevant information.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 170,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 1.0,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.009375,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.009375,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p171_c0",
+        "content": "Continuous Learning And Adaptive Retrieval In RAG\nSystems\nExploration of Few-Shot and Zero-Shot Learning in RAG\nCreated by Goyashy (@explAaindx.aai)ptive Retrieval in Few-Shot and Zero-Shot Scenarios:\nThe retrieval component of a RAG system can be adapted to better\nsupport few-shot and zero-shot learning by using similarity search\ntechniques that are robust to variations in the input. For example,\nembedding-based retrieval methods, which represent both queries and\ndocuments in a shared vector space, allow the system to retrieve relevant\ninformation even when dealing with previously unseen queries.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 171,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.9895,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015774,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.9895,
+          "rerank_rank": 2,
+          "original_score": 0.015774,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p48_c0",
+        "content": "Role In RAG Systems\nFast Similarity Search for Relevant Information Retrieval\nSimilarity Search: When a query is received, the RAG system generates a\nquery embedding. The vector database performs a fast similarity search,\ncomparing this embedding against the stored document embeddings. Created by Goyashy (@explainx.ai)\nNearest Neighbor Search: The database identifies the most\nsemantically similar documents or passages to the query, enabling\nthe retrieval of the most relevant information. Real-Time Performance: The speed and efficiency of vector databases ensure\nthat relevant documents can be retrieved quickly, supporting real-time\napplications like chatbots, search engines, and recommendation systems.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 48,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.5184,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015275,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.5184,
+          "rerank_rank": 3,
+          "original_score": 0.015275,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p129_c0",
+        "content": "Scaling And Deploying RAG Systems\nScaling Retrieval with Distributed Vector Databases\nVector Databases: Use distributed databases like Pinecone, Milvus,\nor Weaviate for fast similarity searches and handling large-scale\nvectors. Created by Goyashy (@explainx.ai)\nSharding: Distribute data across multiple shards or nodes to\nenhance retrieval speed and enable horizontal scaling. Replication: Copy data across multiple nodes for high\navailability and fault tolerance.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 129,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.4479,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.016393,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.4479,
+          "rerank_rank": 4,
+          "original_score": 0.016393,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p106_c0",
+        "content": "Metrics for Evaluating RAG Performance\nBERTScore\nDefinition: BERTScore uses contextual embeddings from BERT to compare the semantic\nsimilarity between the generated and reference texts, rather than focusing on exact word\nmatches. Created by Goyashy (@explainx.ai)\nHow it Works: It computes the cosine similarity between embeddings of the words in the\ngenerated and reference texts to measure how close they are in meaning. Use Case: Useful for capturing the underlying meaning and context in tasks like abstractive\nsummarization and dialogue generation. BERTScore addresses the limitations of metrics\nlike BLEU and ROUGE by focusing on semantic similarity.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 106,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.274,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.01467,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.274,
+          "rerank_rank": 5,
+          "original_score": 0.01467,
+          "original_method": "hybrid"
+        }
+      }
+    ],
+    "total_latency_ms": 29487.17,
+    "retrieval_latency_ms": 599.06,
+    "reranking_latency_ms": 559.63,
+    "generation_latency_ms": 28325.78,
+    "input_tokens": 872,
+    "output_tokens": 10,
+    "total_tokens": 882,
+    "cost_usd": 9.12e-05,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "bm25",
+      "hybrid"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

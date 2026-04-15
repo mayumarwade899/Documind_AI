@@ -2,7 +2,6 @@ import { cn } from '../../utils/cn.js'
 import { formatCost, formatTokens, formatLatency } from '../../utils/format.js'
 import { CheckCircle, AlertCircle, Clock, DollarSign, Hash } from 'lucide-react'
 
-/* ─── ConfidenceBar ─── */
 export function ConfidenceBar({ ratio, hasCitations, className }) {
   const pct = Math.round((ratio ?? 0) * 100)
   const color =
@@ -31,7 +30,6 @@ export function ConfidenceBar({ ratio, hasCitations, className }) {
   )
 }
 
-/* ─── InlineMeta ─── */
 export function InlineMeta({ metrics, className }) {
   if (!metrics) return null
   return (
@@ -56,7 +54,6 @@ function MetaPill({ icon, value }) {
   )
 }
 
-/* ─── MetricCard ─── */
 export function MetricCard({ icon, label, value, sub, trend, color = 'brand' }) {
   const colors = {
     brand: 'bg-brand-50 dark:bg-brand-950/50 text-brand-600 dark:text-brand-400',

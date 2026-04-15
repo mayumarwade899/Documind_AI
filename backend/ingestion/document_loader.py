@@ -2,7 +2,7 @@ import os
 import hashlib
 from pathlib import Path
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List
 from datetime import datetime
 
 import pdfplumber
@@ -70,13 +70,13 @@ def _load_pdf(file_path: str, document_id: str) -> List[DocumentPage]:
     filename = Path(file_path).name
     pages = []
 
-    pypdf_reader = None  # Lazy-loaded only when pdfplumber fails
+    pypdf_reader = None
 
     try:
         plumber_doc = pdfplumber.open(file_path)
         total_pages = len(plumber_doc.pages)
 
-        logger.info(
+        logger.debug(
             "pdf_loading_started",
             filename = filename,
             total_pages = total_pages

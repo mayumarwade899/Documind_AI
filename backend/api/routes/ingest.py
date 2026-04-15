@@ -3,7 +3,6 @@ from pathlib import Path
 
 from fastapi import APIRouter, UploadFile, File, Depends, HTTPException
 from pydantic import BaseModel
-from typing import Optional
 
 from ingestion.pipeline import IngestionPipeline
 from api.dependencies import get_ingestion_pipeline
@@ -149,9 +148,10 @@ async def delete_document(
             raise HTTPException(status_code=404, detail="Document not found")
 
         try:
-            pipeline.bm25.rebuild_index(pipeline.vector_store)
-        except Exception:
-            logger.warning("bm25_rebuild_after_delete_failed")
+            bm25_removed = pipeline.bm25.delete_document(document_id)
+            logger.info("bm25_delete_synced", document_id=document_id, chunks_removed=bm25_removed)
+        except Exception as e:
+            logger.warning("bm25_delete_after_vector_delete_failed", error=str(e))
 
         return {"success": True, "document_id": document_id, "chunks_deleted": deleted}
     except HTTPException:

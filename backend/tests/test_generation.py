@@ -1,7 +1,6 @@
 import pytest
-from unittest.mock import MagicMock, patch
 from generation.prompt_builder import PromptBuilder
-from generation.llm_client import GeminiClient, _calculate_cost
+from generation.llm_client import _calculate_cost
 from retrieval.vector_store import RetrievedChunk
 
 def make_chunk(

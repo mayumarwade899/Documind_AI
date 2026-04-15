@@ -1,4 +1,4 @@
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict, Optional
 from collections import defaultdict
 
 from retrieval.vector_store import VectorStore, RetrievedChunk
@@ -82,14 +82,14 @@ class HybridRetriever:
         self.bm25_retriever = bm25_retriever or BM25Retriever()
         self.embedder = embedder or GeminiEmbedder()
 
-        logger.info("hybrid_retriever_initialized")
+        logger.debug("hybrid_retriever_initialized")
 
     def retrieve(
             self,
             query: str,
             top_k: int = None,
-            bm25_weight: float = 0.5,
-            vector_weight: float = 0.5,
+            bm25_weight: float = None,
+            vector_weight: float = None,
             filter_document_id: Optional[str] = None
     ) -> List[RetrievedChunk]:
         if not query.strip():
@@ -98,8 +98,11 @@ class HybridRetriever:
         
         k = top_k or settings.retrieval.final_top_k
         candidate_k = settings.retrieval.vector_search_top_k
+        
+        bw = bm25_weight if bm25_weight is not None else settings.retrieval.bm25_weight
+        vw = vector_weight if vector_weight is not None else settings.retrieval.vector_weight
 
-        logger.info(
+        logger.debug(
             "hybrid_retrieval_started",
             query_preview = query[:80],
             candidate_k = candidate_k,
@@ -149,18 +152,18 @@ class HybridRetriever:
             return []
         
         if not bm25_results:
-            logger.info("using_vector_only_fallback")
+            logger.debug("using_vector_only_fallback")
             return vector_results[:k]
 
         if not vector_results:
-            logger.info("using_bm25_only_fallback")
+            logger.debug("using_bm25_only_fallback")
             return bm25_results[:k]
         
         merged = _reciprocal_rank_fusion(
             bm25_results = bm25_results,
             vector_results = vector_results,
-            bm25_weight = bm25_weight,
-            vector_weight = vector_weight
+            bm25_weight = bw,
+            vector_weight = vw
         )
 
         final_results = merged[:k]
@@ -170,7 +173,7 @@ class HybridRetriever:
             if c.retrieval_method == "hybrid"
         )
 
-        logger.info(
+        logger.debug(
             "hybrid_retrieval_complete",
             query_preview = query[:80],
             bm25_candidates = len(bm25_results),
@@ -231,7 +234,7 @@ class HybridRetriever:
             reverse = True
         )[:k]
 
-        logger.info(
+        logger.debug(
             "multi_query_retrieval_complete",
             queries_run = len(queries),
             unique_chunks = len(deduplicated)

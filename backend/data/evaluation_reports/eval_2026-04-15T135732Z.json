@@ -1,0 +1,83 @@
+{
+    "run_id": "66505c1b",
+    "timestamp": "2026-04-15T13:57:32Z",
+    "dataset_size": 6,
+    "overall_passed": false,
+    "avg_score": 0.5972,
+    "metrics": {
+        "faithfulness": {
+            "score": 0.6416666666666666,
+            "passed": false,
+            "threshold": 0.7
+        },
+        "context_relevance": {
+            "score": 0.7999999999999999,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "answer_correctness": {
+            "score": 0.35000000000000003,
+            "passed": false,
+            "threshold": 0.6
+        }
+    },
+    "evaluation_latency_ms": 226895.01,
+    "total_cost_usd": 0.001109,
+    "total_tokens": 9492,
+    "questions": [
+        {
+            "query": "What are the main topics covered in the document?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 0.9,
+                "correctness": 0.1
+            }
+        },
+        {
+            "query": "can you tell me how to draft documents?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 0.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            }
+        },
+        {
+            "query": "Who created this document and when?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 0.9,
+                "faithfulness": 0.0,
+                "correctness": 0.0
+            }
+        },
+        {
+            "query": "Beyond reimbursement of authorized expenses, under what specific conditions can a member of the Indian Industries Association legitimately receive financial remuneration or payment from the Society, according to the provided text?",
+            "type": "recent",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 0.95,
+                "correctness": 0.0
+            }
+        },
+        {
+            "query": "In the event of a dispute arising specifically amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process, what is the designated authority for adjudging its affairs and taking the final decision?",
+            "type": "recent",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            }
+        },
+        {
+            "query": "Considering the strategies for 'Scaling And Deploying RAG Systems' which include caching and load balancing, how do these external deployment techniques interact with the 'Core Components of Vector Databases,' specifically their internal indexing and scalability features, to ensure efficient retrieval for AI applications?",
+            "type": "random",
+            "scores": {
+                "relevance": 0.9,
+                "faithfulness": 0.0,
+                "correctness": 0.0
+            }
+        }
+    ]
+}

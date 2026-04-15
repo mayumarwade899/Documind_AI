@@ -1,0 +1,154 @@
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T13:51:04.684195Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T13:51:04.684195Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T13:51:04.687714Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionGetEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T13:54:09.471975Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T13:54:51.510341Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T13:55:12.103724Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T13:55:29.334082Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T13:56:09.524176Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T13:56:28.639061Z"}
+{"path": "data\\evaluation_reports\\eval_2026-04-15T135732Z.json", "cost_usd": 0.0011090999999999998, "event": "hybrid_report_saved", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T13:57:32.253730Z"}
+{"query": "What are the main topics covered in the document?", "cache_id": "0d32bf567d4c02ba54fa8ca82f4715cf", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T13:58:19.630832Z"}
+{"query": "can you tell me how to draft documents?", "cache_id": "ddddcec79711efd73185063ee6c9df0c", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T13:58:53.077864Z"}
+{"query": "Who created this document and when?", "cache_id": "d914ab393a785b50fc9d905f7c259c94", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T14:02:35.111077Z"}
+{"query": "Beyond reimbursement of authorized expenses, under", "cache_id": "1d643f38363a2a50f655d08eaad4a414", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T14:03:49.094972Z"}
+{"query": "In the event of a dispute arising specifically amo", "cache_id": "fa04a673b2ab17ef4275c8999465a5f8", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T14:04:42.384490Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T14:04:58.108657Z"}
+{"path": "data\\evaluation_reports\\eval_2026-04-15T140653Z.json", "cost_usd": 0.0011208, "event": "hybrid_report_saved", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T14:06:53.589268Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:08:26.487596Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:09:01.465700Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:09:01.465700Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:09:01.465700Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionGetEvent: capture() takes 1 positional argument but 3 were given
+{"query": "What are the main topics covered in the document?", "cache_id": "0d32bf567d4c02ba54fa8ca82f4715cf", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T14:09:26.713288Z"}
+{"query": "can you tell me how to draft documents?", "cache_id": "ddddcec79711efd73185063ee6c9df0c", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T14:09:52.955933Z"}
+{"query": "Who created this document and when?", "cache_id": "d914ab393a785b50fc9d905f7c259c94", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T14:11:02.927436Z"}
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T14:11:27.126411Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T14:11:56.544745Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T14:12:33.687768Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:12:54.453662Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:12:54.454214Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:12:54.454803Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:12:54.456463Z"}
+{"path": "data\\evaluation_reports\\eval_2026-04-15T141319Z.json", "cost_usd": 0.0010964999999999998, "event": "hybrid_report_saved", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T14:13:19.538206Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:16:56.799515Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:16:56.799515Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:16:56.799515Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T14:16:56.803639Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T16:10:57.908391Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T16:11:31.154077Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T16:11:47.244458Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T16:12:03.429468Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T16:12:49.492780Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T16:13:08.653662Z"}
+{"path": "data\\evaluation_reports\\eval_2026-04-15T161345Z.json", "cost_usd": 0.001179, "event": "hybrid_report_saved", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T16:13:45.257307Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T16:32:18.823949Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T16:34:07.122122Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T16:34:07.122122Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T16:34:07.122122Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionGetEvent: capture() takes 1 positional argument but 3 were given
+{"step": "1/6", "query": "What are the main topics covered in the document?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T16:34:57.373896Z"}
+{"query": "What are the main topics covered in the document?", "cache_id": "0d32bf567d4c02ba54fa8ca82f4715cf", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T16:34:57.396645Z"}
+{"step": "2/6", "query": "can you tell me how to draft documents?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T16:35:16.922603Z"}
+{"query": "can you tell me how to draft documents?", "cache_id": "ddddcec79711efd73185063ee6c9df0c", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T16:35:16.947213Z"}
+{"step": "3/6", "query": "Who created this document and when?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T16:35:26.479477Z"}
+{"query": "Who created this document and when?", "cache_id": "d914ab393a785b50fc9d905f7c259c94", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T16:35:26.500538Z"}
+{"step": "4/6", "query": "Beyond reimbursement of authorized expenses, under what specific conditions can ...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T16:35:34.006420Z"}
+{"query": "Beyond reimbursement of authorized expenses, under", "cache_id": "1d643f38363a2a50f655d08eaad4a414", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T16:35:34.027885Z"}
+{"step": "5/6", "query": "In the event of a dispute arising specifically amongst the Central Executive Com...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T16:35:56.348622Z"}
+{"query": "In the event of a dispute arising specifically amo", "cache_id": "fa04a673b2ab17ef4275c8999465a5f8", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T16:35:56.365704Z"}
+{"step": "6/6", "query": "Given the 'Current State-of-the-Art' trend towards multimodal capabilities integ...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T16:36:05.244602Z"}
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T16:36:06.144851Z"}
+{"path": "data\\evaluation_reports\\eval_2026-04-15T163657Z.json", "cost_usd": 0.0011549, "event": "hybrid_report_saved", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T16:36:57.697007Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T17:27:09.094778Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T17:28:45.734171Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T17:28:45.735195Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T17:28:45.736194Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T17:29:07.803855Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T17:29:07.803855Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T17:29:07.803855Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T17:32:51.145194Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T17:33:13.808332Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T17:33:13.808332Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T17:33:13.808332Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionGetEvent: capture() takes 1 positional argument but 3 were given
+{"step": "1/6", "query": "What are the main topics covered in the document?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:00:08.394559Z"}
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T18:00:09.424869Z"}
+{"step": "2/6", "query": "can you tell me how to draft documents?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:00:51.307231Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T18:00:51.836150Z"}
+{"step": "3/6", "query": "Who created this document and when?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:01:55.302284Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T18:01:55.939190Z"}
+{"step": "4/6", "query": "Under what specific conditions is it permissible for a governing body member to ...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:02:27.754588Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T18:02:28.394551Z"}
+{"step": "5/6", "query": "In the event of a dispute arising amongst the Central Executive Committee (CEC) ...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:02:53.565568Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T18:02:54.206017Z"}
+{"step": "6/6", "query": "Considering the EUROCALL Review's methodology of transcribing data in Microsoft ...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:03:06.461372Z"}
+{"is_summary": true, "final_top_k": 8, "context_budget": 4000, "max_output_tokens": 2000, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T18:03:07.103725Z"}
+{"path": "data\\evaluation_reports\\eval_2026-04-15T180356Z.json", "cost_usd": 0.0011516, "event": "hybrid_report_saved", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:03:56.135891Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:07:00.064313Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:08:52.444742Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:08:52.444742Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:08:52.444742Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:08:56.143841Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:09:36.450266Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:09:36.451182Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:09:36.452410Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionGetEvent: capture() takes 1 positional argument but 3 were given
+{"step": "1/6", "query": "What are the main topics covered in the document?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:10:13.982320Z"}
+{"query": "What are the main topics covered in the document?", "cache_id": "0d32bf567d4c02ba54fa8ca82f4715cf", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T18:10:14.028706Z"}
+{"step": "2/6", "query": "can you tell me how to draft documents?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:10:27.297419Z"}
+{"query": "can you tell me how to draft documents?", "cache_id": "ddddcec79711efd73185063ee6c9df0c", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T18:10:27.339614Z"}
+{"step": "3/6", "query": "Who created this document and when?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:10:54.023862Z"}
+{"query": "Who created this document and when?", "cache_id": "d914ab393a785b50fc9d905f7c259c94", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T18:10:54.074283Z"}
+{"step": "4/6", "query": "Beyond reimbursement of authorized expenses, under what specific conditions can ...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:11:12.963337Z"}
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T18:11:14.045372Z"}
+{"step": "5/6", "query": "In the event of a dispute arising specifically amongst the Central Executive Com...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:11:42.357661Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T18:11:43.041427Z"}
+{"step": "6/6", "query": "Considering a RAG pipeline where a vector database facilitates initial document ...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:12:03.039750Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T18:12:03.544713Z"}
+{"path": "data\\evaluation_reports\\eval_2026-04-15T181237Z.json", "cost_usd": 0.0010537, "event": "hybrid_report_saved", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:12:37.037723Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:25:07.193986Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:27:04.199328Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:27:04.201579Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:27:04.201579Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:27:37.021665Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:27:37.021665Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:27:37.021665Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionGetEvent: capture() takes 1 positional argument but 3 were given
+{"step": "1/6", "query": "What are the main topics covered in the document?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:28:17.676625Z"}
+{"query": "What are the main topics covered in the document?", "cache_id": "0d32bf567d4c02ba54fa8ca82f4715cf", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T18:28:17.721932Z"}
+{"step": "2/6", "query": "can you tell me how to draft documents?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:28:29.960718Z"}
+{"query": "can you tell me how to draft documents?", "cache_id": "ddddcec79711efd73185063ee6c9df0c", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T18:28:29.995380Z"}
+{"step": "3/6", "query": "Who created this document and when?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:29:16.248231Z"}
+{"query": "Who created this document and when?", "cache_id": "d914ab393a785b50fc9d905f7c259c94", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T18:29:16.287402Z"}
+{"step": "4/6", "query": "Under what specific conditions is it permissible for a governing body member to ...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:29:39.695375Z"}
+{"query": "Under what specific conditions is it permissible f", "cache_id": "a854200354ac1d9f9143c5482a472ff1", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T18:29:39.729259Z"}
+{"step": "5/6", "query": "In the event of a dispute arising amongst the Central Executive Committee (CEC) ...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:29:55.977441Z"}
+{"query": "In the event of a dispute arising amongst the Cent", "cache_id": "5df13cc1975a9ee62d33bce02186b4ec", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T18:29:56.003791Z"}
+{"step": "6/6", "query": "Considering a RAG system built with an open-source LLM designed to summarize aca...", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:30:11.134125Z"}
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+{"is_summary": true, "final_top_k": 8, "context_budget": 4000, "max_output_tokens": 2000, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T18:30:12.074120Z"}
+{"path": "data\\evaluation_reports\\eval_2026-04-15T183116Z.json", "cost_usd": 0.0014245, "event": "hybrid_report_saved", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T18:31:16.274158Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T18:45:01.774188Z"}

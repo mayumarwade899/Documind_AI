@@ -1,0 +1,119 @@
+{
+    "run_id": "9c875fb9",
+    "timestamp": "2026-04-15T19:53:51Z",
+    "dataset_size": 6,
+    "overall_passed": true,
+    "avg_score": 0.8861,
+    "metrics": {
+        "faithfulness": {
+            "score": 0.9583333333333334,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "context_relevance": {
+            "score": 0.8333333333333334,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "answer_correctness": {
+            "score": 0.8666666666666667,
+            "passed": true,
+            "threshold": 0.6
+        }
+    },
+    "evaluation_latency_ms": 155517.91,
+    "total_cost_usd": 0.00158,
+    "total_tokens": 12904,
+    "questions": [
+        {
+            "query": "What are the main topics covered in the document?",
+            "type": "baseline",
+            "answer": "The documents cover several main topics related to legal concepts, specifically focusing on **Conveyancing** and **Pleadings**, as well as general principles of **Law Branches** and **Fundamental Rules of Pleading**.",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 1.0}",
+                "faithfulness": "{\"score\": 1.0}",
+                "correctness": "{\"score\": 1.0}"
+            }
+        },
+        {
+            "query": "List the key takeaways from the document?",
+            "type": "baseline",
+            "answer": "## Document Title\nLegal Procedures, Patent Claims, and Information Retrieval Systems\n\n## Key Points\n- Substantive law defines rights, liabilities, and duties, while procedural law provides remedies for their enforcement, with both branches being complementary yet independent.",
+            "scores": {
+                "relevance": 0.0,
+                "faithfulness": 1.0,
+                "correctness": 0.2
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 0.0}",
+                "faithfulness": "{\"score\": 1.0}",
+                "correctness": "{\"score\": 0.2}"
+            }
+        },
+        {
+            "query": "What is the primary purpose of this document?",
+            "type": "baseline",
+            "answer": "The primary purpose of this document is to serve as a practical paper for students in their LL.B. V Term, specifically for Paper LB \u2013 502, which covers Drafting, Pleadings, and Conveyance. This paper is designed to be purely procedural and is related to the practical aspects of the legal profession.\n\nThe document outlines the requirements for students under this subject, which involve undertaking practical exercises in drafting various legal documents:\n\n*   **Pleadings**: Students are required to draft various applications, petitions, and replies related to specific litigation. These documents constitute a part of court proceedings and fall under the category of 'Pleadings'.\n*   **Conveyancing**: Students are also required to draft documents that reflect the conveyance of property from one person to another. The nomenclature of such documents depends on the nature of the dealings or transactions between the parties concerning the property, and this part falls under 'Conveyancing'.\n\nThese practical exercises are to be conducted in the classroom under the guidance of a teacher. The expectation is that students will recollect and apply what they have learned in other substantive subjects during their LL.B. Course. Due to the practical nature of this paper, no specific book is recommended, emphasizing the importance of class lectures for the subject.",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 0.9,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 1.0}",
+                "faithfulness": "```json\n{\"score\": 0.9}\n```",
+                "correctness": "{\"score\": 1.0}"
+            }
+        },
+        {
+            "query": "What is the maximum legal validity period for a granted patent?",
+            "type": "recent",
+            "answer": "A patent, once granted, can remain legally valid for a maximum period of 20 years. This period begins from the date on which the relevant patent application was filed.\n\nFor the patent to maintain its legal validity throughout this maximum period, certain conditions must be met:\n*   Periodic maintenance fees must be duly paid during this 20-year timeframe.\n*   The patent must not be revoked or declared invalid by a court.\n\nThis maximum period of 20 years is counted from the filing date of the application or from the date of an earlier related application.",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 0.9,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "```json\n{\"score\": 1.0}\n```",
+                "faithfulness": "{\"score\": 0.9}",
+                "correctness": "```json\n{\n  \"score\": 1.0\n}\n```"
+            }
+        },
+        {
+            "query": "What primary right does a patent confer on its owner regarding the protected invention?",
+            "type": "recent",
+            "answer": "A patent confers on its owner a primary legal right to prevent or stop others from making, using, offering for sale, selling, or importing the protected invention. This is often referred to as a \"right to exclude\" others.\n\nSpecifically, a patent grants its owner:\n*   **An exclusive right to prevent others:** This means the owner can legally stop all others from trespassing on the invention.\n*   **Actions that can be prevented:** The owner can prevent others from:\n    *   Making the patented product or process.\n    *   Using the patented product or process.\n    *   Offering the patented product for sale.\n    *   Selling the patented product.\n    *   Importing the patented product or process.\n\nIt is crucial to understand that this right is not a \"right or freedom to use\" the patented invention itself. Unlike a title deed for a piece of land, which gives the owner the right to occupy and use the land, a patent does not grant the owner the right to use their own protected invention. This distinction arises because an invention, even if patented, might be based on a concept that was already patented by someone else, and that prior patent might still be legally valid. In such cases, the boundaries of two distinct patents may overlap, unlike the physical boundaries of two pieces of land which never overlap.\n\nTherefore, the primary right conferred by a patent is solely the exclusive right to prevent others from engaging in specific commercial activities related to the defined invention without the owner's permission. This right is legally valid for a maximum period of 20 years, calculated from the filing date of the earliest relevant patent application, provided that periodic maintenance fees are paid and the patent is not revoked or declared invalid by a court.",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 0.95,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "```json\n{\"score\": 1.0}\n```",
+                "faithfulness": "```json\n{\"score\": 0.95}\n```",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        },
+        {
+            "query": "What is the purpose of 'Chains' within the LangChain framework?",
+            "type": "random",
+            "answer": "Within the LangChain framework, 'Chains' serve a specific purpose in managing data flow and processing within complex workflows.\n\n*   **Definition of Chains:** Chains are defined as sequences of tasks that are executed in a specific order.\n*   **Functionality:** Their primary role is to manage the flow of data and the processing steps involved in intricate workflows. This indicates that they orchestrate multiple operations or components to achieve a larger objective, ensuring that tasks are performed sequentially and data is handled appropriately at each stage.",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "```json\n{\n  \"score\": 1.0\n}\n```",
+                "faithfulness": "```json\n{\"score\": 1.0}\n```",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        }
+    ]
+}

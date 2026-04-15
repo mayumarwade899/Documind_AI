@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
-from typing import Optional, List
+from typing import Optional, List, Dict
 
 from generation.answer_generator import AnswerGenerator
 from verification.answer_verifier import AnswerVerifier
@@ -8,8 +9,10 @@ from monitoring.metrics_tracker import MetricsTracker
 from api.dependencies import (
     get_answer_generator,
     get_answer_verifier,
-    get_metrics_tracker
+    get_metrics_tracker,
+    get_session_manager
 )
+from monitoring.session_manager import SessionManager
 from config.logging_config import get_logger
 
 router = APIRouter(prefix = "/query", tags = ["Query"])
@@ -21,6 +24,8 @@ class QueryRequest(BaseModel):
     use_multi_query: bool = True
     verify_answer: bool = True
     document_id: Optional[str] = None
+    session_id: Optional[str] = None
+    history: List[Dict] = []
 
 class SourceItem(BaseModel):
     source_file: str
@@ -65,9 +70,10 @@ async def query(
     request: QueryRequest,
     generator: AnswerGenerator = Depends(get_answer_generator),
     verifier: AnswerVerifier = Depends(get_answer_verifier),
-    tracker: MetricsTracker = Depends(get_metrics_tracker)
+    tracker: MetricsTracker = Depends(get_metrics_tracker),
+    session_manager: SessionManager = Depends(get_session_manager)
 ):
-    logger.info(
+    logger.debug(
         "query_request_received",
         query_preview = request.query[:80]
     )
@@ -76,7 +82,8 @@ async def query(
             query = request.query,
             use_query_rewriting = request.use_query_rewriting,
             use_multi_query = request.use_multi_query,
-            filter_document_id = request.document_id
+            filter_document_id = request.document_id,
+            history = request.history
         )
     except Exception as e:
         logger.error("query_generation_failed", error = str(e))
@@ -114,6 +121,25 @@ async def query(
     except Exception as e:
         logger.warning("metrics_recording_failed", error = str(e))
 
+    if request.session_id:
+        try:
+            interaction = {
+                "query": request.query,
+                "rewritten_query": rag_response.rewritten_query,
+                "answer": rag_response.answer,
+                "sources": rag_response.sources,
+                "verification": verification_info.dict() if verification_info else None,
+                "metrics": {
+                    "total_latency_ms": rag_response.total_latency_ms,
+                    "total_tokens": rag_response.total_tokens,
+                    "cost_usd": rag_response.cost_usd,
+                    "num_chunks_used": len(rag_response.chunks_used)
+                }
+            }
+            session_manager.save_interaction(request.session_id, interaction)
+        except Exception as e:
+            logger.warning("session_recording_failed", error = str(e))
+
     return QueryResponse(
         success = rag_response.success,
         query = rag_response.query,
@@ -135,4 +161,46 @@ async def query(
             num_queries_used = rag_response.num_queries_used,
             retrieval_methods = rag_response.retrieval_methods
         )
+    )
+
+@router.get("/history/{session_id}", response_model = List[Dict])
+async def get_history(
+    session_id: str,
+    session_manager: SessionManager = Depends(get_session_manager)
+):
+    """Retrieve full history for a session."""
+    return session_manager.get_history(session_id)
+
+@router.delete("/history/{session_id}")
+async def clear_history(
+    session_id: str,
+    session_manager: SessionManager = Depends(get_session_manager)
+):
+    """Clear history for a session."""
+    success = session_manager.clear_session(session_id)
+    return {"success": success}
+
+# Streaming endpoint
+@router.post("/stream")
+async def query_stream(
+    request: QueryRequest,
+    generator: AnswerGenerator = Depends(get_answer_generator),
+):
+    """
+    SSE streaming variant of /query.
+    Each SSE event is a JSON object with type: meta / chunk / done / error.
+    """
+    def event_stream():
+        yield from generator.generate_stream(
+            query               = request.query,
+            use_query_rewriting = request.use_query_rewriting,
+            use_multi_query     = request.use_multi_query,
+            filter_document_id  = request.document_id,
+            history             = request.history,
+        )
+
+    return StreamingResponse(
+        event_stream(),
+        media_type = "text/event-stream",
+        headers    = {"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
     )

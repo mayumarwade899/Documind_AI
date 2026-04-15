@@ -1,13 +1,14 @@
 import time
-from dataclasses import dataclass, field
-from typing import List, Optional
-
+import re
+from dataclasses import dataclass, field, asdict
+from typing import List, Optional, Dict
 from retrieval.vector_store import RetrievedChunk
 from retrieval.hybrid_retriever import HybridRetriever
 from retrieval.query_rewriter import QueryRewriter, RewrittenQuery
 from reranking.cross_encoder import CrossEncoderReranker
 from generation.prompt_builder import PromptBuilder, BuiltPrompt
 from generation.llm_client import GeminiClient, LLMResponse
+from monitoring.query_cache import get_query_cache
 from config.settings import get_settings
 from config.logging_config import get_logger
 
@@ -58,14 +59,63 @@ class AnswerGenerator:
         self.prompt_builder = prompt_builder or PromptBuilder()
         self.llm_client = llm_client or GeminiClient()
 
-        logger.info("answer_generator_initialized")
+        logger.debug("answer_generator_initialized")
+
+    def _ensure_complete_sentences(self, text: str) -> str:
+        """
+        Trims text to the last complete sentence if it ends abruptly.
+        Follows VALID_ENDINGS = ('.', '!', '?', ':', ')', ']')
+        """
+        if not text:
+            return ""
+
+        valid_endings = (".", "!", "?", ":", ")", "]")
+        min_length = 30
+
+        text = text.strip()
+        
+        if text.endswith(valid_endings):
+            return text
+
+        pattern = r'[.!?:\]\)](?!.*[.!:?\]\)])'
+        last_match = list(re.finditer(pattern, text))
+        
+        if last_match:
+            last_idx = last_match[-1].end()
+            trimmed = text[:last_idx].strip()
+            
+            trimmed = re.sub(r'[,;\"\'\-\s]+$', '', trimmed)
+            
+            if trimmed.endswith(valid_endings):
+                if len(trimmed) >= min_length:
+                    return trimmed
+                else:
+                    logger.debug("trimmed_answer_too_short", length=len(trimmed))
+                    return ""
+        
+        logger.debug("no_sentence_boundary_found_for_trimming")
+        return ""
+
+
+    def _is_summary_query(self, query: str) -> bool:
+        """Detect if the query likely requires a summary output."""
+        keywords = {
+            "summary", "summarize", "summarise", "summarization",
+            "overview", "tl;dr", "tldr",
+            "key points", "key takeaways", "main points", "main ideas",
+            "what is this about", "what is this document about",
+            "executive summary", "high-level", "brief me", "give me a summary",
+            "outline", "recap"
+        }
+        query_lower = query.lower()
+        return any(kw in query_lower for kw in keywords)
 
     def _step_rewrite_query(
-        self, query: str
+        self, query: str, history: List[Dict] = []
     ) -> RewrittenQuery:
 
         try:
-            return self.query_rewriter.rewrite_with_variants(query)
+            return self.query_rewriter.rewrite_with_variants(query, history = history)
         except Exception as e:
             logger.warning(
                 "query_rewrite_step_failed_using_original",
@@ -101,34 +151,76 @@ class AnswerGenerator:
     def _step_rerank(
         self,
         query: str,
-        chunks: List[RetrievedChunk]
+        chunks: List[RetrievedChunk],
+        top_k: int = 6
     ) -> List[RetrievedChunk]:
 
         try:
-            return self.reranker.rerank(
+            return self.reranker.rerank_with_threshold(
                 query = query,
                 chunks = chunks,
-                top_k = settings.retrieval.final_top_k
+                top_k = top_k,
+                min_score = settings.retrieval.rerank_threshold
             )
         except Exception as e:
             logger.warning(
                 "reranking_step_failed_using_original_order",
                 error = str(e)
             )
-            return chunks[:settings.retrieval.final_top_k]
+            return chunks[:top_k]
         
     def _step_generate(
         self,
-        built_prompt: BuiltPrompt
+        built_prompt: BuiltPrompt,
+        max_output_tokens: int = 1200,
+        is_retry: bool = False
     ) -> LLMResponse:
-
-        return self.llm_client.generate(
+        
+        # 1. Raw Generation
+        response = self.llm_client.generate(
             prompt = built_prompt.prompt,
+            max_tokens = max_output_tokens,
             metadata = {
                 "num_chunks": len(built_prompt.chunks_used),
-                "num_sources": built_prompt.num_sources
+                "num_sources": built_prompt.num_sources,
+                "is_retry": is_retry
             }
         )
+
+        finish_reason = response.finish_reason.upper()
+        
+        needs_regeneration = False
+        if ("MAX_TOKENS" in finish_reason or "LENGTH" in finish_reason) and not is_retry:
+            logger.info("llm_truncation_detected_via_finish_reason", finish_reason=finish_reason)
+            needs_regeneration = True
+        
+        if not needs_regeneration:
+            orig_text = response.text
+            cleaned_text = self._ensure_complete_sentences(orig_text)
+            
+            if cleaned_text:
+                response.text = cleaned_text
+            elif not is_retry:
+                logger.info("smart_trimming_failed_or_too_short_triggering_regeneration")
+                needs_regeneration = True
+
+        if needs_regeneration and not is_retry:
+            concise_prompt = built_prompt.prompt + "\n\nIMPORTANT: Your previous response was too long. Provide a more CONCISE, complete answer that ends properly within the limit."
+            
+            logger.info("triggering_concise_regeneration_fallback")
+            return self._step_generate(
+                BuiltPrompt(
+                    prompt=concise_prompt,
+                    query=built_prompt.query,
+                    chunks_used=built_prompt.chunks_used,
+                    total_context_tokens=len(concise_prompt)//4,
+                    num_sources=built_prompt.num_sources
+                ),
+                max_output_tokens=max_output_tokens,
+                is_retry=True
+            )
+
+        return response
     
     def generate(
         self,
@@ -136,14 +228,29 @@ class AnswerGenerator:
         use_query_rewriting: bool = True,
         use_multi_query: bool = True,
         filter_document_id: Optional[str] = None,
+        history: List[Dict] = []
     ) -> RAGResponse:
 
         if not query.strip():
             raise ValueError("Query cannot be empty")
         
+        
+        cache = get_query_cache()
+        cached_data = cache.get(query, filter_document_id)
+        if cached_data:
+            try:
+                chunks = [RetrievedChunk(**c) for c in cached_data["chunks_used"]]
+                cached_data["chunks_used"] = chunks
+                
+                resp = RAGResponse(**cached_data)
+                resp.metadata["is_cached"] = True
+                return resp
+            except Exception as e:
+                logger.warning("failed_to_reconstruct_response_from_cache", error=str(e))
+
         pipeline_start = time.time()
 
-        logger.info(
+        logger.debug(
             "rag_pipeline_started",
             query_preview = query[:100],
             use_query_rewriting = use_query_rewriting,
@@ -151,7 +258,7 @@ class AnswerGenerator:
         )
 
         if use_query_rewriting:
-            rewritten = self._step_rewrite_query(query)
+            rewritten = self._step_rewrite_query(query, history = history)
         else:
             rewritten = RewrittenQuery(
                 original_query = query,
@@ -163,7 +270,7 @@ class AnswerGenerator:
         if not use_multi_query:
             rewritten.all_queries = [rewritten.rewritten_query]
 
-        logger.info(
+        logger.debug(
             "query_rewrite_done",
             original = query[:80],
             rewritten = rewritten.rewritten_query[:80],
@@ -188,10 +295,24 @@ class AnswerGenerator:
         )
         num_retrieved = len(chunks)
 
-        logger.info(
+        if filter_document_id and chunks:
+            before = len(chunks)
+            chunks = [c for c in chunks if c.document_id == filter_document_id]
+            after = len(chunks)
+            if before != after:
+                logger.warning(
+                    "cross_document_leakage_detected_and_removed",
+                    filter_document_id=filter_document_id,
+                    chunks_before=before,
+                    chunks_removed=before - after,
+                    chunks_kept=after
+                )
+
+        logger.debug(
             "retrieval_done",
-            chunks_retrieved = num_retrieved,
-            latency_ms = retrieval_latency
+            chunks_retrieved=num_retrieved,
+            chunks_after_guard=len(chunks),
+            latency_ms=retrieval_latency
         )
 
         if not chunks:
@@ -223,31 +344,50 @@ class AnswerGenerator:
                 success = True
             )
         
+        is_summary = self._is_summary_query(query)
+        
+        final_top_k = settings.retrieval.summary_final_top_k if is_summary else settings.retrieval.final_top_k
+        context_budget = settings.retrieval.summary_context_tokens if is_summary else settings.retrieval.max_context_tokens
+        max_output_tokens = 2000 if is_summary else 1200 
+
+        logger.info(
+            "rag_dynamic_limits_applied",
+            is_summary=is_summary,
+            final_top_k=final_top_k,
+            context_budget=context_budget,
+            max_output_tokens=max_output_tokens,
+            filter_document_id=filter_document_id or "none"
+        )
+
         reranking_start = time.time()
         reranked_chunks = self._step_rerank(
             query = rewritten.rewritten_query,
-            chunks = chunks
+            chunks = chunks,
+            top_k = final_top_k
         )
         reranking_latency = round(
             (time.time() - reranking_start) * 1000, 2
         )
 
-        logger.info(
+        logger.debug(
             "reranking_done",
+            is_summary = is_summary,
+            final_top_k = final_top_k,
             chunks_after_reranking = len(reranked_chunks),
-            latency_ms = reranking_latency,
-            top_score = reranked_chunks[0].score if reranked_chunks else 0
+            latency_ms = reranking_latency
         )
 
         built_prompt = self.prompt_builder.build_rag_prompt(
             query = rewritten.rewritten_query,
-            chunks = reranked_chunks
+            chunks = reranked_chunks,
+            max_context_tokens = context_budget,
+            is_summary = is_summary
         )
 
         generation_start = time.time()
 
         try:
-            llm_response = self._step_generate(built_prompt)
+            llm_response = self._step_generate(built_prompt, max_output_tokens = max_output_tokens)
         except Exception as e:
             logger.error("generation_step_failed", error=str(e))
             return self._error_response(
@@ -294,17 +434,13 @@ class AnswerGenerator:
             success = True
         )
 
-        logger.info(
-            "rag_pipeline_complete",
-            query_preview = query[:80],
-            total_latency_ms = total_latency,
-            retrieval_latency_ms = retrieval_latency,
-            reranking_latency_ms = reranking_latency,
-            generation_latency_ms = generation_latency,
-            total_tokens = llm_response.total_tokens,
-            cost_usd = llm_response.cost_usd,
-            num_sources = len(sources)
-        )
+        try:
+            res_dict = asdict(response)
+            cache.set(query, res_dict, filter_document_id)
+        except Exception as e:
+            logger.warning("failed_to_cache_response", error=str(e))
+            import traceback
+            logger.debug(traceback.format_exc())
 
         return response
     
@@ -347,4 +483,118 @@ class AnswerGenerator:
             retrieval_methods = [],
             success = False,
             error = error
+        )
+
+    def generate_stream(
+        self,
+        query: str,
+        use_query_rewriting: bool = True,
+        use_multi_query: bool = True,
+        filter_document_id = None,
+        history = []
+    ):
+        """
+        Run the full RAG pipeline then stream the LLM response token-by-token via SSE.
+        Yields SSE strings:
+          data: {"type":"meta",  "rewritten_query":..., "step":...}
+          data: {"type":"chunk", "text":"..."}   (many)
+          data: {"type":"done",  "sources":..., "metrics":..., "rewritten_query":...}
+          data: {"type":"error", "message":"..."}
+        """
+        import json as _json
+
+        pipeline_start = time.time()
+
+        if not query.strip():
+            yield f'data: {_json.dumps({"type": "error", "message": "Query cannot be empty"})}\n\n'
+            return
+
+        if use_query_rewriting:
+            rewritten = self._step_rewrite_query(query, history=history)
+        else:
+            rewritten = RewrittenQuery(query, query, [], [query])
+
+        if not use_multi_query:
+            rewritten.all_queries = [rewritten.rewritten_query]
+
+        yield f'data: {_json.dumps({"type": "meta", "rewritten_query": rewritten.rewritten_query, "step": "retrieval"})}\n\n'
+
+        try:
+            chunks = self._step_retrieve(rewritten, filter_document_id)
+        except Exception as e:
+            yield f'data: {_json.dumps({"type": "error", "message": f"Retrieval failed: {str(e)}"})}\n\n'
+            return
+
+        num_retrieved = len(chunks)
+
+        if filter_document_id and chunks:
+            chunks = [c for c in chunks if c.document_id == filter_document_id]
+
+        if not chunks:
+            yield f'data: {_json.dumps({"type": "error", "message": "I cannot find this information in the provided documents."})}\n\n'
+            return
+
+        is_summary     = self._is_summary_query(query)
+        final_top_k    = settings.retrieval.summary_final_top_k if is_summary else settings.retrieval.final_top_k
+        context_budget = settings.retrieval.summary_context_tokens if is_summary else settings.retrieval.max_context_tokens
+        max_output_tokens = 2000 if is_summary else 1200
+
+        yield f'data: {_json.dumps({"type": "meta", "step": "reranking"})}\n\n'
+
+        reranked_chunks = self._step_rerank(
+            query=rewritten.rewritten_query, chunks=chunks, top_k=final_top_k
+        )
+
+        built_prompt = self.prompt_builder.build_rag_prompt(
+            query=rewritten.rewritten_query,
+            chunks=reranked_chunks,
+            max_context_tokens=context_budget,
+            is_summary=is_summary
+        )
+
+        yield f'data: {_json.dumps({"type": "meta", "step": "generation"})}\n\n'
+
+        generation_start = time.time()
+        full_text = ""
+
+        try:
+            for text_chunk in self.llm_client.stream_generate(
+                prompt=built_prompt.prompt,
+                max_tokens=max_output_tokens
+            ):
+                if text_chunk:
+                    full_text += text_chunk
+                    yield f'data: {_json.dumps({"type": "chunk", "text": text_chunk})}\n\n'
+        except Exception as e:
+            yield f'data: {_json.dumps({"type": "error", "message": f"Generation failed: {str(e)}"})}\n\n'
+            return
+
+        generation_latency = round((time.time() - generation_start) * 1000, 2)
+        total_latency      = round((time.time() - pipeline_start)    * 1000, 2)
+
+        sources           = self.prompt_builder.format_chunk_as_sources(reranked_chunks)
+        retrieval_methods = list({c.retrieval_method for c in reranked_chunks})
+
+        metrics = {
+            "total_latency_ms":      total_latency,
+            "retrieval_latency_ms":  0,
+            "reranking_latency_ms":  0,
+            "generation_latency_ms": generation_latency,
+            "input_tokens":          len(built_prompt.prompt) // 4,
+            "output_tokens":         len(full_text) // 4,
+            "total_tokens":          len(built_prompt.prompt) // 4 + len(full_text) // 4,
+            "cost_usd":              0.0,
+            "num_chunks_retrieved":  num_retrieved,
+            "num_chunks_used":       len(reranked_chunks),
+            "num_queries_used":      len(rewritten.all_queries),
+            "retrieval_methods":     retrieval_methods,
+        }
+
+        yield f'data: {_json.dumps({"type": "done", "sources": sources, "metrics": metrics, "rewritten_query": rewritten.rewritten_query})}\n\n'
+
+        logger.info(
+            "streaming_generation_complete",
+            query_preview    = query[:80],
+            total_latency_ms = total_latency,
+            chunks_used      = len(reranked_chunks),
         )

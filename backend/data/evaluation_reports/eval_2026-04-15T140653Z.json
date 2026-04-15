@@ -1,0 +1,83 @@
+{
+    "run_id": "e78126db",
+    "timestamp": "2026-04-15T14:06:53Z",
+    "dataset_size": 6,
+    "overall_passed": false,
+    "avg_score": 0.6444,
+    "metrics": {
+        "faithfulness": {
+            "score": 0.725,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "context_relevance": {
+            "score": 0.725,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "answer_correctness": {
+            "score": 0.4833333333333334,
+            "passed": false,
+            "threshold": 0.6
+        }
+    },
+    "evaluation_latency_ms": 537288.38,
+    "total_cost_usd": 0.001121,
+    "total_tokens": 9609,
+    "questions": [
+        {
+            "query": "What are the main topics covered in the document?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 0.85,
+                "correctness": 0.1
+            }
+        },
+        {
+            "query": "can you tell me how to draft documents?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 0.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            }
+        },
+        {
+            "query": "Who created this document and when?",
+            "type": "baseline",
+            "scores": {
+                "relevance": 0.75,
+                "faithfulness": 0.0,
+                "correctness": 0.0
+            }
+        },
+        {
+            "query": "Beyond reimbursement of authorized expenses, under what specific conditions can a member of the Indian Industries Association legitimately receive financial remuneration or payment from the Society, according to the provided text?",
+            "type": "recent",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 0.8
+            }
+        },
+        {
+            "query": "In the event of a dispute arising specifically amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process, what is the designated authority for adjudging its affairs and taking the final decision?",
+            "type": "recent",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            }
+        },
+        {
+            "query": "Considering a RAG system designed for continuous learning and handling novel queries via zero-shot techniques, how would the selection of a similarity metric (e.g., Cosine Similarity vs. Euclidean Distance) impact its performance and scalability when deployed on distributed vector databases utilizing sharding and replication for high availability?",
+            "type": "random",
+            "scores": {
+                "relevance": 0.6,
+                "faithfulness": 0.5,
+                "correctness": 0.0
+            }
+        }
+    ]
+}

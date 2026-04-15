@@ -6,13 +6,20 @@ export const useUIStore = create(
     (set) => ({
       theme: 'dark',
       sidebarCollapsed: false,
-      debugPanelOpen: false,
+      isEvaluating: false,
+      lastEvalResult: null,
 
       toggleTheme: () => set((s) => ({ theme: s.theme === 'dark' ? 'light' : 'dark' })),
       setSidebarCollapsed: (v) => set({ sidebarCollapsed: v }),
-      toggleDebugPanel: () => set((s) => ({ debugPanelOpen: !s.debugPanelOpen })),
-      setDebugPanelOpen: (v) => set({ debugPanelOpen: v }),
+      setEvaluating: (v) => set({ isEvaluating: v }),
+      setLastEvalResult: (res) => set({ lastEvalResult: res }),
     }),
-    { name: 'documind-ui' }
+    { 
+      name: 'documind-ui',
+      partialize: (s) => ({
+        theme: s.theme,
+        sidebarCollapsed: s.sidebarCollapsed
+      })
+    }
   )
 )

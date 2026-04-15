@@ -1,4 +1,3 @@
-import pytest
 from verification.citation_enforcer import CitationEnforcer
 from retrieval.vector_store import RetrievedChunk
 

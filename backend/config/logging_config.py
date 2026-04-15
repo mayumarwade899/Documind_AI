@@ -1,7 +1,6 @@
 import logging
 import logging.handlers
 import sys
-import os
 import structlog
 from pathlib import Path
 from datetime import datetime
@@ -41,11 +40,12 @@ def setup_logging(
 
     logging.getLogger("httpx").setLevel(logging.WARNING)
     logging.getLogger("httpcore").setLevel(logging.WARNING)
-    logging.getLogger("chromadb").setLevel(logging.WARNING)
+    logging.getLogger("chromadb").setLevel(logging.ERROR) # Silences the telemetry "failed to send" errors
     logging.getLogger("sentence_transformers").setLevel(logging.WARNING)
     logging.getLogger("urllib3").setLevel(logging.WARNING)
     logging.getLogger("langchain").setLevel(logging.WARNING)
-    logging.getLogger("google").setLevel(logging.WARNING)
+    logging.getLogger("google").setLevel(logging.ERROR)
+    logging.getLogger("uvicorn.access").setLevel(logging.WARNING) # Silence standard access logs (keep errors)
 
     structlog.configure(
         processors = [

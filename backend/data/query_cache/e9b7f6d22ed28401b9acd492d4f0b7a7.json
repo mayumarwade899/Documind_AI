@@ -1,0 +1,172 @@
+{
+  "query": "Considering the strategies for 'Scaling And Deploying RAG Systems' which include caching and load balancing, how do these external deployment techniques interact with the 'Core Components of Vector Databases,' specifically their internal indexing and scalability features, to ensure efficient retrieval for AI applications?",
+  "document_id": null,
+  "cached_at": 1776261396.107414,
+  "response": {
+    "answer": "I cannot find this information in the provided documents.",
+    "query": "Considering the strategies for 'Scaling And Deploying RAG Systems' which include caching and load balancing, how do these external deployment techniques interact with the 'Core Components of Vector Databases,' specifically their internal indexing and scalability features, to ensure efficient retrieval for AI applications?",
+    "rewritten_query": "Considering the strategies for 'Scaling And Deploying RAG Systems' which include caching and load balancing, how do these external deployment techniques interact with the 'Core Components of Vector Databases,' specifically their internal indexing and scalability features, to ensure efficient retrieval for AI applications?",
+    "sources": [
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 127,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p127_c0",
+        "relevance_score": 1.0,
+        "content_preview": "Scaling And Deploying RAG Systems\nLoad Balancing and Caching Techniques\nCaching: Reduce backend load by caching frequent data and\nquery results. Tools: Redis, Memcached. Created by Goyashy (@explainx...."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 125,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p125_c0",
+        "relevance_score": 0.8959,
+        "content_preview": "Scaling And Deploying RAG Systems\nEfficient Indexing Strategies\nHierarchical Indexing: Use multi-level\nindexes to speed up retrieval by narrowing\ndown with a coarse index first. Approximate Nearest Ne..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 128,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p128_c0",
+        "relevance_score": 0.8573,
+        "content_preview": "Scaling And Deploying RAG Systems\nAsynchronous Processing for Improved Throughput\nMessage Queues: Use RabbitMQ or Kafka for asynchronous request handling to\nimprove scalability and reliability. Create..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 130,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p130_c0",
+        "relevance_score": 0.855,
+        "content_preview": "Scaling And Deploying RAG Systems\nParallel Processing of Queries and Document Chunks\nQuery Parallelism: Distribute queries across nodes to\nreduce latency and speed up responses. Created by Goyashy (@e..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 160,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p160_c0",
+        "relevance_score": 0.8286,
+        "content_preview": "Scaling And Deploying RAG Systems\nStep 7: Deployment\nDeploy the system on the company\u2019s internal\nnetwork. Created by Goyashy (@explainx.ai)\nEnsure it is scalable and can handle the\nexpected query load..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p127_c0",
+        "content": "Scaling And Deploying RAG Systems\nLoad Balancing and Caching Techniques\nCaching: Reduce backend load by caching frequent data and\nquery results. Tools: Redis, Memcached. Created by Goyashy (@explainx.ai)\nLoad Balancing: Distribute requests across servers using\ntechniques like round-robin or IP hash. Tools: Nginx, HAProxy. CDNs: Serve static data closer to users to cut\nlatency and reduce server traffic. Reverse Proxies: Manage requests, caching, load balancing, SSL\ntermination, and security.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 127,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 1.0,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.016393,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.016393,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p125_c0",
+        "content": "Scaling And Deploying RAG Systems\nEfficient Indexing Strategies\nHierarchical Indexing: Use multi-level\nindexes to speed up retrieval by narrowing\ndown with a coarse index first. Approximate Nearest Neighbor (ANN)\nCreatSede bya Groycashhy: ( @Eefxpflaiicnxi.aei)ntly find similar vectors in high-\ndimensional spaces with methods like HNSW\nor Annoy. Sharding: Distribute data across servers to\nhandle large datasets and balance load. Inverted Indexes: Quickly locate documents\nby terms, ideal for full-text search.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 125,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.8959,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015045,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.8959,
+          "rerank_rank": 2,
+          "original_score": 0.015045,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p128_c0",
+        "content": "Scaling And Deploying RAG Systems\nAsynchronous Processing for Improved Throughput\nMessage Queues: Use RabbitMQ or Kafka for asynchronous request handling to\nimprove scalability and reliability. Created by Goyashy (@explainx.ai)\nCaching: Cache frequent data and query results with Redis or Memcached to\nreduce backend load. Event-Driven Architecture: Use events for asynchronous processing,\nenhancing system responsiveness. Rate Limiting: Limit the number of requests per user or service to\nprevent overload and ensure fair use.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 128,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.8573,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015738,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.8573,
+          "rerank_rank": 3,
+          "original_score": 0.015738,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p130_c0",
+        "content": "Scaling And Deploying RAG Systems\nParallel Processing of Queries and Document Chunks\nQuery Parallelism: Distribute queries across nodes to\nreduce latency and speed up responses. Created by Goyashy (@explainx.ai)\nDocument Chunking: Split documents into chunks for\nparallel processing and efficient retrieval. Load Balancing: Evenly distribute tasks to avoid\nbottlenecks and optimize resource use.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 130,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.855,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015113,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.855,
+          "rerank_rank": 4,
+          "original_score": 0.015113,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p160_c0",
+        "content": "Scaling And Deploying RAG Systems\nStep 7: Deployment\nDeploy the system on the company\u2019s internal\nnetwork. Created by Goyashy (@explainx.ai)\nEnsure it is scalable and can handle the\nexpected query load from all employees.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 160,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.8286,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.009375,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.8286,
+          "rerank_rank": 5,
+          "original_score": 0.009375,
+          "original_method": "bm25"
+        }
+      }
+    ],
+    "total_latency_ms": 7976.14,
+    "retrieval_latency_ms": 507.79,
+    "reranking_latency_ms": 552.79,
+    "generation_latency_ms": 6912.51,
+    "input_tokens": 755,
+    "output_tokens": 10,
+    "total_tokens": 765,
+    "cost_usd": 7.95e-05,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "bm25",
+      "hybrid"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

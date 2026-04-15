@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional, List
 
 from monitoring.feedback_store import FeedbackStore
@@ -10,6 +10,7 @@ router = APIRouter(prefix="/feedback", tags=["Feedback"])
 logger = get_logger(__name__)
 
 class FeedbackRequest(BaseModel):
+    model_config = ConfigDict(protected_namespaces=())
     query: str = Field(..., min_length=3)
     answer: str = Field(..., min_length=1)
     rating: int = Field(..., ge=-1, le=1)

@@ -1,6 +1,3 @@
-import pytest
-import json
-from pathlib import Path
 from evaluation.golden_dataset import GoldenDataset, GoldenQAPair
 
 def test_golden_dataset_load_empty(tmp_path):

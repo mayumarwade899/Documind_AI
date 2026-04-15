@@ -1,0 +1,119 @@
+{
+    "run_id": "375d5a96",
+    "timestamp": "2026-04-15T18:03:56Z",
+    "dataset_size": 6,
+    "overall_passed": false,
+    "avg_score": 0.6861,
+    "metrics": {
+        "faithfulness": {
+            "score": 0.6166666666666667,
+            "passed": false,
+            "threshold": 0.7
+        },
+        "context_relevance": {
+            "score": 0.775,
+            "passed": true,
+            "threshold": 0.7
+        },
+        "answer_correctness": {
+            "score": 0.6666666666666666,
+            "passed": true,
+            "threshold": 0.6
+        }
+    },
+    "evaluation_latency_ms": 247842.69,
+    "total_cost_usd": 0.001152,
+    "total_tokens": 9893,
+    "questions": [
+        {
+            "query": "What are the main topics covered in the document?",
+            "type": "baseline",
+            "answer": "The main topics covered in the documents include:\n\n*   **Building a Basic RAG Pipeline**:\n    *   Overview of the RAG Architecture, detailing components such as the Document Corpus, Language Model, Embedding Model, Prompt Template, Vector Database, Orchestrator, and Retriever.\n*   **Ethical Considerations And Responsible AI**:\n    *   Ensuring Transparency and Explainability.\n    *   Techniques for Providing Source Attribution, including Source Linking and Highlighting and Summarization.\n    *   Developing User Interfaces that Promote Understanding of RAG Outputs, through Interactive Exploration and Explanatory Overlays.\n*   **Hypothesis Generation: HyDE Technique**:\n    *   Explanation of Hypothetical Document Embeddings (HyDE), including its description (generates synthetic document embeddings) and purpose (improves retrieval by considering conceptually relevant documents).\n*   **Scaling And Deploying RAG Systems**:\n    *   Version Control for Documents and Embeddings.\n    *   Metadata Management to track and manage document embeddings and features.\n    *   Document Repositories for storing and versioning documents.\n*   **LLM-Based Document Filtering**:\n    *   Implementing a Relevance Scoring System, which involves Input Processing, Relevance Assessment by LLMs, Threshold Filtering, and Continuous Learning.\n    *   Using LLMs for Document Relevance, describing how LLMs assess content in relation to a query and its use case for precise relevance needs.",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "```json\n{\"score\": 1.0}\n```",
+                "faithfulness": "{\"score\": 1.0}",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        },
+        {
+            "query": "can you tell me how to draft documents?",
+            "type": "baseline",
+            "answer": "I cannot find this information in the provided documents.",
+            "scores": {
+                "relevance": 0.0,
+                "faithfulness": 0.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 0.0}",
+                "faithfulness": "{\"score\": 0.0}",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        },
+        {
+            "query": "Who created this document and when?",
+            "type": "baseline",
+            "answer": "*   This document was created by **Goyashy (@explainx.ai)**.\n*   I cannot find this information in the provided documents.",
+            "scores": {
+                "relevance": 0.7,
+                "faithfulness": 0.5,
+                "correctness": 0.9
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 0.7}",
+                "faithfulness": "{\"score\": 0.5}",
+                "correctness": "```json\n{\"score\": 0.9}\n```"
+            }
+        },
+        {
+            "query": "Under what specific conditions is it permissible for a governing body member to receive remuneration from the Society, despite the general prohibition on profit distribution to members?",
+            "type": "recent",
+            "answer": "Despite the general prohibition on distributing income and property as profit to members, there are specific conditions under which a governing body member may receive remuneration:\n\n*   **Reasonable Remuneration for Services:**\n    *   Payment of a reasonable",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 0.1
+            },
+            "judge_reasoning": {
+                "relevance": "```json\n{\"score\": 1.0}\n```",
+                "faithfulness": "{\"score\": 1.0}",
+                "correctness": "{\"score\": 0.1}"
+            }
+        },
+        {
+            "query": "In the event of a dispute arising amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process, what specific judicial body is designated to adjudicate its affairs, and whose directions will determine the final decision?",
+            "type": "recent",
+            "answer": "In the event of any dispute arising amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process:\n\n*   The adjudgement of its affairs shall be referred to **the principal court of original civil jurisdiction of Lucknow (U.P.)**.\n*   The final decision shall be taken as per **directions of the court**.",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 1.0}",
+                "faithfulness": "{\"score\": 1.0}",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        },
+        {
+            "query": "Considering the EUROCALL Review's methodology of transcribing data in Microsoft Word 2016 for qualitative analysis, how might a RAG model, evaluated by the RAGAS framework and leveraging techniques like prompt engineering or fine-tuning with an open-source model like Gemma, enhance or automate the initial data comprehension and summarization steps, especially when dealing with large text inputs?",
+            "type": "random",
+            "answer": "## Document Title\nRetriever-Augmented Generation (RAG) Models, Evaluation, and Applications with a Case Study on Mobile English Language Learning Data Analysis\n\n## Key Points\n- The EUROCALL Review, Volume 25, No. 2, September 2017, conducted a study using questions about mobile English language learning sessions, frequently learned content via mobile devices, increased",
+            "scores": {
+                "relevance": 0.95,
+                "faithfulness": 0.2,
+                "correctness": 0.0
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 0.95}",
+                "faithfulness": "```json\n{\"score\": 0.2}\n```",
+                "correctness": "```json\n{\"score\": 0.0}\n```"
+            }
+        }
+    ]
+}

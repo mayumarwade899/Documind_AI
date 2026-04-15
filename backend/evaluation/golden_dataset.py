@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List
 
 from config.settings import get_settings
 from config.logging_config import get_logger

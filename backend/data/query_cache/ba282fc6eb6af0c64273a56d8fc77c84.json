@@ -1,0 +1,256 @@
+{
+  "query": "Considering a RAG system built with an open-source LLM designed to summarize academic literature, such as the EUROCALL Review articles on mobile-assisted language learning, how would the principles of A/B testing and ROUGE metrics be applied to evaluate and deploy an improved version, specifically detailing the role of embeddings in processing the source texts?",
+  "document_id": null,
+  "cached_at": 1776277831.096454,
+  "response": {
+    "answer": "## Document Title\nEvaluating and Deploying RAG Systems for Academic Literature Summarization\n\n## Key Points\n- A/B testing is a method for scaling and deploying RAG systems, involving collecting data, analyzing results, and making decisions on new model versions.\n- The A/B testing process includes evaluation (deciding whether to fully deploy, continue testing, or improve the new model), comparison",
+    "query": "Considering a RAG system built with an open-source LLM designed to summarize academic literature, such as the EUROCALL Review articles on mobile-assisted language learning, how would the principles of A/B testing and ROUGE metrics be applied to evaluate and deploy an improved version, specifically detailing the role of embeddings in processing the source texts?",
+    "rewritten_query": "Considering a RAG system built with an open-source LLM designed to summarize academic literature, such as the EUROCALL Review articles on mobile-assisted language learning, how would the principles of A/B testing and ROUGE metrics be applied to evaluate and deploy an improved version, specifically detailing the role of embeddings in processing the source texts?",
+    "sources": [
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 10,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p10_c0",
+        "relevance_score": 1.0,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\ndata collection instrument, namely the semi-structured interview which was conducted\nonly once. Perhaps a different set of questions, their wordin..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 2,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p2_c0",
+        "relevance_score": 0.8781,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\nnamely a research question, description of participants, data collection tools and\nanalysis. This is followed by the presentation of the results o..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 1,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p1_c0",
+        "relevance_score": 0.8604,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\nResearch paper\nA look at advanced learners\u2019 use of mobile devices for\nEnglish language study: Insights from interview data\nMariusz Kruk\nUniversity..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 11,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p11_c0",
+        "relevance_score": 0.8433,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\nLittle, D. (2009). Language learner autonomy and the European Language Portfolio:\nTwo L2 English examples. Language Teaching, 42, 222-233. Little,..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 147,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p147_c0",
+        "relevance_score": 0.8103,
+        "content_preview": "Scaling And Deploying RAG Systems\nA/B Testing New Model Versions\nMake Decisions Analyze Results Collect Data\nCreated by Goyashy (@explainx.ai)\nEvaluation: Decide\nComparison: Evaluate Monitoring: Track..."
+      },
+      {
+        "source_file": "research_paper.pdf",
+        "page_number": 3,
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p3_c0",
+        "relevance_score": 0.722,
+        "content_preview": "The EUROCALL Review, Volume 25, No. 2, September 2017\n2.2. Autonomy and new technologies\nAs stated in the previous section, the concept of autonomy has been one of the most\nresearched areas in the fie..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 106,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p106_c0",
+        "relevance_score": 0.6567,
+        "content_preview": "Metrics for Evaluating RAG Performance\nBERTScore\nDefinition: BERTScore uses contextual embeddings from BERT to compare the semantic\nsimilarity between the generated and reference texts, rather than fo..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 104,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p104_c0",
+        "relevance_score": 0.6189,
+        "content_preview": "Metrics for Evaluating RAG Performance\nROUGE (Recall-Oriented Understudy for Gisting\nEvaluation)\nDefinition: ROUGE measures the overlap between the generated text and the reference\ntext, with a focus ..."
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p10_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\ndata collection instrument, namely the semi-structured interview which was conducted\nonly once. Perhaps a different set of questions, their wording or a series of such\ninterviews carried out over a particular period of time (say one academic year) may\nhave yielded more detailed and insightful results. Despite these limitations, this study\nprovided some insights into why and how advanced English language learners engage\nwith their mobile devices to develop learning experiences. It should be stressed,\nhowever, that teacher involvement in creating conditions conducive to the use of mobile\ndevices for language study may result in greater learner engagement with mobile\ntechnology (i.e. mobile devices) and, at the same time, may lead to greater students\u2019\nindependence in learning the target language. References\nBenson, P. (2001). Teaching and researching autonomy in language learning. Harlow:\nPearson Education. Benson, P. (2011). What\u2019s new in autonomy? The Language Teacher, 35(4), 15-18. Benson, P. & Chik, A. (2010). New literacies and autonomy in foreign language learning. In M. J. Luz\u00f3n, M. N. Ruiz-Madrid & M. L. Villanueva (Eds.), Digital genres, new\nliteracies, and autonomy in language learning (pp. 63-80). Newcastle-upon-Tyne:\nCambridge Scholars Publishing. Byrne, J. & Diem, R. (2014). Profiling mobile English language learners. The JALT\nCALL Journal I, 10 (1), 3-19. Cakir, I. (2015). Opinions and attitudes of prospective teachers for the use of mobile\nphones in foreign language learning. Contemporary Educational Technology, 6(3), 239-\n255. Cavus, N. & Ibrahim, D. (2009). m-Learning: An experiment in using SMS to support\nlearning new English language words. British Journal of Educational Technology, 40(1),\n78-91. Dashtestani, R. (2015). Moving bravely towards mobile learning: Iranian students\u2019 use\nof mobile devices for learning English as a foreign language. Computer Assisted\nLanguage Learning, 29(4), 815-832. Demouy, V., Jones, A., Kan, Q., Kukulska-Hulme, A. & Eardley, A. (2016). Why and how\ndo distance learners use mobile devices for language learning? The EuroCALL\nReview, 24(1), 10-24. D\u00edaz-Vera, J. (Ed.). (2012). Left to my own devices: Learner autonomy and mobile-\nassisted language learning. Bingley, UK: Emerald Group. Djoub, Z. (2015). Mobile technology and learner autonomy in language learning. In J. Keengwe (Ed.), Promoting active learning through the integration of mobile\nand ubiquitous technologies (pp. 194-212). Hershey: IGI Global. D\u00f6rnyei, Z. (2007). Research methods in applied linguistics. Oxford: Oxford University\nPress. Holec, H. (1981). Autonomy and foreign language learning. Oxford: Pergamon Press. Jones, A. (2015). Mobile informal language learning: Exploring Welsh learners\u2019\npractices, eLearning Papers, 45, 4-14. Kukulska-Hulme, A., Norris, L. & Donohue, J. (2015). Mobile pedagogy for English\nlanguage teaching: A guide for teachers. British Council, London. Kukulska-Hulme, A. & Shield, L. (2008). An overview of mobile assisted language\nlearning: From content delivery to supported collaboration and\ninteraction. ReCALL, 20(3), 271-289. Kukulska-Hulme, A., Traxler, J. & Pettit, J. (2007). Designed and user-generated\nactivity in the mobile age. Journal of Learning Design, 2(1), 52-65. Lee, L. (2011). Blogging: Promoting learner autonomy and intercultural competence\nthrough study abroad. Language Learning & Technology, 5, 87-109. 27",
+        "source_file": "research_paper.pdf",
+        "page_number": 10,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 1.0,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "rrf_score": 0.009091,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.009091,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p2_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\nnamely a research question, description of participants, data collection tools and\nanalysis. This is followed by the presentation of the results of the study. The article\ncloses with discussion and conclusions. 2. Literature review\n2.1. Autonomy in foreign/second language learning\nThe concept of autonomy in second/foreign language learning and teaching has been\nthe focus of attention for many researchers and practitioners for more than three\ndecades. According to Benson (2001), the notion of autonomy was introduced and\npopularized in 1981 by Henri Holec in his seminal report for the Council of Europe\nentitled Autonomy in Foreign Language Learning in which the researcher defined\nautonomy in the context of language learning as \u201cthe ability to take charge of one\u2019s own\nlearning\u201d (Holec, 1981, p. 3). Holec\u2019s idea of autonomy encompasses some components\nand capacities on the part of language learners (e.g. self-directed learning). For some\nother authors autonomy also involves \u201ca capacity \u2013 for detachment, critical reflection,\ndecision-making, and independent action\u201d (Little, 1991, p. 4) and \u201cthe capacity to take\ncontrol of one\u2019s own learning\u201d (Benson, 2001, p. 46). As stated by Benson (2011, p. 16), \u201cautonomy is multidimensional and takes many different forms according to the\nperson, the setting, and multiple contextual and micro-contextual factors\u201d and it is \u201ca\nmulti-faceted concept that consists of several layers\u201d (Reinders, 2011, p. 48) whose\nroots are based in political, societal and educational developments. In addition to this,\nwork on autonomy emphasizes social dimensions of learner autonomy in view of the\nfact that \u201cautonomous learners always do things for themselves, but they may or may\nnot do things on their own\u201d (Little, 2009, p. 223) and that by means of social\ninteractions language learners \u201cdevelop a capacity to analyze, reflect upon and\nsynthesize information to create new perspectives\u201d (Lee, 2011, p. 88). It should also be\nnoted that recent research shows that fostering autonomy is no longer predominantly a\nmatter of individualizing learning through out-of-class initiatives since the dominance of\nclassroom-based approaches (Benson, 2011). Finally, it has to be added that\nresearchers, in general, seem to be in agreement with the following claims suggested\nby Benson (2011): \u201c(a) language learners naturally tend to take control of their\nlearning, (b) learners who lack autonomy are capable of developing it, and (c)\nautonomous language learning is more effective than non-autonomous language\nlearning\u201d (p. 16). Perhaps in order to define the concept of autonomy in language learning it is necessary\nto understand who autonomous learners are. As Littlewood (1996) claims, an\nautonomous learner is \u201cone who has independent capacity to make and carry out\nchoices which govern his or her actions\u201d (p. 428). The researcher argues that this\ncapacity depends on two major components such as ability and willingness, and he\nclaims that the attributes can also be further subdivided. Thus, ability depends on\nhaving knowledge about the options from which one can choose and skills so as to\nchoose the most suitable alternatives.",
+        "source_file": "research_paper.pdf",
+        "page_number": 2,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.8781,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "rrf_score": 0.008824,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.8781,
+          "rerank_rank": 2,
+          "original_score": 0.008824,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p1_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\nResearch paper\nA look at advanced learners\u2019 use of mobile devices for\nEnglish language study: Insights from interview data\nMariusz Kruk\nUniversity of Zielona Gora, Poland\n______________________________________________________________\nmkruk @ uz.zgora.pl\nAbstract\nThe paper discusses the results of a study which explored advanced learners of English\nengagement with their mobile devices to develop learning experiences that meet their\nneeds and goals as foreign language learners. The data were collected from 20 students\nby means of a semi-structured interview. The gathered data were subjected to\nqualitative and quantitative analysis. The results of the study demonstrated that, on the\none hand, some subjects manifested heightened awareness relating to the\nadvantageous role of mobile devices in their learning endeavors, their ability to reach\nfor suitable tools and retrieve necessary information so as to achieve their goals, meet\ntheir needs and adjust their learning of English to their personal learning styles, and on\nthe other, a rather intuitive and/or ad hoc use of their mobile devices in the classroom. Keywords: Learner autonomy, mobile devices, advanced EFL learners, learning\nEnglish. 1. Introduction\nMobile devices, smartphones and tablet computers in particular, have generated a lot of\ninterest among researchers in recent years (Byrne & Diem, 2014). This is because the\nopportunities these new technologies may offer (e.g. individualized learning, the variety\nof mobile apps available, easy access to the internet) and/or the fact that they are\nincreasingly more common among learners make them an important and potentially\nuseful addition to formal and informal language learning. According to Benson (2011), there has always been a connection between educational\ntechnologies and learner autonomy to the extent that they have often been intended for\nindependent practice. It should be noted, however, that this link and \u201cfuture enquiry\nand practice into technology-mediated learner autonomy will need to be increasingly\naligned to the tools, settings, and activities that are of significance to language learners\u201d\n(Reinders & White, 2016, p. 151). Reinders and White (2016) further argue that as long\nas \u201cthe potential range of settings, tools, and experiences is now virtually limitless,\nindividuals need to be increasingly adept at critical adaptive learning in order to benefit\nfrom and contribute effectively to those settings\u201d (p. 151). Beyond doubt, contemporary\nlanguage teachers should equip foreign/second language learners with appropriate\nknowledge concerning the affordances of mobile devices for language study and they\nshould prepare them for effective usage of such devices for this purpose. It is also of\nparamount importance, for both researchers and practitioners, to comprehend the link\nbetween the modalities of the language learners' organization of their own learning\nexperiences and environments and the role mobile technologies, in particular\nsmartphones and tablets, play in these contexts.",
+        "source_file": "research_paper.pdf",
+        "page_number": 1,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.8604,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "rrf_score": 0.008955,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.8604,
+          "rerank_rank": 3,
+          "original_score": 0.008955,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p11_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\nLittle, D. (2009). Language learner autonomy and the European Language Portfolio:\nTwo L2 English examples. Language Teaching, 42, 222-233. Little, D. (1991). Learner autonomy 1: Definitions, issues and problems. Dublin:\nAuthentik. Littlewood, W. (1996). Autonomy: An anatomy and a framework. System, 24(4), 427-\n435. Miangah, T.M. & Nezarat, A. (2012). Mobile-assisted language\nlearning. International Journal of Distributed and Parallel Systems, 3(1), 309-319. Nah, K.C., White, P. & Sussex, R. (2008). The potential of using a mobile phone to\naccess the internet for learning EFL listening skills within a Korean\ncontext. ReCALL, 20(3), 331-347. Oz, H. (2015). An investigation of preservice English teachers\u2019 perceptions of mobile\nassisted language learning. English Language Teaching, 8(2), 22-34. Pettit, J. & Kukulska-Hulme, A. (2007). Going with the grain: Mobile devices in\npractice. Australasian Journal of Educational Technology, 23(1), 17-33. Reinders, H. (2011). Towards an operationalisation of autonomy. In A. Ahmed, G. Cane\n& M. Hanzala. Teaching English in multilingual contexts: Current challenges, future\ndirections (pp. 37-52). Cambridge: Cambridge Scholars Publishing. Reinders, H. & White, C. (2016). 20 years of autonomy and technology: How far have\nwe come and where to next? Language Learning & Technology, 20(2), 143-154. Retrieved from http://llt.msu.edu/issues/june2016/reinderswhite.pdf. Reinders, H. & Cho, M. (2011). Encouraging informal language learning with mobile\ntechnology: Does it work? Journal of Second Language Teaching and Research, 1, 3-29. Stockwell, G. (2007). Vocabulary on the move: Investigating an intelligent mobile\nphone-based vocabulary tutor. Computer Assisted Language Learning, 20(4), 365-383. Trifanova, A., Knapp, J., Ronchetti, M. & Gamper, J. (2004). Mobile ELDIT: Challenges\nin the transitions from an e-learning to an m-learning system. Trento, Italy: University\nof Trento. Retrieved December 12, 2016,\nfrom http://eprints.biblio.unitn.it/archive/00000532/01/paper4911.pdf. Zhang, H., Song, W. & Burston, J. (2011). Reexamining the effectiveness of vocabulary\nlearning via mobile phones. The Turkish Online Journal of Educational\nTechnology, 10(3), 203-214. [1] It should be noted that the reason for choosing this sample was for convenience\nsince they were accessible to the researcher (D\u00f6rnyei, 2007, p. 98-99). [2] It should be noted that in order to ward off potential misunderstandings and to allow\nthe participants to freely elaborate upon their answers, the interviews were conducted\nin Polish. [3] Both here and throughout the remainder of the paper, the excerpts are translations\nof the students\u2019 responses by the present author. 28",
+        "source_file": "research_paper.pdf",
+        "page_number": 11,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.8433,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "rrf_score": 0.009375,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.8433,
+          "rerank_rank": 4,
+          "original_score": 0.009375,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p147_c0",
+        "content": "Scaling And Deploying RAG Systems\nA/B Testing New Model Versions\nMake Decisions Analyze Results Collect Data\nCreated by Goyashy (@explainx.ai)\nEvaluation: Decide\nComparison: Evaluate Monitoring: Track\nwhether to fully\nand compare interactions,\ndeploy, continue\nperformance metrics. performance, and\ntesting, or improve\nStatistical Testing: user feedback for\nthe new model. Determine significance both models. Iteration: Refine the\nof performance\nmodel based on\ndifferences. feedback and results.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 147,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.8103,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.016129,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.8103,
+          "rerank_rank": 5,
+          "original_score": 0.016129,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "1677d9492c7e502a24e4f296a5b7a9e0_p3_c0",
+        "content": "The EUROCALL Review, Volume 25, No. 2, September 2017\n2.2. Autonomy and new technologies\nAs stated in the previous section, the concept of autonomy has been one of the most\nresearched areas in the field of second/foreign language learning and teaching over the\nlast few decades. It should be noted, however, that the field of learner autonomy\nstarted to be influenced by technology in the mid-1990s as a result of the growing\ninfluence of the internet on almost every sphere of our life (including second/foreign\nlanguage education) and the opportunities for online collaboration and communication\n(Reinders & White, 2016). As stated by Benson and Chik (2010), the latest generations\nof new technologies, particularly those encompassing the internet, user-generated Web\ncontent and mobility, seem to be having a bearing on the way autonomous language\nlearning develops. Perhaps, one of the most important benefits of implementing new\ntechnologies into language learning is the fact that they provide occasions for language\nlearners who do not have direct access to the target language. This is because the use\nof new technologies, including mobile technology, allow them to \u201cbypass classrooms and\ngo directly to target language texts and users through the internet and social media\u201d\n(Benson, 2011, p. 17). When it comes to the use of mobile technology, and, in particular, smartphones and\ntablet computers, for learning a foreign or second language, they can assist language\nlearners with their learning endeavors by granting access to numerous language\nresources whenever and wherever such learners need them and/or they happen to be\n(Jones, 2015). In Jones\u2019s opinion, such language involvement might comprise, for\ninstance, the use of chunks of spare time for language practice, searching for target\nlanguage vocabulary in relevant contexts or interactions on social media (Jones, 2015). Furthermore, by having a mobile device a language learner has the opportunity to take\ncontrol of his or her learning, direct it and engage in language activities that meet his or\nher individual needs and goals (Kukulska-Hulme, Traxler & Pettit, 2007; Pettit &\nKukulska-Hulme 2007). Given the importance attached to new technologies, and, in particular the potential role\nof mobile devices in autonomous language learning, the terms mobile\nlearning and mobile devices (MobDs) need first to be explained. As for mobile learning,\nno single agreed-upon definition of the term exists in the literature (Oz, 2015). This is\nbecause some researchers define mobile learning as an extension of e-learning built\nupon mobile devices whereas some other researchers understand it as learning that\nhappens anywhere and anytime (cf. Oz, 2015). As far as mobile devices are concerned,\nthey can be defined as \u201cany device that is small, autonomous and unobtrusive enough\nto accompany us in every moment and can be used for educational purposes\u201d\n(Trifanova Knapp, Ronchetti & Gamper, 2004, p. 3) or as \u201chand held electronic devices\nthat can be comfortably carried around in a pocket or bag, including MP3 players, digital\nrecorders, e-readers, tablets, and smartphones\u201d (Kukulska-Hulme, Norris & Donohue,\n2015, p. 39).",
+        "source_file": "research_paper.pdf",
+        "page_number": 3,
+        "document_id": "1677d9492c7e502a24e4f296a5b7a9e0",
+        "score": 0.722,
+        "retrieval_method": "bm25",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188797.4402912,
+          "rrf_score": 0.009836,
+          "in_bm25": true,
+          "in_vector": false,
+          "rerank_score": 0.722,
+          "rerank_rank": 6,
+          "original_score": 0.009836,
+          "original_method": "bm25"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p106_c0",
+        "content": "Metrics for Evaluating RAG Performance\nBERTScore\nDefinition: BERTScore uses contextual embeddings from BERT to compare the semantic\nsimilarity between the generated and reference texts, rather than focusing on exact word\nmatches. Created by Goyashy (@explainx.ai)\nHow it Works: It computes the cosine similarity between embeddings of the words in the\ngenerated and reference texts to measure how close they are in meaning. Use Case: Useful for capturing the underlying meaning and context in tasks like abstractive\nsummarization and dialogue generation. BERTScore addresses the limitations of metrics\nlike BLEU and ROUGE by focusing on semantic similarity.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 106,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.6567,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015406,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.6567,
+          "rerank_rank": 7,
+          "original_score": 0.015406,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p104_c0",
+        "content": "Metrics for Evaluating RAG Performance\nROUGE (Recall-Oriented Understudy for Gisting\nEvaluation)\nDefinition: ROUGE measures the overlap between the generated text and the reference\ntext, with a focus on recall (capturing all relevant information). The most common\nCreated by Goyashy (@explainx.ai)\nversions are:\n1.ROUGE-N: Overlap of n-grams. 2.ROUGE-L: Longest Common Subsequence (LCS) between the generated and reference\ntexts. Formula: ROUGE measures precision, recall, and F1 for n-gram overlaps and LCS. Use Case: Typically used in summarization tasks, ROUGE gives an indication of how well\nthe generated content captures the important aspects of the reference text.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 104,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.6189,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015291,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.6189,
+          "rerank_rank": 8,
+          "original_score": 0.015291,
+          "original_method": "hybrid"
+        }
+      }
+    ],
+    "total_latency_ms": 19958.42,
+    "retrieval_latency_ms": 936.09,
+    "reranking_latency_ms": 4332.84,
+    "generation_latency_ms": 14448.63,
+    "input_tokens": 4543,
+    "output_tokens": 80,
+    "total_tokens": 4623,
+    "cost_usd": 0.0004863,
+    "num_chunks_retrieved": 10,
+    "num_chunks_used": 8,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "bm25",
+      "hybrid"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

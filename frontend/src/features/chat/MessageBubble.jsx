@@ -72,7 +72,6 @@ export function MessageBubble({ message, onFeedback }) {
       transition={{ duration: 0.25 }}
       className={cn('flex gap-3', isAssistant ? 'flex-row' : 'flex-row-reverse')}
     >
-      {/* Avatar */}
       <div className={cn(
         'w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-1 text-white text-xs font-semibold',
         isAssistant ? 'bg-brand-600' : 'bg-surface-700 dark:bg-surface-600'
@@ -80,7 +79,6 @@ export function MessageBubble({ message, onFeedback }) {
         {isAssistant ? <Bot size={14} /> : <User size={14} />}
       </div>
 
-      {/* Bubble */}
       <div className={cn(
         'max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed',
         isAssistant
@@ -95,19 +93,16 @@ export function MessageBubble({ message, onFeedback }) {
               </ReactMarkdown>
             </div>
 
-            {/* Inline metrics */}
             {metrics && (
               <div className="mt-3 pt-2.5 border-t border-surface-100 dark:border-surface-700/60">
                 <InlineMeta metrics={metrics} />
               </div>
             )}
 
-            {/* Confidence */}
             {verification && (
               <ConfidenceBar ratio={verification.support_ratio} hasCitations={verification.has_citations} />
             )}
 
-            {/* Citations */}
             {sources?.length > 0 && (
               <div className="mt-3 space-y-1.5">
                 <p className="text-[10px] font-semibold text-surface-400 uppercase tracking-wide mb-2">Sources</p>
@@ -115,7 +110,6 @@ export function MessageBubble({ message, onFeedback }) {
               </div>
             )}
 
-            {/* Actions */}
             <div className="mt-3 flex items-center gap-1.5">
               <button
                 onClick={copyAnswer}
@@ -153,7 +147,6 @@ export function MessageBubble({ message, onFeedback }) {
               </div>
             </div>
 
-            {/* Comment Box */}
             <AnimatePresence>
               {showCommentBox && feedback !== 'negative' && (
                 <motion.div
@@ -203,7 +196,6 @@ export function MessageBubble({ message, onFeedback }) {
   )
 }
 
-/* Streaming bubble shown while response is being typed */
 export function StreamingBubble({ text, queryRewrite }) {
   return (
     <motion.div

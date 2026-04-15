@@ -1,0 +1,119 @@
+{
+    "run_id": "d236c479",
+    "timestamp": "2026-04-15T18:12:37Z",
+    "dataset_size": 6,
+    "overall_passed": false,
+    "avg_score": 0.6056,
+    "metrics": {
+        "faithfulness": {
+            "score": 0.3666666666666667,
+            "passed": false,
+            "threshold": 0.7
+        },
+        "context_relevance": {
+            "score": 0.6333333333333333,
+            "passed": false,
+            "threshold": 0.7
+        },
+        "answer_correctness": {
+            "score": 0.8166666666666668,
+            "passed": true,
+            "threshold": 0.6
+        }
+    },
+    "evaluation_latency_ms": 163247.11,
+    "total_cost_usd": 0.001054,
+    "total_tokens": 9127,
+    "questions": [
+        {
+            "query": "What are the main topics covered in the document?",
+            "type": "baseline",
+            "answer": "The main topics covered in the documents include:\n\n*   **Building a Basic RAG Pipeline**:\n    *   Overview of the RAG Architecture, detailing components such as the Document Corpus, Language Model, Embedding Model, Prompt Template, Vector Database, Orchestrator, and Retriever.\n*   **Ethical Considerations And Responsible AI**:\n    *   Ensuring Transparency and Explainability.\n    *   Techniques for Providing Source Attribution, including Source Linking and Highlighting and Summarization.\n    *   Developing User Interfaces that Promote Understanding of RAG Outputs, through Interactive Exploration and Explanatory Overlays.\n*   **Hypothesis Generation: HyDE Technique**:\n    *   Explanation of Hypothetical Document Embeddings (HyDE), including its description (generates synthetic document embeddings) and purpose (improves retrieval by considering conceptually relevant documents).\n*   **Scaling And Deploying RAG Systems**:\n    *   Version Control for Documents and Embeddings.\n    *   Metadata Management to track and manage document embeddings and features.\n    *   Document Repositories for storing and versioning documents.\n*   **LLM-Based Document Filtering**:\n    *   Implementing a Relevance Scoring System, which involves Input Processing, Relevance Assessment by LLMs, Threshold Filtering, and Continuous Learning.\n    *   Using LLMs for Document Relevance, describing how LLMs assess content in relation to a query and its use case for precise relevance needs.",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "```json\n{\"score\": 1.0}\n```",
+                "faithfulness": "{\"score\": 1.0}",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        },
+        {
+            "query": "can you tell me how to draft documents?",
+            "type": "baseline",
+            "answer": "I cannot find this information in the provided documents.",
+            "scores": {
+                "relevance": 0.0,
+                "faithfulness": 0.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 0.0}",
+                "faithfulness": "{\"score\": 0.0}",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        },
+        {
+            "query": "Who created this document and when?",
+            "type": "baseline",
+            "answer": "*   This document was created by **Goyashy (@explainx.ai)**.\n*   I cannot find this information in the provided documents.",
+            "scores": {
+                "relevance": 0.5,
+                "faithfulness": 0.1,
+                "correctness": 0.9
+            },
+            "judge_reasoning": {
+                "relevance": "```json\n{\"score\": 0.5}\n```",
+                "faithfulness": "{\"score\": 0.1}",
+                "correctness": "```json\n{\"score\": 0.9}\n```"
+            }
+        },
+        {
+            "query": "Beyond reimbursement of authorized expenses, under what specific conditions can a member of the Indian Industries Association legitimately receive financial remuneration or payment from the Society, according to the provided text?",
+            "type": "recent",
+            "answer": "According to the provided documents, beyond reimbursement of duly authorized out-of-pocket expenses, a member of the Indian Industries Association can legitimately receive financial remuneration or payment from the Society under the following specific conditions:\n\n*   **",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 0.1,
+                "correctness": 0.0
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 1.0}",
+                "faithfulness": "```json\n{\"score\": 0.1}\n```",
+                "correctness": "```json\n{\"score\": 0.0}\n```"
+            }
+        },
+        {
+            "query": "In the event of a dispute arising specifically amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process, what is the designated authority for adjudging its affairs and taking the final decision?",
+            "type": "recent",
+            "answer": "In the event of a dispute arising amongst the Central Executive Committee (CEC) or the members of the Association during the dissolution process:\n\n*   The adjudgement of its affairs shall be referred to the **principal court of original civil jurisdiction of Lucknow (U.P.)**.\n*   The final decision shall be taken as per the **directions of the court**.",
+            "scores": {
+                "relevance": 1.0,
+                "faithfulness": 1.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 1.0}",
+                "faithfulness": "{\"score\": 1.0}",
+                "correctness": "```json\n{\"score\": 1.0}\n```"
+            }
+        },
+        {
+            "query": "Considering a RAG pipeline where a vector database facilitates initial document retrieval and dynamic few-shot learning optimizes the LLM's response generation, how would BERTScore be applied to specifically evaluate the semantic impact of the few-shot optimization, especially if the retrieved documents were also subject to contextual reranking?",
+            "type": "random",
+            "answer": "I cannot find this information in the provided documents.",
+            "scores": {
+                "relevance": 0.3,
+                "faithfulness": 0.0,
+                "correctness": 1.0
+            },
+            "judge_reasoning": {
+                "relevance": "{\"score\": 0.3}",
+                "faithfulness": "{\"score\": 0.0}",
+                "correctness": "{\"score\": 1.0}"
+            }
+        }
+    ]
+}

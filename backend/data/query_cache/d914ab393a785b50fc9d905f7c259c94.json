@@ -1,0 +1,193 @@
+{
+  "query": "Who created this document and when?",
+  "document_id": null,
+  "cached_at": 1776276120.31625,
+  "response": {
+    "answer": "*   This document was created by **Goyashy (@explainx.ai)**.\n*   I cannot find this information in the provided documents.",
+    "query": "Who created this document and when?",
+    "rewritten_query": "Who created this document and when?",
+    "sources": [
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 176,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p176_c0",
+        "relevance_score": 1.0,
+        "content_preview": "Created by Goyashy (@explainx.ai)"
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 175,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p175_c0",
+        "relevance_score": 1.0,
+        "content_preview": "Created by Goyashy (@explainx.ai)"
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 21,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p21_c0",
+        "relevance_score": 0.8691,
+        "content_preview": "Gemini 1.5\nIntroduced: February 2024 by Google. Key Innovation: Processes up to 1 million tokens with Mixture-of-\nExperts (MoE) architecture for improved efficiency. Created by Goyashy (@explainx.ai)\n..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 138,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p138_c0",
+        "relevance_score": 0.7309,
+        "content_preview": "Scaling And Deploying RAG Systems\nVersion Control for Documents and Embeddings\nMetadata Management: Track and\nmanage document embeddings and\nCreated by Goyashy (@explainx.ai)\nfeatures with metadata fo..."
+      },
+      {
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 1,
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p1_c0",
+        "relevance_score": 0.6911,
+        "content_preview": "Created by Goyashy (@explainx.ai)\nRETRIEVAL-AUGMENTED\nGENERATION"
+      }
+    ],
+    "chunks_used": [
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p176_c0",
+        "content": "Created by Goyashy (@explainx.ai)",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 176,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 1.0,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "60895d7b567675f014f145d2405cc5a3",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "page_number": 176,
+          "parser": "pdfplumber",
+          "source_file": "Explainx.ai_RAG.pdf",
+          "token_count": 8,
+          "total_chunks": 176,
+          "rrf_score": 0.008197,
+          "in_bm25": false,
+          "in_vector": true,
+          "rerank_score": 1.0,
+          "rerank_rank": 1,
+          "original_score": 0.008197,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p175_c0",
+        "content": "Created by Goyashy (@explainx.ai)",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 175,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 1.0,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "60895d7b567675f014f145d2405cc5a3",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "page_number": 175,
+          "parser": "pdfplumber",
+          "source_file": "Explainx.ai_RAG.pdf",
+          "token_count": 8,
+          "total_chunks": 176,
+          "rrf_score": 0.008065,
+          "in_bm25": false,
+          "in_vector": true,
+          "rerank_score": 1.0,
+          "rerank_rank": 2,
+          "original_score": 0.008065,
+          "original_method": "vector"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p21_c0",
+        "content": "Gemini 1.5\nIntroduced: February 2024 by Google. Key Innovation: Processes up to 1 million tokens with Mixture-of-\nExperts (MoE) architecture for improved efficiency. Created by Goyashy (@explainx.ai)\nImpact: Enhances performance across text, audio, video, and\nimages, enabling advanced applications like document\nsummarization and data analysis. Prompted discussions on\nethical implications in education and content creation.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 21,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.8691,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.013194,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.8691,
+          "rerank_rank": 3,
+          "original_score": 0.013194,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p138_c0",
+        "content": "Scaling And Deploying RAG Systems\nVersion Control for Documents and Embeddings\nMetadata Management: Track and\nmanage document embeddings and\nCreated by Goyashy (@explainx.ai)\nfeatures with metadata for easy\nretrieval and versioning. Document\nManagement\nDocument Repositories: Store\nand version documents in\nmanaged repositories or\ndatabases to track changes.",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 138,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.7309,
+        "retrieval_method": "hybrid",
+        "metadata": {
+          "parser": "pdfplumber",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "rrf_score": 0.015388,
+          "in_bm25": true,
+          "in_vector": true,
+          "rerank_score": 0.7309,
+          "rerank_rank": 4,
+          "original_score": 0.015388,
+          "original_method": "hybrid"
+        }
+      },
+      {
+        "chunk_id": "60895d7b567675f014f145d2405cc5a3_p1_c0",
+        "content": "Created by Goyashy (@explainx.ai)\nRETRIEVAL-AUGMENTED\nGENERATION",
+        "source_file": "Explainx.ai_RAG.pdf",
+        "page_number": 1,
+        "document_id": "60895d7b567675f014f145d2405cc5a3",
+        "score": 0.6911,
+        "retrieval_method": "vector",
+        "metadata": {
+          "chunk_index": 0,
+          "document_id": "60895d7b567675f014f145d2405cc5a3",
+          "embedding_model": "models/gemini-embedding-001",
+          "file_type": "pdf",
+          "ingested_at": 1776188438.1418514,
+          "page_number": 1,
+          "parser": "pdfplumber",
+          "source_file": "Explainx.ai_RAG.pdf",
+          "token_count": 16,
+          "total_chunks": 176,
+          "rrf_score": 0.007937,
+          "in_bm25": false,
+          "in_vector": true,
+          "rerank_score": 0.6911,
+          "rerank_rank": 5,
+          "original_score": 0.007937,
+          "original_method": "vector"
+        }
+      }
+    ],
+    "total_latency_ms": 4986.44,
+    "retrieval_latency_ms": 610.96,
+    "reranking_latency_ms": 1543.69,
+    "generation_latency_ms": 2825.85,
+    "input_tokens": 449,
+    "output_tokens": 32,
+    "total_tokens": 481,
+    "cost_usd": 5.77e-05,
+    "num_chunks_retrieved": 20,
+    "num_chunks_used": 5,
+    "num_queries_used": 1,
+    "retrieval_methods": [
+      "hybrid",
+      "vector"
+    ],
+    "success": true,
+    "error": null,
+    "metadata": {}
+  }
+}

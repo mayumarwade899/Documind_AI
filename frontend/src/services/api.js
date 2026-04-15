@@ -64,4 +64,4 @@ export const api = {
   postForm: (path, fd, onProg) => postForm(path, fd, onProg),
 }
 
-export { APIError, BASE }
+export { BASE }

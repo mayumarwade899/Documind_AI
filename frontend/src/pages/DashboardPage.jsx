@@ -14,12 +14,12 @@ import { Badge, Skeleton, Card } from '../components/ui/index.jsx'
 import { RAGPipelineViz } from '../features/debug/RAGPipelineViz.jsx'
 import { formatCost, formatLatency, formatPercent } from '../utils/format.js'
 
-function QuickAction({ icon, label, description, to, color }) {
+function QuickAction({ icon, label, description, to, onClick, color }) {
   const navigate = useNavigate()
   return (
     <motion.button
       whileHover={{ y: -2 }}
-      onClick={() => navigate(to)}
+      onClick={onClick || (() => navigate(to))}
       className="flex items-start gap-3 p-4 bg-white dark:bg-surface-850 rounded-xl border border-surface-200 dark:border-surface-700 hover:border-brand-400 dark:hover:border-brand-600 hover:shadow-card-hover transition-all text-left w-full"
     >
       <div className={`p-2 rounded-lg ${color}`}>{icon}</div>
@@ -62,7 +62,6 @@ export default function DashboardPage() {
 
   return (
     <div className="flex flex-col h-full overflow-y-auto">
-      {/* Header */}
       <div className="px-8 pt-8 pb-6 border-b border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-900 shrink-0">
         <div className="flex items-start justify-between">
           <div>
@@ -76,8 +75,7 @@ export default function DashboardPage() {
               )}
             </div>
             <p className="text-sm text-surface-400">
-              {health?.model ? `Running ${health.model}` : 'RAG system overview'}
-              {vectorChunks > 0 && ` · ${vectorChunks.toLocaleString()} chunks indexed`}
+              RAG system overview and metrics
             </p>
           </div>
           <button
@@ -91,7 +89,6 @@ export default function DashboardPage() {
       </div>
 
       <div className="px-8 py-6 space-y-7">
-        {/* Metrics grid */}
         <section>
           <h2 className="text-xs font-semibold uppercase tracking-widest text-surface-400 mb-3">Last 7 days</h2>
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
@@ -99,11 +96,11 @@ export default function DashboardPage() {
               Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} className="h-28 rounded-xl" />)
             ) : metrics ? (
               <>
-                <MetricCard icon={<Hash size={16} />}        label="Total queries"  value={metrics.total_requests?.toLocaleString() ?? '0'} sub={`${metrics.successful} succeeded`} color="brand" />
-                <MetricCard icon={<Zap size={16} />}         label="p95 latency"    value={formatLatency(metrics.latency?.p95_ms)}            sub={`avg ${formatLatency(metrics.latency?.avg_ms)}`} color="amber" />
-                <MetricCard icon={<ShieldCheck size={16} />} label="Groundedness"   value={formatPercent(metrics.avg_support_ratio)}          sub="avg support ratio" color="violet" />
-                <MetricCard icon={<DollarSign size={16} />}  label="Total cost"     value={formatCost(metrics.total_cost_usd)}                sub={`${formatCost(metrics.avg_cost_usd)} / request`} color="emerald" />
-                <MetricCard icon={<CheckCircle size={16} />} label="Success rate"   value={formatPercent(metrics.success_rate)}               sub={`${metrics.failed} failed`} color="sky" />
+                <MetricCard icon={<Hash size={16} />} label="Total queries" value={metrics.total_requests?.toLocaleString() ?? '0'} sub={`${metrics.successful} succeeded`} color="brand" />
+                <MetricCard icon={<Zap size={16} />} label="p95 latency" value={formatLatency(metrics.latency?.p95_ms)} sub={`avg ${formatLatency(metrics.latency?.avg_ms)}`} color="amber" />
+                <MetricCard icon={<ShieldCheck size={16} />} label="Groundedness" value={formatPercent(metrics.avg_support_ratio)} sub="avg support ratio" color="violet" />
+                <MetricCard icon={<DollarSign size={16} />} label="Total cost" value={formatCost(metrics.total_cost_usd)} sub={`${formatCost(metrics.avg_cost_usd)} / request`} color="emerald" />
+                <MetricCard icon={<CheckCircle size={16} />} label="Success rate" value={formatPercent(metrics.success_rate)} sub={`${metrics.failed} failed`} color="sky" />
               </>
             ) : (
               <div className="col-span-2 lg:col-span-5">
@@ -115,7 +112,6 @@ export default function DashboardPage() {
           </div>
         </section>
 
-        {/* Quick actions */}
         <section>
           <h2 className="text-xs font-semibold uppercase tracking-widest text-surface-400 mb-3">Quick actions</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -123,7 +119,7 @@ export default function DashboardPage() {
               icon={<MessageSquare size={16} className="text-brand-600 dark:text-brand-400" />}
               label="Ask your documents"
               description="Chat with your knowledge base using hybrid RAG"
-              to="/chat"
+              onClick={handleNewChat}
               color="bg-brand-50 dark:bg-brand-950/50"
             />
             <QuickAction
@@ -150,7 +146,6 @@ export default function DashboardPage() {
           </div>
         </section>
 
-        {/* Recent conversations */}
         <section>
           <h2 className="text-xs font-semibold uppercase tracking-widest text-surface-400 mb-3">Recent conversations</h2>
           {conversations.length === 0 ? (
@@ -181,33 +176,11 @@ export default function DashboardPage() {
           )}
         </section>
 
-        {/* RAG pipeline architecture */}
         <section>
           <h2 className="text-xs font-semibold uppercase tracking-widest text-surface-400 mb-3">Pipeline architecture</h2>
           <RAGPipelineViz />
         </section>
 
-        {/* System info */}
-        <section>
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-surface-400 mb-3">System info</h2>
-          <Card className="p-4">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-xs">
-              {[
-                { label: 'Model',         value: health?.model ?? '—' },
-                { label: 'API version',   value: health?.version ?? '—' },
-                { label: 'Vector chunks', value: vectorChunks.toLocaleString() },
-                { label: 'BM25 indexed',  value: ingestStatus?.bm25_index?.index_built ? 'Yes' : 'No' },
-                { label: 'Vocab size',    value: ingestStatus?.bm25_index?.vocab_size?.toLocaleString() ?? '—' },
-                { label: 'Status',        value: health?.status ?? '—' },
-              ].map(r => (
-                <div key={r.label}>
-                  <p className="text-surface-400">{r.label}</p>
-                  <p className="font-semibold text-surface-700 dark:text-surface-300 mt-0.5 font-mono">{r.value}</p>
-                </div>
-              ))}
-            </div>
-          </Card>
-        </section>
       </div>
     </div>
   )

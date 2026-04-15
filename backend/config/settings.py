@@ -1,7 +1,12 @@
+import os
 from pydantic_settings import BaseSettings
 from pydantic import Field
 from functools import lru_cache
 from pathlib import Path
+
+os.environ["ANONYMIZED_TELEMETRY"] = "False"
+os.environ["CHROMA_TELEMETRY_ENABLED"] = "False"
+os.environ["TELEMETRY_ENABLED"] = "False"
 
 ROOT_DIR = Path(__file__).parent.parent
 
@@ -13,7 +18,7 @@ class GeminiSettings(BaseSettings):
         env = "GEMINI_EMBEDDING_MODEL"
     )
     gemini_temperature: float = Field(default = 0.1, env = "GEMINI_TEMPERATURE")
-    gemini_max_tokens: int = Field(default = 8192, env = "GEMINI_MAX_TOKENS")
+    gemini_max_tokens: int = Field(default = 2500, env = "GEMINI_MAX_TOKENS")
 
     class Config:
         env_file = ".env"
@@ -45,8 +50,8 @@ class BM25Settings(BaseSettings):
         extra = "ignore"
 
 class ChunkingSettings(BaseSettings):
-    chunk_size: int = Field(default = 800, env = "CHUNK_SIZE")
-    chunk_overlap: int = Field(default = 150, env = "CHUNK_OVERLAP")
+    chunk_size: int = Field(default = 500, env = "CHUNK_SIZE")
+    chunk_overlap: int = Field(default = 50, env = "CHUNK_OVERLAP")
 
     class Config:
         env_file = ".env"
@@ -54,10 +59,19 @@ class ChunkingSettings(BaseSettings):
 
 class RetrievalSettings(BaseSettings):
 
-    vector_search_top_k: int = Field(default = 10, env = "VECTOR_SEARCH_TOP_K")
-    bm25_search_top_k: int = Field(default = 10, env = "BM25_SEARCH_TOP_K")
-    final_top_k: int = Field(default = 5, env = "FINAL_TOP_K")
-    multi_query_count: int = Field(default = 3, env = "MULTI_QUERY_COUNT")
+    vector_search_top_k: int = Field(default = 7, env = "VECTOR_SEARCH_TOP_K")
+    bm25_search_top_k: int = Field(default = 7, env = "BM25_SEARCH_TOP_K")
+    final_top_k: int = Field(default = 6, env = "FINAL_TOP_K")
+    summary_final_top_k: int = Field(default = 8, env = "SUMMARY_FINAL_TOP_K")
+    
+    multi_query_count: int = Field(default = 2, env = "MULTI_QUERY_COUNT")
+    
+    max_context_tokens: int = Field(default = 2500, env = "MAX_CONTEXT_TOKENS")
+    summary_context_tokens: int = Field(default = 4000, env = "SUMMARY_CONTEXT_TOKENS")
+    
+    rerank_threshold: float = Field(default = 0.1, env = "RERANK_THRESHOLD")
+    bm25_weight: float = Field(default = 0.6, env = "BM25_WEIGHT")
+    vector_weight: float = Field(default = 0.4, env = "VECTOR_WEIGHT")
 
     class Config:
         env_file = ".env"
@@ -109,6 +123,11 @@ class MonitoringSettings(BaseSettings):
         env = "FEEDBACK_LOG_DIR"
     )
 
+    session_log_dir: str = Field(
+        default = "data/sessions",
+        env = "SESSION_LOG_DIR"
+    )
+
     class Config:
         env_file = ".env"
         extra = "ignore" 
@@ -135,6 +154,9 @@ class Settings(BaseSettings):
     monitoring: MonitoringSettings = Field(default_factory = MonitoringSettings)
     api: APISettings = Field(default_factory = APISettings)
 
+    enable_query_cache: bool = Field(default = True, env = "ENABLE_QUERY_CACHE")
+    cache_ttl_seconds: int = Field(default = 3600, env = "CACHE_TTL_SECONDS")
+
     @property
     def chroma_persist_path(self) -> Path:
         return ROOT_DIR / self.chroma.chroma_persist_directory
@@ -150,6 +172,10 @@ class Settings(BaseSettings):
     @property
     def feedback_log_path(self) -> Path:
         return ROOT_DIR / self.monitoring.feedback_log_dir
+    
+    @property
+    def session_log_path(self) -> Path:
+        return ROOT_DIR / self.monitoring.session_log_dir
     
     @property
     def golden_dataset_path(self) -> Path:
