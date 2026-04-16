@@ -1,6 +1,6 @@
 # DocuMind AI
 
-> **An intelligent, production-grade RAG (Retrieval-Augmented Generation) system for document question answering — built with hybrid search, cross-encoder reranking, citation enforcement, and a full evaluation pipeline.**
+> **An intelligent, production-grade RAG (Retrieval-Augmented Generation) system for document question answering — built with hybrid search, cross-encoder reranking, citation enforcement, and a real-time TruLens evaluation pipeline.**
 
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white)
@@ -12,7 +12,16 @@
 
 ---
 
-## Table of Contents
+## 🔥 New Production Features
+
+- **Streaming Generation (SSE)**: Real-time, token-by-token response delivery for a low-latency chat experience.
+- **Complete Response Guard**: Proprietary post-processing that prevents mid-sentence truncation. If the LLM is cut off by token limits, the system automatically rolls back to the last valid punctuation or regenerates a concise replacement.
+- **Evaluation Dashboard**: Integrated frontend monitoring of TruLens metrics (Faithfulness, Relevance, Correctness) with historical trend analysis.
+- **Lazy Load Optimization**: Singleton-based dependency injection with lazy imports, enabling backend reloads in **under 2 seconds**.
+
+---
+
+## 📖 Table of Contents
 
 - [Overview](#overview)
 - [Key Features](#key-features)

@@ -104,3 +104,25 @@ Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positiona
 {"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T19:53:40.273164Z"}
 {"path": "data\\evaluation_reports\\eval_2026-04-15T195351Z.json", "cost_usd": 0.0015802, "event": "hybrid_report_saved", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T19:53:51.457097Z"}
 {"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T20:12:13.137770Z"}
+{"event": "rag_system_starting_up", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T20:14:26.749689Z"}
+{"event": "rag_system_lazy_start_mode_enabled", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T20:14:26.749689Z"}
+{"host": "0.0.0.0", "port": 8000, "event": "rag_system_ready", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T20:14:26.749689Z"}
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionGetEvent: capture() takes 1 positional argument but 3 were given
+{"step": "1/6", "query": "What are the main topics covered in the document?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T20:26:04.134550Z"}
+{"query": "What are the main topics covered in the document?", "cache_id": "0d32bf567d4c02ba54fa8ca82f4715cf", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T20:26:04.183642Z"}
+{"step": "2/6", "query": "List the key takeaways from the document?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T20:26:20.624141Z"}
+{"query": "List the key takeaways from the document?", "cache_id": "0f58e49c9707073ed544cff80e67a4dc", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T20:26:20.674055Z"}
+{"step": "3/6", "query": "What is the primary purpose of this document?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T20:26:35.062357Z"}
+{"query": "What is the primary purpose of this document?", "cache_id": "7be15d16c86ddab99853ff09cef62a44", "event": "cache_hit", "level": "info", "logger": "monitoring.query_cache", "timestamp": "2026-04-15T20:26:35.103903Z"}
+{"step": "4/6", "query": "What is the maximum period a patent can remain legally valid after its grant?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T20:26:48.906237Z"}
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T20:26:50.936731Z"}
+{"step": "5/6", "query": "What important detail is mentioned?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T20:27:22.883744Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T20:27:23.442897Z"}
+{"step": "6/6", "query": "What is Retrieval-Augmented Generation (RAG)?", "event": "eval_progress", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T20:27:56.632913Z"}
+{"is_summary": false, "final_top_k": 5, "context_budget": 2500, "max_output_tokens": 1200, "filter_document_id": "none", "event": "rag_dynamic_limits_applied", "level": "info", "logger": "generation.answer_generator", "timestamp": "2026-04-15T20:27:57.148792Z"}
+{"path": "data\\evaluation_reports\\eval_2026-04-15T202812Z.json", "cost_usd": 0.0014196, "event": "hybrid_report_saved", "level": "info", "logger": "evaluation.trulens_evaluator", "timestamp": "2026-04-15T20:28:12.552766Z"}
+{"run_id": "bafaaaaf", "event": "background_evaluation_completed", "level": "info", "logger": "api.routes.evaluation", "timestamp": "2026-04-15T20:28:12.567507Z"}
+{"event": "rag_system_shutting_down", "level": "info", "logger": "api.main", "timestamp": "2026-04-15T20:32:03.618565Z"}

@@ -1,75 +1,65 @@
+# Environment Variables
 .env
-.env.local
-.env.production
-.env.staging
+.env.*
+!.env.example
 
+# Virtual Environments
 .venv/
 venv/
 venv311/
 env/
 ENV/
 
+# Python Cache
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 .Python
-
-build/
-dist/
-*.egg-info/
-*.egg
-wheels/
-.eggs/
-
 .pytest_cache/
+.ruff_cache/
 .coverage
 coverage.xml
 htmlcov/
 .tox/
 
-.vscode/settings.json
-.vscode/launch.json
+# IDE & OS
+.vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
 *.swp
 *.swo
 .DS_Store
 Thumbs.db
+desktop.ini
 
-data/documents/*
-!data/documents/.gitkeep
+# Data & DBs (Ignore all generated data)
+data/
+scratch/
 
-data/chroma_db/*
-!data/chroma_db/.gitkeep
+# Performance & Logs
+*.log
+uvicorn_crash.log
 
-data/bm25_index/*
-!data/bm25_index/.gitkeep
+# Temporary/Junk Root Files
+.txt
+comments_list.txt
+files.txt
+strip_docstrings.py
 
-data/metrics/*
-!data/metrics/.gitkeep
-
-data/feedback/*
-!data/feedback/.gitkeep
-
-data/logs/*
-!data/logs/.gitkeep
-
+# Large AI Models / Binary Files
 *.bin
 *.safetensors
 *.pt
 *.pth
 *.onnx
-
 .cache/
 models/
 
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-desktop.ini
+# Frontend (Next.js / Vite / Node)
+node_modules/
+dist/
+build/
+.next/
+out/
+.vercel
+.turbo
