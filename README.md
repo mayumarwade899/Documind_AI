@@ -214,6 +214,11 @@ docker-compose up --build -d
 
 ---
 
+## 🚀 Documind AI — UI Preview
+
+<img width="1365" height="595" alt="chat1" src="https://github.com/user-attachments/assets/ca844ac3-36ee-4109-a64c-2d75b437a349" />
+
+
 <div align="center">
   <strong>Built by</strong> <a href="https://github.com/mayumarwade899">Mayur</a>
   <br/>
