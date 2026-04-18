@@ -132,19 +132,22 @@ class AnswerGenerator:
     def _step_retrieve(
         self,
         rewritten: RewrittenQuery,
-        filter_document_id: Optional[str] = None
+        filter_document_id: Optional[str] = None,
+        top_k: Optional[int] = None
     ) -> List[RetrievedChunk]:
 
+        k = top_k or settings.retrieval.vector_search_top_k
+        
         if len(rewritten.all_queries) > 1:
             return self.retriever.retrieve_multi_query(
                 queries = rewritten.all_queries,
-                top_k = settings.retrieval.vector_search_top_k,
+                top_k = k,
                 filter_document_id = filter_document_id
             )
         else:
             return self.retriever.retrieve(
                 query = rewritten.rewritten_query,
-                top_k = settings.retrieval.vector_search_top_k,
+                top_k = k,
                 filter_document_id = filter_document_id
             )
         
@@ -169,6 +172,52 @@ class AnswerGenerator:
             )
             return chunks[:top_k]
         
+    def _verify_and_repair_grounding(
+        self,
+        draft_text: str,
+        chunks: List[RetrievedChunk],
+        query: str,
+        is_retry: bool = False
+    ) -> str:
+        """
+        Internal audit to catch 'Expert Hallucinations' (legal knowledge drift).
+        Reviews the draft against snippets and repairs unsupported claims.
+        """
+        if is_retry or not draft_text:
+            return draft_text
+
+        v_prompt = self.prompt_builder.build_verification_prompt(draft_text, chunks)
+        try:
+            v_res = self.llm_client.generate(v_prompt, max_tokens=1000)
+            text = v_res.text.strip()
+            if "```json" in text:
+                text = text.split("```json")[1].split("```")[0].strip()
+            elif "```" in text:
+                text = text.split("```")[1].split("```")[0].strip()
+            
+            import json
+            audit = json.loads(text)
+            
+            if audit.get("is_supported", True):
+                return draft_text
+
+            # 2. Repair Call
+            logger.info("grounding_audit_failed_triggering_repair", claims=audit.get("unsupported_claims"))
+            repair_prompt = (
+                f"You are a strict document auditor. Your previous answer contained claims NOT supported by the context.\n\n"
+                f"CONTEXT:\n{self.prompt_builder._build_context_block(chunks)}\n\n"
+                f"DRAFT ANSWER:\n{draft_text}\n\n"
+                f"UNSUPPORTED CLAIMS:\n{', '.join(audit.get('unsupported_claims', []))}\n\n"
+                f"TASK: Rewrite the answer to be EXACTLY supported by context. REMOVE any claim that is not verbatim or strongly implied in the snippets. MAINTAIN the [Snippet X] citations."
+            )
+            
+            repair_res = self.llm_client.generate(repair_prompt, max_tokens=1200)
+            return repair_res.text
+            
+        except Exception as e:
+            logger.warning("grounding_audit_failed_to_execute_skipping", error=str(e))
+            return draft_text
+
     def _step_generate(
         self,
         built_prompt: BuiltPrompt,
@@ -186,40 +235,7 @@ class AnswerGenerator:
                 "is_retry": is_retry
             }
         )
-
-        finish_reason = response.finish_reason.upper()
         
-        needs_regeneration = False
-        if ("MAX_TOKENS" in finish_reason or "LENGTH" in finish_reason) and not is_retry:
-            logger.info("llm_truncation_detected_via_finish_reason", finish_reason=finish_reason)
-            needs_regeneration = True
-        
-        if not needs_regeneration:
-            orig_text = response.text
-            cleaned_text = self._ensure_complete_sentences(orig_text)
-            
-            if cleaned_text:
-                response.text = cleaned_text
-            elif not is_retry:
-                logger.info("smart_trimming_failed_or_too_short_triggering_regeneration")
-                needs_regeneration = True
-
-        if needs_regeneration and not is_retry:
-            concise_prompt = built_prompt.prompt + "\n\nIMPORTANT: Your previous response was too long. Provide a more CONCISE, complete answer that ends properly within the limit."
-            
-            logger.info("triggering_concise_regeneration_fallback")
-            return self._step_generate(
-                BuiltPrompt(
-                    prompt=concise_prompt,
-                    query=built_prompt.query,
-                    chunks_used=built_prompt.chunks_used,
-                    total_context_tokens=len(concise_prompt)//4,
-                    num_sources=built_prompt.num_sources
-                ),
-                max_output_tokens=max_output_tokens,
-                is_retry=True
-            )
-
         return response
     
     def generate(
@@ -228,7 +244,8 @@ class AnswerGenerator:
         use_query_rewriting: bool = True,
         use_multi_query: bool = True,
         filter_document_id: Optional[str] = None,
-        history: List[Dict] = []
+        history: List[Dict] = [],
+        top_k: Optional[int] = None
     ) -> RAGResponse:
 
         if not query.strip():
@@ -280,7 +297,7 @@ class AnswerGenerator:
         retrieval_start = time.time()
         
         try:
-            chunks = self._step_retrieve(rewritten, filter_document_id)
+            chunks = self._step_retrieve(rewritten, filter_document_id, top_k = top_k)
         except Exception as e:
             logger.error("retrieval_step_failed", error=str(e))
             return self._error_response(
@@ -388,6 +405,14 @@ class AnswerGenerator:
 
         try:
             llm_response = self._step_generate(built_prompt, max_output_tokens = max_output_tokens)
+            
+            final_text = self._verify_and_repair_grounding(
+                draft_text = llm_response.text,
+                chunks = reranked_chunks,
+                query = query
+            )
+            llm_response.text = final_text
+            
         except Exception as e:
             logger.error("generation_step_failed", error=str(e))
             return self._error_response(
@@ -495,11 +520,6 @@ class AnswerGenerator:
     ):
         """
         Run the full RAG pipeline then stream the LLM response token-by-token via SSE.
-        Yields SSE strings:
-          data: {"type":"meta",  "rewritten_query":..., "step":...}
-          data: {"type":"chunk", "text":"..."}   (many)
-          data: {"type":"done",  "sources":..., "metrics":..., "rewritten_query":...}
-          data: {"type":"error", "message":"..."}
         """
         import json as _json
 

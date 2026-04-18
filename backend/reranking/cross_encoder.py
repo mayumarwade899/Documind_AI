@@ -1,4 +1,5 @@
 import time
+import threading
 from typing import List, Optional, Tuple
 
 from sentence_transformers import CrossEncoder
@@ -10,28 +11,30 @@ logger = get_logger(__name__)
 settings = get_settings()
 
 _cross_encoder_model: Optional[CrossEncoder] = None
+_load_lock = threading.Lock()
 
 def _get_model(model_name: str) -> CrossEncoder:
     global _cross_encoder_model
 
-    if _cross_encoder_model is None:
-        logger.debug(
-            "cross_encoder_loading",
-            model=model_name
-        )
+    with _load_lock:
+        if _cross_encoder_model is None:
+            logger.debug(
+                "cross_encoder_loading",
+                model=model_name
+            )
 
-        start = time.time()
-        _cross_encoder_model = CrossEncoder(
-            model_name,
-            max_length = 512
-        )
-        elapsed = round(time.time() - start, 2)
+            start = time.time()
+            _cross_encoder_model = CrossEncoder(
+                model_name,
+                max_length = 512
+            )
+            elapsed = round(time.time() - start, 2)
 
-        logger.debug(
-            "cross_encoder_loaded",
-            model = model_name,
-            load_time_sec = elapsed
-        )
+            logger.debug(
+                "cross_encoder_loaded",
+                model = model_name,
+                load_time_sec = elapsed
+            )
 
     return _cross_encoder_model
 

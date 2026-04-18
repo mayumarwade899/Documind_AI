@@ -1,9 +1,9 @@
 {
   "query": "What is the maximum legal validity period for a granted patent?",
   "document_id": null,
-  "cached_at": 1776282789.1645591,
+  "cached_at": 1776502585.7049086,
   "response": {
-    "answer": "A patent, once granted, can remain legally valid for a maximum period of 20 years. This period begins from the date on which the relevant patent application was filed.\n\nFor the patent to maintain its legal validity throughout this maximum period, certain conditions must be met:\n*   Periodic maintenance fees must be duly paid during this 20-year timeframe.\n*   The patent must not be revoked or declared invalid by a court.\n\nThis maximum period of 20 years is counted from the filing date of the application or from the date of an earlier related application.",
+    "answer": "A patent can remain legally valid for a maximum period of **20 years** that commences from the date on which the relevant patent application was filed.",
     "query": "What is the maximum legal validity period for a granted patent?",
     "rewritten_query": "What is the maximum legal validity period for a granted patent?",
     "sources": [
@@ -150,14 +150,14 @@
         }
       }
     ],
-    "total_latency_ms": 3513.93,
-    "retrieval_latency_ms": 469.44,
-    "reranking_latency_ms": 688.6,
-    "generation_latency_ms": 2351.6,
-    "input_tokens": 2040,
-    "output_tokens": 118,
-    "total_tokens": 2158,
-    "cost_usd": 0.0002512,
+    "total_latency_ms": 7381.54,
+    "retrieval_latency_ms": 1260.38,
+    "reranking_latency_ms": 4281.3,
+    "generation_latency_ms": 1588.9,
+    "input_tokens": 2095,
+    "output_tokens": 30,
+    "total_tokens": 2125,
+    "cost_usd": 0.0002215,
     "num_chunks_retrieved": 10,
     "num_chunks_used": 5,
     "num_queries_used": 1,

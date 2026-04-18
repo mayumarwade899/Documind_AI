@@ -43,13 +43,16 @@ export const useChatStore = create(
       },
 
       deleteConversation(id) {
-        set((s) => ({
-          conversations: s.conversations.filter((c) => c.id !== id),
-          activeConversationId:
-            s.activeConversationId === id
-              ? s.conversations.find((c) => c.id !== id)?.id ?? null
-              : s.activeConversationId,
-        }))
+        set((s) => {
+          const filtered = s.conversations.filter((c) => c.id !== id)
+          return {
+            conversations: filtered,
+            activeConversationId:
+              s.activeConversationId === id
+                ? filtered[0]?.id ?? null
+                : s.activeConversationId,
+          }
+        })
       },
 
       addMessage(convId, message) {

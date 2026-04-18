@@ -70,6 +70,18 @@ export default function ChatPage() {
     }
   }, [conversationId])
 
+  // Missing Conversation Guard: If we are on a chat ID that no longer exists,
+  // sync the URL with the store's calculated fallback.
+  useEffect(() => {
+    if (conversationId && conversations.length > 0 && !conversations.some(c => c.id === conversationId)) {
+      if (activeConversationId) {
+        navigate(`/chat/${activeConversationId}`, { replace: true })
+      } else {
+        navigate('/chat', { replace: true })
+      }
+    }
+  }, [conversationId, conversations, activeConversationId, navigate])
+
   const isStreamingActive = activeConv?.messages?.[activeConv?.messages?.length - 1]?._streaming;
   useLayoutEffect(() => {
     const scrollEl = scrollContainerRef.current;

@@ -1,8 +1,12 @@
 import sys
+import time
 from typing import Optional
+from pathlib import Path
 
-from evaluation.ragas_evaluator import RAGASEvaluator
-from evaluation.golden_dataset import GoldenDataset
+# Add project root to path for direct script execution
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from evaluation.trulens_evaluator import TruLensEvaluator
 from config.settings import get_settings
 from config.logging_config import setup_logging, get_logger
 
@@ -11,34 +15,25 @@ logger = get_logger(__name__)
 settings = get_settings()
 
 def run_ci_gate(
-    max_questions: Optional[int] = None
+    max_questions: Optional[int] = 6
 ) -> bool:
     print("\n" + "="*55)
-    print("RAG SYSTEM — CI QUALITY GATE")
+    print("RAG SYSTEM — DYNAMIC CI QUALITY GATE")
     print("="*55)
-
-    dataset = GoldenDataset
-    stats = dataset.get_stats()
-
-    if stats["total_pairs"] == 0:
-        print("\n❌ FAILED: Golden dataset is empty.")
-        print(f"Add QA pairs to: {stats['dataset_path']}")
-        print("="*55 + "\n")
-        return False
+    print(f"Mode: Fully Synthetic (Dynamic Discovery)")
     
-    print(f"\n📋 Golden dataset: {stats['total_pairs']} QA pairs")
-
     if max_questions:
-        print(f"(Running on first {max_questions} only)")
+        print(f"Limit: {max_questions} questions")
 
-    print("\n⏳ Running RAGAS evaluation...\n")
+    print("\n⏳ Running TruLens evaluation suite...\n")
 
     try:
-        evaluator = RAGASEvaluator()
+        evaluator = TruLensEvaluator()
         report = evaluator.evaluate(max_questions = max_questions)
     except Exception as e:
         print(f"\n❌ EVALUATION ERROR: {str(e)}")
         print("="*55 + "\n")
+        logger.error("ci_gate_failed_execution", error=str(e))
         return False
 
     print("\n📊 EVALUATION RESULTS")
@@ -63,7 +58,7 @@ def run_ci_gate(
 
     print("-"*55)
     print(f"Average Score: {report.avg_score:.3f}")
-    print(f"Dataset Size: {report.dataset_size} questions")
+    print(f"Dataset Size: {report.dataset_size} (Synthetic)")
     print(
         f"Eval Time: "
         f"{report.evaluation_latency_ms/1000:.1f}s"
@@ -75,19 +70,22 @@ def run_ci_gate(
     else:
         print("\n❌ QUALITY GATE FAILED — deployment blocked")
         print("\nFix:")
-        print("- Review retrieval quality")
-        print("- Check prompt instructions")
-        print("- Add more golden pairs to improve coverage")
+        print("- Review document ingestion quality")
+        print("- Check prompt instructions in prompt_builder.py")
+        print("- Check judge LLM reasoning in detailed reports")
 
     print("="*55 + "\n")
 
     return all_passed
 
 if __name__ == "__main__":
-    max_q = None
+    max_q = 6
     if "--max" in sys.argv:
-        idx = sys.argv.index("--max")
-        max_q = int(sys.argv[idx + 1])
+        try:
+            idx = sys.argv.index("--max")
+            max_q = int(sys.argv[idx + 1])
+        except (ValueError, IndexError):
+            pass
 
     passed = run_ci_gate(max_questions = max_q)
 

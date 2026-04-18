@@ -4642,5 +4642,53 @@
       "file_type": "pdf",
       "ingested_at": 1776282612.6272132
     }
+  },
+  {
+    "chunk_id": "71b57ca00d041e31b60ba7de66bbe344_p1_c0",
+    "content": "Peer Review Framework for Predictive Analytics\nin Humanitarian Response\nMODEL REPORT:\nTrigger for OCHA Anticipatory\nAction on Drought in Chad\nTrigger developed by the UN OCHA Centre for Humanitarian Data\nJune 2023",
+    "source_file": "dummy.pdf",
+    "page_number": 1,
+    "document_id": "71b57ca00d041e31b60ba7de66bbe344",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf",
+      "ingested_at": 1776523816.0780747
+    }
+  },
+  {
+    "chunk_id": "71b57ca00d041e31b60ba7de66bbe344_p2_c0",
+    "content": "Model Report:\nTrigger for OCHA Anticipatory Action on Drought in Chad\n1.Background\nThis document summarizes the documentation and findings of the peer review of the model\nused by the UN Central Emergency Response Fund to trigger the drought anticipatory action\nframework in Chad. The model is a go-no-go trigger mechanism designed to anticipate\nhumanitarianimpactsofseasonaldroughtinasub-regionofChad. ThereviewhasbeenconductedbetweenJanuaryandMay2023. 2.MainFindingsandRecommendations\nYou can find all the documentation regarding the model, its application and the reviewprocess\natthefollowinglinks:\n● The Model Card describes the version of the model that was endorsed byhumanitarian\nactioninNovember2022andwascompletedinJanuary2023. ● The Model Evaluation Matrix wascompletedinFebruary2023byCarlosOsorio-Ramírez,\nAssociateProfessoratUniversidadNacionaldeColombia. ● The Implementation Plan was completed in February 2023. It summarizes how the\ntriggermodelisusedtotriggeranticipatoryactionandtheagreedactivationprotocol. ● The Ethical Matrix aims to identify all stakeholders and potential issues regarding the\nintended use of the model.TheEthicalMatrixwascompletedinMay2023byAnnaLena\nHuhn, Southern Africa Regional Anticipatory Action Advisor at the United NationsWorld\nFoodProgramme. Asummaryofthemainfindingsandrecommendationsisprovidedbelow. 2.1TechnicalReview\nIntendedUse\nOverall, the use cases are well-described and adequately explained. The documentation of the\nlimitations of the model could be extended in its description, as is the case of the biomass\nanomalyanditsconnectionwithscenarioslikeextremedrynessorlateonset.",
+    "source_file": "dummy.pdf",
+    "page_number": 2,
+    "document_id": "71b57ca00d041e31b60ba7de66bbe344",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf",
+      "ingested_at": 1776523816.0780747
+    }
+  },
+  {
+    "chunk_id": "71b57ca00d041e31b60ba7de66bbe344_p3_c0",
+    "content": "ModelDevelopmentandDocumentation\nIt is advisable to provide further documentation on the different datasourcesusedbytheteam\nto validate the selection of indicators and estimate the performance of the model. Also, some\ndata isnotavailableinamachinereadableformatanditwouldbegoodtoexplainhowtheteam\ndealtwiththisissue. ModelEvaluation\nIt is unclear what is an acceptable level of accuracy for the model. The team should better\narticulate how the performance benchmark was established and how the performancemetrics\nwereevaluatedandpresentedtothefinalstakeholders. OperationalReadiness\nIt would be good to expand the analysis of the missed activations of the models and the\npotentialfalsealarmsthatthemodelcouldbeproviding. 2.2EthicalReview\nFalseNegatives\nAfalsenegativeoccurswhennodroughtimpactispredictedbutdroughtconditionsoccur. The team could consider additional mitigation strategies such as the use of citizen science or\ngroundobservationstocomplementtheforecast-basedtrigger. InsufficientData\nInsufficientdatareferstothegapsinimpactdatausedtoverifytheforecastpredictions. Insufficient data might limit the precise prediction of forecasted humanitarian impact and\nexpose local populations to adverse humanitarian impact induced by adroughtevent,requiring\na large-scale humanitarian response ex-post.Theteamshouldconsiderthefeasibilityofadding\nfurthervulnerabilitylayersinfutureiterationsofthemodel. FalsePositives\nAfalsepositivehappenswhendroughtimpactispredictedbutnodroughtconditionsoccur. Anticipatory action follows the ‘no regret’principle,butafalsealarmcanstillleadtoinadequate\nresource allocation with a high potential impact on affected communities. The anticipatory\nactionframeworkcouldindicateaprecisemitigationstrategyinaclearermanner. LackofTrustandOwnership\nLack of trust and ownership refers tothelimitedinvolvementoflocalandregionalauthoritiesin\nthe model design and validation. This may lead to little ownership and trust put into the model\nand eventuallytopoliticalblockagesinactivations.Infutureframeworkversionsaclearstrategy",
+    "source_file": "dummy.pdf",
+    "page_number": 3,
+    "document_id": "71b57ca00d041e31b60ba7de66bbe344",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf",
+      "ingested_at": 1776523816.0780747
+    }
+  },
+  {
+    "chunk_id": "71b57ca00d041e31b60ba7de66bbe344_p4_c0",
+    "content": "for the involvement of affected populations and an approach to accountability to affected\npopulationsshouldbeidentified. LackofTransparency\nLackoftransparencyreferstothealgorithmsnotbeingmadeavailableornotbeingtransparent. The anticipatory action framework should reflect clearerstrategiestoengagewithlocalleaders\nto better understand what is happening on the ground and obtain early buy-in. Mitigation\nstrategy for a potential lack of transparency should be expanded in the model card and/or the\nanticipatoryactionframework. Inaction\nInactionreferstothesituationinwhichdroughtimpactispredictedbutnoactionistaken. Inaction in case of trigger activation is unlikely, given the pre-allocated financing attached to it\nand the UN-validated anticipatory action framework. Inaction might nevertheless be a\npossibility, if government or local authorities block the roll-out ofinterventionsonthegroundor\nin case of conflict upsurge. The team could consider adding a consensus-based\ndecision-making option around activation or non-activation in the event of specific events or\nsituational context not considered in the model design (e.g., higher levels of vulnerability or\nincreaseinarmedconflict,etc.)\nFeedback\nThe Centre invites individuals and organizations working in the humanitarian, academic,\nresearchandprivatesectortoengagewithusonthepeerreviewprocess.Pleasesendfeedback\nontheFrameworktocentrehumdata@un.org.",
+    "source_file": "dummy.pdf",
+    "page_number": 4,
+    "document_id": "71b57ca00d041e31b60ba7de66bbe344",
+    "metadata": {
+      "parser": "pdfplumber",
+      "file_type": "pdf",
+      "ingested_at": 1776523816.0780747
+    }
   }
 ]

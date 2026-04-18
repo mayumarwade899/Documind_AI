@@ -87,6 +87,20 @@ export default function EvaluationPage() {
     retry: 0,
   })
 
+  useEffect(() => {
+    async function syncStatus() {
+      try {
+        const status = await api.get('/evaluation/status')
+        if (status.is_running) {
+          setEvaluating(true)
+        }
+      } catch (err) {
+        console.error('Failed to sync evaluation status', err)
+      }
+    }
+    syncStatus()
+  }, [setEvaluating])
+
   const { data: statusData } = useQuery({
     queryKey: ['eval-status'],
     queryFn: () => api.get('/evaluation/status'),
@@ -97,6 +111,7 @@ export default function EvaluationPage() {
   useEffect(() => {
     if (isEvaluating && statusData && statusData.is_running === false) {
       setEvaluating(false)
+
       refetchReport()
       refetchHistory()
 

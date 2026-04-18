@@ -88,9 +88,15 @@ class RerankerSettings(BaseSettings):
         extra = "ignore"
 
 class EvaluationSettings(BaseSettings):
-    golden_dataset_path: str = Field(
-        default = "data/golden_dataset/golden_qa.json", 
-        env = "GOLDEN_DATASET_PATH"
+    
+    evaluation_max_workers: int = Field(
+        default = 4, 
+        env = "EVALUATION_MAX_WORKERS"
+    )
+
+    evaluation_timeout: int = Field(
+        default = 60, 
+        env = "EVALUATION_TIMEOUT"
     )
 
     min_faithfulness_score: float = Field(
@@ -176,10 +182,6 @@ class Settings(BaseSettings):
     @property
     def session_log_path(self) -> Path:
         return ROOT_DIR / self.monitoring.session_log_dir
-    
-    @property
-    def golden_dataset_path(self) -> Path:
-        return ROOT_DIR / self.evaluation.golden_dataset_path
     
     class Config:
         env_file = ".env"

@@ -1,9 +1,9 @@
 {
   "query": "What is the primary purpose of this document?",
   "document_id": null,
-  "cached_at": 1776282772.2631488,
+  "cached_at": 1776502001.0096521,
   "response": {
-    "answer": "The primary purpose of this document is to serve as a practical paper for students in their LL.B. V Term, specifically for Paper LB \u2013 502, which covers Drafting, Pleadings, and Conveyance. This paper is designed to be purely procedural and is related to the practical aspects of the legal profession.\n\nThe document outlines the requirements for students under this subject, which involve undertaking practical exercises in drafting various legal documents:\n\n*   **Pleadings**: Students are required to draft various applications, petitions, and replies related to specific litigation. These documents constitute a part of court proceedings and fall under the category of 'Pleadings'.\n*   **Conveyancing**: Students are also required to draft documents that reflect the conveyance of property from one person to another. The nomenclature of such documents depends on the nature of the dealings or transactions between the parties concerning the property, and this part falls under 'Conveyancing'.\n\nThese practical exercises are to be conducted in the classroom under the guidance of a teacher. The expectation is that students will recollect and apply what they have learned in other substantive subjects during their LL.B. Course. Due to the practical nature of this paper, no specific book is recommended, emphasizing the importance of class lectures for the subject.",
+    "answer": "The primary purpose of this document is:\n\n*   To serve as a practical paper for LL.B. V Term, specifically Paper: LB \u2013 502 - Drafting, Pleadings and Conveyance.\n*   To relate to the purely procedural aspect of the legal profession, where theoretical explanations of concepts are difficult.\n*   To require students to undertake practical exercises in class, under teacher guidance, for drafting various applications, petitions, replies (Pleadings), and documents reflecting property conveyance (Conveyancing).",
     "query": "What is the primary purpose of this document?",
     "rewritten_query": "What is the primary purpose of this document?",
     "sources": [
@@ -51,18 +51,18 @@
         "page_number": 101,
         "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
         "score": 1.0,
-        "retrieval_method": "hybrid",
+        "retrieval_method": "bm25",
         "metadata": {
           "parser": "pdfplumber",
           "file_type": "pdf",
           "ingested_at": 1776280503.9951813,
-          "rrf_score": 0.015257,
+          "rrf_score": 0.009375,
           "in_bm25": true,
-          "in_vector": true,
+          "in_vector": false,
           "rerank_score": 1.0,
           "rerank_rank": 1,
-          "original_score": 0.015257,
-          "original_method": "hybrid"
+          "original_score": 0.009375,
+          "original_method": "bm25"
         }
       },
       {
@@ -150,20 +150,20 @@
         }
       }
     ],
-    "total_latency_ms": 7670.88,
-    "retrieval_latency_ms": 518.63,
-    "reranking_latency_ms": 883.99,
-    "generation_latency_ms": 6259.61,
-    "input_tokens": 2115,
-    "output_tokens": 259,
-    "total_tokens": 2374,
-    "cost_usd": 0.0003151,
+    "total_latency_ms": 13229.01,
+    "retrieval_latency_ms": 2113.38,
+    "reranking_latency_ms": 6874.13,
+    "generation_latency_ms": 4230.7,
+    "input_tokens": 2170,
+    "output_tokens": 107,
+    "total_tokens": 2277,
+    "cost_usd": 0.0002598,
     "num_chunks_retrieved": 10,
     "num_chunks_used": 5,
     "num_queries_used": 1,
     "retrieval_methods": [
-      "hybrid",
-      "bm25"
+      "bm25",
+      "hybrid"
     ],
     "success": true,
     "error": null,

@@ -1,9 +1,9 @@
 {
   "query": "What are the main topics covered in the document?",
   "document_id": null,
-  "cached_at": 1776282702.0602782,
+  "cached_at": 1776505618.2048006,
   "response": {
-    "answer": "The documents cover several main topics related to legal concepts, specifically focusing on **Conveyancing** and **Pleadings**, as well as general principles of **Law Branches** and **Fundamental Rules of Pleading**.",
+    "answer": "The main topics covered in the document are:\n*   Conveyancing, including the definition of terms like 'Deed' and 'Conveyance', their object and function, and the components of deeds [Snippet 1].\n*   The distinction between substantive and procedural law, with examples of each [Snippet 2].\n*   Pleadings, which includes its definition, distinction from conveyancing, its role in legal proceedings, and fundamental rules of pleading such as stating facts, not evidence, and specific pleas [Snippet 2, Snippet 3].",
     "query": "What are the main topics covered in the document?",
     "rewritten_query": "What are the main topics covered in the document?",
     "sources": [
@@ -18,28 +18,28 @@
         "source_file": "Pleadings & Conveyancing.pdf",
         "page_number": 3,
         "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p3_c0",
-        "relevance_score": 0.9767,
+        "relevance_score": 0.9712,
         "content_preview": "iii\ndetermining the rights, liabilities and duties of the litigants. It is procedural law which puts\nlife into the substantive law by providing remedy for enforcement of those rights and\nliabilities. ..."
       },
       {
         "source_file": "Pleadings & Conveyancing.pdf",
         "page_number": 14,
         "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p14_c0",
-        "relevance_score": 0.8356,
+        "relevance_score": 0.796,
         "content_preview": "7\n(5) The plea that a woman claiming maintenance has lost her right due to continuous\ndesertion or living in adultery should be specifically raised. (6) Where the plea is based on custom, it must be s..."
       },
       {
         "source_file": "patent.pdf",
         "page_number": 17,
         "chunk_id": "11f0fe637836a1c73c010e287ba3ad24_p17_c0",
-        "relevance_score": 0.5377,
+        "relevance_score": 0.4266,
         "content_preview": "to practice or repeat the invention without having to do undue experimentation. At the end of every patent specification, there are one or more numbered\ndefinitions, referred to as \u2018claims\u2019, which def..."
       },
       {
         "source_file": "Pleadings & Conveyancing.pdf",
         "page_number": 76,
         "chunk_id": "ac77f8d650c4f4527495cb0bdfa68403_p76_c0",
-        "relevance_score": 0.4831,
+        "relevance_score": 0.3588,
         "content_preview": "69\nthe purchaser not to transfer the purchased land under the Act without the sanction of the\nCollector. Section 43 (2) of the Act says \u201cany transfer or partition of land in contravention of\nSub-Secti..."
       }
     ],
@@ -71,7 +71,7 @@
         "source_file": "Pleadings & Conveyancing.pdf",
         "page_number": 3,
         "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
-        "score": 0.9767,
+        "score": 0.9712,
         "retrieval_method": "bm25",
         "metadata": {
           "parser": "pdfplumber",
@@ -80,7 +80,7 @@
           "rrf_score": 0.009375,
           "in_bm25": true,
           "in_vector": false,
-          "rerank_score": 0.9767,
+          "rerank_score": 0.9712,
           "rerank_rank": 2,
           "original_score": 0.009375,
           "original_method": "bm25"
@@ -92,7 +92,7 @@
         "source_file": "Pleadings & Conveyancing.pdf",
         "page_number": 14,
         "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
-        "score": 0.8356,
+        "score": 0.796,
         "retrieval_method": "bm25",
         "metadata": {
           "parser": "pdfplumber",
@@ -101,7 +101,7 @@
           "rrf_score": 0.008824,
           "in_bm25": true,
           "in_vector": false,
-          "rerank_score": 0.8356,
+          "rerank_score": 0.796,
           "rerank_rank": 3,
           "original_score": 0.008824,
           "original_method": "bm25"
@@ -113,7 +113,7 @@
         "source_file": "patent.pdf",
         "page_number": 17,
         "document_id": "11f0fe637836a1c73c010e287ba3ad24",
-        "score": 0.5377,
+        "score": 0.4266,
         "retrieval_method": "bm25",
         "metadata": {
           "parser": "pdfplumber",
@@ -122,7 +122,7 @@
           "rrf_score": 0.009836,
           "in_bm25": true,
           "in_vector": false,
-          "rerank_score": 0.5377,
+          "rerank_score": 0.4266,
           "rerank_rank": 4,
           "original_score": 0.009836,
           "original_method": "bm25"
@@ -134,7 +134,7 @@
         "source_file": "Pleadings & Conveyancing.pdf",
         "page_number": 76,
         "document_id": "ac77f8d650c4f4527495cb0bdfa68403",
-        "score": 0.4831,
+        "score": 0.3588,
         "retrieval_method": "bm25",
         "metadata": {
           "parser": "pdfplumber",
@@ -143,22 +143,22 @@
           "rrf_score": 0.009231,
           "in_bm25": true,
           "in_vector": false,
-          "rerank_score": 0.4831,
+          "rerank_score": 0.3588,
           "rerank_rank": 5,
           "original_score": 0.009231,
           "original_method": "bm25"
         }
       }
     ],
-    "total_latency_ms": 8306.18,
-    "retrieval_latency_ms": 452.36,
-    "reranking_latency_ms": 914.04,
-    "generation_latency_ms": 6936.26,
-    "input_tokens": 2311,
-    "output_tokens": 46,
-    "total_tokens": 2357,
-    "cost_usd": 0.0002495,
-    "num_chunks_retrieved": 10,
+    "total_latency_ms": 10211.91,
+    "retrieval_latency_ms": 1262.02,
+    "reranking_latency_ms": 5738.96,
+    "generation_latency_ms": 3198.24,
+    "input_tokens": 2460,
+    "output_tokens": 116,
+    "total_tokens": 2576,
+    "cost_usd": 0.0002924,
+    "num_chunks_retrieved": 8,
     "num_chunks_used": 5,
     "num_queries_used": 1,
     "retrieval_methods": [

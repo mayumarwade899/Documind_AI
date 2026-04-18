@@ -1,9 +1,9 @@
 {
   "query": "List the key takeaways from the document?",
   "document_id": null,
-  "cached_at": 1776282740.4208696,
+  "cached_at": 1776502009.8305967,
   "response": {
-    "answer": "## Document Title\nLegal Procedures, Patent Claims, and Information Retrieval Systems\n\n## Key Points\n- Substantive law defines rights, liabilities, and duties, while procedural law provides remedies for their enforcement, with both branches being complementary yet independent.",
+    "answer": "## Document Title\nLegal Documentation, Patent Specification, and Information Retrieval Systems\n\n## Key Points\n- Substantive law defines rights, liabilities, and duties, with examples including the Indian Penal Code and Transfer of Property Act.\n- Procedural law provides remedies for enforcing rights and liabilities, bringing substantive law to life, with examples like the Code of Criminal Procedure and Indian Evidence Act.",
     "query": "List the key takeaways from the document?",
     "rewritten_query": "List the key takeaways from the document?",
     "sources": [
@@ -170,18 +170,18 @@
         "page_number": 62,
         "document_id": "60895d7b567675f014f145d2405cc5a3",
         "score": 0.1669,
-        "retrieval_method": "bm25",
+        "retrieval_method": "hybrid",
         "metadata": {
           "parser": "pdfplumber",
           "file_type": "pdf",
           "ingested_at": 1776188438.1418514,
-          "rrf_score": 0.009375,
+          "rrf_score": 0.015257,
           "in_bm25": true,
-          "in_vector": false,
+          "in_vector": true,
           "rerank_score": 0.1669,
           "rerank_rank": 6,
-          "original_score": 0.009375,
-          "original_method": "bm25"
+          "original_score": 0.015257,
+          "original_method": "hybrid"
         }
       },
       {
@@ -206,10 +206,10 @@
         }
       }
     ],
-    "total_latency_ms": 13194.61,
-    "retrieval_latency_ms": 522.51,
-    "reranking_latency_ms": 817.27,
-    "generation_latency_ms": 11854.84,
+    "total_latency_ms": 22054.92,
+    "retrieval_latency_ms": 2118.35,
+    "reranking_latency_ms": 6805.93,
+    "generation_latency_ms": 13111.53,
     "input_tokens": 2520,
     "output_tokens": 80,
     "total_tokens": 2600,
@@ -218,7 +218,8 @@
     "num_chunks_used": 7,
     "num_queries_used": 1,
     "retrieval_methods": [
-      "bm25"
+      "bm25",
+      "hybrid"
     ],
     "success": true,
     "error": null,

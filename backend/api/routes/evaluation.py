@@ -110,7 +110,7 @@ def _bg_run_evaluation(max_questions: int):
         logger.error("background_evaluation_failed", error=str(e))
 
 @router.post("/run")
-async def run_evaluation(background_tasks: BackgroundTasks, max_questions: Optional[int] = 5):
+async def run_evaluation(background_tasks: BackgroundTasks, max_questions: Optional[int] = 6):
     if eval_manager.is_running:
         return {"status": "already_running", "run_id": eval_manager.last_run_id}
 

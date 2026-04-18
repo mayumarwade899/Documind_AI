@@ -2,14 +2,17 @@ import time
 import uuid
 import json
 import re
+import concurrent.futures
 from pathlib import Path
 from typing import List, Dict, Any
 from collections import namedtuple
 
 from config.settings import get_settings
 from config.logging_config import get_logger
-from api.dependencies import get_answer_generator, get_metrics_tracker
-from monitoring.feedback_store import FeedbackStore
+
+from generation.answer_generator import AnswerGenerator
+from generation.llm_client import GeminiClient
+from monitoring.metrics_tracker import MetricsTracker
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 
@@ -72,28 +75,20 @@ class EvaluationReport:
 
 class TruLensEvaluator:
     def __init__(self):
-        self.generator = get_answer_generator()
-        self.feedback_store = FeedbackStore()
-        self.metrics_tracker = get_metrics_tracker()
         self.thresholds = {
             "faithfulness": settings.evaluation.min_faithfulness_score,
             "context_relevance": settings.evaluation.min_context_relevance_score,
             "answer_correctness": settings.evaluation.min_answer_correctness_score
         }
 
-    def _get_baseline_queries(self) -> List[Dict[str, str]]:
-        """Return 3 static baseline questions for consistency."""
-        return [
-            {"query": "What are the main topics covered in the document?", "type": "baseline"},
-            {"query": "List the key takeaways from the document?", "type": "baseline"},
-            {"query": "What is the primary purpose of this document?", "type": "baseline"}
-        ]
+
 
     def _generate_synthetic_queries(self, judge_llm) -> List[Dict[str, str]]:
         import random
-        vector_store = self.generator.retriever.vector_store
-        queries = []
+        temp_generator = AnswerGenerator()
+        vector_store = temp_generator.retriever.vector_store
         
+        queries = []
         recent_chunks = vector_store.get_recent_chunks(limit=8)
         
         forbidden = [
@@ -118,17 +113,22 @@ class TruLensEvaluator:
             if " and " in q_lower or "?" in q[:-1]: return False
             return True
 
+        perspectives = ["a skeptical researcher", "a curious student", "a technical auditor", "a precise lawyer"]
+        jitter = random.choice(perspectives)
+
         if recent_chunks:
             ctx = "\n\n".join([c.content[:800] for c in recent_chunks[:6]])
             prompt = (
-                f"Act as a meticulous user. Given the following snippets from a RECENTLY UPLOADED document, "
-                f"generate 2 specific, short, factual questions. \n"
+                f"Act as {jitter}. Given the snippets from a document, generate 6 specific, very short, factual questions. \n"
                 f"RULES:\n"
-                f"- Response must be FAST and CONCISE (answerable in 1-3 sentences).\n"
-                f"- Avoid keywords: {', '.join(forbidden[:10])}...\n"
-                f"- Avoid multi-part or comparative questions.\n\n"
+                f"- FOCUS on unique entities, specific clauses, or rare technical terms.\n"
+                f"- ENSURE the answer to your question is explicitly present in the snippets PROVIDED.\n"
+                f"- If a snippet mentions a professional term but doesn't define it, DO NOT ask for that definition.\n"
+                f"- DO NOT ask summary-style questions (e.g., 'What are the main topics?', 'Summarize this document').\n"
+                f"- Response must be FAST and CONCISE.\n"
+                f"- Avoid keywords: {', '.join(forbidden[:10])}...\n\n"
                 f"TEXT SNIPPETS:\n{ctx}\n\n"
-                f"Return EXACTLY a JSON array of 2 strings. Example: [\"question 1\", \"question 2\"]"
+                f"Return EXACTLY a JSON array of 6 strings."
             )
             try:
                 res = judge_llm.invoke(prompt)
@@ -139,7 +139,7 @@ class TruLensEvaluator:
                     text = text.split("```")[1].split("```")[0].strip()
                 
                 q_list = json.loads(text)
-                for q in q_list[:2]:
+                for q in q_list[:6]:
                     if is_valid(q):
                         queries.append({"query": q, "type": "recent"})
                     else:
@@ -148,17 +148,32 @@ class TruLensEvaluator:
                 logger.warning("failed_to_generate_recent_queries", error=str(e))
                 queries.append({"query": random.choice(safe_fallbacks), "type": "recent_fallback"})
         
-        random_chunks = vector_store.get_random_chunks(limit=5)
-        if random_chunks:
+        # Backfill if we undershoot. We want exactly 6 synthetic questions.
+        target_synthetic = 6
+        if len(queries) < target_synthetic:
+            logger.info("synthetic_backfill_triggered", current=len(queries), target=target_synthetic)
+            
+        while len(queries) < target_synthetic:
+            random_chunks = vector_store.get_random_chunks(limit=5)
+            # If we literally have no data, fallback to extra baselines
+            if not random_chunks:
+                logger.warning("vector_store_empty_during_backfill")
+                extra_baselines = [
+                    "What are the specific requirements mentioned?",
+                    "Are there any limitations discussed in the text?",
+                    "What are the key definitions provided?"
+                ]
+                while len(queries) < target_synthetic:
+                    queries.append({"query": extra_baselines.pop(0), "type": "synthetic_fallback"})
+                break
+            
             ctx = "\n\n".join([c.content[:800] for c in random_chunks])
             prompt = (
-                f"Act as a factual investigator. Given the following snippets from an knowledge base, "
-                f"generate 1 short, factual definition or purpose-based question.\n"
+                f"Act as {jitter}. Given the snippets, generate 1 short factual question.\n"
                 f"RULES:\n"
-                f"- No summary/analysis/comparison.\n"
-                f"- Must be answerable in 1-3 sentences.\n\n"
+                f"- Response must be FAST and CONCISE.\n"
                 f"TEXT SNIPPETS:\n{ctx}\n\n"
-                f"Return EXACTLY a JSON array with 1 string. Example: [\"specific question\"]"
+                f"Return EXACTLY a JSON array with 1 string. Example: [\"question\"]"
             )
             try:
                 res = judge_llm.invoke(prompt)
@@ -176,7 +191,7 @@ class TruLensEvaluator:
             except Exception as e:
                 logger.warning("failed_to_generate_random_queries", error=str(e))
                 queries.append({"query": random.choice(safe_fallbacks), "type": "random_fallback"})
-        
+
         return queries
 
     def _calculate_judge_cost(self, response) -> tuple[float, int]:
@@ -192,159 +207,184 @@ class TruLensEvaluator:
         except Exception:
             return 0.0, 0
 
+    def _evaluate_single(self, query_item: Dict[str, str]) -> Dict[str, Any]:
+        """
+        Processes a single query item in a thread-safe manner.
+        Instantiates local generator/tracker to avoid race conditions.
+        """
+        q = query_item["query"]
+        q_type = query_item["type"]
+        
+        local_generator = AnswerGenerator()
+        local_tracker = MetricsTracker()
+        
+        try:
+            local_generator = AnswerGenerator()
+            local_tracker = MetricsTracker()
+            
+            local_judge = ChatGoogleGenerativeAI(
+                model=settings.gemini.gemini_model,
+                google_api_key=settings.gemini.gemini_api_key,
+                temperature=0.0
+            )
+
+            # Increase retrieval depth (top_k=8) to ensure summary questions have enough context
+            resp = local_generator.generate(q, use_query_rewriting=False, use_multi_query=False, top_k=8)
+            if not resp or not resp.success:
+                return {"error": "rag_failed", "query": q}
+            
+            contexts = "\n\n".join([c.content[:1000] for c in resp.chunks_used])
+            answer = resp.answer
+
+            trinity_prompt = (
+                f"You are a meticulous RAG auditor. Evaluate the following RAG completion against the context.\n\n"
+                f"CONTEXT (XML BOUNDED):\n<context>\n{contexts}\n</context>\n\n"
+                f"QUERY: {q}\n\n"
+                f"ANSWER: {answer}\n\n"
+                f"STRICT SCORING RULES:\n"
+                f"1. FAITHFULNESS (0.0 to 1.0):\n"
+                f"   - EVERY claim must be inside the <context> tags.\n"
+                f"   - EVERY claim must have a [Snippet X] citation in the answer.\n"
+                f"   - DEDUCT 0.2 points for every claim without a citation.\n"
+                f"   - DEDUCT 0.5 points for any claim that uses external legal knowledge (e.g. naming an Act not in context).\n"
+                f"2. RELEVANCE (0.0 to 1.0): Is the context actually helpful?\n"
+                f"3. CORRECTNESS (0.0 to 1.0): Does it answer the query accurately based ONLY on context?\n\n"
+                f"Return EXACTLY a JSON object:\n"
+                f"{{\n"
+                f"  \"relevance\": {{\"score\": float, \"reason\": \"string\"}},\n"
+                f"  \"faithfulness\": {{\"score\": float, \"reason\": \"string\"}},\n"
+                f"  \"correctness\": {{\"score\": float, \"reason\": \"string\"}}\n"
+                f"}}"
+            )
+
+            # 3. Judge Interaction with Retry Logic
+            scores_data = None
+            max_retries = 2
+            
+            for attempt in range(max_retries):
+                try:
+                    judge_res = local_judge.invoke(trinity_prompt)
+                    j_cost, j_tokens = self._calculate_judge_cost(judge_res)
+                    
+                    text = judge_res.content.strip()
+                    if "```json" in text:
+                        text = text.split("```json")[1].split("```")[0].strip()
+                    elif "```" in text:
+                        text = text.split("```")[1].split("```")[0].strip()
+                    
+                    scores_data = json.loads(text)
+                    break # Success
+                except Exception as e:
+                    if attempt == max_retries - 1:
+                        logger.error("grading_failed_after_retries", query=q, error=str(e))
+                        return {"error": "grading_failed", "query": q}
+                    logger.warning("grading_retry_triggered", query=q, attempt=attempt+1)
+
+            # Record metrics
+            setattr(resp, "request_type", "evaluation")
+            local_tracker.record(resp)
+
+            return {
+                "query": q,
+                "type": q_type,
+                "answer": answer,
+                "cost": resp.cost_usd + j_cost,
+                "tokens": resp.total_tokens + j_tokens,
+                "metrics": {
+                    "relevance": scores_data.get("relevance", {}).get("score", 0.0),
+                    "faithfulness": scores_data.get("faithfulness", {}).get("score", 0.0),
+                    "correctness": scores_data.get("correctness", {}).get("score", 0.0)
+                },
+                "reasoning": {
+                    "relevance": scores_data.get("relevance", {}).get("reason", ""),
+                    "faithfulness": scores_data.get("faithfulness", {}).get("reason", ""),
+                    "correctness": scores_data.get("correctness", {}).get("reason", "")
+                }
+            }
+
+        except Exception as e:
+            logger.error("evaluate_single_failed", query=q, error=str(e))
+            return {"error": str(e), "query": q}
+
     def evaluate(self, max_questions: int = 6) -> EvaluationReport:
         run_id = str(uuid.uuid4())[:8]
         start_time = time.time()
         
-        logger.debug("starting_hybrid_native_evaluation", run_id=run_id)
+        logger.info("starting_optimized_dynamic_evaluation", run_id=run_id, max_workers=settings.evaluation.evaluation_max_workers)
 
-        eval_model_name = settings.gemini.gemini_model
-        judge_llm = ChatGoogleGenerativeAI(
-            model=eval_model_name,
+        discovery_judge = ChatGoogleGenerativeAI(
+            model=settings.gemini.gemini_model,
             google_api_key=settings.gemini.gemini_api_key,
-            temperature=0.0
+            temperature=0.7
         )
 
-        baselines = self._get_baseline_queries()
-        synthetic = self._generate_synthetic_queries(judge_llm)
-        all_eval_queries = baselines + synthetic
+        # We use only automatically generated smart questions (synthetic) to ensure alignment with doc content
+        synthetic = self._generate_synthetic_queries(discovery_judge)
+        all_eval_queries = synthetic[:max_questions]
         
-        logger.debug("hybrid_suite_generated", baselines=len(baselines), synthetic=len(synthetic))
+        executed_results = []
+        max_workers = settings.evaluation.evaluation_max_workers
+        timeout = settings.evaluation.evaluation_timeout
 
-        json_instr = "\n\nReturn EXACTLY a JSON object with a single key 'score' (float 0.0-1.0). Example: {\"score\": 0.8}"
-        
-        def parse_score(llm_output, metric_name):
-            text = llm_output.content.strip()
-            try:
-                json_text = text
-                if "```json" in text:
-                    json_text = text.split("```json")[1].split("```")[0].strip()
-                elif "```" in text:
-                    json_text = text.split("```")[1].split("```")[0].strip()
-                
-                json_text = json_text.replace('\\"', '"')
-                data = json.loads(json_text)
-                
-                score = None
-                for k, v in data.items():
-                    if 'score' in k.lower():
-                        score = float(v)
-                        break
-                
-                if score is not None:
-                    return score
-            except Exception:
-                pass
-
-            match = re.search(r'"score"\s*:\s*(\d?\.\d+)', text, re.IGNORECASE)
-            if match: return float(match.group(1))
-
-            match = re.search(r'score["\']?\s*:\s*(\d?\.\d+)', text, re.IGNORECASE)
-            if match: return float(match.group(1))
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_query = {
+                executor.submit(self._evaluate_single, query_item): query_item 
+                for query_item in all_eval_queries
+            }
             
-            floats = re.findall(r'0\.\d+|1\.0', text)
-            if floats: return float(floats[0])
-            
-            return 0.0
+            for future in concurrent.futures.as_completed(future_to_query):
+                query_item = future_to_query[future]
+                try:
+                    result = future.result(timeout=timeout)
+                    if "error" not in result:
+                        executed_results.append(result)
+                    else:
+                        logger.warning("evaluation_item_failed", query=query_item["query"], error=result["error"])
+                except Exception as e:
+                    logger.error("evaluation_future_failed", query=query_item["query"], error=str(e))
 
-        context_scores = []
-        faithfulness_scores = []
-        answer_scores = []
+        total_cost = sum(r["cost"] for r in executed_results)
+        total_tokens = sum(r["tokens"] for r in executed_results)
         
-        running_cost = 0.0
-        running_tokens = 0
-        executed_questions = []
-
-        for item in all_eval_queries:
-            q = item["query"]
-            q_type = item["type"]
-            try:
-                logger.info(
-                    "eval_progress", 
-                    step = f"{all_eval_queries.index(item) + 1}/{len(all_eval_queries)}",
-                    query = q[:80] + "..." if len(q) > 80 else q
-                )
-                
-                resp = self.generator.generate(q, use_query_rewriting=False, use_multi_query=False)
-                if not resp or not resp.success: continue
-                
-                running_cost += resp.cost_usd
-                running_tokens += resp.total_tokens
-                
-                contexts = "\n\n".join([c.content[:1000] for c in resp.chunks_used])
-                answer = resp.answer
-
-                cr_p = f"Evaluate retrieval relevance (0-1). Context: {contexts}\n\nQuery: {q}{json_instr}"
-                
-                fs_p = (
-                    f"Evaluate faithfulness (0-1). Does the answer reflect the provided context? "
-                    f"IMPORTANT: If the answer states that information is missing or not found, AND the context indeed lacks the information, "
-                    f"give it a 1.0 (faithfully honest).\n\n"
-                    f"Context: {contexts}\n\nAnswer: {answer}{json_instr}"
-                )
-                
-                ar_p = f"Evaluate answer correctness (0-1). Determine if the answer correctly fulfills the user query. Query: {q}\n\nAnswer: {answer}{json_instr}"
-
-                cr_res = judge_llm.invoke(cr_p)
-                c, t = self._calculate_judge_cost(cr_res)
-                running_cost += c; running_tokens += t
-                cr_score = parse_score(cr_res, "relevance")
-                context_scores.append(cr_score)
-
-                fs_res = judge_llm.invoke(fs_p)
-                c, t = self._calculate_judge_cost(fs_res)
-                running_cost += c; running_tokens += t
-                fs_score = parse_score(fs_res, "faithfulness")
-                faithfulness_scores.append(fs_score)
-
-                ar_res = judge_llm.invoke(ar_p)
-                c, t = self._calculate_judge_cost(ar_res)
-                running_cost += c; running_tokens += t
-                ar_score = parse_score(ar_res, "correctness")
-                answer_scores.append(ar_score)
-
-                executed_questions.append({
-                    "query": q,
-                    "type": q_type,
-                    "answer": answer,
-                    "scores": {
-                        "relevance": cr_score, "faithfulness": fs_score, "correctness": ar_score
-                    },
-                    "judge_reasoning": {
-                        "relevance": cr_res.content if hasattr(cr_res, 'content') else str(cr_res),
-                        "faithfulness": fs_res.content if hasattr(fs_res, 'content') else str(fs_res),
-                        "correctness": ar_res.content if hasattr(ar_res, 'content') else str(ar_res)
-                    }
-                })
-
-                setattr(resp, "request_type", "evaluation")
-                self.metrics_tracker.record(resp)
-                
-            except Exception as e:
-                logger.error("eval_step_failed", query=q, error=str(e))
-                continue
-
+        rel_scores = [r["metrics"]["relevance"] for r in executed_results]
+        faith_scores = [r["metrics"]["faithfulness"] for r in executed_results]
+        corr_scores = [r["metrics"]["correctness"] for r in executed_results]
+        
         def avg(arr): return sum(arr) / len(arr) if arr else 0.0
+        
+        rel_avg = avg(rel_scores)
+        faith_avg = avg(faith_scores)
+        corr_avg = avg(corr_scores)
 
-        cr_avg = avg(context_scores)
-        fs_avg = avg(faithfulness_scores)
-        ar_avg = avg(answer_scores)
+        questions_report = []
+        for r in executed_results:
+            questions_report.append({
+                "query": r["query"],
+                "type": r["type"],
+                "answer": r["answer"],
+                "scores": r["metrics"],
+                "judge_reasoning": r["reasoning"]
+            })
 
         latency = (time.time() - start_time) * 1000
 
         report = EvaluationReport(
             run_id=run_id,
             timestamp=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-            dataset_size=len(executed_questions),
-            faithfulness=MetricResult(fs_avg, fs_avg >= self.thresholds["faithfulness"], self.thresholds["faithfulness"]),
-            context_relevance=MetricResult(cr_avg, cr_avg >= self.thresholds["context_relevance"], self.thresholds["context_relevance"]),
-            answer_correctness=MetricResult(ar_avg, ar_avg >= self.thresholds["answer_correctness"], self.thresholds["answer_correctness"]),
-            overall_passed=all([cr_avg >= self.thresholds["context_relevance"], fs_avg >= self.thresholds["faithfulness"], ar_avg >= self.thresholds["answer_correctness"]]),
-            avg_score=(cr_avg + fs_avg + ar_avg) / 3.0,
+            dataset_size=len(executed_results),
+            faithfulness=MetricResult(faith_avg, faith_avg >= self.thresholds["faithfulness"], self.thresholds["faithfulness"]),
+            context_relevance=MetricResult(rel_avg, rel_avg >= self.thresholds["context_relevance"], self.thresholds["context_relevance"]),
+            answer_correctness=MetricResult(corr_avg, corr_avg >= self.thresholds["answer_correctness"], self.thresholds["answer_correctness"]),
+            overall_passed=all([
+                rel_avg >= self.thresholds["context_relevance"],
+                faith_avg >= self.thresholds["faithfulness"],
+                corr_avg >= self.thresholds["answer_correctness"]
+            ]),
+            avg_score=(rel_avg + faith_avg + corr_avg) / 3.0,
             evaluation_latency_ms=latency,
-            total_cost_usd=running_cost,
-            total_tokens=running_tokens,
-            questions=executed_questions
+            total_cost_usd=total_cost,
+            total_tokens=total_tokens,
+            questions=questions_report
         )
 
         self._save_report(report)
@@ -357,4 +397,4 @@ class TruLensEvaluator:
         report_path = reports_dir / f"eval_{safe_ts}.json"
         with open(report_path, "w") as f:
             json.dump(report.to_dict(), f, indent=4)
-        logger.info("hybrid_report_saved", path=str(report_path), cost_usd=report.total_cost_usd)
+        logger.info("evaluation_report_saved", path=str(report_path), questions=report.dataset_size, total_time_s=report.evaluation_latency_ms/1000)
