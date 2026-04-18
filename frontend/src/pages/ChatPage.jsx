@@ -286,8 +286,8 @@ export default function ChatPage() {
 
   return (
     <div className="flex h-full overflow-hidden">
-      <div className="w-52 shrink-0 border-r border-surface-200 dark:border-surface-700 flex flex-col bg-white dark:bg-surface-900">
-        <div className="flex items-center justify-between h-11 px-3 border-b border-surface-200 dark:border-surface-700 shrink-0">
+      <div className="w-48 shrink-0 border-r border-surface-200 dark:border-surface-700 flex flex-col bg-white dark:bg-surface-900">
+        <div className="flex items-center justify-between h-11 px-2.5 border-b border-surface-200 dark:border-surface-700 shrink-0">
           <span className="text-xs font-semibold uppercase tracking-wide text-surface-400">
             History
           </span>

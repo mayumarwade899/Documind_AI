@@ -120,3 +120,4 @@ export function ChatInput({ onSend, onStop, isStreaming, disabled }) {
     </div>
   )
 }
+

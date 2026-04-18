@@ -31,12 +31,12 @@ export default function Sidebar() {
   return (
     <motion.aside
       initial={false}
-      animate={{ width: sidebarCollapsed ? 64 : 220 }}
+      animate={{ width: sidebarCollapsed ? 60 : 190 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       className="flex flex-col h-full bg-white dark:bg-surface-900 border-r border-surface-200 dark:border-surface-800 shrink-0 overflow-hidden"
     >
       {/* Logo */}
-      <div className="flex items-center h-14 px-4 border-b border-surface-200 dark:border-surface-800 shrink-0">
+      <div className="flex items-center h-14 px-2.5 border-b border-surface-200 dark:border-surface-800 shrink-0">
         <div className="flex items-center gap-2.5 min-w-0">
           <div className="w-7 h-7 rounded-lg bg-brand-600 flex items-center justify-center shrink-0 shadow-glow-sm">
             <Zap size={14} className="text-white" />
@@ -58,7 +58,7 @@ export default function Sidebar() {
       </div>
 
       {/* New chat button */}
-      <div className="px-3 py-3 shrink-0">
+      <div className="px-2 py-3 shrink-0">
         {sidebarCollapsed ? (
           <Tooltip content="New chat" side="right">
             <button onClick={handleNewChat} className="w-full flex items-center justify-center h-8 rounded-lg bg-brand-600 hover:bg-brand-700 text-white transition-colors">
@@ -74,7 +74,7 @@ export default function Sidebar() {
       </div>
 
       {/* Nav links */}
-      <nav className={cn('flex-1 px-3 space-y-1 overflow-y-auto scrollbar-none', sidebarCollapsed && 'flex flex-col items-center')}
+      <nav className={cn('flex-1 px-2 space-y-1 overflow-y-auto scrollbar-none', sidebarCollapsed && 'flex flex-col items-center')}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {NAV.map(({ to, icon: Icon, label }) => (
@@ -97,7 +97,7 @@ export default function Sidebar() {
               key={to}
               to={to}
               className={({ isActive }) => cn(
-                'flex items-center gap-2.5 h-9 px-3 rounded-lg text-sm transition-colors',
+                'flex items-center gap-2 h-9 px-2 rounded-lg text-sm transition-colors',
                 isActive
                   ? 'bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-400 font-medium'
                   : 'text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800 hover:text-surface-700 dark:hover:text-surface-300'
@@ -111,7 +111,7 @@ export default function Sidebar() {
       </nav>
 
       {/* Bottom controls */}
-      <div className="px-3 py-3 border-t border-surface-200 dark:border-surface-800 shrink-0 space-y-1">
+      <div className="px-2 py-3 border-t border-surface-200 dark:border-surface-800 shrink-0 space-y-1">
         {/* Theme toggle */}
         {sidebarCollapsed ? (
           <Tooltip content={theme === 'dark' ? 'Light mode' : 'Dark mode'} side="right">
@@ -120,7 +120,7 @@ export default function Sidebar() {
             </button>
           </Tooltip>
         ) : (
-          <button onClick={toggleTheme} className="w-full flex items-center gap-2.5 h-9 px-3 rounded-lg text-sm text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800 hover:text-surface-700 dark:hover:text-surface-300 transition-colors">
+          <button onClick={toggleTheme} className="w-full flex items-center gap-2.5 h-9 px-2.5 rounded-lg text-sm text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800 hover:text-surface-700 dark:hover:text-surface-300 transition-colors">
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
             <span>{theme === 'dark' ? 'Light mode' : 'Dark mode'}</span>
           </button>
