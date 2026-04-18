@@ -3,10 +3,19 @@
 > **A production-grade, self-correcting RAG (Retrieval-Augmented Generation) system for document intelligence. Built with hybrid search, cross-encoder reranking, and an automated evaluation pipeline.**
 
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)
+
+
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white)
+
+
 ![Gemini](https://img.shields.io/badge/Gemini_API-2.5_Flash-4285F4?style=flat&logo=google&logoColor=white)
+
+
 ![ChromaDB](https://img.shields.io/badge/ChromaDB-0.5-FF6B35?style=flat)
+
+
 ![TruLens](https://img.shields.io/badge/TruLens-Evaluation-8CAAE6?style=flat)
+
 
 ---
 
