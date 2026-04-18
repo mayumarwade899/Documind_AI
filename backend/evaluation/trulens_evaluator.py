@@ -318,7 +318,6 @@ class TruLensEvaluator:
             temperature=0.7
         )
 
-        # We use only automatically generated smart questions (synthetic) to ensure alignment with doc content
         synthetic = self._generate_synthetic_queries(discovery_judge)
         all_eval_queries = synthetic[:max_questions]
         
