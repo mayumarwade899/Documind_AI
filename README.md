@@ -3,19 +3,10 @@
 > **A production-grade, self-correcting RAG (Retrieval-Augmented Generation) system for document intelligence. Built with hybrid search, cross-encoder reranking, and an automated evaluation pipeline.**
 
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)
-
-
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white)
-
-
 ![Gemini](https://img.shields.io/badge/Gemini_API-2.5_Flash-4285F4?style=flat&logo=google&logoColor=white)
-
-
 ![ChromaDB](https://img.shields.io/badge/ChromaDB-0.5-FF6B35?style=flat)
-
-
 ![TruLens](https://img.shields.io/badge/TruLens-Evaluation-8CAAE6?style=flat)
-
 
 ---
 
@@ -226,12 +217,19 @@ docker-compose up --build -d
 ## 🚀 Documind AI — UI Preview
 
 <img width="1365" height="595" alt="chat1" src="https://github.com/user-attachments/assets/ca844ac3-36ee-4109-a64c-2d75b437a349" />
+
 <img width="1365" height="594" alt="chat2" src="https://github.com/user-attachments/assets/8165a6df-c691-4b1d-b21f-1043ddd95f21" />
+
 <img width="1365" height="596" alt="chat3" src="https://github.com/user-attachments/assets/792311bf-fd27-42e4-8676-390d17be61b4" />
+
 <img width="1365" height="577" alt="Dashboard" src="https://github.com/user-attachments/assets/4182cbdc-e645-4b30-9669-96440311e2f2" />
+
 <img width="1363" height="591" alt="document" src="https://github.com/user-attachments/assets/1ee6b9dc-4a5c-4ef5-82fb-bd530c7875cd" />
+
 <img width="1365" height="601" alt="evaluation" src="https://github.com/user-attachments/assets/296e2ff0-6a8f-497d-b32c-cd1145c0d7e4" />
+
 <img width="1364" height="592" alt="monitoring" src="https://github.com/user-attachments/assets/49f03ac2-fa61-437a-af89-9c456d3c854d" />
+
 
 <div align="center">
   <strong>Built by</strong> <a href="https://github.com/mayumarwade899">Mayur</a>
