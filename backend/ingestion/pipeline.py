@@ -43,19 +43,38 @@ class FileIngestionResult:
 class IngestionPipeline:
     def __init__(
         self,
+        session_id: str,
         loader: Optional[DocumentLoader] = None,
         chunker: Optional[DocumentChunker] = None,
         embedder: Optional[GeminiEmbedder] = None,
         vector_store: Optional[VectorStore] = None,
         bm25: Optional[BM25Retriever] = None,
     ):
+        """
+        Initialize session-scoped ingestion pipeline.
+        
+        Args:
+            session_id: Session identifier for storage isolation
+            loader: DocumentLoader instance (default: new instance)
+            chunker: DocumentChunker instance (default: new instance)
+            embedder: GeminiEmbedder instance (default: new instance)
+            vector_store: VectorStore instance (default: new session-scoped instance)
+            bm25: BM25Retriever instance (default: new session-scoped instance)
+        """
+        if not session_id:
+            raise ValueError("session_id is required for IngestionPipeline")
+        
+        self.session_id = session_id
         self.loader = loader or DocumentLoader()
         self.chunker = chunker or DocumentChunker()
         self.embedder = embedder or GeminiEmbedder()
-        self.vector_store = vector_store or VectorStore()
-        self.bm25 = bm25 or BM25Retriever()
+        self.vector_store = vector_store or VectorStore(session_id)
+        self.bm25 = bm25 or BM25Retriever(session_id)
 
-        logger.debug("ingestion_pipeline_initialized")
+        logger.debug(
+            "ingestion_pipeline_initialized",
+            session_id=session_id
+        )
 
     def _ingest_single_file(
         self,
@@ -72,7 +91,7 @@ class IngestionPipeline:
         )
 
         try:
-            loaded_doc = LoadedDocument = self.loader.load(file_path)
+            loaded_doc = self.loader.load(file_path)
             document_id = loaded_doc.document_id
 
             already_exists = self.vector_store.document_exists(

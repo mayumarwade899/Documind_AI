@@ -13,6 +13,7 @@ import { ConversationList } from '../features/chat/ConversationList.jsx'
 import { MessageBubble, StreamingBubble } from '../features/chat/MessageBubble.jsx'
 import { ChatInput } from '../features/chat/ChatInput.jsx'
 import { PipelineTrace } from '../features/debug/PipelineTrace.jsx'
+import { ConfirmDialog } from '../components/shared/ConfirmDialog.jsx'
 
 const STARTERS = [
   'What are the main findings of this document?',
@@ -49,6 +50,8 @@ export default function ChatPage() {
   const [docDropdownOpen, setDocDropdownOpen] = useState(false)
   const dropdownRef = useRef(null)
 
+  const [clearHistoryDialog, setClearHistoryDialog] = useState(false)
+
   const messagesEndRef = useRef(null)
   const innerListRef = useRef(null)
   const scrollContainerRef = useRef(null)
@@ -70,8 +73,6 @@ export default function ChatPage() {
     }
   }, [conversationId])
 
-  // Missing Conversation Guard: If we are on a chat ID that no longer exists,
-  // sync the URL with the store's calculated fallback.
   useEffect(() => {
     if (conversationId && conversations.length > 0 && !conversations.some(c => c.id === conversationId)) {
       if (activeConversationId) {
@@ -270,9 +271,12 @@ export default function ChatPage() {
     URL.revokeObjectURL(url)
   }
 
-  const handleClearHistory = async () => {
-    if (!window.confirm('Are you sure you want to clear all chat history from this session? This will also wipe server records.')) return
+  const handleClearHistory = () => {
+    setClearHistoryDialog(true)
+  }
 
+  const handleConfirmClearHistory = async () => {
+    setClearHistoryDialog(false)
     try {
       const sid = getSessionId()
       await clearChatHistory(sid)
@@ -502,6 +506,16 @@ export default function ChatPage() {
         </div>
       </div>
 
+      <ConfirmDialog
+        isOpen={clearHistoryDialog}
+        title="Clear Chat History?"
+        message="Are you sure you want to clear all chat history from this session? This will also wipe server records."
+        confirmText="Clear History"
+        cancelText="Cancel"
+        isDangerous={true}
+        onConfirm={handleConfirmClearHistory}
+        onCancel={() => setClearHistoryDialog(false)}
+      />
     </div>
   )
 }

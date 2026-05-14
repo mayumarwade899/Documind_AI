@@ -7,7 +7,7 @@ from datetime import datetime, date
 from dataclasses import dataclass, asdict
 from typing import List, Optional, Dict
 
-from config.settings import get_settings
+from config.settings import get_settings, get_session_storage_manager
 from config.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -107,15 +107,26 @@ def _compute_percentile(values: List[float], p: float) -> float:
     )
 
 class MetricsTracker:
-    def __init__(self):
+    def __init__(self, session_id: str):
+        """
+        Initialize session-scoped metrics tracker.
+        
+        Args:
+            session_id: Session identifier for storage isolation
+        """
+        if not session_id:
+            raise ValueError("session_id is required for MetricsTracker")
+        
+        self.session_id = session_id
         os.environ["ANONYMIZED_TELEMETRY"] = "False"
         os.environ["CHROMA_TELEMETRY_ENABLED"] = "False"
 
-        self.metrics_dir = settings.metrics_log_path
-        self.metrics_dir.mkdir(parents = True, exist_ok = True)
+        storage_manager = get_session_storage_manager()
+        self.metrics_dir = storage_manager.get_metrics_dir(session_id)
 
         logger.debug(
             "metrics_tracker_initialized",
+            session_id=session_id,
             metrics_dir = str(self.metrics_dir)
         )
 

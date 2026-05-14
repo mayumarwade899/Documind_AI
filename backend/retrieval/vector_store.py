@@ -5,7 +5,7 @@ import chromadb
 from chromadb.config import Settings as ChromaInternalSettings
 
 from ingestion.embedder import EmbeddedChunk
-from config.settings import get_settings
+from config.settings import get_settings, get_session_storage_manager
 from config.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -23,11 +23,31 @@ class RetrievedChunk:
     metadata: dict = field(default_factory=dict)
 
 class VectorStore:
-    def __init__(self):
-        self.persist_path = settings.chroma_persist_path
-        self.persist_path.mkdir(parents=True, exist_ok=True)
+    def __init__(self, session_id: str):
+        """
+        Initialize session-scoped vector store.
+        
+        Args:
+            session_id: Session identifier for storage isolation
+        """
+        if not session_id:
+            raise ValueError("session_id is required for VectorStore")
+        
+        self.session_id = session_id
+        storage_manager = get_session_storage_manager()
+        self.persist_path = storage_manager.get_chroma_db_dir(session_id)
+        
+        # Use session-scoped collection name for isolation
+        self.collection_name = f"rag_documents_{session_id}"
+        
         self._client = None
         self._collection = None
+        
+        logger.debug(
+            "vector_store_initialized",
+            session_id=session_id,
+            persist_path=str(self.persist_path)
+        )
 
     def _get_collection(self):
         if self._collection is None:
@@ -40,16 +60,18 @@ class VectorStore:
                 )
             
             self._collection = self._client.get_or_create_collection(
-                name = settings.chroma.chroma_collection_name,
+                name = self.collection_name,
                 metadata = {
-                    "hnsw:space": "cosine"
+                    "hnsw:space": "cosine",
+                    "session_id": self.session_id
                 }
             )
 
             logger.debug(
                 "vector_store_lazy_initialized",
+                session_id=self.session_id,
                 persist_path = str(self.persist_path),
-                collection = settings.chroma.chroma_collection_name,
+                collection = self.collection_name,
                 existing_chunks = self._collection.count()
             )
         
@@ -256,11 +278,12 @@ class VectorStore:
 
     def get_collection_stats(self) -> dict:
         count = self._get_collection().count()
-        logger.debug("collection_stats", total_chunks = count)
+        logger.debug("collection_stats", session_id=self.session_id, total_chunks = count)
         return {
-            "collection_name": settings.chroma.chroma_collection_name,
+            "session_id": self.session_id,
+            "collection_name": self.collection_name,
             "total_chunks": count,
-            "persist_path": str(settings.chroma_persist_path)
+            "persist_path": str(self.persist_path)
         }
 
     def get_random_chunks(self, limit: int = 1) -> List[RetrievedChunk]:

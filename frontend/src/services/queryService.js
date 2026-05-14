@@ -1,11 +1,13 @@
-import { api, BASE } from './api.js'
+import { api, BASE, getSessionId } from './api.js'
 
 export async function queryRAG(payload) {
-  return api.post('/query', payload)
+  const sessionId = getSessionId()
+  return api.post('/query', { ...payload, session_id: sessionId })
 }
 
 export async function submitFeedback(payload) {
-  return api.post('/feedback', payload)
+  const sessionId = getSessionId()
+  return api.post('/feedback', { ...payload, session_id: sessionId })
 }
 
 export async function getFeedbackSummary(days = 30) {
@@ -21,14 +23,16 @@ export async function getChatHistory(sessionId) {
 }
 
 export async function clearChatHistory(sessionId) {
-  return api.delete(`/query/history/${sessionId}`)
+  return api.del(`/query/history/${sessionId}`)
 }
 
 export async function streamQuery(payload) {
+  const sessionId = getSessionId()
+  const body = { ...payload, session_id: sessionId }
   const res = await fetch(`${BASE}/query/stream`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(body),
   })
   if (!res.ok) {
     const err = await res.json().catch(() => ({}))

@@ -1,6 +1,7 @@
 # Environment Variables
 .env
 .env.*
+.env.local
 !.env.example
 
 # Virtual Environments
@@ -9,42 +10,52 @@ venv/
 venv311/
 env/
 ENV/
+.virtualenvs/
 
-# Python Cache
+# Python Cache & Build
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
+*.pyc
 .Python
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
 .coverage
 coverage.xml
 htmlcov/
 .tox/
+*.egg-info/
+dist/
+build/
+*.egg
+*.whl
 
 # IDE & OS
 .vscode/
 .idea/
 *.swp
 *.swo
+*.sublime-project
+*.sublime-workspace
 .DS_Store
 Thumbs.db
 desktop.ini
+.vscode-insiders/
 
 # Data & DBs (Ignore all generated data)
 data/
 scratch/
+*.sqlite3
+*.db
 
 # Performance & Logs
 *.log
-uvicorn_crash.log
-
-# Temporary/Junk Root Files
-.txt
-comments_list.txt
-files.txt
-strip_docstrings.py
+*.crash
+*.out
+log/
+logs/
 
 # Large AI Models / Binary Files
 *.bin
@@ -63,3 +74,20 @@ build/
 out/
 .vercel
 .turbo
+.parcel-cache
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# Python Package Managers
+Poetry.lock
+Pipfile.lock
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Misc
+.AppleDouble
+.LSOverride
+*.pem
+*.key

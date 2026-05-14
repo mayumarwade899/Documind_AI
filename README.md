@@ -214,7 +214,204 @@ docker-compose up --build -d
 
 ---
 
-## 🚀 Documind AI — UI Preview
+## � Local Development Setup
+
+### Prerequisites
+- **Python** 3.11+ (backend)
+- **Node.js** 18+ (frontend)
+- **Google Cloud** API Key with Gemini & Embedding models enabled
+
+### Backend Setup
+```bash
+cd backend
+
+# Create virtual environment
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables (copy from .env.example)
+cp .env.example .env
+# Edit .env and add your GEMINI_API_KEY
+
+# Run FastAPI server
+uvicorn api.main:app --reload
+```
+**Backend API**: http://localhost:8000
+**API Docs (Swagger)**: http://localhost:8000/docs
+**Alternative Docs (ReDoc)**: http://localhost:8000/redoc
+
+### Frontend Setup
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+**Frontend Dev**: http://localhost:5173
+
+### Database Initialization
+The system auto-initializes ChromaDB and BM25 indices on first query. No manual setup required.
+- **Vector Store**: `backend/data/chroma_db/`
+- **BM25 Index**: `backend/data/bm25_index/`
+- **Evaluation Reports**: `backend/data/evaluation_reports/`
+
+---
+
+## 🔑 Environment Variables
+
+### Backend Configuration
+Create `backend/.env` from `backend/.env.example`:
+
+```bash
+# REQUIRED: Google Gemini API Credentials
+GEMINI_API_KEY=your-api-key-here
+GEMINI_MODEL=gemini-2.5-flash                    # Latest Gemini model
+GEMINI_EMBEDDING_MODEL=models/gemini-embedding-001
+
+# Optional: Generation Parameters
+GEMINI_TEMPERATURE=0.1                           # Lower = more deterministic
+GEMINI_MAX_TOKENS=8192
+
+# Vector Store Configuration
+CHROMA_PERSIST_DIR=data/chroma_db
+CHROMA_COLLECTION_NAME=rag_documents
+
+# BM25 Configuration
+BM25_INDEX_DIR=data/bm25_index
+
+# Chunking Parameters
+CHUNK_SIZE=800                                   # Tokens per chunk
+CHUNK_OVERLAP=150                                # Overlap for context
+
+# Retrieval Parameters
+VECTOR_SEARCH_TOP_K=10                          # Initial retrieval depth
+RERANKING_TOP_K=5                               # Final result count
+```
+
+**Security Note**: Never commit `.env` to version control. Use `.env.example` for configuration templates only.
+
+---
+
+## 📚 API Endpoints
+
+### Query Endpoints
+- **`POST /api/query`** — Synchronous RAG query with verification
+  - Returns: Answer + sources + verification metrics
+  - Example: `{"query": "What are the main recommendations?", "session_id": "optional"}`
+
+- **`POST /api/query/stream`** — Streaming query response
+  - Returns: Server-Sent Events (SSE) stream of answer chunks
+
+### Ingestion
+- **`POST /api/ingest`** — Upload documents (PDF, DOCX, TXT)
+  - Auto-chunks, embeds, and indexes for retrieval
+  - Returns: Upload status and document metadata
+
+### Evaluation
+- **`POST /api/evaluation/run`** — Trigger dynamic evaluation
+  - Auto-generates synthetic questions from knowledge base
+  - Returns: Evaluation report with Faithfulness/Relevance scores
+- **`GET /api/evaluation/status`** — Check evaluation progress
+- **`GET /api/evaluation/results`** — Retrieve evaluation reports
+
+### Feedback
+- **`POST /api/feedback`** — Log user satisfaction (thumbs up/down)
+  - Enables continuous improvement loop
+- **`GET /api/feedback/negative`** — Retrieve failure cases
+
+### Monitoring
+- **`GET /api/metrics`** — System performance metrics
+- **`GET /api/metrics/costs`** — API usage and cost breakdown
+
+For detailed API documentation, start the backend and visit: **http://localhost:8000/docs**
+
+---
+
+## ⚙️ Advanced Configuration
+
+### Tuning Retrieval Quality
+```python
+# backend/config/settings.py
+VECTOR_SEARCH_TOP_K = 10        # Increase for wider search net
+RERANKING_TOP_K = 5             # Increase for longer context
+CHUNK_SIZE = 800                # Larger chunks = better context
+CHUNK_OVERLAP = 150             # More overlap = safer but slower
+```
+
+### Adjusting Generation Parameters
+```python
+# backend/config/settings.py
+GEMINI_TEMPERATURE = 0.1        # 0.0 = deterministic, 1.0 = creative
+GEMINI_MAX_TOKENS = 8192        # Max response length
+```
+
+### Multi-Query Variants
+The system generates N query rewritings for better recall. Adjust in `backend/retrieval/multi_query.py`.
+
+---
+
+## 🐛 Troubleshooting
+
+### "GEMINI_API_KEY not found"
+- **Cause**: Missing or empty `.env` file in `backend/`
+- **Fix**: Copy `backend/.env.example` to `backend/.env` and add your API key
+- **Verify**: `echo $env:GEMINI_API_KEY` (PowerShell) or `echo $GEMINI_API_KEY` (Bash)
+
+### "ChromaDB connection refused"
+- **Cause**: Vector database not initialized or corrupted
+- **Fix**: Delete `backend/data/chroma_db/` and restart — it will auto-reinitialize
+- **Alternative**: Run with `docker-compose up --build`
+
+### "No documents found" on query
+- **Cause**: Knowledge base is empty
+- **Fix**: Upload documents via `/api/ingest` endpoint or UI
+- **Verify**: Check `backend/data/chroma_db/` exists and has data
+
+### "Embedding model not found"
+- **Cause**: Gemini API has the wrong embedding model
+- **Fix**: Update `GEMINI_EMBEDDING_MODEL` in `.env` to a valid model
+- **Current**: `models/gemini-embedding-001` (check Google docs for latest)
+
+### "Out of memory" (OOM) errors
+- **Cause**: CHUNK_SIZE or VECTOR_SEARCH_TOP_K too large
+- **Fix**: Reduce values in settings:
+  - `CHUNK_SIZE=512` (from 800)
+  - `VECTOR_SEARCH_TOP_K=5` (from 10)
+
+### Frontend stuck on "Loading..."
+- **Cause**: Backend API is unreachable
+- **Fix**: 
+  - Verify backend is running: `curl http://localhost:8000/docs`
+  - Check Docker logs: `docker-compose logs backend`
+  - Ensure `VITE_API_URL` in frontend config points to correct backend
+
+### Slow query performance
+- **Cause**: Large knowledge base, suboptimal chunk settings
+- **Fix**: 
+  - Increase `CHUNK_SIZE` for faster retrieval
+  - Reduce `VECTOR_SEARCH_TOP_K` to lower reranking load
+  - Enable caching in `backend/monitoring/query_cache.py`
+
+### Evaluation always fails with low scores
+- **Cause**: Retrieved context doesn't match questions
+- **Fix**:
+  - Increase `VECTOR_SEARCH_TOP_K` (wider context net)
+  - Review document quality and coverage
+  - Adjust evaluation thresholds in `backend/evaluation/ci_gate.py`
+
+---
+
+## �🚀 Documind AI — UI Preview
 
 <img width="1365" height="595" alt="chat1" src="https://github.com/user-attachments/assets/ca844ac3-36ee-4109-a64c-2d75b437a349" />
 <br/><br/>

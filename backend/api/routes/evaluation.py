@@ -1,10 +1,11 @@
 import json
+import uuid
 from pathlib import Path
 from fastapi import APIRouter, HTTPException, BackgroundTasks
 from pydantic import BaseModel
 from typing import List, Optional
 
-from config.settings import get_settings
+from config.settings import get_settings, get_session_storage_manager
 from config.logging_config import get_logger
 
 router = APIRouter(prefix="/evaluation", tags=["Evaluation"])
@@ -64,14 +65,23 @@ class EvalReportResponse(BaseModel):
     total_cost_usd: Optional[float] = 0.0
     total_tokens: Optional[int] = 0
 
-@router.get("/status")
-async def get_evaluation_status():
-    """Return the current background evaluation status."""
-    return eval_manager.get_status()
+@router.get("/status/{session_id}")
+async def get_evaluation_status(session_id: str):
+    """Return the current background evaluation status for a session."""
+    # Note: In this lightweight implementation, we just track if evaluation is running.
+    # For production, consider using Redis or a database for multi-instance deployments.
+    eval_manager = EvaluationManager()
+    return {
+        "session_id": session_id,
+        **eval_manager.get_status()
+    }
 
-@router.get("/latest", response_model=Optional[EvalReportResponse])
-async def get_latest_report():
-    reports_dir = Path("data/evaluation_reports")
+@router.get("/latest/{session_id}", response_model=Optional[EvalReportResponse])
+async def get_latest_report(session_id: str):
+    """Get latest evaluation report for a session."""
+    storage_manager = get_session_storage_manager()
+    reports_dir = storage_manager.get_evaluations_dir(session_id)
+    
     if not reports_dir.exists():
         return None
 
@@ -84,45 +94,76 @@ async def get_latest_report():
             data = json.load(f)
         return EvalReportResponse(**data)
     except Exception as e:
-        logger.error("get_latest_report_failed", error=str(e))
+        logger.error(
+            "get_latest_report_failed",
+            session_id=session_id,
+            error=str(e)
+        )
         raise HTTPException(status_code=500, detail=str(e))
 
-def _bg_run_evaluation(max_questions: int):
+def _bg_run_evaluation(session_id: str, max_questions: int):
     """
-    Background task logic for TruLens evaluation.
+    Background task logic for TruLens evaluation (session-scoped).
     Converted to sync 'def' so FastAPI runs it in a thread pool,
     preventing the event loop from being blocked.
     """
     from evaluation.trulens_evaluator import TruLensEvaluator
     
     try:
-        evaluator = TruLensEvaluator()
+        evaluator = TruLensEvaluator(session_id)
         report = evaluator.evaluate(max_questions=max_questions)
         
+        eval_manager = EvaluationManager()
         eval_manager.complete_run(
             result=report.to_dict(),
             run_id=report.run_id
         )
-        logger.info("background_evaluation_completed", run_id=report.run_id)
+        logger.info(
+            "background_evaluation_completed",
+            session_id=session_id,
+            run_id=report.run_id
+        )
         
     except Exception as e:
+        eval_manager = EvaluationManager()
         eval_manager.fail_run(error=str(e))
-        logger.error("background_evaluation_failed", error=str(e))
+        logger.error(
+            "background_evaluation_failed",
+            session_id=session_id,
+            error=str(e)
+        )
 
-@router.post("/run")
-async def run_evaluation(background_tasks: BackgroundTasks, max_questions: Optional[int] = 6):
+@router.post("/run/{session_id}")
+async def run_evaluation(
+    session_id: str,
+    background_tasks: BackgroundTasks,
+    max_questions: Optional[int] = 6
+):
+    """Start background evaluation for a session."""
+    eval_manager = EvaluationManager()
+    
     if eval_manager.is_running:
-        return {"status": "already_running", "run_id": eval_manager.last_run_id}
+        return {
+            "session_id": session_id,
+            "status": "already_running",
+            "run_id": eval_manager.last_run_id
+        }
 
     eval_manager.start_run()
+    background_tasks.add_task(_bg_run_evaluation, session_id, max_questions)
     
-    background_tasks.add_task(_bg_run_evaluation, max_questions)
-    
-    return {"status": "started", "message": "Evaluation running in background"}
+    return {
+        "session_id": session_id,
+        "status": "started",
+        "message": "Evaluation running in background"
+    }
 
-@router.get("/history", response_model=List[EvalReportResponse])
-async def get_history_reports():
-    reports_dir = Path("data/evaluation_reports")
+@router.get("/history/{session_id}", response_model=List[EvalReportResponse])
+async def get_history_reports(session_id: str):
+    """Get all evaluation reports for a session."""
+    storage_manager = get_session_storage_manager()
+    reports_dir = storage_manager.get_evaluations_dir(session_id)
+    
     if not reports_dir.exists():
         return []
 
@@ -135,6 +176,11 @@ async def get_history_reports():
                 data = json.load(f)
             reports.append(EvalReportResponse(**data))
         except Exception as e:
-            logger.warning("failed_to_load_report", file=str(rf), error=str(e))
+            logger.warning(
+                "failed_to_load_report",
+                session_id=session_id,
+                file=str(rf),
+                error=str(e)
+            )
             
     return reports

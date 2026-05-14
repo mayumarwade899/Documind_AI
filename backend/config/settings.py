@@ -10,6 +10,9 @@ os.environ["TELEMETRY_ENABLED"] = "False"
 
 ROOT_DIR = Path(__file__).parent.parent
 
+# Session storage will be lazily initialized
+_session_storage_manager = None
+
 class GeminiSettings(BaseSettings):
     gemini_api_key: str = Field(..., env = "GEMINI_API_KEY")
     gemini_model: str = Field(default = "gemini-1.5-flash", env = "GEMINI_MODEL")
@@ -190,3 +193,14 @@ class Settings(BaseSettings):
 @lru_cache(maxsize =1 )
 def get_settings() -> Settings:
     return Settings()
+
+def get_session_storage_manager():
+    """
+    Get or create the session storage manager (singleton).
+    This manages all session-scoped storage paths.
+    """
+    global _session_storage_manager
+    if _session_storage_manager is None:
+        from storage.session_storage import SessionStorageManager
+        _session_storage_manager = SessionStorageManager(get_settings().session_log_path)
+    return _session_storage_manager

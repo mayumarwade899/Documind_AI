@@ -4,7 +4,7 @@ from typing import List, Optional
 
 from rank_bm25 import BM25Okapi
 from retrieval.vector_store import RetrievedChunk
-from config.settings import get_settings
+from config.settings import get_settings, get_session_storage_manager
 from config.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -23,9 +23,19 @@ def _tokenize(text: str) -> List[str]:
     return tokens
 
 class BM25Retriever:
-    def __init__(self):
-        self.index_dir = settings.bm25_index_path
-        self.index_dir.mkdir(parents=True, exist_ok=True)
+    def __init__(self, session_id: str):
+        """
+        Initialize session-scoped BM25 retriever.
+        
+        Args:
+            session_id: Session identifier for storage isolation
+        """
+        if not session_id:
+            raise ValueError("session_id is required for BM25Retriever")
+        
+        self.session_id = session_id
+        storage_manager = get_session_storage_manager()
+        self.index_dir = storage_manager.get_bm25_dir(session_id)
 
         self.index_path = self.index_dir / BM25_INDEX_FILE
         self.metadata_path = self.index_dir / BM25_METADATA_FILE
@@ -34,6 +44,12 @@ class BM25Retriever:
         self.chunk_metadata: List[dict] = []
         self.corpus_tokens: List[List[str]] = []
         self._loaded = False
+        
+        logger.debug(
+            "bm25_retriever_initialized",
+            session_id=session_id,
+            index_dir=str(self.index_dir)
+        )
 
     def _ensure_loaded(self) -> None:
         if not self._loaded:
@@ -41,6 +57,7 @@ class BM25Retriever:
             self._loaded = True
             logger.debug(
                 "bm25_retriever_lazy_loaded",
+                session_id=self.session_id,
                 index_exists=self.bm25 is not None,
                 total_chunks=len(self.chunk_metadata)
             )
@@ -58,6 +75,7 @@ class BM25Retriever:
 
         logger.info(
             "bm25_index_saved",
+            session_id=self.session_id,
             path=str(self.index_dir),
             total_chunks=len(self.chunk_metadata)
         )
@@ -294,6 +312,7 @@ class BM25Retriever:
     def get_stats(self) -> dict:
         self._ensure_loaded()
         return {
+            "session_id": self.session_id,
             "total_chunks": len(self.chunk_metadata),
             "index_built": self.bm25 is not None,
             "vocab_size": len(self.bm25.idf) if self.bm25 else 0,

@@ -1,23 +1,28 @@
-import { api } from './api.js'
+import { api, getSessionId } from './api.js'
 
 export async function ingestFile(file, forceReingest = false, onProgress) {
+  const sessionId = getSessionId()
   const form = new FormData()
   form.append('file', file)
-  return api.postForm(`/ingest/file?force_reingest=${forceReingest}`, form, onProgress)
+  return api.postForm(`/ingest/file?session_id=${sessionId}&force_reingest=${forceReingest}`, form, onProgress)
 }
 
 export async function ingestDirectory(dirPath = 'data/documents', forceReingest = false) {
-  return api.post('/ingest/directory', { dir_path: dirPath, force_reingest: forceReingest })
+  const sessionId = getSessionId()
+  return api.post('/ingest/directory', { session_id: sessionId, dir_path: dirPath, force_reingest: forceReingest })
 }
 
 export async function getIngestStatus() {
-  return api.get('/ingest/status')
+  const sessionId = getSessionId()
+  return api.get(`/ingest/status/${sessionId}`)
 }
 
 export async function getDocuments() {
-  return api.get('/ingest/documents')
+  const sessionId = getSessionId()
+  return api.get(`/ingest/documents/${sessionId}`)
 }
 
 export async function deleteDocument(documentId) {
-  return api.del(`/ingest/documents/${encodeURIComponent(documentId)}`)
+  const sessionId = getSessionId()
+  return api.del(`/ingest/documents/${sessionId}/${encodeURIComponent(documentId)}`)
 }

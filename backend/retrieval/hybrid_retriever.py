@@ -74,15 +74,32 @@ def _reciprocal_rank_fusion(
 class HybridRetriever:
     def __init__(
             self,
+            session_id: str,
             vector_store: Optional[VectorStore] = None,
             bm25_retriever: Optional[BM25Retriever] = None,
             embedder: Optional[GeminiEmbedder] = None
     ):
-        self.vector_store = vector_store or VectorStore()
-        self.bm25_retriever = bm25_retriever or BM25Retriever()
+        """
+        Initialize session-scoped hybrid retriever.
+        
+        Args:
+            session_id: Session identifier for storage isolation
+            vector_store: VectorStore instance (default: new session-scoped instance)
+            bm25_retriever: BM25Retriever instance (default: new session-scoped instance)
+            embedder: GeminiEmbedder instance (default: new instance)
+        """
+        if not session_id:
+            raise ValueError("session_id is required for HybridRetriever")
+        
+        self.session_id = session_id
+        self.vector_store = vector_store or VectorStore(session_id)
+        self.bm25_retriever = bm25_retriever or BM25Retriever(session_id)
         self.embedder = embedder or GeminiEmbedder()
 
-        logger.debug("hybrid_retriever_initialized")
+        logger.debug(
+            "hybrid_retriever_initialized",
+            session_id=session_id
+        )
 
     def retrieve(
             self,

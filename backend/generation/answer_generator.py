@@ -46,20 +46,38 @@ class RAGResponse:
 class AnswerGenerator:
     def __init__(
         self,
+        session_id: str,
         hybrid_retriever: Optional[HybridRetriever] = None,
         query_rewriter: Optional[QueryRewriter] = None,
         reranker: Optional[CrossEncoderReranker] = None,
         prompt_builder: Optional[PromptBuilder] = None,
         llm_client: Optional[GeminiClient] = None,
     ):
-
-        self.retriever = hybrid_retriever or HybridRetriever()
+        """
+        Initialize session-scoped answer generator.
+        
+        Args:
+            session_id: Session identifier for storage isolation
+            hybrid_retriever: HybridRetriever instance (default: new session-scoped instance)
+            query_rewriter: QueryRewriter instance (default: new instance)
+            reranker: CrossEncoderReranker instance (default: new instance)
+            prompt_builder: PromptBuilder instance (default: new instance)
+            llm_client: GeminiClient instance (default: new instance)
+        """
+        if not session_id:
+            raise ValueError("session_id is required for AnswerGenerator")
+        
+        self.session_id = session_id
+        self.retriever = hybrid_retriever or HybridRetriever(session_id)
         self.query_rewriter = query_rewriter or QueryRewriter()
         self.reranker  = reranker or CrossEncoderReranker()
         self.prompt_builder = prompt_builder or PromptBuilder()
         self.llm_client = llm_client or GeminiClient()
 
-        logger.debug("answer_generator_initialized")
+        logger.debug(
+            "answer_generator_initialized",
+            session_id=session_id
+        )
 
     def _ensure_complete_sentences(self, text: str) -> str:
         """

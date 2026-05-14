@@ -1,7 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict
+import uuid
 
 from generation.answer_generator import AnswerGenerator
 from verification.answer_verifier import AnswerVerifier
@@ -66,18 +67,28 @@ class QueryResponse(BaseModel):
     metrics: PipelineMetrics
 
 @router.post("", response_model = QueryResponse)
-async def query(
-    request: QueryRequest,
-    generator: AnswerGenerator = Depends(get_answer_generator),
-    verifier: AnswerVerifier = Depends(get_answer_verifier),
-    tracker: MetricsTracker = Depends(get_metrics_tracker),
-    session_manager: SessionManager = Depends(get_session_manager)
-):
+async def query(request: QueryRequest):
+    """
+    Process a query with optional verification and metrics tracking.
+    Requires session_id (generates one if not provided).
+    """
+    # Determine or generate session_id
+    session_id = request.session_id or str(uuid.uuid4())
+    
     logger.debug(
         "query_request_received",
+        session_id=session_id,
         query_preview = request.query[:80]
     )
+    
     try:
+        # Get session-scoped dependencies
+        generator = get_answer_generator(session_id)
+        verifier = get_answer_verifier(session_id)
+        tracker = get_metrics_tracker(session_id)
+        session_manager = get_session_manager()
+        
+        # Generate answer
         rag_response = generator.generate(
             query = request.query,
             use_query_rewriting = request.use_query_rewriting,
@@ -86,7 +97,11 @@ async def query(
             history = request.history
         )
     except Exception as e:
-        logger.error("query_generation_failed", error = str(e))
+        logger.error(
+            "query_generation_failed",
+            session_id=session_id,
+            error = str(e)
+        )
         raise HTTPException(
             status_code = 500,
             detail = f"Generation failed: {str(e)}"
@@ -111,7 +126,11 @@ async def query(
                 has_citations = verification_result.has_citations
             )
         except Exception as e:
-            logger.warning("verification_failed", error = str(e))
+            logger.warning(
+                "verification_failed",
+                session_id=session_id,
+                error = str(e)
+            )
 
     try:
         tracker.record(
@@ -119,26 +138,34 @@ async def query(
             verification_result = verification_result
         )
     except Exception as e:
-        logger.warning("metrics_recording_failed", error = str(e))
+        logger.warning(
+            "metrics_recording_failed",
+            session_id=session_id,
+            error = str(e)
+        )
 
-    if request.session_id:
-        try:
-            interaction = {
-                "query": request.query,
-                "rewritten_query": rag_response.rewritten_query,
-                "answer": rag_response.answer,
-                "sources": rag_response.sources,
-                "verification": verification_info.dict() if verification_info else None,
-                "metrics": {
-                    "total_latency_ms": rag_response.total_latency_ms,
-                    "total_tokens": rag_response.total_tokens,
-                    "cost_usd": rag_response.cost_usd,
-                    "num_chunks_used": len(rag_response.chunks_used)
-                }
+    # Save interaction to session history
+    try:
+        interaction = {
+            "query": request.query,
+            "rewritten_query": rag_response.rewritten_query,
+            "answer": rag_response.answer,
+            "sources": rag_response.sources,
+            "verification": verification_info.dict() if verification_info else None,
+            "metrics": {
+                "total_latency_ms": rag_response.total_latency_ms,
+                "total_tokens": rag_response.total_tokens,
+                "cost_usd": rag_response.cost_usd,
+                "num_chunks_used": len(rag_response.chunks_used)
             }
-            session_manager.save_interaction(request.session_id, interaction)
-        except Exception as e:
-            logger.warning("session_recording_failed", error = str(e))
+        }
+        session_manager.save_interaction(session_id, interaction)
+    except Exception as e:
+        logger.warning(
+            "session_recording_failed",
+            session_id=session_id,
+            error = str(e)
+        )
 
     return QueryResponse(
         success = rag_response.success,
@@ -164,32 +191,36 @@ async def query(
     )
 
 @router.get("/history/{session_id}", response_model = List[Dict])
-async def get_history(
-    session_id: str,
-    session_manager: SessionManager = Depends(get_session_manager)
-):
+async def get_history(session_id: str):
     """Retrieve full history for a session."""
+    session_manager = get_session_manager()
     return session_manager.get_history(session_id)
 
 @router.delete("/history/{session_id}")
-async def clear_history(
-    session_id: str,
-    session_manager: SessionManager = Depends(get_session_manager)
-):
+async def clear_history(session_id: str):
     """Clear history for a session."""
+    session_manager = get_session_manager()
     success = session_manager.clear_session(session_id)
     return {"success": success}
 
 # Streaming endpoint
 @router.post("/stream")
-async def query_stream(
-    request: QueryRequest,
-    generator: AnswerGenerator = Depends(get_answer_generator),
-):
+async def query_stream(request: QueryRequest):
     """
     SSE streaming variant of /query.
     Each SSE event is a JSON object with type: meta / chunk / done / error.
     """
+    # Determine or generate session_id
+    session_id = request.session_id or str(uuid.uuid4())
+    
+    logger.debug(
+        "stream_query_request_received",
+        session_id=session_id,
+        query_preview = request.query[:80]
+    )
+    
+    generator = get_answer_generator(session_id)
+    
     def event_stream():
         yield from generator.generate_stream(
             query               = request.query,

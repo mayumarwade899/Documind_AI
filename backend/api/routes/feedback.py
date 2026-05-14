@@ -1,10 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional, List
+import uuid
 
-from monitoring.feedback_store import FeedbackStore
 from api.dependencies import get_feedback_store
 from config.logging_config import get_logger
+from monitoring.feedback_store import FeedbackStore
 
 router = APIRouter(prefix="/feedback", tags=["Feedback"])
 logger = get_logger(__name__)
@@ -29,18 +30,23 @@ class FeedbackResponse(BaseModel):
     rating_label: str
 
 @router.post("", response_model = FeedbackResponse)
-async def submit_feedback(
-    request: FeedbackRequest,
-    store: FeedbackStore = Depends(get_feedback_store)
-):
+async def submit_feedback(request: FeedbackRequest):
+    """
+    Submit feedback for a query-answer pair.
+    Uses provided session_id or generates one.
+    """
+    # Use provided session_id or generate a new one
+    session_id = request.session_id or str(uuid.uuid4())
+    
     try:
+        store = get_feedback_store(session_id)
         feedback = store.save(
             query = request.query,
             answer = request.answer,
             rating = request.rating,
             sources = request.sources,
             comment = request.comment,
-            session_id = request.session_id,
+            session_id = session_id,
             rewritten_query = request.rewritten_query,
             num_chunks_used = request.num_chunks_used,
             total_latency_ms = request.total_latency_ms,
@@ -52,31 +58,43 @@ async def submit_feedback(
             rating_label = feedback.rating_label
         )
     except Exception as e:
-        logger.error("feedback_save_failed", error = str(e))
+        logger.error(
+            "feedback_save_failed",
+            session_id=session_id,
+            error = str(e)
+        )
         raise HTTPException(
             status_code = 500,
             detail = f"Failed to save feedback: {str(e)}"
         )
     
-@router.get("/summary")
-async def feedback_summary(
-    days: int = 30,
-    store: FeedbackStore = Depends(get_feedback_store)
-):
-    summary = store.get_summary(days=days)
-    return {
-        "period_days": summary.period_days,
-        "total_feedback": summary.total_feedback,
-        "positive": summary.positive,
-        "negative": summary.negative,
-        "neutral": summary.neutral,
-        "positive_rate": summary.positive_rate,
-        "negative_rate": summary.negative_rate,
-        "avg_rating": summary.avg_rating,
-        "recent_comments": summary.recent_comments,
-        "low_rated_queries": summary.low_rated_queries,
-        "daily_trend": summary.daily_trend
-    }
+@router.get("/summary/{session_id}")
+async def feedback_summary(session_id: str, days: int = 30):
+    """Get feedback summary for a session."""
+    try:
+        store = get_feedback_store(session_id)
+        summary = store.get_summary(days=days)
+        return {
+            "session_id": session_id,
+            "period_days": summary.period_days,
+            "total_feedback": summary.total_feedback,
+            "positive": summary.positive,
+            "negative": summary.negative,
+            "neutral": summary.neutral,
+            "positive_rate": summary.positive_rate,
+            "negative_rate": summary.negative_rate,
+            "avg_rating": summary.avg_rating,
+            "recent_comments": summary.recent_comments,
+            "low_rated_queries": summary.low_rated_queries,
+            "daily_trend": summary.daily_trend
+        }
+    except Exception as e:
+        logger.error(
+            "feedback_summary_failed",
+            session_id=session_id,
+            error=str(e)
+        )
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/negative")
 async def get_negative_feedback(

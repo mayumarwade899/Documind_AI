@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import List, Dict, Any
 from collections import namedtuple
 
-from config.settings import get_settings
+from config.settings import get_settings, get_session_storage_manager
 from config.logging_config import get_logger
 
 from generation.answer_generator import AnswerGenerator
@@ -74,12 +74,31 @@ class EvaluationReport:
         }
 
 class TruLensEvaluator:
-    def __init__(self):
+    def __init__(self, session_id: str):
+        """
+        Initialize session-scoped TruLens evaluator.
+        
+        Args:
+            session_id: Session identifier for storage isolation
+        """
+        if not session_id:
+            raise ValueError("session_id is required for TruLensEvaluator")
+        
+        self.session_id = session_id
+        storage_manager = get_session_storage_manager()
+        self.reports_dir = storage_manager.get_evaluations_dir(session_id)
+        
         self.thresholds = {
             "faithfulness": settings.evaluation.min_faithfulness_score,
             "context_relevance": settings.evaluation.min_context_relevance_score,
             "answer_correctness": settings.evaluation.min_answer_correctness_score
         }
+        
+        logger.debug(
+            "trulens_evaluator_initialized",
+            session_id=session_id,
+            reports_dir=str(self.reports_dir)
+        )
 
 
 
@@ -390,10 +409,15 @@ class TruLensEvaluator:
         return report
 
     def _save_report(self, report: EvaluationReport):
-        reports_dir = Path("data/evaluation_reports")
-        reports_dir.mkdir(parents=True, exist_ok=True)
+        self.reports_dir.mkdir(parents=True, exist_ok=True)
         safe_ts = report.timestamp.replace(':', '')
-        report_path = reports_dir / f"eval_{safe_ts}.json"
+        report_path = self.reports_dir / f"eval_{safe_ts}.json"
         with open(report_path, "w") as f:
             json.dump(report.to_dict(), f, indent=4)
-        logger.info("evaluation_report_saved", path=str(report_path), questions=report.dataset_size, total_time_s=report.evaluation_latency_ms/1000)
+        logger.info(
+            "evaluation_report_saved",
+            session_id=self.session_id,
+            path=str(report_path),
+            questions=report.dataset_size,
+            total_time_s=report.evaluation_latency_ms/1000
+        )

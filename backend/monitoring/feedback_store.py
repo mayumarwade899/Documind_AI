@@ -6,7 +6,7 @@ from datetime import datetime, date, timedelta
 from dataclasses import dataclass, field, asdict
 from typing import List, Optional, Dict
 
-from config.settings import get_settings
+from config.settings import get_settings, get_session_storage_manager
 from config.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -69,12 +69,23 @@ def _read_jsonl(file_path: Path) -> List[dict]:
     return records
 
 class FeedbackStore:
-    def __init__(self):
-        self.feedback_dir = settings.feedback_log_path
-        self.feedback_dir.mkdir(parents = True, exist_ok = True)
+    def __init__(self, session_id: str):
+        """
+        Initialize session-scoped feedback store.
+        
+        Args:
+            session_id: Session identifier for storage isolation
+        """
+        if not session_id:
+            raise ValueError("session_id is required for FeedbackStore")
+        
+        self.session_id = session_id
+        storage_manager = get_session_storage_manager()
+        self.feedback_dir = storage_manager.get_feedback_dir(session_id)
 
         logger.debug(
             "feedback_store_initialized",
+            session_id=session_id,
             feedback_dir = str(self.feedback_dir)
         )
     
