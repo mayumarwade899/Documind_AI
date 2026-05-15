@@ -7,8 +7,12 @@ import {
 import { motion, AnimatePresence } from 'framer-motion'
 import toast from 'react-hot-toast'
 
-import { api } from '../services/api.js'
-import { runEvaluation as runEvalAPI } from '../services/evaluationService.js'
+import { 
+  runEvaluation as runEvalAPI, 
+  getEvaluationStatus, 
+  getEvaluationLatest, 
+  getEvaluationHistory 
+} from '../services/evaluationService.js'
 import { Badge, Button, Card, Skeleton, EmptyState, Progress } from '../components/ui/index.jsx'
 import { formatPercent, formatLatency } from '../utils/format.js'
 import { cn } from '../utils/cn.js'
@@ -77,20 +81,20 @@ export default function EvaluationPage() {
 
   const { data: report, isLoading: reportLoading, refetch: refetchReport } = useQuery({
     queryKey: ['eval-report'],
-    queryFn: () => api.get('/evaluation/latest').catch(() => null),
+    queryFn: () => getEvaluationLatest().catch(() => null),
     retry: 0,
   })
 
   const { data: historyReports, isLoading: historyLoading, refetch: refetchHistory } = useQuery({
     queryKey: ['eval-history'],
-    queryFn: () => api.get('/evaluation/history').catch(() => []),
+    queryFn: () => getEvaluationHistory().catch(() => []),
     retry: 0,
   })
 
   useEffect(() => {
     async function syncStatus() {
       try {
-        const status = await api.get('/evaluation/status')
+        const status = await getEvaluationStatus()
         if (status.is_running) {
           setEvaluating(true)
         }
@@ -103,7 +107,7 @@ export default function EvaluationPage() {
 
   const { data: statusData } = useQuery({
     queryKey: ['eval-status'],
-    queryFn: () => api.get('/evaluation/status'),
+    queryFn: () => getEvaluationStatus(),
     enabled: isEvaluating,
     refetchInterval: isEvaluating ? 3000 : false,
   })

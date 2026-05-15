@@ -47,12 +47,12 @@ COMBINED_REWRITE_PROMPT = """
     retry = retry_if_exception_type(Exception),
     reraise = True
 )
-def _call_gemini(prompt: str, model_name: str) ->  str:
+def _call_gemini(prompt: str, model_name: str, max_tokens: int = 512) ->  str:
     model = genai.GenerativeModel(
         model_name = model_name,
         generation_config = genai.GenerationConfig(
             temperature = 0.2,
-            max_output_tokens = 512
+            max_output_tokens = max_tokens
         )
     )
     response = model.generate_content(prompt)

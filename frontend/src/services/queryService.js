@@ -11,11 +11,13 @@ export async function submitFeedback(payload) {
 }
 
 export async function getFeedbackSummary(days = 30) {
-  return api.get(`/feedback/summary?days=${days}`)
+  const sessionId = getSessionId()
+  return api.get(`/feedback/summary/${sessionId}?days=${days}`)
 }
 
 export async function getNegativeFeedback(days = 30) {
-  return api.get(`/feedback/negative?days=${days}`)
+  const sessionId = getSessionId()
+  return api.get(`/feedback/negative?session_id=${sessionId}&days=${days}`)
 }
 
 export async function getChatHistory(sessionId) {

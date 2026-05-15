@@ -104,7 +104,7 @@ class TruLensEvaluator:
 
     def _generate_synthetic_queries(self, judge_llm) -> List[Dict[str, str]]:
         import random
-        temp_generator = AnswerGenerator()
+        temp_generator = AnswerGenerator(self.session_id)
         vector_store = temp_generator.retriever.vector_store
         
         queries = []
@@ -234,12 +234,12 @@ class TruLensEvaluator:
         q = query_item["query"]
         q_type = query_item["type"]
         
-        local_generator = AnswerGenerator()
-        local_tracker = MetricsTracker()
+        local_generator = AnswerGenerator(self.session_id)
+        local_tracker = MetricsTracker(self.session_id)
         
         try:
-            local_generator = AnswerGenerator()
-            local_tracker = MetricsTracker()
+            local_generator = AnswerGenerator(self.session_id)
+            local_tracker = MetricsTracker(self.session_id)
             
             local_judge = ChatGoogleGenerativeAI(
                 model=settings.gemini.gemini_model,

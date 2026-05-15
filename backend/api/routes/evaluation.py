@@ -70,7 +70,6 @@ async def get_evaluation_status(session_id: str):
     """Return the current background evaluation status for a session."""
     # Note: In this lightweight implementation, we just track if evaluation is running.
     # For production, consider using Redis or a database for multi-instance deployments.
-    eval_manager = EvaluationManager()
     return {
         "session_id": session_id,
         **eval_manager.get_status()
@@ -113,7 +112,6 @@ def _bg_run_evaluation(session_id: str, max_questions: int):
         evaluator = TruLensEvaluator(session_id)
         report = evaluator.evaluate(max_questions=max_questions)
         
-        eval_manager = EvaluationManager()
         eval_manager.complete_run(
             result=report.to_dict(),
             run_id=report.run_id
@@ -125,7 +123,6 @@ def _bg_run_evaluation(session_id: str, max_questions: int):
         )
         
     except Exception as e:
-        eval_manager = EvaluationManager()
         eval_manager.fail_run(error=str(e))
         logger.error(
             "background_evaluation_failed",
@@ -140,7 +137,6 @@ async def run_evaluation(
     max_questions: Optional[int] = 6
 ):
     """Start background evaluation for a session."""
-    eval_manager = EvaluationManager()
     
     if eval_manager.is_running:
         return {
